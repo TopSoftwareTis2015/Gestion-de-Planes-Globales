@@ -34,6 +34,17 @@ class Request{
 			$this->_argumentos = $url;
 		}
 	}
+
+	private function verificarParametros(){
+		if(!$this->_controlador)
+			$this->_controlador = DEFAULT_CONTROLLER;
+
+		if(!$this->_metodo)
+			$this->_metodo = 'index';
+
+		if(!isset($this->_argumentos))
+			$this->_argumentos = array();
+	}
 }
 
 

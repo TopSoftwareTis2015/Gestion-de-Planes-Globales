@@ -17,7 +17,7 @@ class Ejecutor{
 			if(!method_exists($controlador, $metodo))
 				$metodo = 'index';
 
-			if(isset($argumentos))
+			if(count($argumentos)>0)
 				$controlador->{$metodo}($argumentos);
 			else
 				$controlador->{$metodo}();
