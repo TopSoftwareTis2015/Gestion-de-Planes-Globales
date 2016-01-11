@@ -10,10 +10,10 @@ define('DEFAULT_CONTROLLER', 'index');
 define('DEFAULT_LAYOUT', 'default');
 
 define('DB_HOST', 'localhost');
-define('DB_PORT', '5432');
-define('DB_NAME', 'globalplaning');
-define('DB_USER', 'postgres');
-define('DB_PASS', 'postgres');
+define('DB_PORT', '3306');
+define('DB_NAME', 'PlanesGlobales');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
 define('IMG_AREA_DEFAULT', 'defaultArea.jpg');
 
