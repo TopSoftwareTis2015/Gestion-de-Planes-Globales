@@ -2,6 +2,29 @@ header{
   background: #2c3e50;
   color:#fff;
 }
+
+#footer{
+  background: #2c3e50;
+  color:#fff;
+  height: 100px;
+  bottom: 0;
+}
 #menu{
 	border: 2px solid;
+}
+body{
+  padding-top: 10px;	
+  padding-bottom: 10px;
+  background-image: url(../imagen/fondo.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+a.style1:visited {
+    color: #05A21F;
+}
+
+.panel-body {
+background:#B9F0C6;
 }

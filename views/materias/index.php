@@ -4,129 +4,168 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Materias</title>
+  
+  <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+	<link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../public/style/estilo.css"> 
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+  
 </head>
 <body>
-	<header>
+	<header> <!--Cabecera del sistema web -->
 		<div class="container">
 		   <div class="row">
-		   	  <div class="col-xs-3 col-md-3">
-		   	  	<img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive"	alt="">
+		   	  <div class="col-xs-3 col-md-3"> <!--imagen para para el sistema web -->
+		   	  	<img src="../../public/imagen/logoUmss.png" class="img-responsive"	alt="">
 		   	  </div>
-		   	  <div class="col-xs-9 col-md-9">
+		   	  <div class="col-xs-9 col-md-9"> <!--titulo con el nombre del sistema web -->
 		   	    <h1>Sistema de Gestion de De Planes Globales</h1>	
 		   	  </div>
 		   </div>
 			
 		</div>
-	</header>
-	<section class="main row">
+	</header><!--Fin de la cabecera -->
+  
+  <!--Menu de navegacion Horizontal-->
+  <nav class="navbar navbar-default"><!--"nabar-default" es el estandar del nav el cual ocupa todo el ancho de la pagina-->
+    
+    <!--contenedor para el menu en dispositivos moviles-->
+    <div class="container-fluid"> 
+       <!--div para realizar un menu desplegable que funcione en dispositivos moviles--> 
+       <div class="navbar-header">
+         <!--boton que funciona como disparador para desplegar el menu en dispositivos moviles-->
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_horizontal">
+           <span class="sr-only">toggle-navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a href="#" class="navbar-brand">Menu</a>
+       </div><!--fin del div del menu desplegable--> 
+
+        <!--div para el contenido de los elementos y enlaces que tendra el menu horizontal los cuales seran visualidados en los desktop-->
+        <div class="collapse navbar-collapse" id="menu_horizontal">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio</a></li>
+            <li><a href="ejemplo.php">Contactos</a></li>
+            
+            <li class="dropdown"><!--Opcion dropdown-->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li> <a href="#">Materias</a> </li>
+                <li> <a href="#">Planes de Estudio</a> </li>
+                <li> <a href="../planGlobal/registrarPG.php">Planes Globales</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div> 
+
+  </nav><!--fin del menu horizontal-->
+	
+  <section class="main row"> <!--seccion donde esta el contenido del sistema web -->
 	<br>
+
+  <!-- Menu de navegacion vertical del sistema web-->
 	 <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
 	  <div class="container-fluid">
 		 <div class="row">
 		   	  	<ul class="nav nav-pills nav-stacked">
-		   	  		<li role="presentation"class="active"><a href="index.html">Inicio</a></li>
+		   	  		<li role="presentation"><a href="../../index.php">Inicio</a></li>
 		   	  		<li role="presentation"><a href="#">Facultades</a></li>
 		   	  		<li role="presentation"><a href="#">Carreras</a></li>
 		   	  		<li role="presentation"><a href="#">Planes de Estudio</a></li>
-		   	  		<li role="presentation"><a href="#">Materias</a></li>
-		   	  		<li role="presentation"><a href="registrarPG.html">Planes Globales</a></li>
+		   	  		<li role="presentation" class="active"><a href="#">Materias</a></li>
+		   	  		<li role="presentation"><a href="../planGlobal/registrarPG.php">Planes Globales</a></li>
 		   	  	</ul>
 		 </div>
 	  </div>
-	 </nav>
+	 </nav> <!--fin del menu vertical -->
 
-     <article class="col-xs-12 col-sm-8 col-md-9">
+     <article class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
 	    <div class="container-fluid">
-          <div class="col-xs-12 col-sm-8 col-md-9">
+          <div class="col-xs-12 col-sm-8 col-md-9"> <!-- titulo del contenido que se visualiza-->
             <h2><center>Lista de Materias</center></h2>  
           </div>
 	    </div>
-    	<div class="table-responsive">
+    	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
     		<table class="table table-hover table-bordered" >
-    			<tr>
-	    			<th>CODIGO</th>
-                    <th>NOMBRE MATERIA</th>
-                    <th>SIGLA</th>
+    			<!--Cabecera de la tabla de materias-->
+          <thead>
+          <tr>
+                <!--nombres de las columnas de la tabla de materias-->
+	    			    <th>CODIGO</th>
+                <th>NOMBRE MATERIA</th>
+                <th>SIGLA</th>
     			</tr>
-    			<tr>
-    				<td>2345434</td>
-                    <td>Ingles I</td>
-    				<td></td>
-    			</tr>
-    			<tr>
-    				<td>4567654</td>
-                    <td>Fisica General</td>
-    				<td></td>
-    			</tr>
-    			<tr>
-    				<td>5665453</td>
-                    <td>Algebra I</td>
-    				<td></td>
-    			</tr>
-    			<tr>
-    				<td>1453534</td>
-    				<td>Calculo I</td>
-    				<td></td>
-    			</tr>
-    		</table>
-    	</div>
+        </thead>
+       
+     <?php require_once("../include/verificarconexion.php");//Conexion ala base de datos ?> 
+     <?php
+          $query = "select * from materia";     // Esta linea hace la consulta 
+          $result = mysql_query($query);  
+
+        while ($registro = mysql_fetch_array($result)){  
+         echo "
+        <tbody>  
+         <tr>  
+         <td>".$registro[0]."</td>  
+         <td>".$registro[1]."</td>  
+         <td>".$registro[2]."</td>    
+
+         </tr>
+        </tbody>";
+         }
+      ?>
+      <?php
+          mysql_close($conexion);
+      ?>
+      </table>  
+      </div>  
     	
-    	<div class="container-fluid">
-            <div class="col-xs-12 col-sm-8 col-md-9">
-                
-        	<a href="<?php echo BASE_URL; ?>materias/registrar" role="button" class="btn btn-primary" data-toggle="modal">
-                <strong>Agregar Materia</strong>
-            </a>
-            
-            <a href="<?php echo BASE_URL; ?>materias/editar" role="button" class="btn btn-primary" data-toglr="modal">
-             	  <strong>Editar Materia</strong>
-             </a>
-             <a href="#eliminar" role="button" class="btn btn-primary" data-toglr="modal">
-             	  <strong>Eliminar Materia</strong>
-             </a>
-
-             </div>
-    	</div>
-
-
-     </article>
-
-	</section>
-	
-
-<div id="nuevo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <form name="form2" method="post" enctype="multipart/form-data" action="">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Ingresar Nuevo Alumno</h3>
-    </div>
-    <div class="modal-body">
-        <div class="row-fluid">
-            <div class="span6">
-                <strong>Codigo Materia</strong><br>
-                <input type="text" name="codigo" autocomplete="off" required><br>
-                <strong>Nombre materia</strong><br>
-              <input type="text" name="nombre" autocomplete="off" required><br>
-                <strong>Sigla de la Materia</strong><br>
-                <input type="text" name="sigla" autocomplete="off" required><br>
-                <strong>Area</strong><br>
-                <select name="curso">
-                    
-                </select>
+    	
+    	<div class="container-fluid"> <!-- DIV para los botones para las acciones correspondientes-->
+            <div class="row">
+             
+              <!--Boton para registrar una materia -->   
+        	  <div class="col-xs-4">   
+                 <a href="registrar.php" role="button" class="btn btn-primary" data-toggle="modal">
+                   <strong>Agregar Materia</strong>
+                 </a>
             </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true"><strong><i class="icon-remove"></i> Cerrar</strong></button>
-    </div>
-    </form>
-             </div>
+             
+              <!--Boton para editar una materia -->
+              <div class="col-xs-4">
+                <a href="editar.php" role="button" class="btn btn-primary" data-toglr="modal">
+                  <strong>Editar Materia</strong> 
+                </a>
+              </div>
 
-	<script src="<?php echo BASE_URL; ?>public/js/jquery.js"></script>
-	<script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
+              <!--Boton para eliminar una materia -->
+              <div class="col-xs-4"> 
+                <a href="#" role="button" class="btn btn-primary" data-toglr="modal">
+                   <strong>Eliminar Materia</strong>
+                </a>
+              </div> 
+            </div>
+    	</div><!-- fin del DIV de los botones-->
+     </article>  
+
+	</section> <!--fin de la seccion donde esta el contenido -->
+	
+  <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
+	<script type="text/javascript" src="../../public/js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="../../public/js/bootstrap.js"></script>
+  
 </body>
+
+<footer>
+  <!--Codigo para incluir el pie de pagina-->
+  <?php 
+    include '../include/pie_de_pagina.php"'
+  ?>  
+</footer>
+
+
 </html>
