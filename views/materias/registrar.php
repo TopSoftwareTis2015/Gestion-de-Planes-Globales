@@ -73,12 +73,12 @@
      </form>
     </div> <!--fin del formulario para materia-->
 
-  </article>
+   </article>
 
   </section>
 	
-	<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
-	<script type="text/javascript" src="../../public/js/jquery-1.12.0.js"></script>
+  <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
+  <script type="text/javascript" src="../../public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="../../public/js/bootstrap.js"></script>
   
 </body>

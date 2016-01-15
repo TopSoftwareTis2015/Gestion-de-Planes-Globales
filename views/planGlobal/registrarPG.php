@@ -25,7 +25,44 @@
             
         </div>
     </header>
-  
+   
+  <!--Menu de navegacion Horizontal-->
+  <nav class="navbar navbar-default"><!--"nabar-default" es el estandar del nav el cual ocupa todo el ancho de la pagina-->
+    
+    <!--contenedor para el menu en dispositivos moviles-->
+    <div class="container-fluid"> 
+       <!--div para realizar un menu desplegable que funcione en dispositivos moviles--> 
+       <div class="navbar-header">
+         <!--boton que funciona como disparador para desplegar el menu en dispositivos moviles-->
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_horizontal">
+           <span class="sr-only">toggle-navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a href="#" class="navbar-brand">Menu</a>
+       </div><!--fin del div del menu desplegable--> 
+
+        <!--div para el contenido de los elementos y enlaces que tendra el menu horizontal los cuales seran visualidados en los desktop-->
+        <div class="collapse navbar-collapse" id="menu_horizontal">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../../index.php">Inicio</a></li>
+            <li><a href="#">Contactos</a></li>
+            
+            <li class="dropdown"><!--Opcion dropdown-->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li> <a href="../materias/index.php">Materias</a> </li>
+                <li> <a href="#">Planes de Estudio</a> </li>
+                <li> <a href="#">Planes Globales</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div> 
+
+  </nav><!--fin del menu horizontal--> 
+
 	<section class="main row">
 	<br>
      <!--seccion del menu de navegacion vertical--> 

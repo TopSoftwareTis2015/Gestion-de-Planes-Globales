@@ -47,7 +47,7 @@
         <!--div para el contenido de los elementos y enlaces que tendra el menu horizontal los cuales seran visualidados en los desktop-->
         <div class="collapse navbar-collapse" id="menu_horizontal">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inicio</a></li>
+            <li class="active"><a href="../../index.php">Inicio</a></li>
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
@@ -89,6 +89,7 @@
             <h2><center>Lista de Materias</center></h2>  
           </div>
 	    </div>
+
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
     		<table class="table table-hover table-bordered" >
     			<!--Cabecera de la tabla de materias-->
@@ -130,9 +131,49 @@
              
               <!--Boton para registrar una materia -->   
         	  <div class="col-xs-4">   
-                 <a href="registrar.php" role="button" class="btn btn-primary" data-toggle="modal">
+                 <a href="#registro_materia" role="button" class="btn btn-primary" data-toggle="modal">
                    <strong>Agregar Materia</strong>
                  </a>
+                  
+                 <div class="modal fade" id="registro_materia"> <!--div contenedor de la ventana emergente de registro de materia-->
+                   <div class="modal-dialog"> <!--div de la ventana emergente-->
+                     <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
+                       
+                       <!--Cabecera de la ventana-->
+                       <div class="modal-header"> 
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--Boton para cerrar la ventana emergente-->
+                         <h3 class="modal-title"> Registro de Materia</h3> <!--Titulo del formulario de registro de materia-->
+                       </div>
+                       
+                       <!--Contenido de la ventana-->
+                       <div class="modal-body">
+                         
+                         <div id="nuevo"> <!--formulario para regitrar los datos de una materia-->
+                          <form name="form1" method="post" action="registrarmateria.php">
+                              <div class="container-fluid">
+                                  <div class="row col-xs-12 col-sm-8 col-md-12">
+                                      <strong>Codigo Materia</strong><br>
+                                      <!--caja de texto para el ingreso de solo numero y con un tamaño de 7 digitos -->
+                                      <input title="Ingresar solo numeros" type="text" class="form-control"  pattern="[0-9]{7}" name="codigomateria" required><br>
+                                      <strong>Nombre materia</strong><br>
+                                      <input type="text" class="form-control"name="nommateria" required><br>
+                                      <strong>Sigla de la Materia</strong><br>
+                                      <input type="text" class="form-control"name="siglamateria" required><br>
+                                      <button class="submit btn btn-primary" type="submit">Registrar Materia</button>                
+                                  </div>
+                              </div>
+                           </form>
+                          </div> <!--fin del formulario para materia-->
+
+                       </div> 
+
+                       <!--footer de la ventana-->
+                       <div class="modal-footer">
+                         
+                       </div>
+                     </div>
+                   </div>
+                 </div>
             </div>
              
               <!--Boton para editar una materia -->
@@ -140,6 +181,7 @@
                 <a href="editar.php" role="button" class="btn btn-primary" data-toglr="modal">
                   <strong>Editar Materia</strong> 
                 </a>
+
               </div>
 
               <!--Boton para eliminar una materia -->
