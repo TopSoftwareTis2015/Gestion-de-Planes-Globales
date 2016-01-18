@@ -1,0 +1,1 @@
+cmd /c C:\xampp\mysql\bin\mysql.exe -u root planesglobales < ..\DB\testdata.sql

@@ -1,0 +1,1 @@
+cmd /c C:\xampp\mysql\bin\mysql.exe -u root mysql < ..\DB\planGlobal.sql
