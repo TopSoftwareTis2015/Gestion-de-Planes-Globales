@@ -68,12 +68,6 @@
                     }
                 </script>
       </div>
-    </article>
-
-	</section>
-	<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
-	<script src="../../public/js/jquery.js"></script>
-  <script src="../../public/js/jquery.min.js"></script>
-	<script src="../../public/js/bootstrap.min.js"></script>
+   
 </body>
 </html>

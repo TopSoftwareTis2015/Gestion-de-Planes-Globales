@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<title>Materias</title>
-	<!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../public/style/estilo.css">
-
-</head>
-<body>
 	 
      	<div id="parte7" class="container-fluid">
      		
@@ -80,12 +67,3 @@
                     }
                 </script>
       </div>
-    </article>
-
-	</section>
-	<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
-	<script src="../../public/js/jquery.js"></script>
-  <script src="../../public/js/jquery.min.js"></script>
-	<script src="../../public/js/bootstrap.min.js"></script>
-</body>
-</html>

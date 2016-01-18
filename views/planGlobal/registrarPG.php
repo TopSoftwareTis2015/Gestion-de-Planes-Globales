@@ -333,7 +333,6 @@
 
 
 <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
-  <script src="../../public/js/jquery.min.js"></script>
   <script type="text/javascript" src="../../public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="../../public/js/bootstrap.js"></script>
 </body>
