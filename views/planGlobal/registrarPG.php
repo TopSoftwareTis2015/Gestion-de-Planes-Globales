@@ -6,8 +6,8 @@
 	<title>Materias</title>
     <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../public/style/estilo.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
 
     
 </head>
@@ -16,7 +16,7 @@
         <div class="container">
            <div class="row">
               <div class="col-xs-3 col-md-3"> <!--seccion para el logo del sistema web-->
-                <img src="../../public/imagen/logoUmss.png" class="img-responsive" alt="">
+                <img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive" alt="">
               </div>
               <div class="col-xs-9 col-md-9"> <!--titulo del sistema web-->
                 <h1>Sistema de Gestion de De Planes Globales</h1>   
@@ -46,7 +46,7 @@
         <!--div para el contenido de los elementos y enlaces que tendra el menu horizontal los cuales seran visualidados en los desktop-->
         <div class="collapse navbar-collapse" id="menu_horizontal">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="../../index.php">Inicio</a></li>
+            <li class="active"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
             <li><a href="#">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
@@ -70,7 +70,7 @@
       <div class="container-fluid">
          <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
                 <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation"><a href="../../index.php">Inicio</a></li>
+                    <li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
                     <li role="presentation"><a href="#">Facultades</a></li>
                     <li role="presentation"><a href="#">Carreras</a></li>
                     <li role="presentation"><a href="#">Planes de Estudio</a></li>
@@ -333,15 +333,15 @@
 
 
 <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
-  <script type="text/javascript" src="../../public/js/jquery-1.12.0.js"></script>
-  <script type="text/javascript" src="../../public/js/bootstrap.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
 </body>
 
 <footer> 
 
   <!--Codigo para incluir el pie de pagina-->
   <?php 
-     include '../include/pie_de_pagina.php"'
+     include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
   ?> <!--fin del codigo de pie de pagina-->  
 </footer>
 
