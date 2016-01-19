@@ -10,8 +10,9 @@ class planGlobalController extends Controller{
 
 	}
 
-	public function registrar(){
-		$this->_view->renderizar('registrarPG');
+	public function registrar($pagina = false){
+		$pagina = $pagina? $pagina : "";
+		$this->_view->renderizar('registrarPG' . $pagina[0]);
 	}
 }
 

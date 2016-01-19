@@ -10,7 +10,7 @@
 
 	<ul>
 		<li><a href="<?php echo BASE_URL . 'materias' ?>">Gestion de Materias</a></li>
-		<li><a href="<?php echo BASE_URL . 'planesglobales/insertar' ?>">Insertar Plan Global</a></li>
+		<li><a href="<?php echo BASE_URL . 'planglobal/registrar' ?>">Insertar Plan Global</a></li>
 	</ul>
 </body>
 </html>

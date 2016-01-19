@@ -312,8 +312,8 @@
      		<div class="container-fluid">
      		  <nav>
      			<ul class="pager"> <!--campo para los paginadores para pasar a la continuacion del formulario-->
-     				<li class="previous disable"><a href="">&larr;anterior</a></li>
-            <li class="next"><a href="#" onclick="cargar('#parte','registrarPG2.php')">siguiente &rarr;</a></li>
+     				<!-- <li class="previous disable"><a href="">&larr;anterior</a></li> -->
+            <li class="next"><a href="<?php echo BASE_URL; ?>planGlobal/registrar/2">siguiente &rarr;</a></li>
      			</ul>
      		  </nav>
      	    </div>
