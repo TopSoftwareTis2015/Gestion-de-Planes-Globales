@@ -28,3 +28,22 @@ a.style1:visited {
 .panel-body {
 background:#B9F0C6;
 }
+
+#capitulos {
+background:#F66868;
+height: 240px; 
+}
+
+#contenido {
+background:#9D48ED; 
+height: 360px;
+}
+
+#unidad {
+background:#0AF864;
+height: 660px
+}
+
+#bibliografia{
+background:#8649F7;
+}

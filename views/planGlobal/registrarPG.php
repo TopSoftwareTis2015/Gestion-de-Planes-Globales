@@ -288,7 +288,7 @@
                           <div class="col-xs-12">
                            <div class="form-group ">
                     	     <label for="telefono">Telefono:</label>
-                    	     <input class="form-control" type="text" id="telefono" >
+                    	     <textarea readonly class="form-control"name="" id="telefono" cols="60" rows="3"></textarea>
                            </div>
                           </div>
                         </div>
@@ -297,7 +297,7 @@
                           <div class="col-xs-12">
                            <div class="form-group ">
                               <label for="correo">Correo:</label>
-                              <input class="form-control" type="text" id="email">
+                              <textarea readonly class="form-control"name="" id="email" cols="60" rows="3"></textarea>
                            </div>
                           </div>
                         </div>

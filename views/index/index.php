@@ -9,7 +9,7 @@
 	<p>Esta es la página principal de mi aplicación web</p>
 
 	<ul>
-		<li><a href="<?php echo BASE_URL . 'materias' ?>">Gestion de Materias</a></li>
+		<li><a href="<?php echo BASE_URL . 'materias/' ?>">Gestion de Materias</a></li>
 		<li><a href="<?php echo BASE_URL . 'planglobal/registrar' ?>">Insertar Plan Global</a></li>
 	</ul>
 </body>

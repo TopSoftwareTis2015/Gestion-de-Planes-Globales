@@ -91,6 +91,7 @@
                  <!-- titulo de la seccion del formulario del plan global--> 
                  <strong><h2>SELECCION Y ORGANIZACION DE CONTENIDOS</h2></strong>
                  <br>
+                 <div class="container-fluid" id="unidad">
                  <form name="formPg5" method="post" action="#">
                      <fieldset>
                         <legend>Unidad 1</legend>  
@@ -102,36 +103,42 @@
                            <label for="codigo">Objetivo:</label><!--campo para describir la unidad de avance de una materia-->
                            <textarea class="form-control"name="" id="Objetivo" cols="100" rows="3"></textarea>
                          </div>
-
+                        <div class="container-fluid" id="contenido">
                          <form name="formPg6" method="post" action="#">
                              <fieldset>
                                 <legend>CONTENIDO</legend>
-                                 <form name="formPg7" method="post" action="#">
+                                <div class="container-fluid" id="capitulos">
+                                   <form name="formPg7" method="post" action="#">
                                      <fieldset>
                                         <legend>Capitulo 1</legend>
                                          <div class="form-group">
                                           <label for="nombre">Titulo del capitulo:</label><!--titulo de los capitulos de una unidad-->
                                           <input class="form-control" type="text" id="tituloCapitulo" required>
                                          </div>
-                                         <div class="form-group">
+
+                                         <div class="form-group col-md-6 col-md-offset-3">
                                            <label for="codigo">Subtitulo:</label> <!--subtemas que tendra una unidad-->
                                            <input class="form-control" type="text" id="subtitulo" required>
+                                           <br>
+                                           <!--boton para añadir nuevos subtitulos a un capitulo del temario-->
+                                           <button class="submit btn btn-primary" type="submit">Añadir Subtitulo</button>
                                          </div>
-                                         <!--boton para añadir nuevos subtitulos a un capitulo del temario-->
-                                         <button class="submit btn btn-primary" type="submit">Añadir Subtitulo</button>
 
                                      </fieldset>
-                                </form>
+                                  </form>
+                                </div>
                              </fieldset>
                              <br>
                              <!--boton para añadir mas capitulo a un unidad-->
                              <button class="submit btn btn-primary" type="submit">Añadir Capitulo</button>
                         </form>
+                        </div>
                      </fieldset>
                 </form> 
-                <br>
-                <!--boton para añadir una nueva unidad de una materia-->
-                <button class="submit btn btn-primary" type="submit">Añadir Unidad</button>
+                  <br>
+                  <!--boton para añadir una nueva unidad de una materia-->
+                  <button class="submit btn btn-primary" type="submit">Añadir Unidad</button>
+                </div>
            </div>                  
         </div>
             <div class="container-fluid">
