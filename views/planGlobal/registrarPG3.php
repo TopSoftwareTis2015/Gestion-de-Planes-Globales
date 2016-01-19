@@ -52,9 +52,9 @@
             <li class="dropdown"><!--Opcion dropdown-->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li> <a href="../materias/index.php">Materias</a> </li>
-                <li> <a href="#">Planes de Estudio</a> </li>
-                <li> <a href="#">Planes Globales</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>materias">Materias</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a> </li>
               </ul>
             </li>
           </ul>
@@ -73,9 +73,9 @@
                     <li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
                     <li role="presentation"><a href="#">Facultades</a></li>
                     <li role="presentation"><a href="#">Carreras</a></li>
-                    <li role="presentation"><a href="#">Planes de Estudio</a></li>
-                    <li role="presentation"><a href="../materias/index.php">Materias</a></li>
-                    <li role="presentation"class="active"><a href="#">Planes Globales</a></li>
+                    <li role="presentation"><a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a></li>
+                    <li role="presentation"><a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
+                    <li role="presentation"class="active"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
                 </ul>
          </div>
       </div>
