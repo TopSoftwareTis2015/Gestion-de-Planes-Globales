@@ -28,6 +28,21 @@ class materiasController extends Controller{
 		$this->_materiaDao->eliminarMateria($codigo_materia[0]);
 		$this->redireccionar('materias');
 	}
+
+	public function editar($codigo_materia){//falta ver si existe el codigo de esa materia en el else		
+		if($this->getInt('guardar')==1){
+			$this->_materiaDao->editarMateria(
+				$this->getTexto('nombre_materia'),
+				$this->getTexto('codigo_materia'),
+				$this->getTexto('sigla_materia'),
+				$codigo_materia[0]
+				);
+			$this->redireccionar('materias');
+		}
+		//else
+		$this->_view->materiaAEditar = $this->_materiaDao->getMateria($codigo_materia[0]);
+		$this->_view->renderizar('editar');
+	}
 }
 
 

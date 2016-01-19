@@ -22,8 +22,29 @@ class materiasModel extends Model{
 												));
 	}
 
+	public function getMateria($codigo_materia){
+		$materia = $this->_db->query(
+			"select * from materia where codigo_materia='$codigo_materia'");
+
+		return $materia->fetch();
+	}
+
 	public function eliminarMateria($codigo_materia){
 		$this->_db-> query("delete from materia where codigo_materia = '$codigo_materia'");
+	}
+
+	public function editarMateria($nombre_materia, $codigo_nuevo, $sigla_materia, $codigo_materia){
+		$this->_db->prepare("update materia set
+													nombre_materia = :nombre_materia,
+													codigo_materia = :codigo_nuevo,
+													sigla_materia = :sigla_materia
+													where codigo_materia = '$codigo_materia'")
+												->execute(
+													array(
+													':nombre_materia' =>$nombre_materia,
+													':codigo_nuevo' =>$codigo_nuevo,
+													':sigla_materia' =>$sigla_materia
+													));
 	}
 }
 

@@ -200,7 +200,7 @@
              
               <!--Boton para editar una materia -->
               <div class="col-xs-4">
-                <a role="button" class="btn btn-primary" id="btnEditar">
+                <a role="button" class="btn btn-primary" id="btnEditar" data-baseurl="<?php echo BASE_URL; ?>materias/editar">
                   <strong>Editar Materia</strong> 
                 </a>
 
@@ -230,7 +230,7 @@
                               <div class="container-fluid">
                                   <div class="row col-xs-12 col-sm-8 col-md-12">
                                       <button class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Cancelar</button>                
-                                      <button class="btn btn-primary" type="button" id="confirmarEliminar" data-baseurl="<?php echo BASE_URL; ?>materias/eliminar/">Eliminar</button>                
+                                      <button class="btn btn-primary" type="button" id="confirmarEliminar" data-baseurl="<?php echo BASE_URL; ?>materias/eliminar">Eliminar</button>                
                                   </div>
                               </div>
                            </form>
