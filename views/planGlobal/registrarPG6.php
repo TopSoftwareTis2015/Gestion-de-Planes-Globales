@@ -88,17 +88,17 @@
            <div class="panel panel-default">
              <div class="panel-body">
             <h1><strong><center>Registrar Plan global</center></strong></h1>
-              <strong><h2>BIBLIOGRAFIA BASE</h2></strong>
+              <legend id="separador"><h2>BIBLIOGRAFIA BASE</h2></legend>
                   <fieldset id="bibliografia"><!--seccion para ingresar bibliografia de apoyo para la materia-->
                     <div class="container-fluid">
                       <form  name="formPg7" method="post" action="#">
                         <legend>Objetivo 1</legend>
                         <div class="form-group"><!--titulo de la bibliografia-->
-                             <label for="nombre">Titulo de objetivo</label>
+                             <label for="nombre">Titulo Libro</label>
                              <input class="form-control" type="text" id="tituloCap" required>
                          </div>
-                         <div class="form-group"> <!--descripcion del contenido de la bibliografia-->
-                              <label for="codigo">Descripcion</label>
+                         <div class="form-group"> <!--campo para ingresar el nombre del autor del libro-->
+                              <label for="codigo">Autor</label>
                               <input class="form-control" type="text" id="descripcion" required>
                          </div>
                          <button class="submit btn btn-primary" type="submit" required>Añadir objetivo</button>
@@ -107,17 +107,17 @@
                   </fieldset>
                   <br>
                   
-                  <strong><h2>BIBLIOGRAFIA COMPLEMENTARIA</h2></strong>
+                  <legend id="separador"><h2>BIBLIOGRAFIA COMPLEMENTARIA</h2></legend>
                   <fieldset id="bibliografia">
                     <div class="container-fluid">
                       <form  name="formPg6" method="post" action="#">
-                        <legend>Objetivo</legend>
-                        <div class="form-group"><!--titulo de la bibliografia complementaria-->
-                             <label for="nombre">Titulo de objetivo</label>
+                        
+                        <div class="form-group"><!--titulo del libro complementaria-->
+                             <label for="nombre">Titulo Libro</label>
                              <input class="form-control" type="text" id="tituloCap2" required>
                          </div>
-                         <div class="form-group"><!--campo para ingresar una pequeña descripcion de la bibliografia-->
-                              <label for="codigo">Descripcion</label>
+                         <div class="form-group"><!--campo para ingresar el nombre del autor del libro-->
+                              <label for="codigo">Autor</label>
                               <input class="form-control" type="text" id="descripcion2" required>
                          </div>
                          <button class="submit btn btn-primary" type="submit" required>Añadir objetivo</button>

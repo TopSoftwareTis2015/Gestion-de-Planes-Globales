@@ -175,6 +175,7 @@
 <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
+  
 </body>
 
 <footer> 

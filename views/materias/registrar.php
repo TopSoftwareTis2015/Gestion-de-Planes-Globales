@@ -31,12 +31,12 @@
 	  <div class="container-fluid">
 		 <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
 		   	  	<ul class="nav nav-pills nav-stacked">
-		   	  		<li role="presentation"class="active"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
+		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
 		   	  		<li role="presentation"><a href="#">Facultades</a></li>
 		   	  		<li role="presentation"><a href="#">Carreras</a></li>
 		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a></li>
-              <li role="presentation"><a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
-              <li role="presentation"class="active"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
+              <li role="presentation" class="active"><a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
+              <li role="presentation"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
 		   	  	</ul>
 		 </div>
 	  </div>

@@ -104,9 +104,9 @@
                    <div class=row>
                     <div class="col-xs-12">     
                      <fieldset>
-					 	<legend>Datos de Identificacion</legend>
+            <legend id="separador">Datos de Identificacion</legend>
 					  	
-                        <div class=row> 
+                        <div class=row>
                           <div class="col-xs-12">
                             <div class="form-group">
                               <label for="nombre">Nombre de la Materia:</label>
@@ -126,7 +126,7 @@
             
                         <div class="row">
                           <div class="col-xs-12">
-                            <strong><h3>Ingrese los grupos que participaran en este plan</h3></strong>   
+                            <legend id="separador">Ingrese los grupos que participaran en este plan </legend>
                           </div> 
                         </div> 
 
@@ -207,7 +207,7 @@
                         
                          <div class="row">
                           <div class="col-xs-12">
-                            <strong><h3>Ingrese los docentes que participaran en este plan</h3></strong>   
+                            <legend id="separador">Ingrese los docentes que participaran en este plan</legend>   
                           </div> 
                          </div> 
                          

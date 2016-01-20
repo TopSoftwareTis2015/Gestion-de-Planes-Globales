@@ -45,5 +45,21 @@ height: 660px
 }
 
 #bibliografia{
-background:#8649F7;
+background:#9F6FF9;
+}
+
+#separador{
+ border-color:#2D0DF0;
+}
+
+#new_contenido{
+background:#F66868; 
+}
+
+#new_subtitulo{
+background:#9A58F3; 
+}
+
+#new_seccion{
+background:#28F094; 
 }

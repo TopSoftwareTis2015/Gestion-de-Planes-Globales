@@ -88,12 +88,13 @@
            <div class="panel panel-default">
                 <div class="panel-body">
                  <h1><strong><center>Registrar Plan global</center></strong></h1>
-                 <strong><h2>METODOLOGIAS</h2></strong>
+                 <legend id="separador"><h2>METODOLOGIAS</h2></legend>
                  <!--campo para ingresara las metologias que se usaran para dictar una materia-->
                  <textarea class="form-control"name="" id="metodologias" cols="100" rows="10"></textarea>
                  <br>
                   
-                 <strong><h2>Cronograma o Duracion en periodos academicos por Unidad</h2></strong>
+                 <legend id="separador"><h2>Cronograma o Duracion en periodos academicos por Unidad</h2></legend>
+                 <div class="panel panel-default">
                  <div class="table-responsive">
                     <table class="table table-striped table-hover table-bordered" >
                         <tr><!--nombre de las columnas de la tabla para el cronograma-->
@@ -123,8 +124,9 @@
                         </tr>
                     </table>
                 </div> 
+                </div>
             
-                 <strong><h2>CRITERIOS DE EVALUACION</h2></strong>
+                 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>
                  <!--textarea para ingresar la informacion de criterio de evaluacion de una materia-->
                  <textarea class="form-control"name="" id="criterios" cols="100" rows="10"></textarea>
                  <br>

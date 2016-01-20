@@ -89,6 +89,7 @@
              <div class="panel-body">
             <h1><strong><center>Registrar Plan global</center></strong></h1>
               <strong><h2>SECCIONES ADICIONALES</h2></strong>
+               <div class="container-fluid" id="new_seccion"> 
                <fieldset>
                   <legend>Seccion personalizada 1</legend>
                   <div class="form-group">
@@ -99,9 +100,11 @@
                            <label for="nombre">Objetivo</label>
                            <input class="form-control" type="text" id="objetivoNuevaSeccion" required>
                   </div>
+                  <div class="container-fluid" id="new_contenido">
                   <fieldset>
                       <legend>CONTENIDO</legend>
                        <fieldset>
+                         <div class="container-fluid" id="new_subtitulo">
                           <form name="formPg6" method="post" action="#">
                             <legend>Contenido 1</legend>
                             <div class="form-group">
@@ -110,26 +113,31 @@
                              </div>
                              <div class="form-group">
                                   <label for="codigo">Descripcion del contenido</label>
-                                  <input class="form-control" type="text" id="descripcionContenido" required>
+                                  <textarea class="form-control" id="descripcionContenido" cols="100" rows="3" required></textarea>
                              </div>
-                             <div class="form-group">
+                             <div class="form-group col-md-6 col-md-offset-3">
                                   <label for="codigo">Subtitulo 1</label>
                                   <input class="form-control" type="text" id="subtitulo1" required>
+                                  <br>
+                                  <button class="submit btn btn-primary" type="submit" required>Añadir subtitulo</button>
                              </div>
-                             <button class="submit btn btn-primary" type="submit" required>Añadir objetivo</button>
+                          
                            </form>
+                          </div> 
                        </fieldset>
                        <br>
                        <button class="submit btn btn-primary" type="submit" required>Añadir contenido</button>
                   </fieldset>
-
-               </fieldset>
+                  </div>
                   <br>
+                  <button class="submit btn btn-primary" type="submit" required>Añadir Contenido</button>
+               </fieldset>
+                 <br>
+                <button class="submit btn btn-primary" type="submit" required>Registrar Plan Global</button>   
+               </div>
                                  
-               </div> 
-                <button class="submit btn btn-primary" type="submit" required>Añadir Contenido</button>
-                <br>
-                <button class="submit btn btn-primary" type="submit" required>Registrar Plan Global</button>           
+             </div> 
+                           
             </div>
 
 

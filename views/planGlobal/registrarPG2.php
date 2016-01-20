@@ -91,14 +91,12 @@
                  
                  <form name="formPg2" method="post" action="#">
                      <fieldset> 
-                        <legend>Datos de Identificacion</legend> <!--titulo del fieldset-->
+                        <legend id="separador">Datos de Identificacion</legend> <!--titulo del fieldset-->
                          
                          <div class="form-group"><!--titulo de la seccion del formulario-->
                            <center> <label for="codigo"><h2>Carga Horaria</h2></label></center>
                          </div>
-                         
-                         <strong><h3>Seleccione los items que entraran en su descripcion</h3></strong>
-                          
+                            <legend id="separador">Seleccione los items que entraran en su descripcion</legend> 
                           <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en horas semestre-->
                             <div class="panel-body">
                                 <label for="titulo">Horas semestre</label>

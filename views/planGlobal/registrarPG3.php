@@ -88,45 +88,57 @@
              <div class="panel panel-default">
               <div class="panel-body">
                  <h1><strong><center>Registrar Plan global</center></strong></h1>
-                 <strong><h2>JUSTIFICACION</h2></strong><!--seccion para ingresar la informacion de justificacion del plan global dentro de un textarea-->
+                 <legend id="separador"><h3>JUSTIFICACION</h3></legend><!--seccion para ingresar la informacion de justificacion del plan global dentro de un textarea-->
                  <textarea class="form-control"name="" id="justificacion" cols="100" rows="10"></textarea>
                  <br>
-                 <strong><h2>OBJETIVOS GENERALES</h2></strong> <!--campos para ingresar los objetivos generales -->
-                 <form name="formPg3" method="post" action="#">
-                     <fieldset>
-                        <!--titulo del objetivo general-->
-                        <legend>Objetivo 1</legend>
-                         <div class="form-group">
-                          <label for="titulo">Titulo:</label>
-                          <input class="form-control" type="text" id="titulo">
-                         </div>
-                         <!--campo para la descripcion del objetivo general-->
-                         <div class="form-group">
-                           <label for="descripcion">Descripcion:</label>
-                           <textarea class="form-control"name="" id="descripcion" cols="100" rows="5"></textarea>
-                         </div>
-                     </fieldset>
-                </form>
-                <button class="submit btn btn-primary" type="submit">Añadir un objetivo</button>
-                <br>
-                <strong><h2>OBJETIVOS EXPECIFICOS</h2></strong> <!--campos para ingresar los objetivos especificos-->
-                <form name="formPg4" method="post" action="#">
-                     <fieldset>
-                        <!--titulo del objetivo especifico -->
-                        <legend>Objetivo 1</legend>
-                         <div class="form-group">
-                          <label for="nombre">Titulo:</label>
-                          <input class="form-control" type="text" id="titulo">
-                         </div>
-                         <!--descripcion del objetivo especifico-->
-                         <div class="form-group">
-                           <label for="codigo">Descripcion:</label>
-                           <textarea class="form-control"name="" id="descripcion" cols="100" rows="5"></textarea>
-                         </div>
-                     </fieldset>
-                </form>
-                <button class="submit btn btn-primary" type="submit">Añadir un objetivo</button>
+                 <legend id="separador"><h3>OBJETIVOS GENERALES</h3></legend> <!--campos para ingresar los objetivos generales -->
+                 <form name="formPg3" method="POST" action="">
+                     <div class="container-fluid">
+                       <fieldset>
+                          <!--titulo del objetivo general-->
+                          <legend>Objetivo 1</legend>
+                           <div class="form-group">
+                            <label for="titulo">Titulo:</label>
+                            <input class="form-control" type="text" id="titulo">
+                           </div>
+                           <!--campo para la descripcion del objetivo general-->
+                           <div class="form-group">
+                             <label for="descripcion">Descripcion:</label>
+                             <textarea class="form-control"name="" id="descripcion" cols="100" rows="5"></textarea>
+                           </div>
+                           <!--div para añadir nuevos objetivos generales-->                           
+                           <div id="obj_general">   </div>
+                       </fieldset>
+                     </div>
+                    <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_general');">
 
+                </form>
+                    
+                <br>
+                <legend id="separador"><h3>OBJETIVOS ESPECIFICOS</h3></legend> <!--campos para ingresar los objetivos especificos-->
+                <form name="formPg4" method="post" action="#">
+                     <div class="container-fluid">
+                       <fieldset>
+                          <!--titulo del objetivo especifico -->
+                          <legend>Objetivo 1</legend>
+                           <div class="form-group">
+                            <label for="nombre">Titulo:</label>
+                            <input class="form-control" type="text" id="titulo">
+                           </div>
+                           <!--descripcion del objetivo especifico-->
+                           <div class="form-group">
+                             <label for="codigo">Descripcion:</label>
+                             <textarea class="form-control" name="descripcion" cols="100" rows="5"></textarea>
+                           </div>
+                       </fieldset>
+                        <!--div para añadir nuevos objetivos especificos-->
+                        <div id="obj_especifico"> </div>
+                     </div>
+                     
+                   <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_especifico');">
+
+                </form>
+                
              </div>                    
           </div>
             <div class="container-fluid">
@@ -162,7 +174,10 @@
 
 <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/crear_input.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
+
+
 </body>
 
 <footer> 
