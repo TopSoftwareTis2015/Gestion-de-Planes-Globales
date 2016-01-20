@@ -124,26 +124,6 @@
 
         </tbody>
        
-     <?php //require_once(ROOT . "views" . DS ."include" . DS . "verificarconexion.php");//Conexion ala base de datos ?> 
-     <?php
-          /*$query = "select * from materia";     // Esta linea hace la consulta 
-          $result = mysql_query($query);  
-
-        while ($registro = mysql_fetch_array($result)){  
-         echo "
-        <tbody>  
-         <tr>  
-         <td>".$registro[0]."</td>  
-         <td>".$registro[1]."</td>  
-         <td>".$registro[2]."</td>    
-
-         </tr>
-        </tbody>";
-         }
-      ?>
-      <?php
-          mysql_close($conexion);*/
-      ?>
       </table>  
       </div>  
     	
@@ -153,49 +133,9 @@
              
               <!--Boton para registrar una materia -->   
         	  <div class="col-xs-4">   
-                 <a href="#registro_materia" role="button" class="btn btn-primary" data-toggle="modal">
+                 <a href="<?php echo BASE_URL; ?>materias/nuevo" role="button" class="btn btn-primary">
                    <strong>Agregar Materia</strong>
                  </a>
-                  
-                 <div class="modal fade" id="registro_materia"> <!--div contenedor de la ventana emergente de registro de materia-->
-                   <div class="modal-dialog"> <!--div de la ventana emergente-->
-                     <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
-                       
-                       <!--Cabecera de la ventana-->
-                       <div class="modal-header"> 
-                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--Boton para cerrar la ventana emergente-->
-                         <h3 class="modal-title"> Registro de Materia</h3> <!--Titulo del formulario de registro de materia-->
-                       </div>
-                       
-                       <!--Contenido de la ventana-->
-                       <div class="modal-body">
-                         
-                         <div id="nuevo"> <!--formulario para regitrar los datos de una materia-->
-                          <form name="form1" method="post" action="<?php echo BASE_URL; ?>materias/nuevo">
-                              <div class="container-fluid">
-                                  <div class="row col-xs-12 col-sm-8 col-md-12">
-                                      <strong>Codigo Materia</strong><br>
-                                      <!--caja de texto para el ingreso de solo numero y con un tamaño de 7 digitos -->
-                                      <input title="Ingresar solo numeros" type="text" class="form-control"  pattern="[0-9]{7}" name="codigo_materia" required><br>
-                                      <strong>Nombre materia</strong><br>
-                                      <input type="text" class="form-control"name="nombre_materia" required><br>
-                                      <strong>Sigla de la Materia</strong><br>
-                                      <input type="text" class="form-control"name="sigla_materia" required><br>
-                                      <button class="submit btn btn-primary" type="submit">Registrar Materia</button>                
-                                  </div>
-                              </div>
-                           </form>
-                          </div> <!--fin del formulario para materia-->
-
-                       </div> 
-
-                       <!--footer de la ventana-->
-                       <div class="modal-footer">
-                         
-                       </div>
-                     </div>
-                   </div>
-                 </div>
             </div>
              
               <!--Boton para editar una materia -->

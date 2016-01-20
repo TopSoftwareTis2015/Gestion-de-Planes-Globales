@@ -22,9 +22,9 @@ class materiasModel extends Model{
 												));
 	}
 
-	public function getMateria($codigo_materia){
+	public function getMateria($campo, $valor){
 		$materia = $this->_db->query(
-			"select * from materia where codigo_materia='$codigo_materia'");
+			"select * from materia where $campo='$valor'");
 
 		return $materia->fetch();
 	}

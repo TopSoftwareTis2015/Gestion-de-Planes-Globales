@@ -50,20 +50,25 @@
 	    </div> <!-- fin del titulo-->
     	
    <div id="nuevo" > <!--formulario para editar datos de una materia-->
-    <form name="form1" method="post" action="<?php echo BASE_URL . 'materias/editar/' . $this->materiaAEditar['codigo_materia']; ?>">
+    <form name="form1" method="post" action="<?php echo BASE_URL . 'materias/editar/' . $this->materiaAnterior['codigo_materia']; ?>">
     	<input type="hidden" name='guardar' value="1">
         <div class="container-fluid">
             <div class="row col-xs-12 col-sm-8 col-md-12">
                 <strong>Codigo Materia</strong><br>
                 <!--caja de texto para el ingreso de solo numero y con un tamaño de 6 digitos -->
                 <input title="Ingresar solo numeros" type="text" class="form-control"  pattern="[0-9]{7}" name="codigo_materia" required
-                value="<?php if(isset($this->materiaAEditar['codigo_materia'])) echo $this->materiaAEditar['codigo_materia']; ?>"><br>
+                value="<?php if(isset($this->materiaAnterior['codigo_materia'])) echo $this->materiaAnterior['codigo_materia']; ?>"><br>
+                <span id="errorCodigoMateria" class="label label-danger"><?php if(isset($this->_errorCodigoMateria)) echo $this->_errorCodigoMateria; ?></span><br>
+
                 <strong>Nombre materia</strong><br>
                 <input type="text" class="form-control"name="nombre_materia" required
-                value="<?php if(isset($this->materiaAEditar['nombre_materia'])) echo $this->materiaAEditar['nombre_materia']; ?>"><br>
+                value="<?php if(isset($this->materiaAnterior['nombre_materia'])) echo $this->materiaAnterior['nombre_materia']; ?>"><br>
+								<span id="errorNombreMateria" class="label label-danger"><?php if(isset($this->_errorNombreMateria)) echo $this->_errorNombreMateria; ?></span><br>
+
                 <strong>Sigla de la Materia</strong><br>
                 <input type="text" class="form-control"name="sigla_materia"
-                value="<?php if(isset($this->materiaAEditar['sigla_materia'])) echo $this->materiaAEditar['sigla_materia'];?>"><br>
+                value="<?php if(isset($this->materiaAnterior['sigla_materia'])) echo $this->materiaAnterior['sigla_materia'];?>"><br>
+                <span id="errorSiglaMateria" class="label label-danger"><?php if(isset($this->_errorSiglaMateria)) echo $this->_errorSiglaMateria; ?></span><br>
                 
                 <button class="submit btn-primary" type="submit">Guardar Cambios</button>
             </div>

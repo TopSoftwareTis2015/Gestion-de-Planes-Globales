@@ -15,22 +15,39 @@ class materiasController extends Controller{
 	}
 
 	public function nuevo(){
-		$this->_materiaDao->registrarMateria(
-			$this->getTexto('codigo_materia'),
-			$this->getTexto('nombre_materia'),
-			$this->getTexto('sigla_materia')
-			);
+		if($this->getInt('guardar')==1){
+			$this->validarDatosNuevo();
+			$this->_materiaDao->registrarMateria(
+				$this->getTexto('codigo_materia'),
+				$this->getTexto('nombre_materia'),
+				$this->getTexto('sigla_materia')
+				);
 
-		$this->redireccionar('materias');
+			$this->redireccionar('materias');			
+		}
+		$this->_view->renderizar("registrar");
 	}
 
 	public function eliminar($codigo_materia){
+		if(!$this->_materiaDao->getMateria('codigo_materia',$codigo_materia[0])){
+			$this->redireccionar('materias');
+		}
+
 		$this->_materiaDao->eliminarMateria($codigo_materia[0]);
 		$this->redireccionar('materias');
 	}
 
-	public function editar($codigo_materia){//falta ver si existe el codigo de esa materia en el else		
+	public function editar($codigo_materia){
+		$materiaAnterior = $this->_materiaDao->getMateria('codigo_materia', $codigo_materia[0]);
+		if(!$materiaAnterior){
+			$this->redireccionar('materias');
+		}
+
+		$this->_view->materiaAnterior = $materiaAnterior;
+
 		if($this->getInt('guardar')==1){
+			$this->validarDatos($materiaAnterior);
+
 			$this->_materiaDao->editarMateria(
 				$this->getTexto('nombre_materia'),
 				$this->getTexto('codigo_materia'),
@@ -39,9 +56,58 @@ class materiasController extends Controller{
 				);
 			$this->redireccionar('materias');
 		}
-		//else
-		$this->_view->materiaAEditar = $this->_materiaDao->getMateria($codigo_materia[0]);
+
 		$this->_view->renderizar('editar');
+	}
+
+	private function validarDatos($materiaAnterior){
+		$materia = $this->_materiaDao->getMateria('codigo_materia', $this->getAlphaNum('codigo_materia'));
+
+		$this->_view->materiaAnterior = $_POST;
+
+		if(($this->getPostParam('codigo_materia') != $materiaAnterior['codigo_materia']) &&
+				$this->_materiaDao->getMateria('codigo_materia', $this->getAlphaNum('codigo_materia'))){
+			$this->_view->_errorCodigoMateria = 'Este codigo ya esta asignado!';
+			$this->_view->renderizar('editar');
+			exit;
+		}
+
+		if(($this->getPostParam('nombre_materia') != $materiaAnterior['nombre_materia']) &&
+				$this->_materiaDao->getMateria('nombre_materia', $this->getTexto('nombre_materia'))){
+			$this->_view->_errorNombreMateria = 'Este nombre ya esta asignado!';
+			$this->_view->renderizar('editar');
+			exit;
+		}
+
+		if(($this->getPostParam('sigla_materia') != $materiaAnterior['sigla_materia']) &&
+				$this->_materiaDao->getMateria('sigla_materia', $this->getAlphaNum('sigla_materia'))){
+			$this->_view->_errorSiglaMateria = 'Esta sigla ya esta asignada!';
+			$this->_view->renderizar('editar');
+			exit;
+		}
+	}
+
+
+	private function validarDatosNuevo(){
+		$this->_view->materiaAnterior = $_POST;
+
+		if($this->_materiaDao->getMateria('codigo_materia', $this->getAlphaNum('codigo_materia'))){
+			$this->_view->_errorCodigoMateria = 'Este codigo ya esta asignado!';
+			$this->_view->renderizar('registrar');
+			exit;
+		}
+
+		if($this->_materiaDao->getMateria('nombre_materia', $this->getTexto('nombre_materia'))){
+			$this->_view->_errorNombreMateria = 'Este nombre ya esta asignado!';
+			$this->_view->renderizar('registrar');
+			exit;
+		}
+
+		if($this->_materiaDao->getMateria('sigla_materia', $this->getAlphaNum('sigla_materia'))){
+			$this->_view->_errorSiglaMateria = 'Esta sigla ya esta asignada!';
+			$this->_view->renderizar('registrar');
+			exit;
+		}
 	}
 }
 
