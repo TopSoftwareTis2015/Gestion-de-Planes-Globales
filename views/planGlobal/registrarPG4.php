@@ -19,7 +19,7 @@
                 <img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive" alt="">
               </div>
               <div class="col-xs-9 col-md-9"> <!--titulo del sistema web-->
-                <h1>Sistema de Gestion de De Planes Globales</h1>   
+                <h1>Sistema de Gesti&oacute;n De Planes Globales</h1>   
               </div>
            </div>
             
@@ -120,8 +120,9 @@
                                            <label for="codigo">Subtitulo:</label> <!--subtemas que tendra una unidad-->
                                            <input class="form-control" type="text" id="subtitulo" required>
                                            <br>
+                                           
                                            <!--boton para añadir nuevos subtitulos a un capitulo del temario-->
-                                           <button class="submit btn btn-primary" type="submit">Añadir Subtitulo</button>
+                                           <input class="btn btn-primary" type="button" value="Añadir Subtitulo" onClick="addInput('new_subtitulo');">
                                          </div>
 
                                      </fieldset>
@@ -129,8 +130,10 @@
                                 </div>
                              </fieldset>
                              <br>
+                             <div id="new_contenido"> </div>
                              <!--boton para añadir mas capitulo a un unidad-->
-                             <button class="submit btn btn-primary" type="submit">Añadir Capitulo</button>
+                             <input class="btn btn-primary" type="button" value="Añadir Capitulo">
+                            <br><br>      
                         </form>
                         </div>
                      </fieldset>
@@ -138,6 +141,7 @@
                   <br>
                   <!--boton para añadir una nueva unidad de una materia-->
                   <button class="submit btn btn-primary" type="submit">Añadir Unidad</button>
+                  <br><br>
                 </div>
            </div>                  
         </div>
@@ -174,6 +178,7 @@
 
 <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/crear_input.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
   
 </body>

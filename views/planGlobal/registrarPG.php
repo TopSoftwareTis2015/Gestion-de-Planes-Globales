@@ -19,7 +19,7 @@
                 <img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive" alt="">
               </div>
               <div class="col-xs-9 col-md-9"> <!--titulo del sistema web-->
-                <h1>Sistema de Gestion de De Planes Globales</h1>   
+                <h1>Sistema de Gesti&oacute;n De Planes Globales</h1>   
               </div>
            </div>
             
@@ -110,7 +110,13 @@
                           <div class="col-xs-12">
                             <div class="form-group">
                               <label for="nombre">Nombre de la Materia:</label>
-                              <input class="form-control" type="text" id="nomMateria">
+                              <!--<input class="form-control" type="" id="nomMateria">-->
+                              <select class="form-control" name="nom_materia" style="width:100%" id="nomMateria" size="1">
+                                 <option value="1">Ing. sistemas</option>
+                                 <option value="1">Ing. informatica</option>
+
+                                 
+                              </select>
                             </div>    
                           </div>
                         </div>
@@ -119,7 +125,7 @@
                           <div class="col-xs-12">
                            <div class="form-group">
                              <label for="codigo">Codigo:</label>
-                             <input class="form-control" type="text" id="nomMateria">
+                             <input readonly class="form-control" type="text" id="nomMateria">
                            </div>
                           </div>
                         </div>

@@ -19,7 +19,7 @@
                 <img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive" alt="">
               </div>
               <div class="col-xs-9 col-md-9"> <!--titulo del sistema web-->
-                <h1>Sistema de Gestion de De Planes Globales</h1>   
+                <h1>Sistema de Gesti&oacute;n De Planes Globales</h1>   
               </div>
            </div>
             
