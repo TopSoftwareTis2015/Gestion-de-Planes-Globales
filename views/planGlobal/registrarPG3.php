@@ -12,6 +12,7 @@
     
 </head>
 <body>
+<div class="container"> 
     <header><!-- seccion de la cabecera de la pagina web-->
         <div class="container">
            <div class="row">
@@ -171,21 +172,21 @@
        </script>
 
 
+  <footer> 
+    <!--Codigo para incluir el pie de pagina-->
+    <?php 
+       include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
+    ?> <!--fin del codigo de pie de pagina-->  
+  </footer>
+
 
 <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/crear_input.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/crear_input.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
 
-
+ </div>
 </body>
 
-<footer> 
-
-  <!--Codigo para incluir el pie de pagina-->
-  <?php 
-     include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
-  ?> <!--fin del codigo de pie de pagina-->  
-</footer>
 
 </html>

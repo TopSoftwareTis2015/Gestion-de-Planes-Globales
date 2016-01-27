@@ -12,6 +12,7 @@
     
 </head>
 <body>
+<div class="container">
     <header><!-- seccion de la cabecera de la pagina web-->
         <div class="container">
            <div class="row">
@@ -87,20 +88,34 @@
      		 <!-- registro de plan global-->
      		  <div class="panel panel-default">
      	       <div class="panel-body">
-     			 <h1><strong><center>Registrar Plan global</center></strong></h1><!--Titulo del formulario-->
-         		 <div class=row>
-         		   <div class="col-xs-12 col-md-9">	
-         		 		<div class="form-group">
-         					<div class="input-group">
-         				    	 <span class="input-group-addon">Titulo</span>
-                	        	 <input type="text" class="form-control"name="titulo" required><br>
-         					</div>
-         				</div>     			     	    	 
-         		  </div>	
-         		 </div>
-         		 
+     			      <h1><strong><center>Registrar Plan global</center></strong></h1><!--Titulo del formulario-->
+             		 
+             		 
          		 <form name="formPg1" method="post" action="#">
-                    
+                
+                <div class=row>
+                   <div class="col-xs-12 col-md-9"> 
+
+                   <div class="form-inline">
+                      <label for="nombre">Gestion:</label>
+                      <!--<input class="form-control" type="" id="nomMateria">-->
+                      <select class="form-control" name="gestion" style="width:25%" id="nomMateria" size="1">
+                           <option value="1">I</option>
+                           <option value="2">II</option>
+                      </select>
+                      <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required><br>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                      <div class="input-group">
+                           <span class="input-group-addon">Titulo</span>
+                           <input type="text" class="form-control"name="titulo" required><br>
+                      </div>
+                    </div>                       
+                  </div>  
+                 </div>
+
                    <div class=row>
                     <div class="col-xs-12">     
                      <fieldset>
@@ -112,10 +127,8 @@
                               <label for="nombre">Nombre de la Materia:</label>
                               <!--<input class="form-control" type="" id="nomMateria">-->
                               <select class="form-control" name="nom_materia" style="width:100%" id="nomMateria" size="1">
-                                 <option value="1">Ing. sistemas</option>
-                                 <option value="1">Ing. informatica</option>
-
-                                 
+                                 <option value="1">Introduccion a la programacion</option>
+                                 <option value="2">Taller de programacion en bajo nivel</option>                                              
                               </select>
                             </div>    
                           </div>
@@ -138,7 +151,7 @@
 
                          <div class="table-responsive"> <!--tabla con los grupo existentes de una materia-->
                          <table class="table">
-                         	<tr>
+                         	<tr class="info">
                          		<th>Grupos totales en las materia</th>
                          		<th></th>
                          		<th>Grupos en el plan Global</th>
@@ -189,6 +202,7 @@
 							} 
 				           }
 						  
+
 						  </script>
                          	   </td>
                          	   
@@ -219,7 +233,7 @@
                          
                         <div class="table-responsive"> <!--tabla de docente perteneciente a una materia en comun-->
                         <table class="table">
-                         	<tr>
+                         	<tr class="info">
                          		<th>Docentes totales en las materia</th>
                          		<th></th>
                          		<th>Docentes en el plan Global</th>
@@ -311,20 +325,27 @@
 					 </fieldset>
                  </div>
                 </div>
+           
 
 				</form>
-     	       </div> 	     		   
-     		</div>
-     		<div class="container-fluid">
-     		  <nav>
-     			<ul class="pager"> <!--campo para los paginadores para pasar a la continuacion del formulario-->
-     				<!-- <li class="previous disable"><a href="">&larr;anterior</a></li> -->
-            <li class="next"><a href="<?php echo BASE_URL; ?>planGlobal/registrar/2">siguiente &rarr;</a></li>
-     			</ul>
-     		  </nav>
-     	    </div>
+
+           
+     	
+      </div> 	     		   
+     </div>
+
+     		  
      	</div>
      </article>
+     
+     <div class="container-fluid" id="paginador">
+            <nav>
+            <ul class="pager"> <!--campo para los paginadores para pasar a la continuacion del formulario-->
+              <!-- <li class="previous disable"><a href="">&larr;anterior</a></li> -->
+              <li class="next"><a href="<?php echo BASE_URL; ?>planGlobal/registrar/2">siguiente &rarr;</a></li>
+            </ul>
+            </nav>
+      </div>
 
 	</section>
 
@@ -335,20 +356,20 @@
                $(div).load(desde);
           }
        </script>
+  
+  <footer> 
+    <!--Codigo para incluir el pie de pagina-->
+    <?php 
+       include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
+    ?> <!--fin del codigo de pie de pagina-->  
+  </footer>
 
-
-
-<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
+</div>
+  <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
+
 </body>
-
-<footer> 
-
-  <!--Codigo para incluir el pie de pagina-->
-  <?php 
-     include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
-  ?> <!--fin del codigo de pie de pagina-->  
-</footer>
 
 </html>

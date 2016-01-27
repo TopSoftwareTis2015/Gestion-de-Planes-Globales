@@ -13,6 +13,7 @@
   
 </head>
 <body>
+<div class="container">
 	<header> <!--Cabecera del sistema web -->
 		<div class="container">
 		   <div class="row">
@@ -20,7 +21,7 @@
 		   	  	<img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive"	alt="">
 		   	  </div>
 		   	  <div class="col-xs-9 col-md-9"> <!--titulo con el nombre del sistema web -->
-		   	    <h1>Sistema de Gestion de De Planes Globales</h1>	
+		   	    <h1>Sistema de Gestion De Planes Globales</h1>	
 		   	  </div>
 		   </div>
 			
@@ -191,20 +192,21 @@
      </article>  
 
 	</section> <!--fin de la seccion donde esta el contenido -->
-	
+  
+  <footer>
+    <!--Codigo para incluir el pie de pagina-->
+    <?php 
+      include ROOT .'views'.DS.'include'.DS.'pie_de_pagina.php'
+    ?>  
+  </footer>
+
   <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
 	<script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/materias/js/materias.js"></script>
-  
+
+</div>  
+
 </body>
-
-<footer>
-  <!--Codigo para incluir el pie de pagina-->
-  <?php 
-    include ROOT .'views'.DS.'include'.DS.'pie_de_pagina.php'
-  ?>  
-</footer>
-
 
 </html>

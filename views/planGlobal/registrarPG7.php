@@ -12,6 +12,7 @@
     
 </head>
 <body>
+<div class="container">
     <header><!-- seccion de la cabecera de la pagina web-->
         <div class="container">
            <div class="row">
@@ -19,7 +20,7 @@
                 <img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive" alt="">
               </div>
               <div class="col-xs-9 col-md-9"> <!--titulo del sistema web-->
-                <h1>Sistema de Gestion de De Planes Globales</h1>   
+                <h1>Sistema de Gesti&oacute;n De Planes Globales</h1>   
               </div>
            </div>
             
@@ -133,7 +134,10 @@
                   <button class="submit btn btn-primary" type="submit" required>Añadir Contenido</button>
                </fieldset>
                  <br>
-                <button class="submit btn btn-primary" type="submit" required>Registrar Plan Global</button>   
+                 <div class="container-fluid col-md-6 col-md-offset-3">
+                    <button class="submit btn btn-default" type="submit" required>Registrar Plan Global</button>                      
+                    <br><br>
+                 </div>
                </div>
                                  
              </div> 
@@ -170,19 +174,18 @@
           }
        </script>
 
+  <footer> 
 
+    <!--Codigo para incluir el pie de pagina-->
+    <?php 
+       include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
+    ?> <!--fin del codigo de pie de pagina-->  
+  </footer>
 
-<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
+  <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
+</div>
 </body>
-
-<footer> 
-
-  <!--Codigo para incluir el pie de pagina-->
-  <?php 
-     include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
-  ?> <!--fin del codigo de pie de pagina-->  
-</footer>
 
 </html>

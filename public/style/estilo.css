@@ -2,15 +2,18 @@ header{
   background: #2c3e50;
   color:#fff;
 }
-
 #footer{
   background: #2c3e50;
   color:#fff;
-  height: 100px;
+  height: 80px;
   bottom: 0;
+  padding-bottom: 0px;
+
 }
-#menu{
-	border: 2px solid;
+
+#menu_vertical{
+  background: #6EEEF0;
+  border: #FAF0F0 2px solid;
 }
 body{
   padding-top: 10px;	
@@ -24,9 +27,22 @@ body{
 a.style1:visited {
     color: #05A21F;
 }
-
+/*#paginador{
+  background: #6EEEF0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index:50%;
+}*/
 .panel-body {
 background:#B9F0C6;
+}
+
+/*tabla materias*/
+#datos{
+  border: #E51111 2px solid;
+  background: #F8FBFB;
 }
 
 #capitulos {

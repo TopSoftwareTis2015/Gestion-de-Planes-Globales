@@ -1,4 +1,3 @@
-$(document).ready(function(){
 
 	$("#btnEliminar").click(function(){
 		var valor = getSeleccionado($('#datos input[type=checkbox]'));

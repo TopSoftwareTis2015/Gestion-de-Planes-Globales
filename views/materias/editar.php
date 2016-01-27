@@ -9,7 +9,9 @@
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"><!--hoja de estilo personalizado-->
 </head>
+
 <body>
+<div class="container">
 	<header><!-- seccion de la cabecera de la pagina web-->
 		<div class="container">
 		   <div class="row">
@@ -17,7 +19,7 @@
 		   	  	<img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive"	alt="">
 		   	  </div>
 		   	  <div class="col-xs-9 col-md-9"> <!--titulo del sistema web-->
-		   	    <h1>Sistema de Gestion de De Planes Globales</h1>	
+		   	    <h1>Sistema de Gestion De Planes Globales</h1>	
 		   	  </div>
 		   </div>
 			
@@ -31,12 +33,12 @@
 	  <div class="container-fluid">
 		 <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
 		   	  	<ul class="nav nav-pills nav-stacked">
-		   	  		<li role="presentation><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
+		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
 		   	  		<li role="presentation"><a href="#">Facultades</a></li>
 		   	  		<li role="presentation"><a href="#">Carreras</a></li>
 		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a></li>
-           		   	<li role="presentation" class="active"><a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
-             		<li role="presentation><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
+           		   	<li role="presentation"class="active"> <a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
+             		<li role="presentation"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
 		   	  	</ul>
 		 </div>
 	  </div>
@@ -79,16 +81,20 @@
 
   </section>
 
-
-	 
+  <div class="row clearfix">
+	  <footer>
+		<!--Codigo para incluir el pie de pagina-->
+		<?php 
+		    include ROOT . DS . 'views' . DS . 'include' . DS . 'pie_de_pagina.php';
+		?>
+	  </footer>
+  </div>
+   
 	<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
 	<script src="<?php echo BASE_URL; ?>public/js/jquery.js"></script>
 	<script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
+ </div>	 
+ 
 </body>
-
-<!--Codigo para incluir el pie de pagina-->
-<?php 
-    include ROOT . DS . 'views' . DS . 'include' . DS . 'pie_de_pagina.php';
-?>
 
 </html>
