@@ -68,7 +68,7 @@
 	  	
 	  	<!--Columna del menu vertical-->
 	  	<div class="col-xs-12 col-sm-4 col-md-3">
-	  		<p>Menu vertical</p>
+	  		
 	  		<nav id="menu">
 			  <div class="container-fluid">
 				 <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
@@ -88,13 +88,14 @@
 
         <!--Columna para el formulario de registro de materia-->
 	  	<div class="col-xs-12 col-sm-8 col-md-9">
-	  		<div class="container-fluid"> <!-- titulo de la nueva ventana-->
-	            <h2><center>Registrar Materia</center></h2>  
-		    </div> <!-- fin del titulo-->
-	  
-	        <!--formulario de registro de los datos de una materia-->
-		  	<div class="container-fluid">
-			  	<div id="nuevo" > 
+		  		
+		  		<div class="container-fluid" id="reg_materia"> <!-- titulo de la nueva ventana-->
+		            <h2 style=""><center>Registrar Materia</center></h2>  
+			    </div> <!-- fin del titulo-->
+	     		
+     		<!--formulario de registro de los datos de una materia-->
+		  	<div class="container-fluid" id="nuevo">
+			  	<!--<div id="nuevo" >--> 
 				    <form name="form1" method="post" action="<?php echo BASE_URL;?>materias/nuevo">
 				    	<input type="hidden" name='guardar' value="1">
 				        <div class="container-fluid">
@@ -114,19 +115,21 @@
 				                <input type="text" class="form-control"name="sigla_materia"
 				                value="<?php if(isset($this->materiaAnterior['sigla_materia'])) echo $this->materiaAnterior['sigla_materia'];?>"><br>
 				                <span id="errorSiglaMateria" class="label label-danger"><?php if(isset($this->_errorSiglaMateria)) echo $this->_errorSiglaMateria; ?></span><br>
-				               
-									<div class="col-md-6">
-							                <button class="submit btn-primary btn-lg" type="submit">Registrar</button>						            						          					                  	
-						            </div>  
-									<div class="col-md-6">
-								          <a role="button" class="btn btn-primary btn-lg" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
-							                  	Volver
-							              </a>	
-						            </div>
+				                 
+									<div class="row">
+										<div class="col-md-6">
+								                <button class="submit btn-primary btn-lg" type="submit">Registrar</button>						            						          					                  	
+							            </div>  
+										<div class="col-md-6">
+									          <a role="button" class="btn btn-primary btn-lg" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
+								                  	Volver
+								              </a>	
+							            </div>
+						           </div>
 				            </div>
 				        </div>
 				     </form>
-				</div> 
+				<!--</div>--> 
    			</div>
    			<!--fin del formulario para materia-->
 
@@ -136,7 +139,7 @@
 	  </div>
 	  <!--fin contenido central--> 
 	  
-	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registro_exitoso">Mostrar</button>
+	  <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registro_exitoso">Mostrar</button>-->
 
 	  <div class="modal fade" id="registro_exitoso"> <!--div contenedor de la ventana emergente de registro de materia-->
            <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
@@ -161,11 +164,12 @@
             </div>
         </div>
 
+
 	  <!--Contenido opcional--> 
 	  <div class="row clearfix">
 	  </div>
-	  <!--Fin contenido opcional--> 
-	  
+	
+      <br>
 	  <!--Contenido del footer--> 
 	  <div class="row clearfix">
 	  	<footer>  		 		
