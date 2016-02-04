@@ -6,7 +6,7 @@
 	<title>Materias</title>
     <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
 
     
@@ -28,7 +28,7 @@
     </header>
    
   <!--Menu de navegacion Horizontal-->
-  <nav class="navbar navbar-default"><!--"nabar-default" es el estandar del nav el cual ocupa todo el ancho de la pagina-->
+  <nav class="navbar navbar-default navbar-fixed-top"><!--"nabar-default" es el estandar del nav el cual ocupa todo el ancho de la pagina-->
     
     <!--contenedor para el menu en dispositivos moviles-->
     <div class="container-fluid"> 
@@ -322,6 +322,324 @@
                           </div>
                         </div>
 
+                       
+
+                        <!--Parte 2-->
+                        <legend id="separador">Datos de Identificacion</legend> <!--titulo del fieldset-->
+                         
+                         <div class="form-group"><!--titulo de la seccion del formulario-->
+                           <center> <label for="codigo"><h2>Carga Horaria</h2></label></center>
+                         </div>
+                            <legend id="separador">Seleccione los items que entraran en su descripcion</legend> 
+                          <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en horas semestre-->
+                            <div class="panel-body">
+                                <label for="titulo">Horas semestre</label>
+                                
+                                <div class="row">                               
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hSemestre');">
+                                        <input id="horaSemestre" type="number" value="0" name="hora_semestre" min="0" max="360" disabled>
+                                    </div>                                  
+                                </div>
+
+                            </div>
+                          </div>    
+
+                          <div class="panel panel-default"><!--campo para seleccionar la duracion de una materia en horas teoricas y practica por semana-->
+                            <div class="panel-body">
+                                <label for="titulo">Horas teoricas por semana</label>
+
+                                  <div class="row">                             
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hTeorica');">
+                                        <input id="horaTeorica" type="number" value="0" name="horas_teorica_semana" min="0" max="360" disabled>
+                                    </div>                                  
+                                  </div>                            
+                                <br>
+
+                                <label for="titulo">Horas practicas por semana</label>
+                     
+                                    <div class="row">                               
+                                        <div class="col-xs-6">
+                                            <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hPractica');">
+                                            <input id="horaPractica" type="number" value="0" name="horas_practica_semana" min="0" max="360" disabled>
+                                        </div>                                  
+                                    </div>                  
+                    
+
+                            </div>
+                          </div>    
+
+                          <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos por semana-->
+                            <div class="panel-body">
+                                <label for="titulo">Periodos por semana</label>
+                                <div class="row">                               
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pSemana');">
+                                        <input id="periodoSemana" type="number" value="0" name="periodo_semana" min="0" max="360" disabled>
+                                    </div>                                  
+                                  </div>
+                            </div>
+                          </div>    
+
+                          <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos teoricas y practicas por semana-->
+                            <div class="panel-body">
+                                <label for="titulo">Periodos teoricos por semana</label>
+                                <div class="row">                               
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pTeorico');">
+                                        <input id="periodoTeorico" type="number" value="0" name="periodo_teorico_semana" min="0" max="360" disabled>
+                                    </div>                                  
+                                  </div>
+                                <br>
+
+                                <label for="titulo">Periodos practicos por semana</label>
+                                <div class="row">                               
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pPractico');">
+                                        <input id="periodoPractico" type="number" value="0" name="periodo_practico_semana" min="0" max="360" disabled>
+                                    </div>                                  
+                                  </div>
+                            </div>
+                          </div> 
+                        <!--Fin Parte 2-->
+
+
+                <!--Parte 3-->
+                <h1><strong><center>Registrar Plan global</center></strong></h1>
+                 <legend id="separador"><h3>JUSTIFICACION</h3></legend><!--seccion para ingresar la informacion de justificacion del plan global dentro de un textarea-->
+                 <textarea class="form-control"name="" id="justificacion" cols="100" rows="10"></textarea>
+                 <br>
+                 <legend id="separador"><h3>OBJETIVOS GENERALES</h3></legend> <!--campos para ingresar los objetivos generales -->
+                 <form name="formPg3" method="POST" action="">
+                     <div class="container-fluid" id="objetivoG">
+                       <fieldset>
+                          <!--titulo del objetivo general-->
+                          <legend>Objetivo 1</legend>
+                           <div class="form-group">
+                            <label for="titulo">Titulo:</label>
+                            <input class="form-control" type="text" id="titulo">
+                           </div>
+                           <!--campo para la descripcion del objetivo general-->
+                           <div class="form-group">
+                             <label for="descripcion">Descripcion:</label>
+                             <textarea class="form-control"name="" id="descripcion" cols="100" rows="5"></textarea>
+                           </div>
+                           <!--div para añadir nuevos objetivos generales-->                           
+                           <div id="obj_general">   </div>
+                       </fieldset>
+                     </div>
+                    <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_general');">
+
+                </form>
+                    
+                <br>
+                <legend id="separador"><h3>OBJETIVOS ESPECIFICOS</h3></legend> <!--campos para ingresar los objetivos especificos-->
+                <form name="formPg4" method="post" action="#">
+                     <div class="container-fluid" id="objetivoE">
+                       <fieldset>
+                          <!--titulo del objetivo especifico -->
+                          <legend>Objetivo 1</legend>
+                           <div class="form-group">
+                            <label for="nombre">Titulo:</label>
+                            <input class="form-control" type="text" id="titulo">
+                           </div>
+                           <!--descripcion del objetivo especifico-->
+                           <div class="form-group">
+                             <label for="codigo">Descripcion:</label>
+                             <textarea class="form-control" name="descripcion" cols="100" rows="5"></textarea>
+                           </div>
+                       </fieldset>
+                        <!--div para añadir nuevos objetivos especificos-->
+                        <div id="obj_especifico"> </div>
+                     </div>
+                     
+                   <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_especifico');">
+
+                </form>
+                <!--Fin Parte 3-->
+                  
+
+                <strong><h2>SELECCION Y ORGANIZACION DE CONTENIDOS</h2></strong>
+                 <br>
+                 <div class="container-fluid" id="unidad">
+                 <form name="formPg5" method="post" action="#">
+                     <fieldset>
+                        <legend>Unidad 1</legend>  
+                         <div class="form-group">
+                            <label for="nombre">Titulo de la unidad:</label> <!--Titulo de la unidad que tendra el temario para la materia-->
+                            <input class="form-control" type="text" id="titulo" required>
+                         </div>
+                         <div class="form-group">
+                           <label for="codigo">Objetivo:</label><!--campo para describir la unidad de avance de una materia-->
+                           <textarea class="form-control"name="" id="Objetivo" cols="100" rows="3"></textarea>
+                         </div>
+                        <div class="container-fluid" id="contenido">
+                         <form name="formPg6" method="post" action="#">
+                             <fieldset>
+                                <legend>CONTENIDO</legend>
+                                <div class="container-fluid" id="capitulos">
+                                   <form name="formPg7" method="post" action="#">
+                                     <fieldset>
+                                        <legend>Capitulo 1</legend>
+                                         <div class="form-group">
+                                          <label for="nombre">Titulo del capitulo:</label><!--titulo de los capitulos de una unidad-->
+                                          <input class="form-control" type="text" id="tituloCapitulo" required>
+                                         </div>
+
+                                         <div class="form-group col-md-6 col-md-offset-3">
+                                           <label for="codigo">Subtitulo:</label> <!--subtemas que tendra una unidad-->
+                                           <input class="form-control" type="text" id="subtitulo" required>
+                                           <br>
+                                           
+                                           <!--boton para añadir nuevos subtitulos a un capitulo del temario-->
+                                           <input class="btn btn-primary" type="button" value="Añadir Subtitulo" onClick="addInput('new_subtitulo');">
+                                         </div>
+
+                                     </fieldset>
+                                  </form>
+                                </div>
+                             </fieldset>
+                             <br>
+                             <div id="new_contenido"> </div>
+                             <!--boton para añadir mas capitulo a un unidad-->
+                             <input class="btn btn-primary" type="button" value="Añadir Capitulo">
+                            <br><br>      
+                        </form>
+                        </div>
+                     </fieldset>
+                </form> 
+                  <br>
+                  <!--boton para añadir una nueva unidad de una materia-->
+                  <button class="submit btn btn-primary" type="submit">Añadir Unidad</button>
+                  <br><br>
+                </div>
+                <!--Fin parte 4-->
+
+
+                 <legend id="separador"><h2>METODOLOGIAS</h2></legend>
+                 <!--campo para ingresara las metologias que se usaran para dictar una materia-->
+                 <textarea class="form-control"name="" id="metodologias" cols="100" rows="10"></textarea>
+                 <br>
+                  
+                 <legend id="separador"><h2>Cronograma o Duracion en periodos academicos por Unidad</h2></legend>
+                 <div class="panel panel-default">
+                 <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered" >
+                        <tr><!--nombre de las columnas de la tabla para el cronograma-->
+                            <th>UNIDAD</th>
+                            <th>DURACION HRS. ACADEMICAS</th>
+                            <th>DURACION SEMANAS</th>
+                        </tr>
+                        <tr>
+                            <td>Programacion Orientada a Objetos</td>
+                            <td>22</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Elementos de Progamacion</td>
+                            <td>22</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Unidad ..3</td>
+                            <td>22</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Unidad ..4</td>
+                            <td>22</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                </div> 
+                </div>
+            
+                 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>
+                 <!--textarea para ingresar la informacion de criterio de evaluacion de una materia-->
+                 <textarea class="form-control"name="" id="criterios" cols="100" rows="10"></textarea>
+                 <br>
+                 <!--Fin parte 5-->
+
+
+                  
+                <legend id="separador"><h2>BIBLIOGRAFIA</h2></legend>
+                  
+                  <fieldset id="bibliografia"><!--seccion para ingresar bibliografia de apoyo para la materia-->
+                    <div class="container-fluid" id="add_biblio">
+                      <!--<form  name="formPg7" method="post" action="#">-->
+                         <div class="form-group"><!--titulo de la bibliografia-->
+                             <label for="nombre">Titulo Libro</label>
+                             <input class="form-control" type="text" id="tituloCap" required>
+                         </div>
+                         <div class="form-group"> <!--campo para ingresar el nombre del autor del libro-->
+                              <label for="codigo">Autor</label>
+                              <input class="form-control" type="text" id="descripcion" required>
+                         </div>
+                         <input class="btn btn-primary" type="button" value="añadir nueva bibliografia" onClick="newBiblio('add_bibliografia');">
+                        <!--</form>-->
+                      </div>
+                      <!--div para añadir nueva bibliografia--> 
+                      <div class="biblio_base"></div>
+                  </fieldset>
+                  <br>  
+                  <!--Fin parte 6-->
+
+
+
+                   <strong><h2>SECCIONES ADICIONALES</h2></strong>
+               <div class="container-fluid" id="new_seccion"> 
+               <fieldset>
+                  <legend>Seccion personalizada 1</legend>
+                  <div class="form-group">
+                           <label for="nombre">Titulo de la seccion</label>
+                           <input class="form-control" type="text" id="tituloSeccion" required>
+                  </div>
+                  <div class="form-group">
+                           <label for="nombre">Objetivo</label>
+                           <input class="form-control" type="text" id="objetivoNuevaSeccion" required>
+                  </div>
+                  <div class="container-fluid" id="new_contenido">
+                  <fieldset>
+                      <legend>CONTENIDO</legend>
+                       <fieldset>
+                         <div class="container-fluid" id="new_subtitulo">
+                          <form name="formPg6" method="post" action="#">
+                            <legend>Contenido 1</legend>
+                            <div class="form-group">
+                                 <label for="nombre">Titulo del contenido</label>
+                                 <input class="form-control" type="text" id="tituloContenido" required>
+                             </div>
+                             <div class="form-group">
+                                  <label for="codigo">Descripcion del contenido</label>
+                                  <textarea class="form-control" id="descripcionContenido" cols="100" rows="3" required></textarea>
+                             </div>
+                             <div class="form-group col-md-6 col-md-offset-3">
+                                  <label for="codigo">Subtitulo 1</label>
+                                  <input class="form-control" type="text" id="subtitulo1" required>
+                                  <br>
+                                  <button class="submit btn btn-primary" type="submit" required>Añadir subtitulo</button>
+                             </div>
+                          
+                           </form>
+                          </div> 
+                       </fieldset>
+                       <br>
+                       <button class="submit btn btn-primary" type="submit" required>Añadir contenido</button>
+                  </fieldset>
+                  </div>
+                  <br>
+                  <button class="submit btn btn-primary" type="submit" required>Añadir Contenido</button>
+               </fieldset>
+                 <br>
+                 <div class="container-fluid col-md-6 col-md-offset-3">
+                    <button class="submit btn btn-default" type="submit" required>Registrar Plan Global</button>                      
+                    <br><br>
+                 </div>
+               </div>
+               <!--Fin parte 7-->
+
+
 					 </fieldset>
                  </div>
                 </div>
@@ -341,8 +659,8 @@
      <div class="container-fluid" id="paginador">
             <nav>
             <ul class="pager"> <!--campo para los paginadores para pasar a la continuacion del formulario-->
-              <!-- <li class="previous disable"><a href="">&larr;anterior</a></li> -->
-              <li class="next"><a href="<?php echo BASE_URL; ?>planGlobal/registrar/2">siguiente &rarr;</a></li>
+              <!--<li class="next"><a href="<?php echo BASE_URL; ?>planGlobal/registrar/2">siguiente &rarr;</a></li>-->
+              <li class="next"><a href="#">siguiente &rarr;</a></li>
             </ul>
             </nav>
       </div>
@@ -357,16 +675,19 @@
           }
        </script>
   
+
+</div>
   <footer> 
     <!--Codigo para incluir el pie de pagina-->
     <?php 
        include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
     ?> <!--fin del codigo de pie de pagina-->  
   </footer>
-
-</div>
   <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/crear_input.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/add_bibliografia.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/checkbox.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
 
