@@ -9,6 +9,11 @@ header{
   bottom: 0;
   padding-bottom: 0px;
 
+  /*position: fixed;
+  height: 80px;
+  bottom: 0;
+  width: 100%;*/
+
 }
 
 #menu_vertical{
@@ -16,9 +21,10 @@ header{
   border: #FAF0F0 2px solid;
 }
 body{
-  padding-top: 10px;	
+  padding-top: 10px;  
   padding-bottom: 10px;
-  background-image: url(../imagen/fondo.jpg);
+  background: #071D55;
+  /*background-image: url(../imagen/fondo.jpg);*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -36,35 +42,51 @@ a.style1:visited {
   z-index:50%;
 }*/
 .panel-body {
-background:#B9F0C6;
+ background:#B9F0C6;
 }
 
 /*tabla materias*/
 #datos{
-  border: #E51111 2px solid;
-  background: #F8FBFB;
+  /*border: #E51111 2px solid;*/
+  background: #B9F0C6;
 }
 
 #capitulos {
-background:#F66868;
+border: #2c3e50 2px solid;  
+/*background:#F97D7D;*/
  
 }
+/*Formulario registro de materia*/
+#reg_materia{
+ border: #2c3e50 2px solid;
+ background: #9EEBF7;  
+}
+
+#nuevo{
+  border: #2c3e50 2px solid;
+  background: #FBF3F3;
+  /*border-radius: 10px 10px 10px 10px;*/
+
+}
 #new_subtitulo {
-background:#F66868;
+border: #2c3e50 2px solid;  
+/*background:#F66868;*/
 }
 
 #contenido {
-background:#9D48ED; 
-
+border: #2c3e50 2px solid;  
+/*background:#9D48ED; */
 }
 
 #unidad {
-background:#0AF864;
-
+ border: #2c3e50 2px solid;  
+ /*background:#0AF864;*/
 }
 
-#bibliografia{
-background:#9F6FF9;
+/*css para bibliografias*/
+#bibliografia{ 
+border: #2c3e50 2px solid;  
+/* background:#8289E0;*/
 }
 
 #separador{
@@ -72,13 +94,16 @@ background:#9F6FF9;
 }
 
 #new_contenido{
-background:#F66868; 
+  border: #2c3e50 2px solid;
+  /*background:#F66868;*/ 
 }
 
 #new_subtitulo{
-background:#9A58F3; 
+  border: #2c3e50 2px solid;
+ /*background:#9A58F3;*/ 
 }
 
 #new_seccion{
-background:#28F094; 
+  border: #2c3e50 2px solid;
+  /*background:#28F094;*/ 
 }
