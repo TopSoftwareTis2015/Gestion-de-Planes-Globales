@@ -7,7 +7,9 @@ class materiasModel extends Model{
 	}
 
 	public function getMaterias(){
-		$listaMaterias = $this->_db->query("select * from materia");
+		//$listaMaterias = $this->_db->query("select * from materia");
+		$listaMaterias = $this->_db->query("SELECT * FROM materia");
+
 
 		return $listaMaterias->fetchall();
 	}
@@ -19,12 +21,15 @@ class materiasModel extends Model{
 													':nombre' => $nombre_materia,
 													':codigo' => $codigo_materia,
 													':sigla' => $sigla_materia
-												));
+												));									
 	}
 
 	public function getMateria($campo, $valor){
-		$materia = $this->_db->query(
-			"select * from materia where $campo='$valor'");
+
+		//"SELECT * FROM materia WHERE nombre_materia LIKE '%"+valor+"%' "");
+		$materia = $this->_db->query( 
+		          "select * from materia where $campo='$valor'");
+
 
 		return $materia->fetch();
 	}
