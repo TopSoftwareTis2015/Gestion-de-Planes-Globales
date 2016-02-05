@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     03/02/2016 23:21:28                          */
+/* Created on:     04/02/2016 20:55:52                          */
 /*==============================================================*/
 
 
@@ -18,9 +18,9 @@ drop index CARGA_HORARIAS_PK;
 
 drop table CARGA_HORARIAS;
 
-drop index CARRERA_PK;
+drop index CARRERAS_PK;
 
-drop table CARRERA;
+drop table CARRERAS;
 
 drop index RELATIONSHIP_24_FK;
 
@@ -80,9 +80,9 @@ drop table PLANES_GLOBALES;
 
 drop index RELATIONSHIP_8_FK;
 
-drop index PLAN_DE_ESTUDIO_PK;
+drop index PLAN_DE_ESTUDIOS_PK;
 
-drop table PLAN_DE_ESTUDIO;
+drop table PLAN_DE_ESTUDIOS;
 
 drop index PREREQUISITO_PK;
 
@@ -177,19 +177,20 @@ ID_PG
 );
 
 /*==============================================================*/
-/* Table: CARRERA                                               */
+/* Table: CARRERAS                                              */
 /*==============================================================*/
-create table CARRERA (
+create table CARRERAS (
    NOMBRE               VARCHAR(30)          not null,
    TIPO                 VARCHAR(30)          not null,
    ANIO_CARRERA         INT4                 not null,
-   constraint PK_CARRERA primary key (NOMBRE)
+   HABILITADA_CARRERA   BOOL                 null,
+   constraint PK_CARRERAS primary key (NOMBRE)
 );
 
 /*==============================================================*/
-/* Index: CARRERA_PK                                            */
+/* Index: CARRERAS_PK                                           */
 /*==============================================================*/
-create unique index CARRERA_PK on CARRERA (
+create unique index CARRERAS_PK on CARRERAS (
 NOMBRE
 );
 
@@ -258,6 +259,7 @@ create table DOCENTES (
    NUMERO_FIJO_USUARIO  INT4                 null,
    NUMERO_MOVIL_USUARIO INT4                 not null,
    CORREO_USUARIO       VARCHAR(70)          not null,
+   HABILITADO_USUARIO   BOOL                 null,
    constraint PK_DOCENTES primary key (ID_USUARIO)
 );
 
@@ -435,6 +437,7 @@ create table PLANES_GLOBALES (
    JUSTIFICACION        VARCHAR(900)         not null,
    METODOLOGIAS         VARCHAR(500)         null,
    CRITERIOS_EVALUACION VARCHAR(900)         null,
+   HABILITADO_PLAN_GLOBAL BOOL                 null,
    constraint PK_PLANES_GLOBALES primary key (ID_PG)
 );
 
@@ -446,27 +449,28 @@ ID_PG
 );
 
 /*==============================================================*/
-/* Table: PLAN_DE_ESTUDIO                                       */
+/* Table: PLAN_DE_ESTUDIOS                                      */
 /*==============================================================*/
-create table PLAN_DE_ESTUDIO (
+create table PLAN_DE_ESTUDIOS (
    CODIGO_PLAN_ESTUDIO  INT4                 not null,
    NOMBRE               VARCHAR(30)          null,
    NUMERO_MATERIAS      INT4                 not null,
    GESTION_PLAN_ESTUDIO VARCHAR(8)           not null,
-   constraint PK_PLAN_DE_ESTUDIO primary key (CODIGO_PLAN_ESTUDIO)
+   HABILITADO_PLAN_ESTUDIO BOOL                 null,
+   constraint PK_PLAN_DE_ESTUDIOS primary key (CODIGO_PLAN_ESTUDIO)
 );
 
 /*==============================================================*/
-/* Index: PLAN_DE_ESTUDIO_PK                                    */
+/* Index: PLAN_DE_ESTUDIOS_PK                                   */
 /*==============================================================*/
-create unique index PLAN_DE_ESTUDIO_PK on PLAN_DE_ESTUDIO (
+create unique index PLAN_DE_ESTUDIOS_PK on PLAN_DE_ESTUDIOS (
 CODIGO_PLAN_ESTUDIO
 );
 
 /*==============================================================*/
 /* Index: RELATIONSHIP_8_FK                                     */
 /*==============================================================*/
-create  index RELATIONSHIP_8_FK on PLAN_DE_ESTUDIO (
+create  index RELATIONSHIP_8_FK on PLAN_DE_ESTUDIOS (
 NOMBRE
 );
 
@@ -605,7 +609,7 @@ alter table CARGA_HORARIAS
 
 alter table CICLOS
    add constraint FK_CICLOS_RELATIONS_PLAN_DE_ foreign key (CODIGO_PLAN_ESTUDIO)
-      references PLAN_DE_ESTUDIO (CODIGO_PLAN_ESTUDIO)
+      references PLAN_DE_ESTUDIOS (CODIGO_PLAN_ESTUDIO)
       on delete restrict on update restrict;
 
 alter table CONTENIDOS_SECCION
@@ -653,9 +657,9 @@ alter table OBJETIVOS_GENERALES
       references PLANES_GLOBALES (ID_PG)
       on delete restrict on update restrict;
 
-alter table PLAN_DE_ESTUDIO
-   add constraint FK_PLAN_DE__RELATIONS_CARRERA foreign key (NOMBRE)
-      references CARRERA (NOMBRE)
+alter table PLAN_DE_ESTUDIOS
+   add constraint FK_PLAN_DE__RELATIONS_CARRERAS foreign key (NOMBRE)
+      references CARRERAS (NOMBRE)
       on delete restrict on update restrict;
 
 alter table PREREQUISITO
