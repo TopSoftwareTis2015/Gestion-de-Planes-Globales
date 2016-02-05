@@ -72,8 +72,46 @@
                 value="<?php if(isset($this->materiaAnterior['sigla_materia'])) echo $this->materiaAnterior['sigla_materia'];?>"><br>
                 <span id="errorSiglaMateria" class="label label-danger"><?php if(isset($this->_errorSiglaMateria)) echo $this->_errorSiglaMateria; ?></span><br>
                 
+								<input type="checkbox" <?php if(isset($this->materiaAnterior['habilitada_materia'])) echo $this->materiaAnterior['habilitada_materia']?"checked":"";?> 
+									id="habilitada" name="habilitada" data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
+									data-baseurl-eliminar="<?php echo BASE_URL; ?>materias/eliminar"
+									data-baseurl-dar-de-alta="<?php echo BASE_URL; ?>materias/dar_de_alta"
+									data-codigo-materia="<?php if(isset($this->materiaAnterior['codigo_materia'])) echo $this->materiaAnterior['codigo_materia']; ?>"> &nbsp; 
+								<strong><label for="habilitada">habilitada</label></strong><br><br>
+
                 <button class="submit btn-primary" type="submit">Guardar Cambios</button>
             </div>
+
+
+						<div class="modal fade" id="modalNoSePuedeEliminar"> <!--div contenedor de la ventana emergente de eliminacion de materia-->
+                   <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
+                     <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
+                       
+                       <!--Cabecera de la ventana-->
+                       <div class="modal-heder">
+                         <!--Boton para cerrar la ventana emergente-->
+                         <button type="button" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
+                         <!--Titulo del formulario de registro de materia-->
+                         <h5 class="modal-title"> No se puede eliminar esta materia, esta asignada a un Plan de Estudios vigente.</h5>
+                       </div>
+
+                         <!--Contenido de la ventana-->
+                         <div class="modal-body">
+                           <div id="nuevo">
+                                    <div class="row col-xs-12 col-sm-8 col-md-12">
+                                        <button class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Aceptar</button>                                
+                                    </div>
+                            </div> 
+                         </div> 
+
+                          <!--footer de la ventana-->
+                          <div class="modal-footer">  </div>
+                        
+                       </div>                      
+                     </div>
+                   </div>
+                    <!--Fin del mensaje para eliminar-->
+
         </div>
      </form>
     </div> <!--fin del formulario para materia-->
@@ -91,8 +129,9 @@
   </div>
    
 	<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
-	<script src="<?php echo BASE_URL; ?>public/js/jquery.js"></script>
+	<script src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
 	<script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>views/materias/js/materias.js"></script>
  </div>	 
  
 </body>

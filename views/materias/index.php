@@ -118,11 +118,18 @@
             <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
             <td><?php echo $this->materias[$i]['sigla_materia']; ?></td>
              <!--Boton para editar una materia -->
-            <td><a href="javascript:editarMateria();"class="btn btn-primary" role="button">
+            <td>
+              <a class="btn btn-primary" role="button"
+                  href = "<?php echo BASE_URL . 'materias/editar/' . $this->materias[$i]['codigo_materia']; ?>">
                 <span class="glyphicon glyphicon-edit"></span></a>
              <!--Boton para eliminar una materia -->  
-            <a href:"javascript:eliminarMateria();" class="btn btn-primary" role="button">
+            <a class="btn btn-primary" role="button"
+                  data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
+                  data-valor="<?php echo $this->materias[$i]['codigo_materia']; ?>"
+                  onclick = "confirmarEliminacion('<?php echo BASE_URL; ?>materias/verificar_eliminar',
+                                                  '<?php echo $this->materias[$i]['codigo_materia']; ?>');">
                 <span class="glyphicon glyphicon-remove-circle"></span></a>
+                <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
           </tr>
 
           <?php
@@ -149,7 +156,7 @@
               
 
              
-                <div class="modal fade" id="eliminar_materia"> <!--div contenedor de la ventana emergente de registro de materia-->
+                <div class="modal fade" id="eliminar_materia" > <!--div contenedor de la ventana emergente de registro de materia-->
                    <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                      <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
                        
@@ -168,7 +175,9 @@
                                 <div class="container-fluid">
                                     <div class="row col-xs-12 col-sm-8 col-md-12">
                                         <button class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Cancelar</button>                
-                                        <button class="btn btn-primary" type="button" id="confirmarEliminar" data-baseurl="<?php echo BASE_URL; ?>materias/eliminar">Eliminar</button>                
+                                        <button class="btn btn-primary" type="button" id="confirmarEliminar" 
+                                        data-baseurl="<?php echo BASE_URL; ?>materias/eliminar/"
+                                        >Eliminar</button>                
                                     </div>
                                 </div>
                              </form>
