@@ -9,6 +9,8 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"> 
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.css"> 
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
   
 </head>
@@ -97,10 +99,11 @@
           <thead>
           <tr>
                 <!--nombres de las columnas de la tabla de materias-->
-                <th></th>
-	    			    <th>CODIGO</th>
+                
+	        <th>CODIGO</th>
                 <th>NOMBRE MATERIA</th>
                 <th>SIGLA</th>
+                <th>ACCIONES</th>
     			</tr>
         </thead>
 
@@ -111,10 +114,15 @@
               for ($i=0; $i < count($this->materias); $i++) { ?>
 
           <tr>
-            <td><input type="checkbox" value="<?php echo $this->materias[$i]['codigo_materia']; ?>"></td>
             <td><?php echo $this->materias[$i]['codigo_materia']; ?></td>
             <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
             <td><?php echo $this->materias[$i]['sigla_materia']; ?></td>
+             <!--Boton para editar una materia -->
+            <td><a href="javascript:editarMateria();"class="btn btn-primary" role="button">
+                <span class="glyphicon glyphicon-edit"></span></a>
+             <!--Boton para eliminar una materia -->  
+            <a href:"javascript:eliminarMateria();" class="btn btn-primary" role="button">
+                <span class="glyphicon glyphicon-remove-circle"></span></a>
           </tr>
 
           <?php
@@ -138,21 +146,9 @@
                      <strong>Agregar Materia</strong>
                    </a>
               </div>
-               
-              <!--Boton para editar una materia -->
-              <div class="col-xs-4">
-                <a role="button" class="btn btn-primary" id="btnEditar" data-baseurl="<?php echo BASE_URL; ?>materias/editar">
-                  <strong>Editar Materia</strong> 
-                </a>
+              
 
-              </div>
-
-              <!--Boton para eliminar una materia -->
-              <div class="col-xs-4"> 
-                <a role="button" class="btn btn-primary" id="btnEliminar" data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar">
-                   <strong>Eliminar Materia</strong>
-                </a>
-
+             
                 <div class="modal fade" id="eliminar_materia"> <!--div contenedor de la ventana emergente de registro de materia-->
                    <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                      <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
