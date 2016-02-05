@@ -15,6 +15,4 @@ class planGlobalController extends Controller{
 		$this->_view->renderizar('registrarPG' . $pagina[0]);
 	}
 }
-
-
  ?>

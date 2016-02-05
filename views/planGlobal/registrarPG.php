@@ -478,22 +478,23 @@
                          <form name="formPg6" method="post" action="#">
                              <fieldset>
                                 <legend>CONTENIDO</legend>
-                                <div class="container-fluid" id="capitulos">
+                                <div class="container-fluid" id="capitulo">
                                    <form name="formPg7" method="post" action="#">
-                                     <fieldset>
+                                     <fieldset id="capi">
                                         <legend>Capitulo 1</legend>
                                          <div class="form-group">
                                           <label for="nombre">Titulo del capitulo:</label><!--titulo de los capitulos de una unidad-->
                                           <input class="form-control" type="text" id="tituloCapitulo" required>
                                          </div>
 
-                                         <div class="form-group col-md-6 col-md-offset-3">
+                                         <div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo1">
                                            <label for="codigo">Subtitulo:</label> <!--subtemas que tendra una unidad-->
                                            <input class="form-control" type="text" id="subtitulo" required>
                                            <br>
                                            
                                            <!--boton para añadir nuevos subtitulos a un capitulo del temario-->
-                                           <input class="btn btn-primary" type="button" value="Añadir Subtitulo" onClick="addInput('new_subtitulo');">
+                                           <input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2('new_subtitulo',1);">
+                                            <br>
                                          </div>
 
                                      </fieldset>
@@ -503,7 +504,7 @@
                              <br>
                              <div id="new_contenido"> </div>
                              <!--boton para añadir mas capitulo a un unidad-->
-                             <input class="btn btn-primary" type="button" value="Añadir Capitulo">
+                             <input class="btn btn-primary" type="button" value="Añadir Capitulo" onClick="addInput3('new_capitulo');">
                             <br><br>      
                         </form>
                         </div>
