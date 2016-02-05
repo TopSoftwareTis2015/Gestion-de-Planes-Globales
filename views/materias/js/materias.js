@@ -1,7 +1,7 @@
-
+$(document).ready(function(){
 	$("#btnEliminar").click(function(){
 		var valor = getSeleccionado($('#datos input[type=checkbox]'));
-		confirmarEliminacion(valor, "#eliminar_materia");
+		confirmarEliminacion(valor, "#eliminar_materia", this.dataset.baseurl);
 	});
 	$("#btnEditar").click(function(){
 		var valor = getSeleccionado($('#datos input[type=checkbox]'));
@@ -26,12 +26,24 @@ function getSeleccionado(arrayCheck){
 	return valor;
 }
 
-function confirmarEliminacion(valor, modalDialog){
-	if(valor!=null)
-		$(modalDialog).modal('show');
+function confirmarEliminacion(valor, modalDialog, baseurl){
+	if(valor!=null){
+		$.ajax({
+			url: baseurl+"/"+valor,
+			type: 'POST',
+			success: function(result){
+				if(result == "0")
+					$('#modalNoSePuedeEliminar').modal('show');
+				else
+					$(modalDialog).modal('show');
+			}
+		});
+	}
 	else
 		alert("Seleccione una materia de la lista!");
 }
+
+
 
 function confirmarEdicion(valor, paginaEdicion){
 	if(valor!=null)

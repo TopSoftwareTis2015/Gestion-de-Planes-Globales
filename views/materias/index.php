@@ -13,7 +13,6 @@
   
 </head>
 <body>
-
 <div class="container">
 
 	<header> <!--Cabecera del sistema web -->
@@ -150,7 +149,7 @@
 
               <!--Boton para eliminar una materia -->
               <div class="col-xs-4"> 
-                <a role="button" class="btn btn-primary" id="btnEliminar">
+                <a role="button" class="btn btn-primary" id="btnEliminar" data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar">
                    <strong>Eliminar Materia</strong>
                 </a>
 
@@ -177,6 +176,35 @@
                                     </div>
                                 </div>
                              </form>
+                            </div> 
+                         </div> 
+
+                          <!--footer de la ventana-->
+                          <div class="modal-footer">  </div>
+                        
+                       </div>                      
+                     </div>
+                   </div>
+                    <!--Fin del mensaje para eliminar-->
+
+                  <div class="modal fade" id="modalNoSePuedeEliminar"> <!--div contenedor de la ventana emergente de eliminacion de materia-->
+                   <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
+                     <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
+                       
+                       <!--Cabecera de la ventana-->
+                       <div class="modal-heder">
+                         <!--Boton para cerrar la ventana emergente-->
+                         <button type="button" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
+                         <!--Titulo del formulario de registro de materia-->
+                         <h5 class="modal-title"> No se puede eliminar esta materia, esta asignada a un Plan de Estudios vigente.</h5>
+                       </div>
+
+                         <!--Contenido de la ventana-->
+                         <div class="modal-body">
+                           <div id="nuevo">
+                                    <div class="row col-xs-12 col-sm-8 col-md-12">
+                                        <button class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Aceptar</button>                                
+                                    </div>
                             </div> 
                          </div> 
 

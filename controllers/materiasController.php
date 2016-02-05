@@ -37,6 +37,12 @@ class materiasController extends Controller{
 		$this->redireccionar('materias');
 	}
 
+	public function verificar_eliminar($codigo_materia){
+		if($this->_materiaDao->obtenerPlanEstudiosVigente($codigo_materia[0])){
+			echo 0;
+		}
+	}
+
 	public function editar($codigo_materia){
 		$materiaAnterior = $this->_materiaDao->getMateria('codigo_materia', $codigo_materia[0]);
 		if(!$materiaAnterior){
