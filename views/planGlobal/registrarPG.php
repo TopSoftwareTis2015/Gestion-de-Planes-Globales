@@ -567,8 +567,8 @@
                 <legend id="separador"><h2>BIBLIOGRAFIA</h2></legend>
                   
                   <fieldset id="bibliografia"><!--seccion para ingresar bibliografia de apoyo para la materia-->
-                    <div class="container-fluid" id="add_biblio">
-                      <!--<form  name="formPg7" method="post" action="#">-->
+                    <form  name="formPg7" method="post" action="#">
+                       <div class="container-fluid" id="add_biblio">
                          <div class="form-group"><!--titulo de la bibliografia-->
                              <label for="nombre">Titulo Libro</label>
                              <input class="form-control" type="text" id="tituloCap" required>
@@ -577,12 +577,12 @@
                               <label for="codigo">Autor</label>
                               <input class="form-control" type="text" id="descripcion" required>
                          </div>
-                         <input class="btn btn-primary" type="button" value="añadir nueva bibliografia" onClick="newBiblio('add_bibliografia');">
-                        <!--</form>-->
-                      </div>
-                      <!--div para añadir nueva bibliografia--> 
-                      <div class="biblio_base"></div>
+                          <!--div para añadir nueva bibliografia-->   
+                        </div>
+                      </form>
                   </fieldset>
+                          <div id="n_biblio">  </div>
+                         <input class="btn btn-primary" type="button" value="añadir bibliografia" onClick="addInput4('n_biblio');">
                   <br>  
                   <!--Fin parte 6-->
 
@@ -687,7 +687,6 @@
   <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/crear_input.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/add_bibliografia.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/checkbox.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
