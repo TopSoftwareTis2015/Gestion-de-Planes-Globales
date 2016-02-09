@@ -15,6 +15,7 @@
   
 </head>
 <body>
+<div id="cuadro">  
 <div class="container">
 
 	<header> <!--Cabecera del sistema web -->
@@ -85,24 +86,22 @@
 		 </div>
 	  </div>
 	 </nav> <!--fin del menu vertical -->
-        <div class="form-group"> <!--campo para visualizar el buscador -->
-        <div class="col-xs-4  text-right">
-        <label for="buscar" class="control-label">Buscar:</label>
-         </div>
-         <div class="col-xs-4">
-         <input  type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista_materias(this.value);" placeholder="Ingrese nombre o descripcion de la materia"/>
-        </div>
-        </div>
+         <center>
+        
+  <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"</div>
+       </center>
    <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
 	    <div class="container-fluid" id="cabecera">
             <h2><center>Lista de Materias</center></h2>  
 	    </div>
 
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
-    		<table class="table table-hover table-bordered" id="datos" >
-    			<!--Cabecera de la tabla de materias-->
+    	<div class="datagrid">
+        <table class="table table-hover table-bordered " "order-table" id="datos" >
+          <!--Cabecera de la tabla de materias-->
+          
           <thead>
-          <tr>
+          <tr class="titulo">
                 <!--nombres de las columnas de la tabla de materias-->
                 
 	        <th>CODIGO</th>
@@ -225,7 +224,7 @@
                      </div>
                    </div>
                     <!--Fin del mensaje para eliminar-->
-
+                 </div>
                  </div>
                  <!--Fin de la funcion de eliminar-->
 
