@@ -91,7 +91,7 @@
   <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"</div>
        </center>
    <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
-	    <div class="container-fluid" id="cabecera">
+	    <div class="container-fluid" >
             <h2><center>Lista de Materias</center></h2>  
 	    </div>
 
