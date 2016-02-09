@@ -8,10 +8,10 @@
   <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"> 
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.css"> 
-        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"> 
+
   
 </head>
 <body>
@@ -94,10 +94,8 @@
         </div>
         </div>
    <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
-	    <div class="container-fluid">
-          <div class="col-xs-12 col-sm-8 col-md-9"> <!-- titulo del contenido que se visualiza-->
+	    <div class="container-fluid" id="cabecera">
             <h2><center>Lista de Materias</center></h2>  
-          </div>
 	    </div>
 
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
@@ -160,9 +158,7 @@
                      <strong>Agregar Materia</strong>
                    </a>
               </div>
-              
 
-             
                 <div class="modal fade" id="eliminar_materia" > <!--div contenedor de la ventana emergente de registro de materia-->
                    <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                      <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
@@ -234,18 +230,20 @@
              </div> 
           </div>
           <!-- fin del DIV de los botones-->
+    
 
-    	</div>
+      </div><br>
       <!--Fin del div para el contenido--> 
-
+ 
   </section> <!--fin de la seccion donde esta el contenido -->
-  
+  <div class="container">
     <footer>
       <!--Codigo para incluir el pie de pagina-->
       <?php
         include ROOT .'views'.DS.'include'.DS.'pie_de_pagina.php'
       ?>  
     </footer>
+  </div> 
 
 </div>  
 

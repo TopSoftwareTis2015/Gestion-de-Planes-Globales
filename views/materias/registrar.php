@@ -89,7 +89,7 @@
         <!--Columna para el formulario de registro de materia-->
 	  	<div class="col-xs-12 col-sm-8 col-md-9">
 		  		
-		  		<div class="container-fluid" id="reg_materia"> <!-- titulo de la nueva ventana-->
+		  		<div class="container-fluid" id="cabecera"> <!-- titulo de la nueva ventana-->
 		            <h2 style=""><center>Registrar Materia</center></h2>  
 			    </div> <!-- fin del titulo-->
 	     		
@@ -117,15 +117,16 @@
 				                <span id="errorSiglaMateria" class="label label-danger"><?php if(isset($this->_errorSiglaMateria)) echo $this->_errorSiglaMateria; ?></span><br>
 				                 
 									<div class="row">
-										<div class="col-md-6">
-								                <button class="submit btn-primary btn-lg" type="submit">Registrar</button>						            						          					                  	
+										<div class="col-xs-6">
+								                <button class="btn btn-primary btn-lg" type="submit">Registrar</button>						            						          					                  	
 							            </div>  
-										<div class="col-md-6">
+										<div class="col-xs-6">
 									          <a role="button" class="btn btn-primary btn-lg" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
 								                  	Volver
 								              </a>	
-							            </div>
+								        </div>
 						           </div>
+						           <br>
 				            </div>
 				        </div>
 				     </form>

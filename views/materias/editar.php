@@ -45,10 +45,10 @@
 	 </nav>
 
      <article class="col-xs-12 col-sm-8 col-md-9">
-	    <div class="container-fluid"> <!-- titulo de la nueva ventana-->
-          <div class="col-xs-12 col-sm-8 col-md-9"> 
+	    <div class="container-fluid" id="cabecera"> <!-- titulo de la nueva ventana-->
+          <!--<div class="col-xs-12 col-sm-8 col-md-9">--> 
             <h2><center>Editar Materia</center></h2>  
-          </div>
+          <!--</div>-->
 	    </div> <!-- fin del titulo-->
     	
    <div id="nuevo" > <!--formulario para editar datos de una materia-->
@@ -79,7 +79,16 @@
 									data-codigo-materia="<?php if(isset($this->materiaAnterior['codigo_materia'])) echo $this->materiaAnterior['codigo_materia']; ?>"> &nbsp; 
 								<strong><label for="habilitada">habilitada</label></strong><br><br>
 
-                <button class="submit btn-primary" type="submit">Guardar Cambios</button>
+                <div class="row clearfix">
+                    <div class="col-xs-6">
+                       <button class="btn btn-primary btn-lg" type="submit">Guardar Cambios</button>                                                                            
+                    </div>  
+                    <div class="col-xs-6">
+                         <a role="button" class="btn btn-primary btn-lg" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
+                             Volver
+                         </a>  
+                    </div>
+                </div> <br>
             </div>
 
 

@@ -20,6 +20,7 @@ header{
   background: #6EEEF0;
   border: #FAF0F0 2px solid;
 }
+
 body{
   padding-top: 10px;  
   padding-bottom: 10px;
@@ -56,8 +57,8 @@ border: #2c3e50 2px solid;
 /*background:#F97D7D;*/
  
 }
-/*Formulario registro de materia*/
-#reg_materia{
+/*Para los titulos de los Formularios de materia*/
+#cabecera{
  border: #2c3e50 2px solid;
  background: #9EEBF7;  
 }

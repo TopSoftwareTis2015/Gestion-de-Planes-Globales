@@ -1,3 +1,23 @@
+
+<?php
+//Conexion Base de datos
+$user = "postgres";
+$password = "postgres";
+$dbname = "planGlobal";
+$port = "5432";
+$host = "localhost";
+
+$cadenaConexion = "host=$host port=$port dbname=$dbname user=$user password=$password";
+
+$conexion = pg_connect($cadenaConexion) or die("Error en la Conexión: ".pg_last_error());
+
+$query = 'SELECT id_usuario, grupo FROM grupos';
+$resultado = pg_query( $query) or die("Error en la Consulta SQL");
+$numReg = pg_num_rows($resultado);
+
+pg_close($conexion);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +29,16 @@
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
 
+  <script>
+        function getComboA(sel) {
+            var value = sel.value;
+            var id = 'gMateria' + value;
+            var valor = document.getElementById(id);
+            var dato = valor.innerHTML;
+//            alert(dato);
+            window.location.href = "listaDocControlador.php?dato=" + dato;
+        }
+    </script>
     
 </head>
 <body>
@@ -47,7 +77,7 @@
         <!--div para el contenido de los elementos y enlaces que tendra el menu horizontal los cuales seran visualidados en los desktop-->
         <div class="collapse navbar-collapse" id="menu_horizontal">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
+            <li><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
             <li><a href="#">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
@@ -116,13 +146,13 @@
                   </div>  
                  </div>
 
-                   <div class=row>
+                   <div class="row">
                     <div class="col-xs-12">     
                      <fieldset>
             <legend id="separador">Datos de Identificacion</legend>
 					  	
-                        <div class=row>
-                          <div class="col-xs-12">
+                        <div class="row">
+                          <div class="col-xs-9 col-md-12">
                             <div class="form-group">
                               <label for="nombre">Nombre de la Materia:</label>
                               <!--<input class="form-control" type="" id="nomMateria">-->
@@ -134,7 +164,7 @@
                           </div>
                         </div>
 
-                        <div class=row> 
+                        <div class="row"> 
                           <div class="col-xs-12">
                            <div class="form-group">
                              <label for="codigo">Codigo:</label>
@@ -158,53 +188,58 @@
                          	</tr>
                          	<tr>
                          	   <td>
-                                <!--lista con los grupos existentes de una materia-->
-                         	   	<select name="gruposMateria" id="sel1" style="width:250px" size="6">
-                         	   		<option value="1">Grupo1</option>
-                         	   		<option value="2">Grupo2</option>
-                         	   		<option value="3">Grupo3</option>
-                         	   		<option value="4">Grupo4</option>
-                         	   	</select>
+                              <!--lista con los grupos existentes de una materia-->
+                         	   	<!--lista con los grupos existentes de una materia-->
+                               <select name="gruposMateria" id="sel1" style="width:250px" size="6">
+                                <?php
+                                        if($numReg>0){
+                                            while ($fila=pg_fetch_array($resultado)) {
+                                                echo "<option value='1'>Grupo ".$fila['grupo']."</option>";
+                                            }
+                                        }else{
+                                            echo "<option>No hay Registros</option>";
+                                        }
+                                    ?>
+                               </select>
 
-                              <!-- script para seleccionar los grupos participantes en el plan global de una materia-->
-                         	   <script language="javascript">
-							    function pasar(de,a) {
-								obj=document.getElementById(de);
-								obj2=document.getElementById(a);
-		
-						       for (i=0; opt=obj.options[i]; i++)
-    							if (opt.selected) {
-							    	valor=opt.value; // almacenar value
-							    	txt=obj.options[i].text; // almacenar el texto
-    	
-										if (obj.options.length==1){
-											obj.options[i].text="-";	
-											obj.options[i].value="-";	
-										}else{
-											obj.focus();
-											obj.options[i]=null;			
-										}	 
-	  		
-      							if (obj2.options[0].value=='-') // si solo está la opción inicial borrarla
-							        obj2.options[0]=null;
-								
-								if(valor!='-'){
-						    		opc = new Option(txt,valor);
-					    			eval(obj2.options[obj2.options.length]=opc);
-								}
-							
-					         }
-							 
-							 if (obj.options.length<=0){
-								opc = new Option("-","");
-								eval(obj.options[0]=opc);
-								 return;
-							} 
-				           }
-						  
-
-						  </script>
-                         	   </td>
+                         	  </td>
+                            <!-- script para seleccionar los grupos participantes en el plan global de una materia-->
+                             <script language="javascript">
+                                function pasar(de,a) {
+                                 obj=document.getElementById(de);
+                                 obj2=document.getElementById(a);
+                    
+                                   for (i=0; opt=obj.options[i]; i++)
+                                    
+                                    if (opt.selected) {
+                                      valor=opt.value; // almacenar value
+                                      txt=obj.options[i].text; // almacenar el texto
+                      
+                                      if (obj.options.length==1){
+                                        obj.options[i].text="-";  
+                                        obj.options[i].value="-"; 
+                                      }else{
+                                        obj.focus();
+                                        obj.options[i]=null;      
+                                      }  
+                          
+                                      if (obj2.options[0].value=='-'){ // si solo está la opción inicial borrarla
+                                        obj2.options[0]=null;
+                                      }  
+                                  
+                                      if(valor!='-'){
+                                        opc = new Option(txt,valor);
+                                        eval(obj2.options[obj2.options.length]=opc);
+                                      }
+                                    }
+                               
+                                    if (obj.options.length<=0){
+                                      opc = new Option("-","");
+                                      eval(obj.options[0]=opc);
+                                      return;
+                                    } 
+                                }
+                              </script>
                          	   
                          	   <td>
                                <!--botones para activar el script y pasar los datos de los grupos que participaran en el plan global-->
@@ -240,56 +275,55 @@
                          	</tr>
                          	<tr>
                          	   <td>
-                                <!--lista con todos los docentes designados a una materia-->
+                              <!--lista con todos los docentes designados a una materia-->
                          	   	<select name="gruposMateria" id="sel3" style="width:250px" size="6">
                          	   		<option value="1">Lic. Leticia Blanco</option>
                          	   		<option value="2">Lic. Rosmary Torrico</option>
-                         	   	</select>
-                                
-                                <!-- script para seleccionar los docente que participaran en el plan global de una materia-->
-                                <script language="javascript">
-							    function pasar(de,a) {
-								obj=document.getElementById(de);
-								obj2=document.getElementById(a);
-		
-						       for (i=0; opt=obj.options[i]; i++)
-    							if (opt.selected) {
-							    	valor=opt.value; // almacenar value
-							    	txt=obj.options[i].text; // almacenar el texto
-    	
-										if (obj.options.length==1){
-											obj.options[i].text="-";	
-											obj.options[i].value="-";	
-										}else{
-											obj.focus();
-											obj.options[i]=null;			
-										}	 
-	  		
-      							if (obj2.options[0].value=='-') // si solo está la opción inicial borrarla
-							        obj2.options[0]=null;
-								
-								if(valor!='-'){
-						    		opc = new Option(txt,valor);
-					    			eval(obj2.options[obj2.options.length]=opc);
-								}
-							
-					         }
-							 
-							 if (obj.options.length<=0){
-								opc = new Option("-","");
-								eval(obj.options[0]=opc);
-								 return;
-			    				} 
-		     		           }
-	     					  </script><!-- Fin del script-->
+                              </select>  
+                             </td>
 
-                              </td>
+                               <!-- script para seleccionar los docente que participaran en el plan global de una materia-->
+                               <script language="javascript">
+                                function pasar(de,a) {
+                                  obj=document.getElementById(de);
+                                  obj2=document.getElementById(a);
+                    
+                                  for (i=0; opt=obj.options[i]; i++)
+                                    if (opt.selected) {
+                                      valor=opt.value; // almacenar value
+                                      txt=obj.options[i].text; // almacenar el texto
+                      
+                                      if (obj.options.length==1){
+                                        obj.options[i].text="-";  
+                                        obj.options[i].value="-"; 
+                                      }else{
+                                        obj.focus();
+                                        obj.options[i]=null;      
+                                      }  
+                        
+                                      if (obj2.options[0].value=='-'){ // si solo está la opción inicial borrarla
+                                        obj2.options[0]=null;
+                                      }
+
+                                      if(valor!='-'){
+                                        opc = new Option(txt,valor);
+                                        eval(obj2.options[obj2.options.length]=opc);
+                                      }
+                                    }
+                               
+                                    if (obj.options.length<=0){
+                                       opc = new Option("-","");
+                                       eval(obj.options[0]=opc);
+                                       return;
+                                    } 
+                                }
+                                </script> <!-- Fin del script-->
                          	   
                          	   <td>
                                 <!--botones para activar el script y pasar los datos de los docente que participaran en el plan global-->
-                         	   	<input type="button" name="pasarValor1" onclick="pasar('sel3','sel4')" value="-->>">
-                         	   	<br><br>
-                         	   	<input type="button" name="pasarValor2" onclick="pasar('sel4','sel3')" value="<<--">
+                         	    	<input type="button" name="pasarValor1" onclick="pasar('sel3','sel4')" value="-->>">
+                         	   	  <br><br>
+                         	   	  <input type="button" name="pasarValor2" onclick="pasar('sel4','sel3')" value="<<--">
                          	   </td>
 
                          	   <td>
@@ -304,7 +338,7 @@
                          </table>
                         </div> <!--fin de la tabla de los docente pertenecientes a una materia en comun-->
                          
-                        <div class=row> <!-- campo para añadir telefono-->
+                        <div class="row"> <!-- campo para añadir telefono-->
                           <div class="col-xs-12">
                            <div class="form-group ">
                     	     <label for="telefono">Telefono:</label>
@@ -313,7 +347,7 @@
                           </div>
                         </div>
 
-                        <div class=row> <!-- campo para añadir correo-->
+                        <div class="row"> <!-- campo para añadir correo-->
                           <div class="col-xs-12">
                            <div class="form-group ">
                               <label for="correo">Correo:</label>
@@ -325,88 +359,85 @@
                        
 
                         <!--Parte 2-->
-                        <legend id="separador">Datos de Identificacion</legend> <!--titulo del fieldset-->
+                        <legend id="separador">Carga Horaria</legend> <!--titulo del fieldset-->
                          
                          <div class="form-group"><!--titulo de la seccion del formulario-->
-                           <center> <label for="codigo"><h2>Carga Horaria</h2></label></center>
+                           <label for="codigo"><h3>Seleccione los items que entraran en su descripcion</h3></label>
                          </div>
-                            <legend id="separador">Seleccione los items que entraran en su descripcion</legend> 
+                         
+                         <div class="col-xs-6">  
                           <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en horas semestre-->
                             <div class="panel-body">
                                 <label for="titulo">Horas semestre</label>
                                 
                                 <div class="row">                               
-                                    <div class="col-xs-6">
-                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hSemestre');">
-                                        <input id="horaSemestre" type="number" value="0" name="hora_semestre" min="0" max="360" disabled>
-                                    </div>                                  
+                                    
+                                    <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hSemestre');">
+                                    <input id="horaSemestre" type="number" value="0" name="hora_semestre" min="0" max="360" disabled>
+                                                                      
                                 </div>
 
                             </div>
                           </div>    
 
-                          <div class="panel panel-default"><!--campo para seleccionar la duracion de una materia en horas teoricas y practica por semana-->
-                            <div class="panel-body">
-                                <label for="titulo">Horas teoricas por semana</label>
+                            <div class="panel panel-default"><!--campo para seleccionar la duracion de una materia en horas teoricas y practica por semana-->
+                              <div class="panel-body">
+                                  <label for="titulo">Horas teoricas por semana</label>
 
-                                  <div class="row">                             
-                                    <div class="col-xs-6">
-                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hTeorica');">
-                                        <input id="horaTeorica" type="number" value="0" name="horas_teorica_semana" min="0" max="360" disabled>
-                                    </div>                                  
-                                  </div>                            
-                                <br>
+                                    <div class="row">                                               
+                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hTeorica');">
+                                      <input id="horaTeorica" type="number" value="0" name="horas_teorica_semana" min="0" max="360" disabled>                                                                    
+                                    </div>                            
+                                  <br>
 
-                                <label for="titulo">Horas practicas por semana</label>
-                     
+                                  <label for="titulo">Horas practicas por semana</label>
+                                      <div class="row">                                                                 
+                                          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hPractica');">
+                                          <input id="horaPractica" type="number" value="0" name="horas_practica_semana" min="0" max="360" disabled>                                                                         
+                                      </div>                                  
+                              </div>
+                            </div>   
+
+                        </div> 
+                        <!--Fin de la primera columna de la carga horaria-->
+
+                        <div class="col-xs-6">  
+                            <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos por semana-->
+                              <div class="panel-body">
+                                  <label for="titulo">Periodos por semana</label>
+                                  <div class="row">                               
+                                      <!--<div class="col-xs-6">-->
+                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pSemana');">
+                                      <input id="periodoSemana" type="number" value="0" name="periodo_semana" min="0" max="360" disabled>
+                                      <!--</div>-->                                  
+                                    </div>
+                              </div>
+                            </div>    
+                          
+                            <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos teoricas y practicas por semana-->
+                              <div class="panel-body">
+                                  <label for="titulo">Periodos teoricos por semana</label>
                                     <div class="row">                               
-                                        <div class="col-xs-6">
-                                            <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hPractica');">
-                                            <input id="horaPractica" type="number" value="0" name="horas_practica_semana" min="0" max="360" disabled>
-                                        </div>                                  
-                                    </div>                  
-                    
+                                      
+                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pTeorico');">
+                                      <input id="periodoTeorico" type="number" value="0" name="periodo_teorico_semana" min="0" max="360" disabled>                                  
+                                    </div>
+                                  <br>
 
-                            </div>
-                          </div>    
-
-                          <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos por semana-->
-                            <div class="panel-body">
-                                <label for="titulo">Periodos por semana</label>
-                                <div class="row">                               
-                                    <div class="col-xs-6">
-                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pSemana');">
-                                        <input id="periodoSemana" type="number" value="0" name="periodo_semana" min="0" max="360" disabled>
-                                    </div>                                  
+                                  <label for="titulo">Periodos practicos por semana</label>
+                                  <div class="row">                               
+                                      
+                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pPractico');">
+                                      <input id="periodoPractico" type="number" value="0" name="periodo_practico_semana" min="0" max="360" disabled>                                                                     
                                   </div>
+                              </div>                            
                             </div>
-                          </div>    
 
-                          <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos teoricas y practicas por semana-->
-                            <div class="panel-body">
-                                <label for="titulo">Periodos teoricos por semana</label>
-                                <div class="row">                               
-                                    <div class="col-xs-6">
-                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pTeorico');">
-                                        <input id="periodoTeorico" type="number" value="0" name="periodo_teorico_semana" min="0" max="360" disabled>
-                                    </div>                                  
-                                  </div>
-                                <br>
-
-                                <label for="titulo">Periodos practicos por semana</label>
-                                <div class="row">                               
-                                    <div class="col-xs-6">
-                                        <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pPractico');">
-                                        <input id="periodoPractico" type="number" value="0" name="periodo_practico_semana" min="0" max="360" disabled>
-                                    </div>                                  
-                                  </div>
-                            </div>
-                          </div> 
+                        </div>    
                         <!--Fin Parte 2-->
 
 
                 <!--Parte 3-->
-                <h1><strong><center>Registrar Plan global</center></strong></h1>
                  <legend id="separador"><h3>JUSTIFICACION</h3></legend><!--seccion para ingresar la informacion de justificacion del plan global dentro de un textarea-->
                  <textarea class="form-control"name="" id="justificacion" cols="100" rows="10"></textarea>
                  <br>
@@ -455,7 +486,7 @@
                      </div>
                      
                    <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_especifico');">
-
+                                     
                 </form>
                 <!--Fin Parte 3-->
                   
@@ -588,7 +619,7 @@
 
 
 
-                   <strong><h2>SECCIONES ADICIONALES</h2></strong>
+               <strong><h2>SECCIONES ADICIONALES</h2></strong>
                <div class="container-fluid" id="new_seccion"> 
                <fieldset>
                   <legend>Seccion personalizada 1</legend>
@@ -641,19 +672,14 @@
                <!--Fin parte 7-->
 
 
-					 </fieldset>
-                 </div>
-                </div>
-           
-
-				</form>
-
-           
+					   </fieldset>
+           </div>
+        </div>
+			 </form>      
      	
       </div> 	     		   
      </div>
-
-     		  
+  		  
      	</div>
      </article>
      
