@@ -109,9 +109,8 @@ border: #2c3e50 2px solid;
   /*background:#28F094;*/ 
 }
 #cuadro{
-  width: 100%;
-  background: #2c3e50;
-  color:#fff;;
+  width: 90%;
+  background: #F8F8F8 ;
   padding: 25px;
   margin: 5px auto;
   border: 3px solid #D8D8D8;
@@ -131,23 +130,21 @@ tbody tr:nth-child(odd) {
 }
 .titulo{
   padding: 0.5rem;
-  background: #2c3e50;
-  color:#fff;
+  background: #484848 ;
   color: white;
   text-align: center;
   font-size: 21px;
 }
 #buscar{
   width: 550px;
-  font-size: 20px;
+  font-size: 15px;
   color: #fff;
-  background: #2c3e50;
-  color:#fff;
-  padding-left:20px ;
+  background: #383838 ;
+  padding-left: 20px ;
   text-align: center;
   border-radius: 5px;
   padding: 10px;
-  margin:10px; 
+  margin:10px;  
 }
 input[type=search] { 
   color: black; text-align:left; width:400px; 
