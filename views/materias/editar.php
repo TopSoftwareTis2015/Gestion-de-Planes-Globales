@@ -8,6 +8,10 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"><!--hoja de estilo personalizado-->
+  <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
+  <script src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
+  <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
+  <script src="<?php echo BASE_URL; ?>views/materias/js/materias.js"></script>
 </head>
 
 <body>
@@ -137,11 +141,37 @@
 	  </footer>
   </div>
    
-	<!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
-	<script src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
-	<script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
-	<script src="<?php echo BASE_URL; ?>views/materias/js/materias.js"></script>
- </div>	 
+ </div>
+
+ <div class="modal fade" id="modalProcesoExitoso" data-keyboard="false" data-backdrop="static"> <!--div contenedor de la ventana emergente de registro de materia-->
+           <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
+               <div class="modal-content">
+                       <!--Cabecera de la ventana-->
+                       <!-- <div class="modal-header"> -->
+                         <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--Boton para cerrar la ventana emergente--> -->
+                       <!-- </div> -->
+                       
+                       <!--Contenido de la ventana-->
+                       <div class="modal-body"> 
+                         <div id="nuevo"> <!--formulario para regitrar los datos de una materia-->
+                           <h5 class="modal-title">Materia editada exitosamente!!</h5> <!--Titulo del formulario de registro de materia-->
+                         </div>
+                       </div> 
+
+                       <!--footer de la ventana-->
+                       <div class="modal-footer">
+                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button> -->
+                          <a href="<?php echo BASE_URL; ?>materias" class="btn btn-default">Aceptar</a>
+                       </div>
+                </div>
+            </div>
+        </div>	
+
+  <script>
+  if("<?php if(isset($this->procesoTerminado)) echo $this->procesoTerminado; else echo false; ?>"){
+    $("#modalProcesoExitoso").modal('show');
+  }
+  </script> 
  
 </body>
 
