@@ -1,0 +1,11 @@
+- En el formulario se debe ver como se manejara la gestion en la base de datos.
+- el area del titulo del plan Global debe ser automatico y no editable.
+- El nombre de la materia deberia salir de la relacion que existe entre la materia y su plan global. Automatico.
+- El codigo al que se refiere el ejemplo del plan global es el codigo de materia, siendo que de este plan global dependen
+  varias entidades se debe dar un codigo propio al plan global(un serial)
+- No se distingue en bibliografias basicas ni complementarias en la UI
+
+
+- el atributo indice no tiene sentido como tal en el entidad Planes_Globales.
+- se deberian considerar modelar el indice de un planGlobal en la base de datos.
+- los atributos justificacion, criterios de evaluacion y metodologias deberian ser de tipo text.
