@@ -276,7 +276,7 @@ pg_close($conexion);
                          	<tr>
                          	   <td>
                               <!--lista con todos los docentes designados a una materia-->
-                         	   	<select name="gruposMateria" id="sel3" style="width:250px" size="6">
+                         	   	<select name="gruposMateria" id="sel3" style="width:250px" size="6" onchange='getComboA(this)'>
                          	   		<option value="1">Lic. Leticia Blanco</option>
                          	   		<option value="2">Lic. Rosmary Torrico</option>
                               </select>  
@@ -321,9 +321,9 @@ pg_close($conexion);
                          	   
                          	   <td>
                                 <!--botones para activar el script y pasar los datos de los docente que participaran en el plan global-->
-                         	    	<input type="button" name="pasarValor1" onclick="pasar('sel3','sel4')" value="-->>">
+                         	    	<input class="center-block" type="button" name="pasarValor1" onclick="pasar('sel3','sel4')" value="-->>">
                          	   	  <br><br>
-                         	   	  <input type="button" name="pasarValor2" onclick="pasar('sel4','sel3')" value="<<--">
+                         	   	  <input class="center-block" type="button" name="pasarValor2" onclick="pasar('sel4','sel3')" value="<<--">
                          	   </td>
 
                          	   <td>
