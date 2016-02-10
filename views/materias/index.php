@@ -99,7 +99,7 @@
 
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
     	<div class="datagrid">
-        <table class="table table-hover table-bordered " "order-table" id="datos" >
+        <table class="table table-hover table-bordered order-table id="datos" >
           <!--Cabecera de la tabla de materias-->
           
           <thead>
@@ -148,6 +148,8 @@
        
       </table>  
       </div>  
+      </div>
+      
     	
     	
     	<div class="container-fluid"> <!-- DIV para los botones para las acciones correspondientes-->
@@ -239,6 +241,8 @@
       <!--Fin del div para el contenido--> 
  
   </section> <!--fin de la seccion donde esta el contenido -->
+  </div>
+</br> 
   <div class="container">
     <footer>
       <!--Codigo para incluir el pie de pagina-->
@@ -281,6 +285,8 @@
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/materias/js/materias.js"></script>
+   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/materias/js/buscar.js"></script>
+ 
 
  </body>
 
