@@ -86,22 +86,12 @@
 		 </div>
 	  </div>
 	 </nav> <!--fin del menu vertical -->
-<<<<<<< HEAD
-        <div class="form-group"> <!--campo para visualizar el buscador -->
-          <div class="col-xs-4  text-right">
-            <label for="buscar" class="control-label">Buscar:</label>
-          </div>
-          
-          <div class="col-xs-4">
-            <input type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista_materias(this.value);" placeholder="Ingrese nombre o descripcion de la materia"/>
-          </div>
-        </div>
-=======
+
          <center>
         
   <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"</div>
        </center>
->>>>>>> origin/master
+
    <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
 	    <div class="container-fluid" >
             <h2><center>Lista de Materias</center></h2>  
