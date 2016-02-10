@@ -17,13 +17,15 @@ class materiasController extends Controller{
 	public function nuevo(){
 		if($this->getInt('guardar')==1){
 			$this->validarDatosNuevo();
+
 			$this->_materiaDao->registrarMateria(
 				$this->getTexto('codigo_materia'),
 				$this->getTexto('nombre_materia'),
 				$this->getTexto('sigla_materia')
 				);
 
-			$this->redireccionar('materias');			
+			//$this->redireccionar('materias');			
+			$this->_view->procesoTerminado = true;
 		}
 		$this->_view->renderizar("registrar");
 	}
@@ -68,7 +70,8 @@ class materiasController extends Controller{
 				$this->getTexto('sigla_materia'),
 				$codigo_materia[0]
 				);
-			$this->redireccionar('materias');
+			//$this->redireccionar('materias');
+			$this->_view->procesoTerminado = true;
 		}
 
 		$this->_view->renderizar('editar');

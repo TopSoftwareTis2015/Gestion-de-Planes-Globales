@@ -15,6 +15,7 @@
   
 </head>
 <body>
+<div id="cuadro">  
 <div class="container">
 
 	<header> <!--Cabecera del sistema web -->
@@ -85,6 +86,7 @@
 		 </div>
 	  </div>
 	 </nav> <!--fin del menu vertical -->
+<<<<<<< HEAD
         <div class="form-group"> <!--campo para visualizar el buscador -->
           <div class="col-xs-4  text-right">
             <label for="buscar" class="control-label">Buscar:</label>
@@ -94,16 +96,24 @@
             <input type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista_materias(this.value);" placeholder="Ingrese nombre o descripcion de la materia"/>
           </div>
         </div>
+=======
+         <center>
+        
+  <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"</div>
+       </center>
+>>>>>>> origin/master
    <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
-	    <div class="container-fluid" id="cabecera">
+	    <div class="container-fluid" >
             <h2><center>Lista de Materias</center></h2>  
 	    </div>
 
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
-    		<table class="table table-hover table-bordered" id="datos" >
-    			<!--Cabecera de la tabla de materias-->
+    	<div class="datagrid">
+        <table class="table table-hover table-bordered " "order-table" id="datos" >
+          <!--Cabecera de la tabla de materias-->
+          
           <thead>
-          <tr>
+          <tr class="titulo">
                 <!--nombres de las columnas de la tabla de materias-->
                 
 	        <th>CODIGO</th>
@@ -132,8 +142,8 @@
             <a class="btn btn-primary" role="button"
                   data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
                   data-valor="<?php echo $this->materias[$i]['codigo_materia']; ?>"
-                  onclick = "confirmarEliminacion('<?php echo BASE_URL; ?>materias/verificar_eliminar',
-                                                  '<?php echo $this->materias[$i]['codigo_materia']; ?>');">
+                  data-habilitada="<?php echo $this->materias[$i]['habilitada_materia'] ?>"
+                  onclick = "confirmarEliminacion(this);">
                 <span class="glyphicon glyphicon-remove-circle"></span></a>
                 <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
           </tr>
@@ -159,7 +169,9 @@
                      <strong>Agregar Materia</strong>
                    </a>
               </div>
+              
 
+             
                 <div class="modal fade" id="eliminar_materia" > <!--div contenedor de la ventana emergente de registro de materia-->
                    <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                      <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
@@ -224,7 +236,7 @@
                      </div>
                    </div>
                     <!--Fin del mensaje para eliminar-->
-
+                 </div>
                  </div>
                  <!--Fin de la funcion de eliminar-->
 
@@ -244,7 +256,34 @@
         include ROOT .'views'.DS.'include'.DS.'pie_de_pagina.php'
       ?>  
     </footer>
-  </div> 
+
+    <div class="modal fade" id="modalYaEstaBaja"> <!--div contenedor de la ventana emergente de eliminacion de materia-->
+                   <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
+                     <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
+                       
+                       <!--Cabecera de la ventana-->
+                       <div class="modal-heder">
+                         <!--Boton para cerrar la ventana emergente-->
+                         <button type="button" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
+                         <!--Titulo del formulario de registro de materia-->
+                         <h5 class="modal-title"> Esta Materia ya esta dada de baja.</h5>
+                       </div>
+
+                         <!--Contenido de la ventana-->
+                         <div class="modal-body">
+                           <div id="nuevo">
+                                    <div class="row col-xs-12 col-sm-8 col-md-12">
+                                        <button class="btn btn-primary" type="button" data-dismiss="modal" aria-hidden="true">Aceptar</button>                                
+                                    </div>
+                            </div> 
+                         </div> 
+
+                          <!--footer de la ventana-->
+                          <div class="modal-footer">  </div>
+                        
+                       </div>                      
+                     </div>
+                   </div>
 
 </div>  
 

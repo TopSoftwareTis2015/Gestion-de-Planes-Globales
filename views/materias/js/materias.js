@@ -35,19 +35,23 @@ function getSeleccionado(arrayCheck){
 	return valor;
 }
 
-function confirmarEliminacion(baseurl, valor){
-		$.ajax({
-			url: baseurl+"/"+valor,
-			type: 'POST',
-			success: function(result){
-				if(result == "0")
-					$('#modalNoSePuedeEliminar').modal('show');
-				else{
-					document.getElementById('auxiliarNoBorrar').dataset.codigo = valor;
-					$("#eliminar_materia").modal('show');
+function confirmarEliminacion(enlace){
+		if(enlace.dataset.habilitada == '1'){
+			$.ajax({
+				url: enlace.dataset.baseurl+"/"+enlace.dataset.valor,
+				type: 'POST',
+				success: function(result){
+					if(result == "0")
+						$('#modalNoSePuedeEliminar').modal('show');
+					else{
+						document.getElementById('auxiliarNoBorrar').dataset.codigo = enlace.dataset.valor;
+						$("#eliminar_materia").modal('show');
+					}
 				}
-			}
-		});
+			});
+		}else{
+			$('#modalYaEstaBaja').modal('show');
+		}
 }
 
 function confirmarEliminacionEnEditar(valor, baseurl, baseurlEliminar, checkboxHabilitar){
