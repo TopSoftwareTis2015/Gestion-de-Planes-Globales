@@ -1,5 +1,4 @@
 var contB=2;
-
 var contOG = 2;
 var contOE = 2;
 var contC = 2;
@@ -16,14 +15,16 @@ function addInput(divname)
         var objetivo = document.getElementById("objetivoG");
         objetivo.appendChild(elemento);
         var nuevoElemento03 = '<legend>Objetivo '+(contOG++)+'</legend>';
+        var cont=contOG;
     }
     if(divname == 'obj_especifico'){
         var objetivo = document.getElementById("objetivoE");
         objetivo.appendChild(elemento);
         var nuevoElemento03 = '<legend>Objetivo '+(contOE++)+'</legend>';
+        var cont=contOE;
     }
 
-    var nuevoElemento01 = '<div class="container-fluid">';
+    var nuevoElemento01 = '<div class="container-fluid" id="obj_'+(cont)+'">';
     var nuevoElemento02 = '<fieldset>';
     var nuevoElemento04 = '<div class="form-group">';
     var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
@@ -35,11 +36,32 @@ function addInput(divname)
     var nuevoElemento11 = '</div>';
     var nuevoElemento12 = '<div id="obj_general">   </div>';
     var nuevoElemento13 = '</fieldset>';
-    var nuevoElemento14 = '</div>';
+    var nuevoElemento14 = '<input class="btn pull-right btn-primary" type="button" value="eliminar" onClick="eliminarInput1(\'obj_\','+(cont)+');" >'; 
+    var nuevoElemento15 = '</div>';
+                    
+    //var nuevoElemento15 = '<input class="btn pull-right btn-primary" type="button" value="eliminar" onClick="eliminarInput1(\'obj_\','+(cont)+');" >'; 
 
     objetivo.innerHTML = objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
-        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 ;
+        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 + nuevoElemento15 ;
+}
+
+function eliminarInput1(divname,num){
+  
+  var objetivo = 'obj_'+num;
+  var elemento = document.getElementById(objetivo);
+
+  //document.write(divname);
+  //document.getElementById("contOG").innerHTML=divname;
+  
+  //window.alert(divname);
+  if (elemento.parentNode) {
+    elemento.parentNode.removeChild(elemento);
+  }
+
+  //while (elemento.firstChild) {
+  //   elemento.removeChild(elemento.firstChild);
+  //}
 }
 
 function addInput2(divname, numSub){
@@ -80,7 +102,7 @@ function addInput4(divname){
 
   // var elemento = document.createElement("div");
 
-   if(divname == 'n_biblio'){
+    if(divname == 'n_biblio'){
         var biblio = document.getElementById("add_biblio");
        // biblio.appendChild(elemento);
         //var nuevoElemento03 = '<legend>Bibliografia '+(contB++)+'</legend>';

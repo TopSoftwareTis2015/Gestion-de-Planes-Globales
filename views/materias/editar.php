@@ -85,10 +85,10 @@
 
                 <div class="row clearfix">
                     <div class="col-xs-6">
-                       <button class="btn btn-primary btn-lg" type="submit">Guardar Cambios</button>                                                                            
+                       <button class="btn btn-primary" type="submit">Guardar Cambios</button>                                                                            
                     </div>  
                     <div class="col-xs-6">
-                         <a role="button" class="btn btn-primary btn-lg" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
+                         <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
                              Volver
                          </a>  
                     </div>

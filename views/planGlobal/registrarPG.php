@@ -16,6 +16,7 @@ $resultado = pg_query( $query) or die("Error en la Consulta SQL");
 $numReg = pg_num_rows($resultado);
 
 pg_close($conexion);
+
 ?>
 
 <!DOCTYPE html>
@@ -30,18 +31,20 @@ pg_close($conexion);
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
 
   <script>
-        function getComboA(sel) {
-            var value = sel.value;
-            var id = 'gMateria' + value;
-            var valor = document.getElementById(id);
-            var dato = valor.innerHTML;
-//            alert(dato);
-            window.location.href = "listaDocControlador.php?dato=" + dato;
-        }
-    </script>
+      function getComboA(sel) {
+          var value = sel.value;
+          var id = 'gMateria' + value;
+          var valor = document.getElementById(id);
+          var dato = valor.innerHTML;
+          //alert(dato);
+          window.location.href = "listaDocControlador.php?dato=" + dato;
+      }
+  </script>
     
 </head>
 <body>
+                  
+
 <div class="container">
     <header><!-- seccion de la cabecera de la pagina web-->
         <div class="container">
@@ -114,7 +117,13 @@ pg_close($conexion);
 
      <article class="col-xs-12 col-sm-8 col-md-9">
      	<div id="parte" class="container-fluid">
-     		
+     		<?php 
+//include 'prueba.php';
+if(1==1)
+{
+
+
+ ?>
      		 <!-- registro de plan global-->
      		  <div class="panel panel-default">
      	       <div class="panel-body">
@@ -356,7 +365,11 @@ pg_close($conexion);
                           </div>
                         </div>
 
-                       
+                     <?php 
+
+}
+
+ ?>  
 
                         <!--Parte 2-->
                         <legend id="separador">Carga Horaria</legend> <!--titulo del fieldset-->
@@ -460,8 +473,8 @@ pg_close($conexion);
                            <div id="obj_general">   </div>
                        </fieldset>
                      </div>
-                    <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_general');">
-
+                    <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_general');" >
+                                        
                 </form>
                     
                 <br>
