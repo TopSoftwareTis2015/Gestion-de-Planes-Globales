@@ -52,17 +52,14 @@ function eliminarInput1(divname,num){
   var elemento = document.getElementById(objetivo);
 
   //document.write(divname);
-  //document.getElementById("contOG").innerHTML=divname;
   
   //window.alert(divname);
   if (elemento.parentNode) {
     elemento.parentNode.removeChild(elemento);
   }
 
-  //while (elemento.firstChild) {
-  //   elemento.removeChild(elemento.firstChild);
-  //}
 }
+
 
 function addInput2(divname, numSub){
     //var elemento = document.createElement("div");
@@ -107,21 +104,37 @@ function addInput4(divname){
        // biblio.appendChild(elemento);
         //var nuevoElemento03 = '<legend>Bibliografia '+(contB++)+'</legend>';
     }
-    var nBibliografia01 = '<legend id="separador"> </legend>';
-    //var nBibliografia02 = '<div class="container-fluid">';
-    //var nBibliografia03 = '<fieldset>';
-    var nBibliografia02 = '<div class="form-group">';
-    var nBibliografia03 = '<label for="titulo">Titulo Libro</label>';
-    var nBibliografia04 = '<input class="form-control" type="text" id="titulo">';
-    var nBibliografia05 = '</div>';
-    var nBibliografia06 = '<div class="form-group">';
-    var nBibliografia07 = '<label for="autor">Autor</label>';
-    var nBibliografia08 = '<input class="form-control" type="text" id="autor">';
-    var nBibliografia09 = '</div>';
-    var nBibliografia10 = '<div id="n_biblio">  </div>';
-    //var nBibliografia13 = '</fieldset>';
-    //var nBibliografia11 = '<br>';
+    var b=contB;
 
+    var nBibliografia01 = '<div class="row container-fluid" id="biblio'+(contB++)+'">';
+    var nBibliografia02 = '<legend id="separador"> </legend>';
+    //var nBibliografia03 = '<fieldset>';
+    var nBibliografia03 = '<div class="form-group">';
+    var nBibliografia04 = '<label for="titulo">Titulo Libro</label>';
+    var nBibliografia05 = '<input class="form-control" type="text" id="titulo">';
+    var nBibliografia06 = '</div>';
+    var nBibliografia07 = '<div class="form-group">';
+    var nBibliografia08 = '<label for="autor">Autor</label>';
+    var nBibliografia09 = '<input class="form-control" type="text" id="autor">';
+    var nBibliografia10 = '<input class="btn pull-right btn-warning" type="button" value="eliminar X" onClick="eliminarBiblio(\'biblio\','+(b)+');" >'; 
+    var nBibliografia11 = '</div> </div>';
+    //var nBibliografia11 = '<div id="n_biblio">  </div>';
+    //var nBibliografia13 = '</fieldset>';
+    
     biblio.innerHTML = biblio.innerHTML + nBibliografia01 + nBibliografia02 + nBibliografia03 + nBibliografia04 +
-        nBibliografia05 + nBibliografia06 + nBibliografia07 + nBibliografia08 + nBibliografia09 + nBibliografia10;
+        nBibliografia05 + nBibliografia06 + nBibliografia07 + nBibliografia08 + nBibliografia09 + nBibliografia10 + nBibliografia11;
+}
+
+function eliminarBiblio(divname,num){
+  
+  var objetivo = 'biblio'+num;
+  var elemento = document.getElementById(objetivo);
+
+  //document.write(divname);
+  
+  //window.alert(divname);
+  if (elemento.parentNode) {
+    elemento.parentNode.removeChild(elemento);
+  }
+
 }

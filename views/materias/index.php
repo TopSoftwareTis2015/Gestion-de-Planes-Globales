@@ -16,9 +16,10 @@
 </head>
 <body>
 <div id="cuadro">  
-<div class="container">
+ <div class="container">
 
-	<header> <!--Cabecera del sistema web -->
+  <!--Cabecera del sistema web -->
+	<header> 
 		<div class="container">
 		   <div class="row">
 		   	  <div class="col-xs-3 col-md-3"> <!--imagen para para el sistema web -->
@@ -29,7 +30,8 @@
 		   	  </div>
 		   </div>
 		</div>
-	</header><!--Fin de la cabecera -->
+	</header>
+  <!--Fin de la cabecera -->
   
   <!--Menu de navegacion Horizontal-->
   <nav class="navbar navbar-default"><!--"nabar-default" es el estandar del nav el cual ocupa todo el ancho de la pagina-->
@@ -66,7 +68,8 @@
         </div>
     </div> 
 
-  </nav><!--fin del menu horizontal-->
+  </nav>
+  <!--fin del menu horizontal-->
 	
   <section class="main row"> <!--seccion donde esta el contenido del sistema web -->
   <br>
@@ -87,9 +90,8 @@
 	  </div>
 	 </nav> <!--fin del menu vertical -->
 
-         <center>
-        
-  <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"</div>
+       <center>      
+            <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"></div>
        </center>
 
    <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
@@ -99,7 +101,7 @@
 
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
     	<div class="datagrid">
-        <table class="table table-hover table-bordered order-table id="datos" >
+        <table class="table table-hover table-bordered order-table" id="datos">
           <!--Cabecera de la tabla de materias-->
           
           <thead>

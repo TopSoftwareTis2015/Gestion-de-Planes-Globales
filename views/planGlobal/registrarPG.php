@@ -29,7 +29,6 @@ pg_close($conexion);
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
-
   <script>
       function getComboA(sel) {
           var value = sel.value;
@@ -39,12 +38,11 @@ pg_close($conexion);
           //alert(dato);
           window.location.href = "listaDocControlador.php?dato=" + dato;
       }
-  </script>
-    
+  </script>                      
 </head>
+    
 <body>
                   
-
 <div class="container">
     <header><!-- seccion de la cabecera de la pagina web-->
         <div class="container">
@@ -55,8 +53,7 @@ pg_close($conexion);
               <div class="col-xs-9 col-md-9"> <!--titulo del sistema web-->
                 <h1>Sistema de Gesti&oacute;n De Planes Globales</h1>   
               </div>
-           </div>
-            
+           </div>   
         </div>
     </header>
    
@@ -94,8 +91,8 @@ pg_close($conexion);
           </ul>
         </div>
     </div> 
-
-  </nav><!--fin del menu horizontal--> 
+  </nav>
+  <!--fin del menu horizontal--> 
 
 	<section class="main row">
 	<br>
@@ -115,27 +112,26 @@ pg_close($conexion);
       </div>
      </nav>
 
-     <article class="col-xs-12 col-sm-8 col-md-9">
-     	<div id="parte" class="container-fluid">
-     		<?php 
-//include 'prueba.php';
-if(1==1)
-{
-
-
- ?>
-     		 <!-- registro de plan global-->
-     		  <div class="panel panel-default">
-     	       <div class="panel-body">
-     			      <h1><strong><center>Registrar Plan global</center></strong></h1><!--Titulo del formulario-->
-             		 
-             		 
-         		 <form name="formPg1" method="post" action="#">
+    <article class="col-xs-12 col-sm-8 col-md-9">
+     <div id="parte" class="container-fluid">
+  
+        <?php 
+        //include 'prueba.php';
+        if(1==1)
+        {
+        ?>
+     		<!-- registro de plan global-->  
+        <div class="panel panel-default">
+     	      <div class="panel-body">
+              <!--Titulo del formulario-->
+     			    <h1><strong><center>Registrar Plan global</center></strong></h1>
+             		 	 
+         		  <form name="formPg1" method="post" action="#">
                 
-                <div class=row>
-                   <div class="col-xs-12 col-md-9"> 
+                <div class="row container-fluid">
+                  <!--<div class="col-xs-12 col-md-9">--> 
 
-                   <div class="form-inline">
+                    <div class="form-inline">
                       <label for="nombre">Gestion:</label>
                       <!--<input class="form-control" type="" id="nomMateria">-->
                       <select class="form-control" name="gestion" style="width:25%" id="nomMateria" size="1">
@@ -143,25 +139,25 @@ if(1==1)
                            <option value="2">II</option>
                       </select>
                       <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required><br>
-                    </div>
-                    <br>
+                    </div><br>
 
                     <div class="form-group">
                       <div class="input-group">
                            <span class="input-group-addon">Titulo</span>
                            <input type="text" class="form-control"name="titulo" required><br>
                       </div>
-                    </div>                       
-                  </div>  
-                 </div>
+                    </div> 
 
-                   <div class="row">
-                    <div class="col-xs-12">     
-                     <fieldset>
-            <legend id="separador">Datos de Identificacion</legend>
+                  <!--</div>-->  
+                </div>
+
+                <!--<div class="row">-->
+                  <!--<div class="col-xs-12">-->     
+                    <fieldset>
+                       <legend id="separador">Datos de Identificacion</legend>
 					  	
-                        <div class="row">
-                          <div class="col-xs-9 col-md-12">
+                        <div class="row container-fluid">
+                          <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
                               <label for="nombre">Nombre de la Materia:</label>
                               <!--<input class="form-control" type="" id="nomMateria">-->
@@ -170,35 +166,34 @@ if(1==1)
                                  <option value="2">Taller de programacion en bajo nivel</option>                                              
                               </select>
                             </div>    
-                          </div>
+                          <!--</div>-->
                         </div>
 
                         <div class="row"> 
-                          <div class="col-xs-12">
+                          <!--<div class="col-xs-12">-->
                            <div class="form-group">
                              <label for="codigo">Codigo:</label>
                              <input readonly class="form-control" type="text" id="nomMateria">
                            </div>
-                          </div>
+                          <!--</div>-->
                         </div>
             
                         <div class="row">
-                          <div class="col-xs-12">
+                          
                             <legend id="separador">Ingrese los grupos que participaran en este plan </legend>
-                          </div> 
+                           
                         </div> 
 
                          <div class="table-responsive"> <!--tabla con los grupo existentes de una materia-->
                          <table class="table">
-                         	<tr class="info">
-                         		<th>Grupos totales en las materia</th>
-                         		<th></th>
+                          	<tr class="info">
+                         		  <th>Grupos totales en las materia</th>
+                         		  <th></th>
                          		<th>Grupos en el plan Global</th>
                          	</tr>
                          	<tr>
                          	   <td>
-                              <!--lista con los grupos existentes de una materia-->
-                         	   	<!--lista con los grupos existentes de una materia-->
+                               <!--lista con los grupos existentes de una materia-->
                                <select name="gruposMateria" id="sel1" style="width:250px" size="6">
                                 <?php
                                         if($numReg>0){
@@ -210,63 +205,25 @@ if(1==1)
                                         }
                                     ?>
                                </select>
-
-                         	  </td>
-                            <!-- script para seleccionar los grupos participantes en el plan global de una materia-->
-                             <script language="javascript">
-                                function pasar(de,a) {
-                                 obj=document.getElementById(de);
-                                 obj2=document.getElementById(a);
-                    
-                                   for (i=0; opt=obj.options[i]; i++)
-                                    
-                                    if (opt.selected) {
-                                      valor=opt.value; // almacenar value
-                                      txt=obj.options[i].text; // almacenar el texto
-                      
-                                      if (obj.options.length==1){
-                                        obj.options[i].text="-";  
-                                        obj.options[i].value="-"; 
-                                      }else{
-                                        obj.focus();
-                                        obj.options[i]=null;      
-                                      }  
-                          
-                                      if (obj2.options[0].value=='-'){ // si solo está la opción inicial borrarla
-                                        obj2.options[0]=null;
-                                      }  
-                                  
-                                      if(valor!='-'){
-                                        opc = new Option(txt,valor);
-                                        eval(obj2.options[obj2.options.length]=opc);
-                                      }
-                                    }
-                               
-                                    if (obj.options.length<=0){
-                                      opc = new Option("-","");
-                                      eval(obj.options[0]=opc);
-                                      return;
-                                    } 
-                                }
-                              </script>
-                         	   
-                         	   <td>
+                         	   </td>
+                             <td>
                                <!--botones para activar el script y pasar los datos de los grupos que participaran en el plan global-->
-                         	   	<input type="button" name="pasarValor1" onclick="pasar('sel1','sel2')" value="-->>">
-                         	   	<br><br>
+                              <input type="button" name="pasarValor1" onclick="pasar('sel1','sel2')" value="-->>">
+                              <br><br>
+                             
                          	   	<input type="button" name="pasarValor2" onclick="pasar('sel2','sel1')" value="<<--">
                          	   </td>
 
                          	   <td>
                          	   <span class="navArriba">
                                  <select id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
-                          
-                                 <option value="-">-</option></select>
+                                    <option value="-">-</option>
+                                 </select>
                                </span>
                          	   </td>
                          		
                          	</tr>
-                          </table>
+                          </table>                
                         </div> <!--fin de la tabla de grupos de una materia-->
                         
                          <div class="row">
@@ -291,43 +248,7 @@ if(1==1)
                               </select>  
                              </td>
 
-                               <!-- script para seleccionar los docente que participaran en el plan global de una materia-->
-                               <script language="javascript">
-                                function pasar(de,a) {
-                                  obj=document.getElementById(de);
-                                  obj2=document.getElementById(a);
-                    
-                                  for (i=0; opt=obj.options[i]; i++)
-                                    if (opt.selected) {
-                                      valor=opt.value; // almacenar value
-                                      txt=obj.options[i].text; // almacenar el texto
-                      
-                                      if (obj.options.length==1){
-                                        obj.options[i].text="-";  
-                                        obj.options[i].value="-"; 
-                                      }else{
-                                        obj.focus();
-                                        obj.options[i]=null;      
-                                      }  
-                        
-                                      if (obj2.options[0].value=='-'){ // si solo está la opción inicial borrarla
-                                        obj2.options[0]=null;
-                                      }
-
-                                      if(valor!='-'){
-                                        opc = new Option(txt,valor);
-                                        eval(obj2.options[obj2.options.length]=opc);
-                                      }
-                                    }
                                
-                                    if (obj.options.length<=0){
-                                       opc = new Option("-","");
-                                       eval(obj.options[0]=opc);
-                                       return;
-                                    } 
-                                }
-                                </script> <!-- Fin del script-->
-                         	   
                          	   <td>
                                 <!--botones para activar el script y pasar los datos de los docente que participaran en el plan global-->
                          	    	<input class="center-block" type="button" name="pasarValor1" onclick="pasar('sel3','sel4')" value="-->>">
@@ -370,138 +291,13 @@ if(1==1)
 }
 
  ?>  
-
-                        <!--Parte 2-->
-                        <legend id="separador">Carga Horaria</legend> <!--titulo del fieldset-->
-                         
-                         <div class="form-group"><!--titulo de la seccion del formulario-->
-                           <label for="codigo"><h3>Seleccione los items que entraran en su descripcion</h3></label>
-                         </div>
-                         
-                         <div class="col-xs-6">  
-                          <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en horas semestre-->
-                            <div class="panel-body">
-                                <label for="titulo">Horas semestre</label>
-                                
-                                <div class="row">                               
-                                    
-                                    <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hSemestre');">
-                                    <input id="horaSemestre" type="number" value="0" name="hora_semestre" min="0" max="360" disabled>
-                                                                      
-                                </div>
-
-                            </div>
-                          </div>    
-
-                            <div class="panel panel-default"><!--campo para seleccionar la duracion de una materia en horas teoricas y practica por semana-->
-                              <div class="panel-body">
-                                  <label for="titulo">Horas teoricas por semana</label>
-
-                                    <div class="row">                                               
-                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hTeorica');">
-                                      <input id="horaTeorica" type="number" value="0" name="horas_teorica_semana" min="0" max="360" disabled>                                                                    
-                                    </div>                            
-                                  <br>
-
-                                  <label for="titulo">Horas practicas por semana</label>
-                                      <div class="row">                                                                 
-                                          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hPractica');">
-                                          <input id="horaPractica" type="number" value="0" name="horas_practica_semana" min="0" max="360" disabled>                                                                         
-                                      </div>                                  
-                              </div>
-                            </div>   
-
-                        </div> 
-                        <!--Fin de la primera columna de la carga horaria-->
-
-                        <div class="col-xs-6">  
-                            <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos por semana-->
-                              <div class="panel-body">
-                                  <label for="titulo">Periodos por semana</label>
-                                  <div class="row">                               
-                                      <!--<div class="col-xs-6">-->
-                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pSemana');">
-                                      <input id="periodoSemana" type="number" value="0" name="periodo_semana" min="0" max="360" disabled>
-                                      <!--</div>-->                                  
-                                    </div>
-                              </div>
-                            </div>    
-                          
-                            <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos teoricas y practicas por semana-->
-                              <div class="panel-body">
-                                  <label for="titulo">Periodos teoricos por semana</label>
-                                    <div class="row">                               
-                                      
-                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pTeorico');">
-                                      <input id="periodoTeorico" type="number" value="0" name="periodo_teorico_semana" min="0" max="360" disabled>                                  
-                                    </div>
-                                  <br>
-
-                                  <label for="titulo">Periodos practicos por semana</label>
-                                  <div class="row">                               
-                                      
-                                      <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pPractico');">
-                                      <input id="periodoPractico" type="number" value="0" name="periodo_practico_semana" min="0" max="360" disabled>                                                                     
-                                  </div>
-                              </div>                            
-                            </div>
-
-                        </div>    
-                        <!--Fin Parte 2-->
-
-
-                <!--Parte 3-->
-                 <legend id="separador"><h3>JUSTIFICACION</h3></legend><!--seccion para ingresar la informacion de justificacion del plan global dentro de un textarea-->
-                 <textarea class="form-control"name="" id="justificacion" cols="100" rows="10"></textarea>
-                 <br>
-                 <legend id="separador"><h3>OBJETIVOS GENERALES</h3></legend> <!--campos para ingresar los objetivos generales -->
-                 <form name="formPg3" method="POST" action="">
-                     <div class="container-fluid" id="objetivoG">
-                       <fieldset>
-                          <!--titulo del objetivo general-->
-                          <legend>Objetivo 1</legend>
-                           <div class="form-group">
-                            <label for="titulo">Titulo:</label>
-                            <input class="form-control" type="text" id="titulo">
-                           </div>
-                           <!--campo para la descripcion del objetivo general-->
-                           <div class="form-group">
-                             <label for="descripcion">Descripcion:</label>
-                             <textarea class="form-control"name="" id="descripcion" cols="100" rows="5"></textarea>
-                           </div>
-                           <!--div para añadir nuevos objetivos generales-->                           
-                           <div id="obj_general">   </div>
-                       </fieldset>
-                     </div>
-                    <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_general');" >
-                                        
-                </form>
-                    
-                <br>
-                <legend id="separador"><h3>OBJETIVOS ESPECIFICOS</h3></legend> <!--campos para ingresar los objetivos especificos-->
-                <form name="formPg4" method="post" action="#">
-                     <div class="container-fluid" id="objetivoE">
-                       <fieldset>
-                          <!--titulo del objetivo especifico -->
-                          <legend>Objetivo 1</legend>
-                           <div class="form-group">
-                            <label for="nombre">Titulo:</label>
-                            <input class="form-control" type="text" id="titulo">
-                           </div>
-                           <!--descripcion del objetivo especifico-->
-                           <div class="form-group">
-                             <label for="codigo">Descripcion:</label>
-                             <textarea class="form-control" name="descripcion" cols="100" rows="5"></textarea>
-                           </div>
-                       </fieldset>
-                        <!--div para añadir nuevos objetivos especificos-->
-                        <div id="obj_especifico"> </div>
-                     </div>
-                     
-                   <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_especifico');">
-                                     
-                </form>
-                <!--Fin Parte 3-->
+    <?php 
+      //Parte 2
+      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG2.php"';
+      
+      //Parte 3
+      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG3.php"';                            
+    ?>
                   
 
                 <strong><h2>SELECCION Y ORGANIZACION DE CONTENIDOS</h2></strong>
@@ -606,10 +402,11 @@ if(1==1)
                  <br>
                  <!--Fin parte 5-->
 
-
-                  
+               
+                <!--Bibliografia Parte 6-->
                 <legend id="separador"><h2>BIBLIOGRAFIA</h2></legend>
-                  
+               
+                <div class="row" id="biblio">      
                   <fieldset id="bibliografia"><!--seccion para ingresar bibliografia de apoyo para la materia-->
                     <form  name="formPg7" method="post" action="#">
                        <div class="container-fluid" id="add_biblio">
@@ -625,11 +422,11 @@ if(1==1)
                         </div>
                       </form>
                   </fieldset>
-                          <div id="n_biblio">  </div>
+                         <!--<div id="n_biblio">  </div>-->
                          <input class="btn btn-primary" type="button" value="añadir bibliografia" onClick="addInput4('n_biblio');">
-                  <br>  
-                  <!--Fin parte 6-->
-
+                </div> 
+                <br>  
+                <!--Fin parte 6-->
 
 
                <strong><h2>SECCIONES ADICIONALES</h2></strong>
@@ -686,8 +483,8 @@ if(1==1)
 
 
 					   </fieldset>
-           </div>
-        </div>
+           <!--</div>-->
+        <!--</div>-->
 			 </form>      
      	
       </div> 	     		   
@@ -707,14 +504,6 @@ if(1==1)
 
 	</section>
 
-  <!--script para cambiar el contenido de un div dentro de la pagina principal-->  
-      <script>
-          function cargar(div, desde)
-          {
-               $(div).load(desde);
-          }
-       </script>
-  
 
 </div>
   <footer> 
@@ -728,6 +517,7 @@ if(1==1)
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/crear_input.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/checkbox.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/seleccionarItem.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
 
 </body>
