@@ -167,7 +167,8 @@
     	
     	<div class="container-fluid"> <!-- DIV para los botones para las acciones correspondientes-->
           <div class="row">
-             
+             <div class="col-xs-4"> 
+             </div>
               <!--Boton para registrar una materia -->   
           	  <div class="col-xs-4">   
                    <a href="<?php echo BASE_URL; ?>materias/nuevo" role="button" class="btn btn-primary">
