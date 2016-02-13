@@ -90,14 +90,24 @@
 	  </div>
 	 </nav> <!--fin del menu vertical -->
 
-       <center>      
+           
             <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"></div>
-       </center>
+       <div class="container">
+   <div class="row"> 
+   <div class="col-sm-4">
+    </div>
+
+   <div class="col-sm-4" >
+     
+  <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"</div>
+       
+     </div>
+     </div>
 
    <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
-	    <div class="container-fluid" >
+	   
             <h2><center>Lista de Materias</center></h2>  
-	    </div>
+	  
 
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
     	<div class="datagrid">
@@ -150,6 +160,7 @@
        
       </table>  
       </div>  
+      </div>
       </div>
       
     	
@@ -245,14 +256,14 @@
   </section> <!--fin de la seccion donde esta el contenido -->
   </div>
 </br> 
-  <div class="container">
+ 
     <footer>
       <!--Codigo para incluir el pie de pagina-->
       <?php
         include ROOT .'views'.DS.'include'.DS.'pie_de_pagina.php'
       ?>  
     </footer>
-
+    <div class="container">
     <div class="modal fade" id="modalYaEstaBaja"> <!--div contenedor de la ventana emergente de eliminacion de materia-->
                    <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                      <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
