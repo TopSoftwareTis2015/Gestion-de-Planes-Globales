@@ -357,78 +357,15 @@ pg_close($conexion);
                 </div>
                 <!--Fin parte 4-->
 
+    <?php 
+      //Parte 5
+      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG5.php"';                            
+     
+      //Parte 6
+      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG6.php"';                            
 
-                 <legend id="separador"><h2>METODOLOGIAS</h2></legend>
-                 <!--campo para ingresara las metologias que se usaran para dictar una materia-->
-                 <textarea class="form-control"name="" id="metodologias" cols="100" rows="10"></textarea>
-                 <br>
-                  
-                 <legend id="separador"><h2>Cronograma o Duracion en periodos academicos por Unidad</h2></legend>
-                 <div class="panel panel-default">
-                 <div class="table-responsive">
-                    <table class="table table-striped table-hover table-bordered" >
-                        <tr><!--nombre de las columnas de la tabla para el cronograma-->
-                            <th>UNIDAD</th>
-                            <th>DURACION HRS. ACADEMICAS</th>
-                            <th>DURACION SEMANAS</th>
-                        </tr>
-                        <tr>
-                            <td>Programacion Orientada a Objetos</td>
-                            <td>22</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Elementos de Progamacion</td>
-                            <td>22</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Unidad ..3</td>
-                            <td>22</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Unidad ..4</td>
-                            <td>22</td>
-                            <td>3</td>
-                        </tr>
-                    </table>
-                </div> 
-                </div>
-            
-                 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>
-                 <!--textarea para ingresar la informacion de criterio de evaluacion de una materia-->
-                 <textarea class="form-control"name="" id="criterios" cols="100" rows="10"></textarea>
-                 <br>
-                 <!--Fin parte 5-->
-
-               
-                <!--Bibliografia Parte 6-->
-                <legend id="separador"><h2>BIBLIOGRAFIA</h2></legend>
-               
-                <div class="row" id="biblio">      
-                  <fieldset id="bibliografia"><!--seccion para ingresar bibliografia de apoyo para la materia-->
-                    <form  name="formPg7" method="post" action="#">
-                       <div class="container-fluid" id="add_biblio">
-                         <div class="form-group"><!--titulo de la bibliografia-->
-                             <label for="nombre">Titulo Libro</label>
-                             <input class="form-control" type="text" id="tituloCap" required>
-                         </div>
-                         <div class="form-group"> <!--campo para ingresar el nombre del autor del libro-->
-                              <label for="codigo">Autor</label>
-                              <input class="form-control" type="text" id="descripcion" required>
-                         </div>
-                          <!--div para añadir nueva bibliografia-->   
-                        </div>
-                      </form>
-                  </fieldset>
-                         <!--<div id="n_biblio">  </div>-->
-                         <input class="btn btn-primary" type="button" value="añadir bibliografia" onClick="addInput4('n_biblio');">
-                </div> 
-                <br>  
-                <!--Fin parte 6-->
-
-
+    ?>
+                                
                <strong><h2>SECCIONES ADICIONALES</h2></strong>
                <div class="container-fluid" id="new_seccion"> 
                <fieldset>

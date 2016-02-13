@@ -19,8 +19,7 @@
           <label for="descripcion">Descripcion:</label>
           <textarea class="form-control"name="" id="descripcion" cols="100" rows="5"></textarea>
         </div>
-        <!--div para añadir nuevos objetivos generales-->                           
-        <!--<div id="obj_general">   </div>-->
+        
       </fieldset>
     </div>
     <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_general');" >                                            
@@ -43,12 +42,9 @@
           <label for="codigo">Descripcion:</label>
           <textarea class="form-control" name="descripcion" cols="100" rows="5"></textarea>
         </div>
-      </fieldset>
-      <!--div para añadir nuevos objetivos especificos-->
-      <!--<div id="obj_especifico"> </div>-->
+      </fieldset>    
     </div>
                          
     <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_especifico');">                                    
   </form>
-<!--Fin Parte 3-->
-                
+<!--Fin Parte 3-->               

@@ -28,22 +28,21 @@ function addInput(divname)
     var nuevoElemento02 = '<fieldset>';
     var nuevoElemento04 = '<div class="form-group">';
     var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" id="titulo">';
+    var nuevoElemento06 = '<input class="form-control" type="text" id="tituloObj'+(cont)+'">';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
     var nuevoElemento09 = '<label for="descripcion">Descripcion:</label>';
-    var nuevoElemento10 = '<textarea class="form-control"name="" id="descripcion" cols="100" rows="5"></textarea>';
+    var nuevoElemento10 = '<textarea class="form-control"name="" id="descripcionObj'+(cont)+'" cols="100" rows="5"></textarea>';
     var nuevoElemento11 = '</div>';
-    var nuevoElemento12 = '<div id="obj_general">   </div>';
-    var nuevoElemento13 = '</fieldset>';
-    var nuevoElemento14 = '<input class="btn pull-right btn-primary" type="button" value="eliminar" onClick="eliminarInput1(\'obj_\','+(cont)+');" >'; 
-    var nuevoElemento15 = '</div>';
+    //var nuevoElemento12 = '<div id="obj_general">   </div>';
+    var nuevoElemento12 = '</fieldset>';
+    var nuevoElemento13 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarInput1(\'obj_\','+(cont)+');" >'; 
+    //var nuevoElemento13 = '<input class="btn pull-right btn-primary" type="button" value="eliminar" onClick="eliminarInput1('+name+','+(cont)+');" >'; 
+    var nuevoElemento14 = '</div>';
                     
-    //var nuevoElemento15 = '<input class="btn pull-right btn-primary" type="button" value="eliminar" onClick="eliminarInput1(\'obj_\','+(cont)+');" >'; 
-
     objetivo.innerHTML = objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
-        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 + nuevoElemento15 ;
+        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14;
 }
 
 function eliminarInput1(divname,num){
@@ -57,6 +56,25 @@ function eliminarInput1(divname,num){
   if (elemento.parentNode) {
     elemento.parentNode.removeChild(elemento);
   }
+  
+
+  //if(divname == 'objG'){
+  //      var objetivo = 'objG'+num;
+  //      var elemento = document.getElementById(objetivo);
+  //      if (elemento.parentNode) {
+  //        elemento.parentNode.removeChild(elemento);
+  //      }
+  //}
+
+  //Eliminar objetivos especificos
+  //if(divname == 'objE_'){
+  //      var objetivo = 'objE_'+num;
+  //      var elemento = document.getElementById(objetivo);
+  //      
+  //      if (elemento.parentNode) {
+  //        elemento.parentNode.removeChild(elemento);
+  //      }
+  //}
 
 }
 

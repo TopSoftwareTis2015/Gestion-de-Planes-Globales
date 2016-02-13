@@ -106,8 +106,8 @@
 				        <div class="container-fluid">
 				            <div class="row col-xs-12 col-sm-8 col-md-12">
 				                <strong>Codigo Materia</strong><br>
-				                <!--caja de texto para el ingreso de solo numero y con un tamaño de 6 digitos -->
-				                <input title="Ingresar minimo 7 caracteres" type="text" class="form-control"  pattern="{7}" name="codigo_materia" required
+				                
+				                <input title="Ingresar minimo 7 caracteres" id="codigoM" type="text" class="form-control"  pattern="{7}" name="codigo_materia" required
 				                value="<?php if(isset($this->materiaAnterior['codigo_materia'])) echo $this->materiaAnterior['codigo_materia']; ?>"><br>
 				                <span id="errorCodigoMateria" class="label label-danger"><?php if(isset($this->_errorCodigoMateria)) echo $this->_errorCodigoMateria; ?></span><br>
 
@@ -117,16 +117,16 @@
 												<span id="errorNombreMateria" class="label label-danger"><?php if(isset($this->_errorNombreMateria)) echo $this->_errorNombreMateria; ?></span><br>
 
 				                <strong>Sigla de la Materia</strong><br>
-				                <input type="text" class="form-control"name="sigla_materia"
+				                <input type="text" class="form-control"name="sigla_materia" required
 				                value="<?php if(isset($this->materiaAnterior['sigla_materia'])) echo $this->materiaAnterior['sigla_materia'];?>"><br>
 				                <span id="errorSiglaMateria" class="label label-danger"><?php if(isset($this->_errorSiglaMateria)) echo $this->_errorSiglaMateria; ?></span><br>
 				                 
 									<div class="row">
 										<div class="col-xs-6">
-								                <button class="btn btn-primary btn-lg" type="submit">Registrar</button>						            						          					                  	
+								                <button class="btn btn-primary center-block" type="submit">Registrar</button>						            						          					                  	
 							            </div>  
 										<div class="col-xs-6">
-									          <a role="button" class="btn btn-primary btn-lg" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
+									          <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
 								                  	Volver
 								              </a>	
 								        </div>
@@ -193,6 +193,15 @@
 	if("<?php if(isset($this->procesoTerminado)) echo $this->procesoTerminado; else echo false; ?>"){
 		$("#modalProcesoExitoso").modal('show');
 	}
+	</script>
+
+	<script>
+		function minimoCaracter(){
+			var input = document.getElementById('codigoM');
+			if(input.value.length < 7) {
+				alert('El codigo debe tener como minimo 7 carácteres.');
+			}
+		}
 	</script>
  
  </body>
