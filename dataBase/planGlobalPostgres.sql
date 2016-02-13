@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     04/02/2016 20:55:52                          */
+/* Created on:     12/02/2016 21:50:00                          */
 /*==============================================================*/
 
 
@@ -113,8 +113,8 @@ drop table UNIDAD;
 /*==============================================================*/
 create table BIBLIOGRAFIAS (
    ID_PG                INT4                 not null,
-   NOMBRE_LIBRO         VARCHAR(100)         not null,
-   AUTOR_LIBRO          VARCHAR(70)          not null,
+   NOMBRE_LIBRO         VARCHAR(200)         not null,
+   AUTOR_LIBRO          VARCHAR(200)         not null,
    TIPO_LIBRO           VARCHAR(30)          not null,
    constraint PK_BIBLIOGRAFIAS primary key (ID_PG)
 );
@@ -133,7 +133,7 @@ create table CAPITULO (
    ID_PG                INT4                 not null,
    ID_UNIDAD            INT4                 not null,
    ID_CAPITULO          SERIAL               not null,
-   TITULO_CAPITULO      VARCHAR(70)          not null,
+   TITULO_CAPITULO      VARCHAR(200)         not null,
    constraint PK_CAPITULO primary key (ID_PG, ID_UNIDAD, ID_CAPITULO)
 );
 
@@ -398,8 +398,8 @@ CODIGO_MATERIA
 /*==============================================================*/
 create table OBJETIVOS_ESPECIFICOS (
    ID_PG                INT4                 not null,
-   TITULO_OBJETIVO_ESPECIFICO VARCHAR(70)          not null,
-   DESCRIPCION_OBJETIVO_ESPECIFICO VARCHAR(300)         null,
+   TITULO_OBJETIVO_ESPECIFICO VARCHAR(150)         not null,
+   DESCRIPCION_OBJETIVO_ESPECIFICO TEXT                 null,
    constraint PK_OBJETIVOS_ESPECIFICOS primary key (ID_PG)
 );
 
@@ -415,8 +415,8 @@ ID_PG
 /*==============================================================*/
 create table OBJETIVOS_GENERALES (
    ID_PG                INT4                 not null,
-   TITULO_OBJETIVO_GENERAL VARCHAR(70)          not null,
-   DESCRIPCION_OBJETIVO_GENERAL VARCHAR(300)         null,
+   TITULO_OBJETIVO_GENERAL VARCHAR(150)         not null,
+   DESCRIPCION_OBJETIVO_GENERAL TEXT                 null,
    constraint PK_OBJETIVOS_GENERALES primary key (ID_PG)
 );
 
@@ -431,13 +431,13 @@ ID_PG
 /* Table: PLANES_GLOBALES                                       */
 /*==============================================================*/
 create table PLANES_GLOBALES (
-   ID_PG                INT4                 not null,
-   INDICE               VARCHAR(300)         null,
+   ID_PG                SERIAL               not null,
    TITULO               VARCHAR(100)         null,
-   JUSTIFICACION        VARCHAR(900)         not null,
-   METODOLOGIAS         VARCHAR(500)         null,
-   CRITERIOS_EVALUACION VARCHAR(900)         null,
+   JUSTIFICACION        TEXT                 not null,
+   METODOLOGIAS         TEXT                 null,
+   CRITERIOS_EVALUACION TEXT                 null,
    HABILITADO_PLAN_GLOBAL BOOL                 null,
+   GESTION_PG           VARCHAR(15)          null,
    constraint PK_PLANES_GLOBALES primary key (ID_PG)
 );
 
@@ -569,8 +569,8 @@ ID_CONTENIDO
 create table UNIDAD (
    ID_PG                INT4                 not null,
    ID_UNIDAD            SERIAL               not null,
-   TITULO_UNIDAD        VARCHAR(50)          not null,
-   OBJETIVO_UNIDAD      VARCHAR(100)         null,
+   TITULO_UNIDAD        VARCHAR(200)         not null,
+   OBJETIVO_UNIDAD      TEXT                 null,
    NUMERO_UNIDAD        VARCHAR(30)          null,
    DURACION_HORAS_ACADEMICAS INT4                 null,
    DURACION_SEMANAS     INT4                 null,

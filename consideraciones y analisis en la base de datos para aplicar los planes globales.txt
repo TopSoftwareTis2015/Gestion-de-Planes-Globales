@@ -6,6 +6,11 @@
 - No se distingue en bibliografias basicas ni complementarias en la UI
 
 
-- el atributo indice no tiene sentido como tal en el entidad Planes_Globales.
-- se deberian considerar modelar el indice de un planGlobal en la base de datos.
-- los atributos justificacion, criterios de evaluacion y metodologias deberian ser de tipo text.
+- el atributo indice no tiene sentido como tal en el entidad Planes_Globales. ok
+- se deberian considerar modelar el indice de un planGlobal en la base de datos. no
+- los atributos justificacion, criterios de evaluacion y metodologias deberian ser de tipo text. ok
+
+
+- arreglar las entidades objetivos_generales, objetivos_especificos, bibliografias, y otras que se encuentren; cuya relacion
+  con plan_global es uno a uno y deberia ser de uno a muchos.
+
