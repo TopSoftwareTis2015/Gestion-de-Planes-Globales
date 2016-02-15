@@ -11,6 +11,7 @@
 - los atributos justificacion, criterios de evaluacion y metodologias deberian ser de tipo text. ok
 
 
-- arreglar las entidades objetivos_generales, objetivos_especificos, bibliografias, y otras que se encuentren; cuya relacion
-  con plan_global es uno a uno y deberia ser de uno a muchos.
+- arreglar las entidades objetivos_generales, objetivos_especificos, bibliografias, y otras que se encuentren; cuya relacion con plan_global es uno a uno y deberia ser de uno a muchos.
+	- Se añadió llave primaria a la entidad subtitulo_seccion.
+	- Se añadió llave primaria a la entidad subtiutlo.
 
