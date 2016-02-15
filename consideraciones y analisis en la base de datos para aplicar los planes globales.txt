@@ -7,11 +7,17 @@
 
 
 - el atributo indice no tiene sentido como tal en el entidad Planes_Globales. ok
-- se deberian considerar modelar el indice de un planGlobal en la base de datos. no
+- se deberian considerar modelar el indice de un planGlobal en la base de datos. not for moment.
 - los atributos justificacion, criterios de evaluacion y metodologias deberian ser de tipo text. ok
 
 
-- arreglar las entidades objetivos_generales, objetivos_especificos, bibliografias, y otras que se encuentren; cuya relacion con plan_global es uno a uno y deberia ser de uno a muchos.
-	- Se añadió llave primaria a la entidad subtitulo_seccion.
-	- Se añadió llave primaria a la entidad subtiutlo.
+- arreglar las entidades objetivos_generales, objetivos_especificos, bibliografias, y otras que se encuentren; cuya relacion con plan_global es uno a uno y deberia ser de uno a muchos. ok
+	- Se añadió llave primaria a la entidad subtitulo_seccion. ok
+	- Se añadió llave primaria a la entidad subtiutlo. ok
+
+- llenado de la información de un plan global. ok.
+- realizar un controlador de prueba que rescate la información del plan global.
+	- el controlador se llamará prueba_plan_globalController.php
+
+- llenado de datos de un plan global.
 

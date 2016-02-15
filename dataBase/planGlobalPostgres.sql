@@ -1,8 +1,10 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     12/02/2016 21:50:00                          */
+/* Created on:     15/02/2016 10:40:55                          */
 /*==============================================================*/
 
+
+drop index RELATIONSHIP_21_FK;
 
 drop index BIBLIOGRAFIAS_PK;
 
@@ -66,9 +68,13 @@ drop index NIVELES_MATERIAS_PK;
 
 drop table NIVELES_MATERIAS;
 
+drop index RELATIONSHIP_17_FK;
+
 drop index OBJETIVOS_ESPECIFICOS_PK;
 
 drop table OBJETIVOS_ESPECIFICOS;
+
+drop index RELATIONSHIP_18_FK;
 
 drop index OBJETIVOS_GENERALES_PK;
 
@@ -98,6 +104,8 @@ drop index SUBTITULO_PK;
 
 drop table SUBTITULO;
 
+drop index RELATIONSHIP_23_FK;
+
 drop index SUBTITULOS_CONTENIDO_SECCION_PK;
 
 drop table SUBTITULOS_CONTENIDO_SECCION;
@@ -113,16 +121,25 @@ drop table UNIDAD;
 /*==============================================================*/
 create table BIBLIOGRAFIAS (
    ID_PG                INT4                 not null,
+   ID_BIBLIOGRAFIA      SERIAL               not null,
    NOMBRE_LIBRO         VARCHAR(200)         not null,
    AUTOR_LIBRO          VARCHAR(200)         not null,
    TIPO_LIBRO           VARCHAR(30)          not null,
-   constraint PK_BIBLIOGRAFIAS primary key (ID_PG)
+   constraint PK_BIBLIOGRAFIAS primary key (ID_PG, ID_BIBLIOGRAFIA)
 );
 
 /*==============================================================*/
 /* Index: BIBLIOGRAFIAS_PK                                      */
 /*==============================================================*/
 create unique index BIBLIOGRAFIAS_PK on BIBLIOGRAFIAS (
+ID_PG,
+ID_BIBLIOGRAFIA
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_21_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_21_FK on BIBLIOGRAFIAS (
 ID_PG
 );
 
@@ -398,15 +415,24 @@ CODIGO_MATERIA
 /*==============================================================*/
 create table OBJETIVOS_ESPECIFICOS (
    ID_PG                INT4                 not null,
-   TITULO_OBJETIVO_ESPECIFICO VARCHAR(150)         not null,
+   ID_OBJETIVO_ESPECIFICO SERIAL               not null,
+   TITULO_OBJETIVO_ESPECIFICO VARCHAR(250)         not null,
    DESCRIPCION_OBJETIVO_ESPECIFICO TEXT                 null,
-   constraint PK_OBJETIVOS_ESPECIFICOS primary key (ID_PG)
+   constraint PK_OBJETIVOS_ESPECIFICOS primary key (ID_PG, ID_OBJETIVO_ESPECIFICO)
 );
 
 /*==============================================================*/
 /* Index: OBJETIVOS_ESPECIFICOS_PK                              */
 /*==============================================================*/
 create unique index OBJETIVOS_ESPECIFICOS_PK on OBJETIVOS_ESPECIFICOS (
+ID_PG,
+ID_OBJETIVO_ESPECIFICO
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_17_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_17_FK on OBJETIVOS_ESPECIFICOS (
 ID_PG
 );
 
@@ -415,15 +441,24 @@ ID_PG
 /*==============================================================*/
 create table OBJETIVOS_GENERALES (
    ID_PG                INT4                 not null,
-   TITULO_OBJETIVO_GENERAL VARCHAR(150)         not null,
+   ID_OBJETIVO_GENERAL  SERIAL               not null,
+   TITULO_OBJETIVO_GENERAL VARCHAR(250)         not null,
    DESCRIPCION_OBJETIVO_GENERAL TEXT                 null,
-   constraint PK_OBJETIVOS_GENERALES primary key (ID_PG)
+   constraint PK_OBJETIVOS_GENERALES primary key (ID_PG, ID_OBJETIVO_GENERAL)
 );
 
 /*==============================================================*/
 /* Index: OBJETIVOS_GENERALES_PK                                */
 /*==============================================================*/
 create unique index OBJETIVOS_GENERALES_PK on OBJETIVOS_GENERALES (
+ID_PG,
+ID_OBJETIVO_GENERAL
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_18_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_18_FK on OBJETIVOS_GENERALES (
 ID_PG
 );
 
@@ -531,6 +566,7 @@ create table SUBTITULO (
    ID_UNIDAD            INT4                 not null,
    ID_CAPITULO          INT4                 not null,
    SUBTITULO            VARCHAR(200)         null,
+   ID_SUBTITULO         SERIAL               null,
    constraint PK_SUBTITULO primary key (ID_PG, ID_UNIDAD, ID_CAPITULO)
 );
 
@@ -550,14 +586,25 @@ create table SUBTITULOS_CONTENIDO_SECCION (
    ID_PG                INT4                 not null,
    ID_SECCION           INT4                 not null,
    ID_CONTENIDO         INT4                 not null,
+   ID_SUBTITULO_SECCION SERIAL               not null,
    SUBTITULO_SECCION    VARCHAR(150)         null,
-   constraint PK_SUBTITULOS_CONTENIDO_SECCIO primary key (ID_PG, ID_SECCION, ID_CONTENIDO)
+   constraint PK_SUBTITULOS_CONTENIDO_SECCIO primary key (ID_PG, ID_SECCION, ID_CONTENIDO, ID_SUBTITULO_SECCION)
 );
 
 /*==============================================================*/
 /* Index: SUBTITULOS_CONTENIDO_SECCION_PK                       */
 /*==============================================================*/
 create unique index SUBTITULOS_CONTENIDO_SECCION_PK on SUBTITULOS_CONTENIDO_SECCION (
+ID_PG,
+ID_SECCION,
+ID_CONTENIDO,
+ID_SUBTITULO_SECCION
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_23_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_23_FK on SUBTITULOS_CONTENIDO_SECCION (
 ID_PG,
 ID_SECCION,
 ID_CONTENIDO
