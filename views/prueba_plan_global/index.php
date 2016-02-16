@@ -56,9 +56,35 @@
 	    </div> <!-- fin del titulo-->
 
       <div>
-        
+        <?php
+        echo '<h3>';
+        echo '<pre>';
+        print_r($this->planGlobal); 
+        echo '<br>';
+        print_r($this->materia); 
+        echo '<br>';
+        print_r($this->grupos);
+        echo '<br>';
+        print_r($this->carga_horaria);
+        echo '<br>';
+        print_r($this->materias_relacionadas);
+        echo '<br>';
+        print_r($this->docentes);
+        echo '<br>';
+        print_r($this->objetivosGenerales);
+        echo '<br>';
+        print_r($this->objetivosEspecificos);
+        echo '<br>';
+        print_r($this->unidades);
+        echo '<br>';
+        print_r($this->bibliografias);
+        echo '<br>';
+        print_r($this->seccionesAdicionales);
+        echo '</pre>';
+        echo '</h3>';
+        ?>
       </div>
-    	
+      
    
   </article>
 
