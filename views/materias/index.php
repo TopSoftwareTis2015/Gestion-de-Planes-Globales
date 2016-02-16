@@ -299,8 +299,7 @@
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/materias/js/materias.js"></script>
-   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/materias/js/buscar.js"></script>
- 
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/materias/js/buscar.js"></script>
 
  </body>
 
