@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     15/02/2016 10:40:55                          */
+/* Created on:     15/02/2016 21:53:20                          */
 /*==============================================================*/
 
 
@@ -90,6 +90,8 @@ drop index PLAN_DE_ESTUDIOS_PK;
 
 drop table PLAN_DE_ESTUDIOS;
 
+drop index RELATIONSHIP_28_FK;
+
 drop index PREREQUISITO_PK;
 
 drop table PREREQUISITO;
@@ -99,6 +101,8 @@ drop index RELATIONSHIP_16_FK;
 drop index SECCIONES_ADICIONALES_PK;
 
 drop table SECCIONES_ADICIONALES;
+
+drop index RELATIONSHIP_22_FK;
 
 drop index SUBTITULO_PK;
 
@@ -151,6 +155,7 @@ create table CAPITULO (
    ID_UNIDAD            INT4                 not null,
    ID_CAPITULO          SERIAL               not null,
    TITULO_CAPITULO      VARCHAR(200)         not null,
+   NUMERO_CAPITULO      INT4                 not null,
    constraint PK_CAPITULO primary key (ID_PG, ID_UNIDAD, ID_CAPITULO)
 );
 
@@ -517,14 +522,25 @@ create table PREREQUISITO (
    ID_CICLO             INT4                 not null,
    NUMERO_NIVEL         INT4                 not null,
    CODIGO_MATERIA       VARCHAR(50)          not null,
-   MATERIA_PREREQUISITO VARCHAR(50)          null,
-   constraint PK_PREREQUISITO primary key (CODIGO_PLAN_ESTUDIO, ID_CICLO, NUMERO_NIVEL, CODIGO_MATERIA)
+   MATERIA_PREREQUISITO VARCHAR(50)          not null,
+   constraint PK_PREREQUISITO primary key (CODIGO_PLAN_ESTUDIO, ID_CICLO, NUMERO_NIVEL, CODIGO_MATERIA, MATERIA_PREREQUISITO)
 );
 
 /*==============================================================*/
 /* Index: PREREQUISITO_PK                                       */
 /*==============================================================*/
 create unique index PREREQUISITO_PK on PREREQUISITO (
+CODIGO_PLAN_ESTUDIO,
+ID_CICLO,
+NUMERO_NIVEL,
+CODIGO_MATERIA,
+MATERIA_PREREQUISITO
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_28_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_28_FK on PREREQUISITO (
 CODIGO_PLAN_ESTUDIO,
 ID_CICLO,
 NUMERO_NIVEL,
@@ -565,15 +581,26 @@ create table SUBTITULO (
    ID_PG                INT4                 not null,
    ID_UNIDAD            INT4                 not null,
    ID_CAPITULO          INT4                 not null,
+   ID_SUBTITULO         SERIAL               not null,
    SUBTITULO            VARCHAR(200)         null,
-   ID_SUBTITULO         SERIAL               null,
-   constraint PK_SUBTITULO primary key (ID_PG, ID_UNIDAD, ID_CAPITULO)
+   NUMERO_SUBTITULO     INT4                 not null,
+   constraint PK_SUBTITULO primary key (ID_PG, ID_UNIDAD, ID_CAPITULO, ID_SUBTITULO)
 );
 
 /*==============================================================*/
 /* Index: SUBTITULO_PK                                          */
 /*==============================================================*/
 create unique index SUBTITULO_PK on SUBTITULO (
+ID_PG,
+ID_UNIDAD,
+ID_CAPITULO,
+ID_SUBTITULO
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_22_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_22_FK on SUBTITULO (
 ID_PG,
 ID_UNIDAD,
 ID_CAPITULO
@@ -588,6 +615,7 @@ create table SUBTITULOS_CONTENIDO_SECCION (
    ID_CONTENIDO         INT4                 not null,
    ID_SUBTITULO_SECCION SERIAL               not null,
    SUBTITULO_SECCION    VARCHAR(150)         null,
+   NUMERO_SUBTITULO_SECCION INT4                 not null,
    constraint PK_SUBTITULOS_CONTENIDO_SECCIO primary key (ID_PG, ID_SECCION, ID_CONTENIDO, ID_SUBTITULO_SECCION)
 );
 
