@@ -104,7 +104,7 @@ function eliminarInput1(n){
 }
 
 //funcion para crear campos para nuevos subtitulos
-function addInput2(divname,numSub){
+function addInput2(divname, numSub){
   
   //var elemento = document.createElement("div");
 
@@ -115,14 +115,15 @@ function addInput2(divname,numSub){
   }
   numSub++;
   var subtitulo01 = '<div id="bSubtitulo'+(numSub)+'"><label for="codigo">Subtitulo:</label>';
-  var subtitulo02 = '<input class="form-control" type="text" name="subtitulo'+(numSub)+'" id="subtitulo'+(numSub)+'" required>';
+  var subtitulo02 = '<input class="form-control" type="text" name="bsubtitulo'+(numSub)+'" id="bsubtitulo'+(numSub)+'" required>';
   var subtitulo03 = '</div>';
 
   subtitulo.innerHTML = subtitulo.innerHTML + subtitulo01 + subtitulo02 + subtitulo03;
 }
 
+
 //funcion para crear campos para nuevo capitulo
-function addInput3(divname,num){
+function addInput3(divname){
 
   if(divname == 'new_capitulo'){
     var subtitulo = document.getElementById("capitulo");
@@ -131,8 +132,8 @@ function addInput3(divname,num){
 
   contSub++;
 
-  var capitulo01 = '<div class="clearfix"><legend>Capitulo '+(contC)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" name="tituloCapitulo'+(contC)+'" id="tituloCapitulo'+(contC++)+'" required></div>';
-  var capitulo02 = '<div class="form-group col-md-6 col-md-offset-3"  id="aSubtitulo"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" name="aSubtitulo'+(contSub)+'" id="subtitulo'+(contSub)+'" required></div>';
+  var capitulo01 = '<div class="clearfix"><legend>Capitulo '+(contC++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" id="tituloCapitulo" required></div>';
+  var capitulo02 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" id="subtitulo" required></div>';
   var capitulo03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"></div><br/><br/>';
 
   capitulo.innerHTML = capitulo.innerHTML + capitulo01 + capitulo02 + capitulo03;
