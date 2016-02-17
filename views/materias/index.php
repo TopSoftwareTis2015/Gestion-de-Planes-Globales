@@ -91,24 +91,24 @@
 	 </nav> <!--fin del menu vertical -->
 
            
-            <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"></div>
-       <div class="container">
-   <div class="row"> 
-   <div class="col-sm-4">
-    </div>
+   <!--<div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"></div>-->
+  <div class="container-fluid">
+   <div class="row col-xs-12 col-sm-8 col-md-9"> 
+     <!--<div class="col-sm-4 col-sm-offset-2">-->
 
-   <div class="col-sm-4" >
+    <!--campo para visualizar el contenido del sistema web -->
+    <div class="row"> 
      
-  <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"</div>
-       
+     <!--Buscador-->
+     <div class="row">  
+       <div class="col-xs-12 col-sm-4 col-sm-offset-2" >
+          <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia">    
+          </div>
+       </div>
      </div>
-     </div>
-
-   <div class="col-xs-12 col-sm-8 col-md-9"> <!--campo para visualizar el contenido del sistema web -->
-	   
-            <h2><center>Lista de Materias</center></h2>  
+     
+     <h2><center>Lista de Materias</center></h2>  
 	  
-
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
     	<div class="datagrid">
         <table class="table table-hover table-bordered order-table" id="datos">
@@ -122,6 +122,7 @@
                 <th>NOMBRE MATERIA</th>
                 <th>SIGLA</th>
                 <th>ACCIONES</th>
+                <th>PLAN GLOBAL</th>
     			</tr>
         </thead>
 
@@ -135,19 +136,25 @@
             <td><?php echo $this->materias[$i]['codigo_materia']; ?></td>
             <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
             <td><?php echo $this->materias[$i]['sigla_materia']; ?></td>
-             <!--Boton para editar una materia -->
+             <!-- Boton para editar una materia --> 
             <td>
               <a class="btn btn-primary" role="button"
                   href = "<?php echo BASE_URL . 'materias/editar/' . $this->materias[$i]['codigo_materia']; ?>">
                 <span class="glyphicon glyphicon-edit"></span></a>
-             <!--Boton para eliminar una materia -->  
-            <a class="btn btn-primary" role="button"
+              <!--Boton para eliminar una materia -->  
+              <a class="btn btn-primary" role="button"
                   data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
                   data-valor="<?php echo $this->materias[$i]['codigo_materia']; ?>"
                   data-habilitada="<?php echo $this->materias[$i]['habilitada_materia'] ?>"
                   onclick = "confirmarEliminacion(this);">
                 <span class="glyphicon glyphicon-remove-circle"></span></a>
                 <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
+            </td>
+            <td>
+                <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materias[$i]['codigo_materia'];?>">
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                </a>
+            </td>
           </tr>
 
           <?php

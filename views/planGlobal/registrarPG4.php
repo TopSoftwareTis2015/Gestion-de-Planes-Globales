@@ -29,7 +29,6 @@
         </div>
 
         <div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo1">
-
           <label for="codigo">Subtitulo:</label>
           <input class="form-control" type="text" id="subtitulo" required>
         </div>
@@ -43,17 +42,15 @@
       </div>
   </fieldset>
   <br>
-  <div id="new_contenido"> </div>
   <!--boton para añadir mas capitulo a un unidad-->
   <input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addInput3('new_capitulo');">
-  <br><br>      
+  <br>     
   </form>
  </div>
 </fieldset>
 </form> 
 <br>
-<!--boton para añadir una nueva unidad de una materia-->
-<button class="submit btn btn-primary" type="submit">Añadir Unidad</button>
-<br><br>
 </div>
+<!--boton para añadir una nueva unidad de una materia-->
+<button class="btn btn-primary" type="button" onClick="addUnidad('new_unidad');" >Añadir Unidad</button>
 <!--Fin parte 4-->

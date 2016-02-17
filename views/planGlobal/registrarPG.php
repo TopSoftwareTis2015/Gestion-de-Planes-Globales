@@ -178,8 +178,13 @@ pg_close($conexion);
                           <!--</div>-->
                         </div>
 
+<<<<<<< HEAD
+                        <div class="row container-fluid"> 
+                          <!--<div class="col-xs-12">-->
+=======
                         <div class="row"> 
                           <div class="col-xs-12">
+>>>>>>> origin/master
                            <div class="form-group">
                              <label for="codigo_materia">Codigo Materia:</label>
                              <input readonly class="form-control" type="text" id="codigo_materia"

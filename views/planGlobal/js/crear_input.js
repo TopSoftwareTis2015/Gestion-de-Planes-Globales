@@ -1,9 +1,11 @@
-var contB = 2;
 var contOG = 2;
 var contOE = 2;
-var contC = 2;
-var contSub = 2;
 
+var contSub = 2;
+var contC = 2;
+var contU = 2;
+
+var contB = 2;
 var numSub = 1;
 
 //funcion para crear campos para objetivos generales
@@ -120,7 +122,7 @@ function addInput2(divname, numSub){
 }
 
 //funcion para crear campos para nuevo capitulo
-function addInput3(divname){
+function addInput3(divname,num){
 
   if(divname == 'new_capitulo'){
     var subtitulo = document.getElementById("capitulo");
@@ -139,18 +141,26 @@ function addInput3(divname){
 //funcion para crear campos para nueva unidad
 function addUnidad(divname){
 
+  var capituloN=1;
+
   if(divname == 'new_unidad'){
-    var subtitulo = document.getElementById("unidad");
+    var unidad = document.getElementById("unidad");
     //subtitulo.appendChild(elemento);
   }
-
   contSub++;
-
-  var capitulo01 = '<div><legend>Capitulo '+(contC++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" id="tituloCapitulo" required></div>';
-  var capitulo02 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" id="subtitulo" required></div>';
-  var capitulo03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"></div><br/><br/>';
-
-  capitulo.innerHTML = capitulo.innerHTML + capitulo01 + capitulo02 + capitulo03;
+  var unidad01 = '<legend>Unidad '+(contU)+'</legend>'  
+  var unidad02 = '<div class="form-group"><label for="nombre">Titulo de la unidad:</label><input class="form-control" type="text" name="tituloUnidad'+(contU)+'" id="titulo" required></div>'
+  var unidad03 = '<div class="form-group"><label for="codigo">Objetivo:</label><textarea class="form-control" name="objetivoUnidad'+(contU++)+'" id="objetivo" cols="100" rows="3"></textarea></div>'
+  
+  var unidad04 = '<div class="container-fluid" id="contenido"><form name="formPg6" method="post" action="#"><fieldset>'
+  var unidad05 = '<legend>CONTENIDO</legend><div class="container-fluid" id="capitulo'+(capituloN)+'">'
+  var unidad06 = '<div><legend>Capitulo '+(capituloN++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" id="tituloCapitulo" required></div>';
+  var unidad07 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" id="subtitulo" required></div>';
+  var unidad08 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"></div><br/><br/>';
+  var unidad09 = '</div></fieldset><br>'
+  var unidad10 = '<input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addInput3(new_capitulo);"><br>'      
+  var unidad11 = '</form></div>'
+  unidad.innerHTML = unidad.innerHTML + unidad01 + unidad02 + unidad03 + unidad04 + unidad05 + unidad06 + unidad07 + unidad08 + unidad09 + unidad10 + unidad11;
 }
 
 //funcion para crear campos para bibliografias
