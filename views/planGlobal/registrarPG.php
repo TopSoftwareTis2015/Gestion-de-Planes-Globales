@@ -43,7 +43,7 @@ pg_close($conexion);
     
 <body>
                   
-<div class="container">
+<div class="container" id="cuadro">
     <header><!-- seccion de la cabecera de la pagina web-->
         <div class="container">
            <div class="row">
@@ -178,13 +178,11 @@ pg_close($conexion);
                           <!--</div>-->
                         </div>
 
-<<<<<<< HEAD
                         <div class="row container-fluid"> 
                           <!--<div class="col-xs-12">-->
-=======
                         <div class="row"> 
                           <div class="col-xs-12">
->>>>>>> origin/master
+
                            <div class="form-group">
                              <label for="codigo_materia">Codigo Materia:</label>
                              <input readonly class="form-control" type="text" id="codigo_materia"
@@ -209,7 +207,7 @@ pg_close($conexion);
                          	<tr>
                          	   <td>
                                <!--lista con los grupos existentes de una materia-->
-                               <select name="gruposMateria" id="sel1" style="width:250px" size="6">
+                               <select name="grupos_materia" id="sel1" style="width:250px" size="6">
                                 <?php
                                         if($numReg>0){
                                             while ($fila=pg_fetch_array($resultado)) {
@@ -257,7 +255,7 @@ pg_close($conexion);
                          	<tr>
                          	   <td>
                               <!--lista con todos los docentes designados a una materia-->
-                         	   	<select name="gruposMateria" id="sel3" style="width:250px" size="6" onchange='getComboA(this)'>
+                         	   	<select name="docentes_Materia" id="sel3" style="width:250px" size="6" onchange='getComboA(this)'>
                          	   		<option value="1">Lic. Leticia Blanco</option>
                          	   		<option value="2">Lic. Rosmary Torrico</option>
                               </select>  
@@ -287,16 +285,16 @@ pg_close($conexion);
                           <div class="col-xs-12">
                            <div class="form-group ">
                     	     <label for="telefono">Telefonos:</label>
-                    	     <textarea readonly class="form-control"name="" id="telefono" cols="60" rows="3"></textarea>
+                    	     <textarea readonly class="form-control"name="fono_docente" id="telefono" cols="60" rows="3"></textarea>
                            </div>
                           </div>
                         </div>
 
                         <div class="row"> <!-- campo para añadir correo-->
                           <div class="col-xs-12">
-                           <div class="form-group ">
+                           <div class="form-group">
                               <label for="correo">Correos:</label>
-                              <textarea readonly class="form-control"name="" id="email" cols="60" rows="3"></textarea>
+                              <textarea readonly class="form-control"name="correo_docente" id="email" cols="60" rows="3"></textarea>
                            </div>
                           </div>
                         </div>
@@ -343,7 +341,7 @@ pg_close($conexion);
                       <legend>CONTENIDO</legend>
                        <fieldset>
                          <div class="container-fluid" id="new_subtitulo">
-                          <form name="formPg6" method="post" action="#">
+                          <!-- <form name="formPg6" method="post" action="#"> -->
                             <legend>Contenido 1</legend>
                             <div class="form-group">
                                  <label for="nombre">Titulo del contenido</label>
@@ -360,15 +358,15 @@ pg_close($conexion);
                                   <button class="submit btn btn-primary" type="submit" required>Añadir subtitulo</button>
                              </div>
                           
-                           </form>
+                           <!-- </form> -->
                           </div> 
                        </fieldset>
                        <br>
-                       <button class="submit btn btn-primary" type="submit" required>Añadir contenido</button>
+                       <button class="btn btn-primary"  required>Añadir contenido</button>
                   </fieldset>
                   </div>
                   <br>
-                  <button class="submit btn btn-primary" type="submit" required>Añadir Contenido</button>
+                  <button class="btn btn-primary" type="submit" required>Añadir Contenido</button>
                </fieldset>
                  <br>
                  <div class="container-fluid col-md-6 col-md-offset-3">

@@ -3,23 +3,23 @@
                
 <div class="row" id="biblio">      
   <fieldset id="bibliografia"><!--seccion para ingresar bibliografia de apoyo para la materia-->
-    <form  name="formPg7" method="post" action="#">
+    <!-- <form  name="formPg7" method="post" action="#"> -->
       <div class="container-fluid" id="add_biblio">
         
         <!--titulo de la bibliografia-->
         <div class="form-group">
           <label for="nombre">Titulo Libro</label>
-          <input class="form-control" type="text" id="tituloCap" required>
+          <input class="form-control" type="text" name="titulo_libro" id="titulo_libro" required>
         </div>
         
         <!--campo para ingresar el nombre del autor del libro-->
         <div class="form-group">
           <label for="codigo">Autor</label>
-          <input class="form-control" type="text" id="descripcion" required>
+          <input class="form-control" type="text" name="autor_libro" id="autor_libro" required>
         </div>
 
       </div>
-    </form>
+    <!-- </form> -->
   </fieldset>
 
 <input class="btn btn-primary" type="button" value="añadir bibliografia" onClick="addInput4('n_biblio');">

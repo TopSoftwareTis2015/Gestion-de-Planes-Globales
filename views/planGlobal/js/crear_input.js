@@ -27,11 +27,11 @@ function addObjG(divname)
     var nuevoElemento02 = '<fieldset>';
     var nuevoElemento04 = '<div class="form-group">';
     var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" name="tituloObjG'+(id)+'" id="tituloObj">';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="tituloObjG'+(id)+'" id="tituloObj'+(id)+'">';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
     var nuevoElemento09 = '<label for="descripcion">Descripcion:</label>';
-    var nuevoElemento10 = '<textarea class="form-control" name="descripcionObjG'+(id)+'" id="descripcionObj" cols="100" rows="5"></textarea>';
+    var nuevoElemento10 = '<textarea class="form-control" name="descripcionObjG'+(id)+'" id="descripcionObj'+(id)+'" cols="100" rows="5"></textarea>';
     var nuevoElemento11 = '</div>';
     var nuevoElemento12 = '</fieldset>';
     var nuevoElemento13 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjG('+(id)+');" >'; 
@@ -75,11 +75,11 @@ function addInput(divname)
   var nuevoElemento02 = '<fieldset>';
   var nuevoElemento04 = '<div class="form-group">';
   var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
-  var nuevoElemento06 = '<input class="form-control" type="text" name="tituloObjE'+(id)+'" id="tituloObj">';
+  var nuevoElemento06 = '<input class="form-control" type="text" name="tituloObjE'+(id)+'" id="tituloObjE'+(id)+'">';
   var nuevoElemento07 = '</div>';
   var nuevoElemento08 = '<div class="form-group">';
   var nuevoElemento09 = '<label for="descripcion">Descripcion:</label>';
-  var nuevoElemento10 = '<textarea class="form-control" name="descripcionObjE'+(id)+'" id="descripcionObj" cols="100" rows="5"></textarea>';
+  var nuevoElemento10 = '<textarea class="form-control" name="descripcionObjE'+(id)+'" id="descripcionObjE'+(id)+'" cols="100" rows="5"></textarea>';
   var nuevoElemento11 = '</div>';
   var nuevoElemento12 = '</fieldset>';
   var nuevoElemento13 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarInput1('+(id)+');" >'; 
@@ -104,7 +104,7 @@ function eliminarInput1(n){
 }
 
 //funcion para crear campos para nuevos subtitulos
-function addInput2(divname, numSub){
+function addInput2(divname,numSub){
   
   //var elemento = document.createElement("div");
 
@@ -115,7 +115,7 @@ function addInput2(divname, numSub){
   }
   numSub++;
   var subtitulo01 = '<div id="bSubtitulo'+(numSub)+'"><label for="codigo">Subtitulo:</label>';
-  var subtitulo02 = '<input class="form-control" type="text" id="subtitulo" required>';
+  var subtitulo02 = '<input class="form-control" type="text" name="subtitulo'+(numSub)+'" id="subtitulo'+(numSub)+'" required>';
   var subtitulo03 = '</div>';
 
   subtitulo.innerHTML = subtitulo.innerHTML + subtitulo01 + subtitulo02 + subtitulo03;
@@ -131,8 +131,8 @@ function addInput3(divname,num){
 
   contSub++;
 
-  var capitulo01 = '<div class="clearfix"><legend>Capitulo '+(contC++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" id="tituloCapitulo" required></div>';
-  var capitulo02 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" id="subtitulo" required></div>';
+  var capitulo01 = '<div class="clearfix"><legend>Capitulo '+(contC)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" name="tituloCapitulo'+(contC)+'" id="tituloCapitulo'+(contC++)+'" required></div>';
+  var capitulo02 = '<div class="form-group col-md-6 col-md-offset-3"  id="aSubtitulo"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" name="aSubtitulo'+(contSub)+'" id="subtitulo'+(contSub)+'" required></div>';
   var capitulo03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"></div><br/><br/>';
 
   capitulo.innerHTML = capitulo.innerHTML + capitulo01 + capitulo02 + capitulo03;
@@ -149,12 +149,12 @@ function addUnidad(divname){
   }
   contSub++;
   var unidad01 = '<legend>Unidad '+(contU)+'</legend>'  
-  var unidad02 = '<div class="form-group"><label for="nombre">Titulo de la unidad:</label><input class="form-control" type="text" name="tituloUnidad'+(contU)+'" id="titulo" required></div>'
-  var unidad03 = '<div class="form-group"><label for="codigo">Objetivo:</label><textarea class="form-control" name="objetivoUnidad'+(contU++)+'" id="objetivo" cols="100" rows="3"></textarea></div>'
+  var unidad02 = '<div class="form-group"><label for="nombre">Titulo de la unidad:</label><input class="form-control" type="text" name="tituloUnidad'+(contU)+'" id="titulo'+(contU)+'" required></div>'
+  var unidad03 = '<div class="form-group"><label for="codigo">Objetivo:</label><textarea class="form-control" name="objetivoUnidad'+(contU++)+'" id="objetivo'+(contU)+'" cols="100" rows="3"></textarea></div>'
   
   var unidad04 = '<div class="container-fluid" id="contenido"><form name="formPg6" method="post" action="#"><fieldset>'
   var unidad05 = '<legend>CONTENIDO</legend><div class="container-fluid" id="capitulo'+(capituloN)+'">'
-  var unidad06 = '<div><legend>Capitulo '+(capituloN++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" id="tituloCapitulo" required></div>';
+  var unidad06 = '<div><legend>Capitulo '+(capituloN)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" id="tituloCapitulo" required></div>';
   var unidad07 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" id="subtitulo" required></div>';
   var unidad08 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"></div><br/><br/>';
   var unidad09 = '</div></fieldset><br>'
