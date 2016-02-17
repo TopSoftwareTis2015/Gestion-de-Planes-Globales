@@ -126,29 +126,34 @@ pg_close($conexion);
               <!--Titulo del formulario-->
      			    <h1><strong><center>Registrar Plan global</center></strong></h1>
              		 	 
-         		  <form name="formPg1" method="post" action="#">
-                
+         		  <form name="formPg1" method="post" action="<?php echo BASE_URL; ?>planGlobal/registrar">
+
+                <input type="hidden" name='guardar' value="1">
+
                 <div class="row container-fluid">
                   <!--<div class="col-xs-12 col-md-9">--> 
 
                     <div class="form-inline">
-                      <label for="nombre">Gestion:</label>
+                      <label for="gestion">Gestion:</label>
                       <!--<input class="form-control" type="" id="nomMateria">-->
-                      <select class="form-control" name="gestion" style="width:25%" id="nomMateria" size="1">
+                      <select class="form-control" name="gestion" style="width:25%" id="gesrion" size="1">
                            <option value="I">I</option>
                            <option value="II">II</option>
                            <option value="III">III</option>
                            <option value="IV">IV</option>
                       </select>
-                      <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required>
-                      &nbsp;&nbsp;&nbsp; <label for="codigo_plan_global">Codigo:</label>
-                      <input type="text" name="codigo_plan_global" class="form-control" maxlength="30"><br>
+                      <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio_gestion"
+                              id="anio_gestion" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required>
+                      &nbsp;&nbsp;&nbsp; 
+                      <label for="codigo_plan_global">Codigo:</label>
+                      <input type="text" name="codigo_plan_global" id="codigo_plan_global" 
+                              class="form-control" maxlength="30" placeholder="Código del plan global"><br>
                     </div><br>
 
                     <div class="form-group">
                       <div class="input-group">
                            <span class="input-group-addon">Titulo</span>
-                           <input type="text" class="form-control"name="titulo" required maxlength="300"><br>
+                           <input type="text" class="form-control"name="titulo" id="titulo" required maxlength="300"><br>
                       </div>
                     </div> 
 
@@ -163,8 +168,8 @@ pg_close($conexion);
                         <div class="row container-fluid">
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
-                              <label for="nombre">Nombre de la Materia:</label>
-                              <input class="form-control" type="" id="nomMateria" readonly>
+                              <label for="nombre_materia">Nombre de la Materia:</label>
+                              <input class="form-control" type="text" id="nombre_materia" readonly>
                               <!-- <select class="form-control" name="nom_materia" style="width:100%" id="nomMateria" size="1">
                                  <option value="1">Introduccion a la programacion</option>
                                  <option value="2">Taller de programacion en bajo nivel</option>                                              
@@ -173,14 +178,15 @@ pg_close($conexion);
                           <!--</div>-->
                         </div>
 
-                        <!-- <div class="row">  -->
-                          <!--<div class="col-xs-12">-->
-                           <!-- <div class="form-group"> -->
-                             <!-- <label for="codigo">Codigo:</label> -->
-                             <!-- <input readonly class="form-control" type="text" id="nomMateria"> -->
-                           <!-- </div> -->
-                          <!--</div>-->
-                        <!-- </div> -->
+                        <div class="row"> 
+                          <div class="col-xs-12">
+                           <div class="form-group">
+                             <label for="codigo_materia">Codigo Materia:</label>
+                             <input readonly class="form-control" type="text" id="codigo_materia"
+                                    name="codigo_materia">
+                           </div>
+                          </div>
+                        </div>
             
                         <div class="row">
                           
@@ -220,7 +226,7 @@ pg_close($conexion);
 
                          	   <td>
                          	   <span class="navArriba">
-                                 <select id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
+                                 <select name="grupos_plan_global" id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
                                     <option value="-">-</option>
                                  </select>
                                </span>
@@ -262,7 +268,7 @@ pg_close($conexion);
 
                          	   <td>
                          	   <span class="navArriba">
-                                 <select id="sel4" style="width:220px" size="6" name="carrera[]" multiple="multiple">
+                                 <select name="docentes_plan_global" id="sel4" style="width:220px" size="6" name="carrera[]" multiple="multiple">
                           
                                  <option value="-">-</option></select>
                                </span>
@@ -275,7 +281,7 @@ pg_close($conexion);
                         <div class="row"> <!-- campo para añadir telefono-->
                           <div class="col-xs-12">
                            <div class="form-group ">
-                    	     <label for="telefono">Telefono:</label>
+                    	     <label for="telefono">Telefonos:</label>
                     	     <textarea readonly class="form-control"name="" id="telefono" cols="60" rows="3"></textarea>
                            </div>
                           </div>
@@ -284,7 +290,7 @@ pg_close($conexion);
                         <div class="row"> <!-- campo para añadir correo-->
                           <div class="col-xs-12">
                            <div class="form-group ">
-                              <label for="correo">Correo:</label>
+                              <label for="correo">Correos:</label>
                               <textarea readonly class="form-control"name="" id="email" cols="60" rows="3"></textarea>
                            </div>
                           </div>
