@@ -135,16 +135,20 @@ pg_close($conexion);
                       <label for="nombre">Gestion:</label>
                       <!--<input class="form-control" type="" id="nomMateria">-->
                       <select class="form-control" name="gestion" style="width:25%" id="nomMateria" size="1">
-                           <option value="1">I</option>
-                           <option value="2">II</option>
+                           <option value="I">I</option>
+                           <option value="II">II</option>
+                           <option value="III">III</option>
+                           <option value="IV">IV</option>
                       </select>
-                      <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required><br>
+                      <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required>
+                      &nbsp;&nbsp;&nbsp; <label for="codigo_plan_global">Codigo:</label>
+                      <input type="text" name="codigo_plan_global" class="form-control" maxlength="30"><br>
                     </div><br>
 
                     <div class="form-group">
                       <div class="input-group">
                            <span class="input-group-addon">Titulo</span>
-                           <input type="text" class="form-control"name="titulo" required><br>
+                           <input type="text" class="form-control"name="titulo" required maxlength="300"><br>
                       </div>
                     </div> 
 
@@ -160,23 +164,23 @@ pg_close($conexion);
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
                               <label for="nombre">Nombre de la Materia:</label>
-                              <!--<input class="form-control" type="" id="nomMateria">-->
-                              <select class="form-control" name="nom_materia" style="width:100%" id="nomMateria" size="1">
+                              <input class="form-control" type="" id="nomMateria" readonly>
+                              <!-- <select class="form-control" name="nom_materia" style="width:100%" id="nomMateria" size="1">
                                  <option value="1">Introduccion a la programacion</option>
                                  <option value="2">Taller de programacion en bajo nivel</option>                                              
-                              </select>
+                              </select> -->
                             </div>    
                           <!--</div>-->
                         </div>
 
-                        <div class="row"> 
+                        <!-- <div class="row">  -->
                           <!--<div class="col-xs-12">-->
-                           <div class="form-group">
-                             <label for="codigo">Codigo:</label>
-                             <input readonly class="form-control" type="text" id="nomMateria">
-                           </div>
+                           <!-- <div class="form-group"> -->
+                             <!-- <label for="codigo">Codigo:</label> -->
+                             <!-- <input readonly class="form-control" type="text" id="nomMateria"> -->
+                           <!-- </div> -->
                           <!--</div>-->
-                        </div>
+                        <!-- </div> -->
             
                         <div class="row">
                           

@@ -1,0 +1,17 @@
+- arreglar la interfaz de materias.
+- añadir un una columna a la tabla de materias que permita añadir un plan global.
+	este sera el enlace al plan global//por el momento.
+
+- crear en los menus la relacion entre materias y planes globales.
+	en el menu aparecera un subitem que sale de materia que es el plan global.
+- en carga horaria se debe agregar la funcionalidad js,
+	al momento de añadir un valor se debe actualizar el value de el check box..
+
+- es necesario trabajar con un solo form asi que hay que quitar los forms restantes y añadir a los campos que se
+  enviaran el atributo form especificando el formulario al que pertenecen.
+
+- en los campos dinamicos ejm objetivos, se debe controlar que:
+	cuando añado un nuevo item, ejm objetivo, este se carga con objetivo 2 y esta bien.
+	pero cuando elimino este objetivo y añado otro me sale con objetivo 3 y deberia ser el dos.
+
+- corregir que exiten botones que actuan como submits
