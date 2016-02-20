@@ -39,7 +39,7 @@ function addObjG(divname)
     var nuevoElemento14 = '</div>';
     
     //window.alert(id);
-                    
+    
     objetivo.innerHTML = objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
         nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14;
@@ -66,7 +66,7 @@ function addInput(divname)
   if(divname == 'obj_especifico'){
     var objetivo = document.getElementById("objE1");
     objetivo.appendChild(elemento); 
-    id=contOE;  
+    idE=contOE;  
     var nuevoElemento03 = '<legend>Objetivo '+(contOE++)+'</legend>';
   }
 
@@ -176,14 +176,27 @@ function addInput4(divname){
   var nBibliografia02 = '<legend id="separador"> </legend>';
   var nBibliografia03 = '<div class="form-group">';
   var nBibliografia04 = '<label for="titulo">Titulo Libro</label>';
-  var nBibliografia05 = '<input class="form-control" type="text" name="tituloB'+(b)+'" id="titulo">';
+  var nBibliografia05 = '<input class="form-control" type="text" name="titulo_b'+(b)+'" id="titulo">';
   var nBibliografia06 = '</div>';
   var nBibliografia07 = '<div class="form-group">';
   var nBibliografia08 = '<label for="autor">Autor</label>';
-  var nBibliografia09 = '<input class="form-control" type="text" name="autorB'+(b)+'" id="autor">';
+  var nBibliografia09 = '<input class="form-control" type="text" name="autor_b'+(b)+'" id="autor">';
+  var nBibliografia10 = '<input class="btn pull-right btn-warning" type="button" value="eliminar X" onClick="eliminarBiblio(\'biblio\','+(b)+');" >';
   var nBibliografia10 = '<input class="btn pull-right btn-warning" type="button" value="eliminar X" onClick="eliminarBiblio(\'biblio\','+(b)+');" >'; 
+
   var nBibliografia11 = '</div> </div>';
   
+   //var elementos = document.getElementById("add_biblio");
+
+    // var labelDescripcion = document.createElement("label");
+    // var textLabel = document.createTextNode("Titulo"+b);
+    // labelDescripcion.appendChild(textLabel);
+    // elementos.insertBefore(textLabel);
+
+    // var textArea = document.createElement("textarea");
+    // elementos.insertBefore(textArea);
+
+    
   biblio.innerHTML = biblio.innerHTML + nBibliografia01 + nBibliografia02 + nBibliografia03 + nBibliografia04 +
     nBibliografia05 + nBibliografia06 + nBibliografia07 + nBibliografia08 + nBibliografia09 + nBibliografia10 + nBibliografia11;
 }
@@ -192,9 +205,30 @@ function eliminarBiblio(divname,num){
   
   var objetivo = 'biblio'+num;
   var elemento = document.getElementById(objetivo);
-
+  var c=contB-1;
+  
   if (elemento.parentNode) {
     elemento.parentNode.removeChild(elemento);
   }
+  
+  // if(num<contB){
+  //   for (var i = num+1; i <= contB; i++) {
+  //     eliminarOld("n_biblio",i);
+  //   };
+  // }
+  contB=num;
+  for (var i = num; i <= c; i++) {
+    addInput4("n_biblio");
+  };
+   
+  // divname.replaceWith("bibblio"'+(num)+')
 
+}
+function eliminarOld(divname,id){
+  var objetivo = 'biblio'+id;
+  var elemento = document.getElementById(objetivo);
+  
+  if (elemento.parentNode) {
+    elemento.parentNode.removeChild(elemento);
+  }
 }
