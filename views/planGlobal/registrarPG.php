@@ -23,12 +23,19 @@ pg_close($conexion);
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Materias</title>
+  <meta charset="UTF-8">
+  <title>Materias</title>
     <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+  <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/crear_input.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/checkbox.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/seleccionarItem.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
   <script>
       function getComboA(sel) {
           var value = sel.value;
@@ -94,8 +101,8 @@ pg_close($conexion);
   </nav>
   <!--fin del menu horizontal--> 
 
-	<section class="main row">
-	<br>
+  <section class="main row">
+  <br>
      <!--seccion del menu de navegacion vertical--> 
      <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
       <div class="container-fluid">
@@ -120,13 +127,13 @@ pg_close($conexion);
         if(1==1)
         {
         ?>
-     		<!-- registro de plan global-->  
+        <!-- registro de plan global-->  
         <div class="panel panel-default">
-     	      <div class="panel-body">
+            <div class="panel-body">
               <!--Titulo del formulario-->
-     			    <h1><strong><center>Registrar Plan global</center></strong></h1>
-             		 	 
-         		  <form name="formPg1" method="post" action="<?php echo BASE_URL; ?>planGlobal/registrar">
+              <h1><strong><center>Registrar Plan global</center></strong></h1>
+                   
+              <form name="formPg1" method="post" action="<?php echo BASE_URL; ?>planGlobal/registrar">
 
                 <input type="hidden" name='guardar' value="1">
 
@@ -164,7 +171,7 @@ pg_close($conexion);
                   <!--<div class="col-xs-12">-->     
                     <fieldset>
                        <legend id="separador">Datos de Identificacion</legend>
-					  	
+              
                         <div class="row container-fluid">
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
@@ -199,13 +206,13 @@ pg_close($conexion);
 
                          <div class="table-responsive"> <!--tabla con los grupo existentes de una materia-->
                          <table class="table">
-                          	<tr class="info">
-                         		  <th>Grupos totales en las materia</th>
-                         		  <th></th>
-                         		<th>Grupos en el plan Global</th>
-                         	</tr>
-                         	<tr>
-                         	   <td>
+                            <tr class="info">
+                              <th>Grupos totales en las materia</th>
+                              <th></th>
+                            <th>Grupos en el plan Global</th>
+                          </tr>
+                          <tr>
+                             <td>
                                <!--lista con los grupos existentes de una materia-->
                                <select name="grupos_materia" id="sel1" style="width:250px" size="6">
                                 <?php
@@ -218,7 +225,7 @@ pg_close($conexion);
                                         }
                                     ?>
                                </select>
-                         	   </td>
+                             </td>
                              <td>
                                <!--botones para activar el script y pasar los datos de los grupos que participaran en el plan global-->
                               <input type="button" name="pasarValor1" onclick="pasar('sel1','sel2')" value="-->>">
@@ -228,15 +235,15 @@ pg_close($conexion);
                               
                              </td>
 
-                         	   <td>
-                         	   <span class="navArriba">
+                             <td>
+                             <span class="navArriba">
                                  <select name="grupos_plan_global" id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
                                     <option value="-">-</option>
                                  </select>
                                </span>
-                         	   </td>
-                         		
-                         	</tr>
+                             </td>
+                            
+                          </tr>
                           </table>                
                         </div> <!--fin de la tabla de grupos de una materia-->
                         
@@ -248,45 +255,62 @@ pg_close($conexion);
                          
                         <div class="table-responsive"> <!--tabla de docente perteneciente a una materia en comun-->
                         <table class="table">
-                         	<tr class="info">
-                         		<th>Docentes totales en las materia</th>
-                         		<th></th>
-                         		<th>Docentes en el plan Global</th>
-                         	</tr>
-                         	<tr>
-                         	   <td>
+                          <tr class="info">
+                            <th>Docentes totales en las materia</th>
+                            <th></th>
+                            <th>Docentes en el plan Global</th>
+                          </tr>
+                          <tr>
+                             <td>
                               <!--lista con todos los docentes designados a una materia-->
-                         	   	<select name="docentes_Materia" id="sel3" style="width:250px" size="6" onchange='getComboA(this)'>
-                         	   		<option value="1">Lic. Leticia Blanco</option>
-                         	   		<option value="2">Lic. Rosmary Torrico</option>
+
+
+                              <select name="docentes_materia" id="sel3" style="width:250px" size="6">
+                                <?php 
+                                  for ($i=0; $i < count($this->docentes); $i++) { 
+                                    ?>
+                                <option value="<?php echo $this->docentes[$i]['id_usuario']; ?>">
+                                  <?php echo $this->docentes[$i]['nombre_usuario']; ?>
+                                </option>
+                                <?php  }
+                                 ?>
+
+
                               </select>  
                              </td>
 
                                
-                         	   <td>
+                             <td>
                                 <!--botones para activar el script y pasar los datos de los docente que participaran en el plan global-->
-                         	    	<input class="center-block" type="button" name="pasarValor1" onclick="pasar('sel3','sel4')" value="-->>">
-                         	   	  <br><br>
-                         	   	  <input class="center-block" type="button" name="pasarValor2" onclick="pasar('sel4','sel3')" value="<<--">
-                         	   </td>
+                                <input class="center-block" type="button" name="pasarValor1" onclick="" value="-->>">
+                                <br><br>
+                                <input class="center-block" type="button" name="pasarValor2" onclick="" value="<<--">
+                             </td>
 
-                         	   <td>
-                         	   <span class="navArriba">
+                             <td>
+                             <span class="navArriba">
                                  <select name="docentes_plan_global" id="sel4" style="width:220px" size="6" name="carrera[]" multiple="multiple">
                           
                                  <option value="-">-</option></select>
                                </span>
-                         	   </td>
-                         		
-                         	</tr>
+                             </td>
+                            
+                          </tr>
                          </table>
                         </div> <!--fin de la tabla de los docente pertenecientes a una materia en comun-->
                          
                         <div class="row"> <!-- campo para añadir telefono-->
                           <div class="col-xs-12">
                            <div class="form-group ">
-                    	     <label for="telefono">Telefonos:</label>
-                    	     <textarea readonly class="form-control"name="fono_docente" id="telefono" cols="60" rows="3"></textarea>
+
+
+                             <label for="telefono">Telefonos:</label>
+                             <textarea readonly class="form-control"name="" id="telefonos" cols="60" rows="3"></textarea>
+                            <script>                              
+                              setDocentes(<?php echo json_encode($this->docentes); ?>);
+                            </script>
+
+
                            </div>
                           </div>
                         </div>
@@ -295,7 +319,16 @@ pg_close($conexion);
                           <div class="col-xs-12">
                            <div class="form-group">
                               <label for="correo">Correos:</label>
-                              <textarea readonly class="form-control"name="correo_docente" id="email" cols="60" rows="3"></textarea>
+
+
+                              <textarea readonly class="form-control"name="" id="correos" cols="60" rows="3">
+<?php 
+  //for ($i=0; $i < count($this->docentes); $i++){ 
+    //echo $this->docentes[$i]['nombre_usuario'].": ".$this->docentes[$i]['correo_usuario']."\n";
+//}?>
+</textarea>
+
+
                            </div>
                           </div>
                         </div>
@@ -378,15 +411,15 @@ pg_close($conexion);
                <!--Fin parte 7-->
 
 
-					   </fieldset>
+             </fieldset>
            <!--</div>-->
         <!--</div>-->
-			 </form>      
-     	
-      </div> 	     		   
+       </form>      
+      
+      </div>             
      </div>
-  		  
-     	</div>
+        
+      </div>
      </article>
      
      <div class="container-fluid" id="paginador">
@@ -398,7 +431,7 @@ pg_close($conexion);
             </nav>
       </div>
 
-	</section>
+  </section>
 
 
 </div>
@@ -408,13 +441,6 @@ pg_close($conexion);
        include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
     ?> <!--fin del codigo de pie de pagina-->  
   </footer>
-  <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/crear_input.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/checkbox.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/seleccionarItem.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
 
 </body>
 
