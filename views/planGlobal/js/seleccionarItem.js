@@ -4,7 +4,26 @@ function setDocentes(p){
     docentes = p;
 }
 
+function eliminarGrupo(){
+    gruposTotales = document.getElementById('sel1');
+    gruposPlanGlobal = document.getElementById('sel2');
 
+    grupoEliminado = intercambiarOption(gruposPlanGlobal, gruposTotales);
+    if(grupoEliminado!=null){
+        quitarDocente(grupoEliminado.dataset.docente,gruposPlanGlobal)
+    }
+}
+
+function eliminarDocente(){
+    docentesTotales = document.getElementById('sel3');
+    docentesPlanGlobal = document.getElementById('sel4');
+
+    docenteEliminado = intercambiarOption(docentesPlanGlobal, docentesTotales);
+    if(docenteEliminado!=null){
+        eliminarDatosDocente(docenteEliminado.value);
+        eliminarGruposDocente(docenteEliminado.value);
+    }
+}
 
 function ingresarGrupo(){
     gruposTotales = document.getElementById('sel1');
@@ -20,8 +39,21 @@ function ingresarGrupo(){
     }
 }
 
-function intercambiarOption(select1, select2) {
+function ingresarDocente(){
+    docentesTotales = document.getElementById('sel3');
+    docentesPlanGlobal = document.getElementById('sel4');
 
+    docenteAgregado = intercambiarOption(docentesTotales, docentesPlanGlobal);
+    if(docenteAgregado!=null){
+        gruposTotales = document.getElementById('sel1');
+        gruposPlanGlobal = document.getElementById('sel2');
+        agregarInformacionDocente(docenteAgregado.value);
+        intercambiarGruposDocente(docenteAgregado.value, gruposTotales, gruposPlanGlobal);
+    }
+}
+
+
+function intercambiarOption(select1, select2) {
     for (var i = 0; i < select1.options.length; i++) {
         option = select1.options[i];
         if(option.selected){
@@ -34,11 +66,11 @@ function intercambiarOption(select1, select2) {
     return null;
 }
 
-function eliminarDocente(id_docente, select){
+function quitarDocente(id_docente, gruposPlanGlobal){
 
-    for (var i = 0; i < select.options.length; i++) {
-        option = select.options[i];
-        if(option.dataset.docente == id_docente){
+    for (var i = 0; i < gruposPlanGlobal.options.length; i++) {
+        grupo = gruposPlanGlobal.options[i];
+        if(grupo.dataset.docente == id_docente){
             return true;
         }
     };
@@ -49,8 +81,20 @@ function eliminarDocente(id_docente, select){
     eliminarDatosDocente(id_docente);
 }
 
-function intercambiarDocente(id_docente, selectOrigen, selectDestino){
-    
+function eliminarGruposDocente(id_docente){
+    gruposPlanGlobal = document.getElementById('sel2');
+
+    for (var i = 0; i < gruposPlanGlobal.options.length; i++) {
+        grupo = gruposPlanGlobal.options[i];
+        if(grupo.dataset.docente == id_docente){
+            gruposTotales = document.getElementById('sel1');
+            gruposPlanGlobal = document.getElementById('sel2');
+            intercambiarGruposDocente(id_docente, gruposPlanGlobal, gruposTotales);
+        }
+    };
+}
+
+function intercambiarDocente(id_docente, selectOrigen, selectDestino){    
     for (var i = 0; i < selectOrigen.options.length; i++) {
         option = selectOrigen.options[i];
         if(option.value == id_docente){
@@ -62,21 +106,42 @@ function intercambiarDocente(id_docente, selectOrigen, selectDestino){
     return false;    
 }
 
+function intercambiarGruposDocente(id_docente, selectOrigen, selectDestino){
+    for (var i = 0; i < selectOrigen.options.length;) {
+        grupo = selectOrigen.options[i];
+        if(grupo.dataset.docente == id_docente){
+            selectOrigen.removeChild(grupo);
+            selectDestino.appendChild(grupo);
+        }else{
+            i++;
+        }
+    };
+}
+
 function eliminarDatosDocente(id_docente){
+    docentesPlanGlobal = document.getElementById('sel4');
     var numerosDocente = "";
     var correosDocente = "";
 
-    for (var i = 0; i < docentes.length; i++) {
-        if(docentes[i]['id_docente']!=id_docente){
-            numerosDocente = docentes[i]['nombre_usuario'] + ": " +
-                docentes[i]['numero_movil_usuario'] + " " + docentes[i]['numero_fijo_usuario'] + "\n";
-            correosDocente = docentes[i]['nombre_usuario'] + ": " +
-                docentes[i]['correo_usuario'] + "\n";
-        }
+    for (var i = 0; i < docentesPlanGlobal.options.length; i++) {
+        docenteOption = docentesPlanGlobal.options[i];
+        docente = getDocentePorId(docenteOption.value);
+        numerosDocente += docente['nombre_usuario'] + ": " +
+            docente['numero_movil_usuario'] + " " + docente['numero_fijo_usuario'] + "\n";
+        correosDocente += docente['nombre_usuario'] + ": " +
+            docente['correo_usuario'] + "\n";
     };
 
     document.getElementById('telefonos').innerHTML = numerosDocente;
     document.getElementById('correos').innerHTML = correosDocente;
+}
+
+function getDocentePorId(id_docente){
+    for (var i = 0; i < docentes.length; i++) {
+        if(id_docente == docentes[i]['id_usuario']){
+            return docentes[i];
+        }
+    };
 }
 
 function agregarInformacionDocente(id_docente){

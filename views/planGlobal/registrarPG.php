@@ -240,10 +240,10 @@ pg_close($conexion);
                              </td>
                              <td>
                                <!--botones para activar el script y pasar los datos de los grupos que participaran en el plan global-->
-                              <input type="button" onclick="ingresarGrupo('sel1','sel2')" value="-->>">
+                              <input type="button" onclick="ingresarGrupo()" value="-->>">
                               <br><br>
                              
-                              <input type="button" onclick="pasar('sel2','sel1')" value="<<--">
+                              <input type="button" onclick="eliminarGrupo()" value="<<--">
                              </td>
 
                              <td>
@@ -289,9 +289,9 @@ pg_close($conexion);
                                
                              <td>
                                 <!--botones para activar el script y pasar los datos de los docente que participaran en el plan global-->
-                                <input class="center-block" type="button" name="pasarValor1" onclick="" value="-->>">
+                                <input class="center-block" type="button" name="pasarValor1" onclick="ingresarDocente();" value="-->>">
                                 <br><br>
-                                <input class="center-block" type="button" name="pasarValor2" onclick="" value="<<--">
+                                <input class="center-block" type="button" name="pasarValor2" onclick="eliminarDocente();" value="<<--">
                              </td>
 
                              <td>
