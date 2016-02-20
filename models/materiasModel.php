@@ -64,6 +64,8 @@ class materiasModel extends Model{
 													':sigla_materia' =>$sigla_materia
 													));
 	}
+
+
 }
 
  ?>

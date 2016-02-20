@@ -1,9 +1,27 @@
-function pasar(de,a) {
-    
-    obj=document.getElementById(de);
-    obj2=document.getElementById(a);
+function ingresarGrupo(){
+    gruposTotales = document.getElementById('sel1');
+    gruposPlanGlobal = document.getElementById('sel2');
+
+    optionAgregado = intercambiarOption(gruposTotales, gruposPlanGlobal);
+    if(optionAgregado!=null){
+        if(exiteGrupoDelMismoProfesor())
+    }
+}
+
+function intercambiarOption(select1, select2) {
+
+    for (var i = 0; i < select1.options.length; i++) {
+        option = select1.options[i];
+        if(select1.options[i].selected){
+            select1.removeChild(option);
+            select2.appendChild(option);
+            return option;
+        }
+    };
+
+    return null;
                     
-    for (i=0; opt=obj.options[i]; i++)
+    /*for (i=0; opt=obj.options[i]; i++)
                                     
         if (opt.selected) {
             valor=opt.value; // almacenar value
@@ -31,5 +49,5 @@ function pasar(de,a) {
             opc = new Option("-","");
             eval(obj.options[0]=opc);
             return;
-        } 
+        }*/ 
 }

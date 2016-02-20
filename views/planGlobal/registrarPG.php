@@ -1,7 +1,7 @@
 
 <?php
 //Conexion Base de datos
-$user = "postgres";
+/*$user = "postgres";
 $password = "postgres";
 $dbname = "planGlobal";
 $port = "5432";
@@ -16,7 +16,7 @@ $resultado = pg_query( $query) or die("Error en la Consulta SQL");
 $numReg = pg_num_rows($resultado);
 
 pg_close($conexion);
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -30,14 +30,14 @@ pg_close($conexion);
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
   <script>
-      function getComboA(sel) {
+      /*function getComboA(sel) {
           var value = sel.value;
           var id = 'gMateria' + value;
           var valor = document.getElementById(id);
           var dato = valor.innerHTML;
           //alert(dato);
           window.location.href = "listaDocControlador.php?dato=" + dato;
-      }
+      }*/
   </script>                      
 </head>
     
@@ -132,7 +132,7 @@ pg_close($conexion);
 
                 <div class="row container-fluid">
                   <!--<div class="col-xs-12 col-md-9">--> 
-
+                    <span id="error_anio" class="label label-danger"></span>
                     <div class="form-inline">
                       <label for="gestion">Gestion:</label>
                       <!--<input class="form-control" type="" id="nomMateria">-->
@@ -146,14 +146,15 @@ pg_close($conexion);
                               id="anio_gestion" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required>
                       &nbsp;&nbsp;&nbsp; 
                       <label for="codigo_plan_global">Codigo:</label>
-                      <input type="text" name="codigo_plan_global" id="codigo_plan_global" 
-                              class="form-control" maxlength="30" placeholder="Código del plan global"><br>
+                      <input type="text" name="codigo_plan_global" id="codigo_plan_global" title="numeros, letras, _ , -" 
+                              class="form-control" maxlength="30" placeholder="Código del plan global" pattern="[\w-]*"><br>
                     </div><br>
 
                     <div class="form-group">
                       <div class="input-group">
                            <span class="input-group-addon">Titulo</span>
-                           <input type="text" class="form-control"name="titulo" id="titulo" required maxlength="300"><br>
+                           <input type="text" class="form-control"name="titulo" id="titulo" required maxlength="300"
+                                  value="Plan Global - <?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>"><br>
                       </div>
                     </div> 
 
@@ -169,7 +170,8 @@ pg_close($conexion);
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
                               <label for="nombre_materia">Nombre de la Materia:</label>
-                              <input class="form-control" type="text" id="nombre_materia" readonly>
+                              <input class="form-control" type="text" id="nombre_materia" readonly
+                                value="<?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>">
                               <!-- <select class="form-control" name="nom_materia" style="width:100%" id="nomMateria" size="1">
                                  <option value="1">Introduccion a la programacion</option>
                                  <option value="2">Taller de programacion en bajo nivel</option>                                              
@@ -185,8 +187,8 @@ pg_close($conexion);
 
                            <div class="form-group">
                              <label for="codigo_materia">Codigo Materia:</label>
-                             <input readonly class="form-control" type="text" id="codigo_materia"
-                                    name="codigo_materia">
+                             <input readonly class="form-control" type="text" id="codigo_materia" name="codigo_materia"
+                                value="<?php echo $this->materia['codigo_materia']; ?>">
                            </div>
                           </div>
                         </div>
@@ -196,7 +198,7 @@ pg_close($conexion);
                             <legend id="separador">Ingrese los grupos que participaran en este plan </legend>
                            
                         </div> 
-
+                        <span id="error_grupo" class="label label-danger"></span>
                          <div class="table-responsive"> <!--tabla con los grupo existentes de una materia-->
                          <table class="table">
                           	<tr class="info">
@@ -207,8 +209,18 @@ pg_close($conexion);
                          	<tr>
                          	   <td>
                                <!--lista con los grupos existentes de una materia-->
+
                                <select name="grupos_materia" id="sel1" style="width:250px" size="6">
                                 <?php
+                                  for ($i=0; $i < count($this->grupos); $i++) { 
+                                ?>
+                                <option value="<?php echo $this->grupos[$i]['grupo'] ?>"
+                                  data-docente="<?php echo $this->grupos[$i]['id_usuario'] ?>">
+                                  Grupo <?php echo $this->grupos[$i]['grupo']; ?>
+                                </option>
+                                <?php  }
+
+                                /*
                                         if($numReg>0){
                                             while ($fila=pg_fetch_array($resultado)) {
                                                 echo "<option value='1'>Grupo ".$fila['grupo']."</option>";
@@ -216,21 +228,20 @@ pg_close($conexion);
                                         }else{
                                             echo "<option>No hay Registros</option>";
                                         }
-                                    ?>
+                                    */?>
                                </select>
                          	   </td>
                              <td>
                                <!--botones para activar el script y pasar los datos de los grupos que participaran en el plan global-->
-                              <input type="button" name="pasarValor1" onclick="pasar('sel1','sel2')" value="-->>">
+                              <input type="button" onclick="ingresarGrupo('sel1','sel2')" value="-->>">
                               <br><br>
                              
-                         	   	<input type="button" name="pasarValor2" onclick="pasar('sel2','sel1')" value="<<--">
+                         	   	<input type="button" onclick="pasar('sel2','sel1')" value="<<--">
                          	   </td>
 
                          	   <td>
                          	   <span class="navArriba">
                                  <select name="grupos_plan_global" id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
-                                    <option value="-">-</option>
                                  </select>
                                </span>
                          	   </td>
@@ -255,9 +266,16 @@ pg_close($conexion);
                          	<tr>
                          	   <td>
                               <!--lista con todos los docentes designados a una materia-->
-                         	   	<select name="docentes_Materia" id="sel3" style="width:250px" size="6" onchange='getComboA(this)'>
-                         	   		<option value="1">Lic. Leticia Blanco</option>
-                         	   		<option value="2">Lic. Rosmary Torrico</option>
+
+                         	   	<select name="gruposMateria" id="sel3" style="width:250px" size="6" onchange='getComboA(this)'>
+                                <?php 
+                                  for ($i=0; $i < count($this->docentes); $i++) { 
+                                    ?>
+                         	   		<option value="<?php echo $this->docentes[$i]['id_usuario']; ?>">
+                                  <?php echo $this->docentes[$i]['nombre_usuario']; ?>
+                                </option>
+                                <?php  }
+                                 ?>
                               </select>  
                              </td>
 
@@ -272,8 +290,7 @@ pg_close($conexion);
                          	   <td>
                          	   <span class="navArriba">
                                  <select name="docentes_plan_global" id="sel4" style="width:220px" size="6" name="carrera[]" multiple="multiple">
-                          
-                                 <option value="-">-</option></select>
+                                  </select>
                                </span>
                          	   </td>
                          		
@@ -284,6 +301,15 @@ pg_close($conexion);
                         <div class="row"> <!-- campo para añadir telefono-->
                           <div class="col-xs-12">
                            <div class="form-group ">
+
+                      	     <label for="telefono">Telefonos:</label>
+                      	     <textarea readonly class="form-control"name="" id="telefono" cols="60" rows="3">
+<?php 
+  //for ($i=0; $i < count($this->docentes); $i++){ 
+    //echo $this->docentes[$i]['nombre_usuario'].": ".$this->docentes[$i]['numero_movil_usuario'].", ".$this->docentes[$i]['numero_fijo_usuario']."\n";
+//}?>
+                            </textarea>
+
                     	     <label for="telefono">Telefonos:</label>
                     	     <textarea readonly class="form-control"name="fono_docente" id="telefono" cols="60" rows="3"></textarea>
                            </div>
@@ -294,6 +320,14 @@ pg_close($conexion);
                           <div class="col-xs-12">
                            <div class="form-group">
                               <label for="correo">Correos:</label>
+
+                              <textarea readonly class="form-control"name="" id="telefono" cols="60" rows="3">
+<?php 
+  //for ($i=0; $i < count($this->docentes); $i++){ 
+    //echo $this->docentes[$i]['nombre_usuario'].": ".$this->docentes[$i]['correo_usuario']."\n";
+//}?>
+</textarea>
+
                               <textarea readonly class="form-control"name="correo_docente" id="email" cols="60" rows="3"></textarea>
                            </div>
                           </div>
