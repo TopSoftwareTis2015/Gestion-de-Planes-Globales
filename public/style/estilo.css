@@ -60,7 +60,8 @@ border: #2c3e50 2px solid;
 /*Para los titulos de los Formularios de materia*/
 #cabecera{
  border: #2c3e50 2px solid;
- background: #9EEBF7;  
+ background: #484848 ;
+ color: white;
 }
 
 #nuevo{

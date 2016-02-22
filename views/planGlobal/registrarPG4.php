@@ -1,3 +1,4 @@
+<!-- parte 4 -->
 <strong><h2>SELECCION Y ORGANIZACION DE CONTENIDOS</h2></strong>
 <br>
 <div class="container-fluid" id="unidad">
@@ -6,11 +7,11 @@
   <legend>Unidad 1</legend>  
   <div class="form-group">
     <label for="nombre">Titulo de la unidad:</label> <!--Titulo de la unidad que tendra el temario para la materia-->
-    <input class="form-control" type="text" name="titulo_unidad" id="titulo_unidad" required>
+    <input class="form-control" type="text" name="titulo_unidad1" id="titulo_unidad1" required>
   </div>
   <div class="form-group">
     <label for="codigo">Objetivo:</label><!--campo para describir la unidad de avance de una materia-->
-    <textarea class="form-control"name="objetivo_unidad" id="objetivo_unidad" cols="100" rows="3"></textarea>
+    <textarea class="form-control"name="objetivo_unidad1" id="objetivo_unidad1" cols="100" rows="3"></textarea>
   </div>
 
   <div class="container-fluid" id="contenido">
@@ -19,17 +20,17 @@
       <legend>CONTENIDO</legend>
       <div class="container-fluid" id="capitulo">
       
-      <div class="clearfix">
+      <div class="clearfix" id="cap_1">
         <legend>Capitulo 1</legend>
 
         <div class="form-group">
           <label for="nombre">Titulo del capitulo:</label>
-          <input class="form-control" type="text" name="titulo_capitulo" id="titulo_capitulo" required>
+          <input class="form-control" type="text" name="titulo_cap1" id="titulo_cap1" required>
         </div>
 
         <div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo1">
           <label for="codigo">Subtitulo:</label>
-          <input class="form-control" type="text" name="subtitulo" id="subtitulo" required>
+          <input class="form-control" type="text" name="subtitulo_cap1" id="subtitulo_cap1" required>
         </div>
 
         <input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addInput2('new_subtitulo',1);">

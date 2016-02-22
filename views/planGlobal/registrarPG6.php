@@ -9,13 +9,13 @@
         <!--titulo de la bibliografia-->
         <div class="form-group">
           <label for="nombre">Titulo Libro</label>
-          <input class="form-control" type="text" name="titulo_libro" id="titulo_libro" required>
+          <input class="form-control" type="text" name="titulo_1" id="titulo_1" required>
         </div>
         
         <!--campo para ingresar el nombre del autor del libro-->
         <div class="form-group">
           <label for="codigo">Autor</label>
-          <input class="form-control" type="text" name="autor_libro" id="autor_libro" required>
+          <input class="form-control" type="text" name="autor_1" id="autor_1" required>
         </div>
 
       </div>

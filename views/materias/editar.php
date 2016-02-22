@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container" id="cuadro">
 	<header><!-- seccion de la cabecera de la pagina web-->
 		<div class="container">
 		   <div class="row">
@@ -51,7 +51,7 @@
      <article class="col-xs-12 col-sm-8 col-md-9">
 	    <div class="container-fluid" id="cabecera"> <!-- titulo de la nueva ventana-->
           <!--<div class="col-xs-12 col-sm-8 col-md-9">--> 
-            <h2><center>Editar Materia</center></h2>  
+            <h3><center><strong>EDITAR MATERIA</strong></center></h3>  
           <!--</div>-->
 	    </div> <!-- fin del titulo-->
     	

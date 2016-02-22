@@ -19,7 +19,7 @@
 <body>
 
 <!--Contenido del Body-->
-<div class="container">
+<div class="container" id="cuadro">
 	  <header>
 	     <div class="container">
 			 <div class="row">
@@ -95,7 +95,7 @@
 	  	<div class="col-xs-12 col-sm-8 col-md-9">
 		  		
 		  		<div class="container-fluid" id="cabecera"> <!-- titulo de la nueva ventana-->
-		            <h2 style=""><center>Registrar Materia</center></h2>  
+		            <h2><center>REGISTRAR MATERIA</center></h2>  
 			    </div> <!-- fin del titulo-->
 	     		
      		<!--formulario de registro de los datos de una materia-->
