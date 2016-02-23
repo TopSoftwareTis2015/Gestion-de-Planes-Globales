@@ -1,5 +1,5 @@
 
-<?php
+<?php 
 //Conexion Base de datos
 /*$user = "postgres";
 $password = "postgres";

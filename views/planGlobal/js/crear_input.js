@@ -187,12 +187,34 @@ function addInput3(divname){
     
   var capitulo01 = '<div class="clearfix" id="cap_'+(cap)+'"><button type="button" class="close" aria-hiden="false" onClick="eliminarCapitulo('+(cap)+');">&times;</button><legend>Capitulo '+(contC++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" name="titulo_cap'+(cap)+'" id="titulo_cap'+(cap)+'" required></div>';
   var capitulo02 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" name="subtitulo_cap'+(cap)+'" id="subtitulo_cap'+(cap)+'" required></div>';
-  var capitulo03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"></div><br>';
+  var capitulo03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"><br></div>';
 
   capitulo.innerHTML = capitulo.innerHTML + capitulo01 + capitulo02 + capitulo03;
 }
 
 function eliminarCapitulo(id){
+  var objetivo = 'cap_'+id;
+  var elemento = document.getElementById(objetivo);
+  var u=contC-1;
+
+  if (elemento.parentNode) {
+    elemento.parentNode.removeChild(elemento);
+  }
+
+  if(id<u){
+    var p=id+1;
+    for (var i = p; i <= u; i++) {
+      eliminarCap(i);
+    };
+  }
+  
+  contC=id;
+  for (var i = id; i < u; i++) {
+    addInput3("new_capitulo");
+  };
+}
+
+function eliminarCap(id){
   var objetivo = 'cap_'+id;
   var elemento = document.getElementById(objetivo);
   
@@ -225,6 +247,38 @@ function addUnidad(divname){
   var unidad11 = '</form></div>'
   unidad.innerHTML = unidad.innerHTML + unidad01 + unidad02 + unidad03 + unidad04 + unidad05 + unidad06 + unidad07 + unidad08 + unidad09 + unidad10 + unidad11;
 }
+
+// function eliminarUnidad(id){
+//   var objetivo = 'uni_'+id;
+//   var elemento = document.getElementById(objetivo);
+//   var u=contU-1;
+
+//   if (elemento.parentNode) {
+//     elemento.parentNode.removeChild(elemento);
+//   }
+
+//   if(id<u){
+//     var p=id+1;
+//     for (var i = p; i <= u; i++) {
+//       eliminarU(i);
+//     };
+//   }
+  
+//   contC=id;
+//   for (var i = id; i < u; i++) {
+//     addUnidad("new_unidad");
+//   };
+// }
+
+// function eliminarU(id){
+//   var objetivo = 'uni_'+id;
+//   var elemento = document.getElementById(objetivo);
+  
+//   if (elemento.parentNode) {
+//     elemento.parentNode.removeChild(elemento);
+//   }
+// }
+
 
 //funcion para crear campos para bibliografias
 function addInput4(divname){

@@ -14,6 +14,11 @@ class planGlobalController extends Controller{
 
 	}
 
+	// public function registrar(){//$pagina = false){
+	// 	//$pagina = $pagina? $pagina : "";
+	// 	$this->_view->renderizar('registrarPG');
+	// }
+
 	public function registrar($codigo_materia){
 		$codigo_materia = $codigo_materia[0];
 		$this->_view->materia = $this->_materiaDao->getMateria('codigo_materia',$codigo_materia);
