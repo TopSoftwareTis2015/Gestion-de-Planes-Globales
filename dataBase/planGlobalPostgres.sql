@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     15/02/2016 21:53:20                          */
+/* Created on:     22/02/2016 23:44:50                          */
 /*==============================================================*/
 
 
@@ -19,6 +19,8 @@ drop table CAPITULO;
 drop index CARGA_HORARIAS_PK;
 
 drop table CARGA_HORARIAS;
+
+drop index RELATIONSHIP_29_FK;
 
 drop index CARRERAS_PK;
 
@@ -39,6 +41,10 @@ drop table CONTENIDOS_SECCION;
 drop index DOCENTES_PK;
 
 drop table DOCENTES;
+
+drop index FACULTADES_PK;
+
+drop table FACULTADES;
 
 drop index RELATIONSHIP_13_FK;
 
@@ -203,6 +209,7 @@ ID_PG
 /*==============================================================*/
 create table CARRERAS (
    NOMBRE               VARCHAR(30)          not null,
+   CODIGO_FACULTAD      VARCHAR(40)          null,
    TIPO                 VARCHAR(30)          not null,
    ANIO_CARRERA         INT4                 not null,
    HABILITADA_CARRERA   BOOL                 null,
@@ -214,6 +221,13 @@ create table CARRERAS (
 /*==============================================================*/
 create unique index CARRERAS_PK on CARRERAS (
 NOMBRE
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_29_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_29_FK on CARRERAS (
+CODIGO_FACULTAD
 );
 
 /*==============================================================*/
@@ -290,6 +304,23 @@ create table DOCENTES (
 /*==============================================================*/
 create unique index DOCENTES_PK on DOCENTES (
 ID_USUARIO
+);
+
+/*==============================================================*/
+/* Table: FACULTADES                                            */
+/*==============================================================*/
+create table FACULTADES (
+   CODIGO_FACULTAD      VARCHAR(40)          not null,
+   NOMBRE_FACULTAD      VARCHAR(200)         not null,
+   HABILITADA_FACULTAD  BOOL                 not null,
+   constraint PK_FACULTADES primary key (CODIGO_FACULTAD)
+);
+
+/*==============================================================*/
+/* Index: FACULTADES_PK                                         */
+/*==============================================================*/
+create unique index FACULTADES_PK on FACULTADES (
+CODIGO_FACULTAD
 );
 
 /*==============================================================*/
@@ -386,6 +417,7 @@ create table NIVELES_MATERIAS (
    ID_CICLO             INT4                 not null,
    NUMERO_NIVEL         INT4                 not null,
    CODIGO_MATERIA       VARCHAR(50)          not null,
+   TIPO_MATERIA         BOOL                 not null,
    constraint PK_NIVELES_MATERIAS primary key (CODIGO_PLAN_ESTUDIO, ID_CICLO, NUMERO_NIVEL, CODIGO_MATERIA)
 );
 
@@ -423,6 +455,7 @@ create table OBJETIVOS_ESPECIFICOS (
    ID_OBJETIVO_ESPECIFICO SERIAL               not null,
    TITULO_OBJETIVO_ESPECIFICO VARCHAR(250)         not null,
    DESCRIPCION_OBJETIVO_ESPECIFICO TEXT                 null,
+   NUMERO_OBJETIVO_ESPECIFICO INT4                 not null,
    constraint PK_OBJETIVOS_ESPECIFICOS primary key (ID_PG, ID_OBJETIVO_ESPECIFICO)
 );
 
@@ -449,6 +482,7 @@ create table OBJETIVOS_GENERALES (
    ID_OBJETIVO_GENERAL  SERIAL               not null,
    TITULO_OBJETIVO_GENERAL VARCHAR(250)         not null,
    DESCRIPCION_OBJETIVO_GENERAL TEXT                 null,
+   NUMERO_OBJETIVO_GENERAL INT4                 not null,
    constraint PK_OBJETIVOS_GENERALES primary key (ID_PG, ID_OBJETIVO_GENERAL)
 );
 
@@ -680,6 +714,11 @@ alter table CAPITULO
 alter table CARGA_HORARIAS
    add constraint FK_CARGA_HO_RELATIONS_PLANES_G foreign key (ID_PG)
       references PLANES_GLOBALES (ID_PG)
+      on delete restrict on update restrict;
+
+alter table CARRERAS
+   add constraint FK_CARRERAS_RELATIONS_FACULTAD foreign key (CODIGO_FACULTAD)
+      references FACULTADES (CODIGO_FACULTAD)
       on delete restrict on update restrict;
 
 alter table CICLOS
