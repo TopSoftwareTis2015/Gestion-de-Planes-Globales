@@ -139,11 +139,12 @@ pg_close($conexion);
 
                 <div class="row container-fluid">
                   <!--<div class="col-xs-12 col-md-9">--> 
-                    <span id="error_anio" class="label label-danger"></span>
+                    <span id="error_anio_gestion" class="label label-danger"></span>
+                    <span id="error_codigo_pg" class="label label-danger"></span>
                     <div class="form-inline">
                       <label for="gestion">Gestion:</label>
                       <!--<input class="form-control" type="" id="nomMateria">-->
-                      <select class="form-control" name="gestion" style="width:25%" id="gesrion" size="1">
+                      <select class="form-control" name="gestion" style="width:25%" id="gestion" size="1">
                            <option value="I">I</option>
                            <option value="II">II</option>
                            <option value="III">III</option>
@@ -161,7 +162,8 @@ pg_close($conexion);
                       <div class="input-group">
                            <span class="input-group-addon">Titulo</span>
                            <input type="text" class="form-control"name="titulo" id="titulo" required maxlength="300"
-                                  value="Plan Global - <?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>"><br>
+                                  value="Plan Global - <?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>"
+                                  title="Titulo sugerido, editelo deacuerdo a sus especificaciones."><br>
                       </div>
                     </div> 
 
@@ -176,6 +178,8 @@ pg_close($conexion);
                         <div class="row container-fluid">
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
+                              <input type="hidden" name="id_materia"
+                                value="<?php id(isset($this->materia)) echo $this->materia['id_materia']; ?>">
                               <label for="nombre_materia">Nombre de la Materia:</label>
                               <input class="form-control" type="text" id="nombre_materia" readonly
                                 value="<?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>">
@@ -217,7 +221,7 @@ pg_close($conexion);
                              <td>
                                <!--lista con los grupos existentes de una materia-->
 
-                               <select name="grupos_materia" id="sel1" style="width:250px" size="6">
+                               <select id="sel1" style="width:250px" size="6">
                                 <?php
                                   for ($i=0; $i < count($this->grupos); $i++) { 
                                 ?>
@@ -225,17 +229,7 @@ pg_close($conexion);
                                   data-docente="<?php echo $this->grupos[$i]['id_usuario'] ?>">
                                   Grupo <?php echo $this->grupos[$i]['grupo']; ?>
                                 </option>
-                                <?php  }
-
-                                /*
-                                        if($numReg>0){
-                                            while ($fila=pg_fetch_array($resultado)) {
-                                                echo "<option value='1'>Grupo ".$fila['grupo']."</option>";
-                                            }
-                                        }else{
-                                            echo "<option>No hay Registros</option>";
-                                        }
-                                    */?>
+                                <?php  }?>
                                </select>
                              </td>
                              <td>
@@ -274,7 +268,7 @@ pg_close($conexion);
                              <td>
                               <!--lista con todos los docentes designados a una materia-->
 
-                              <select name="gruposMateria" id="sel3" style="width:250px" size="6">
+                              <select id="sel3" style="width:250px" size="6">
                                 <?php 
                                   for ($i=0; $i < count($this->docentes); $i++) { 
                                     ?>
@@ -296,7 +290,7 @@ pg_close($conexion);
 
                              <td>
                              <span class="navArriba">
-                                 <select name="docentes_plan_global" id="sel4" style="width:220px" size="6" name="carrera[]" multiple="multiple">
+                                 <select id="sel4" style="width:220px" size="6" name="carrera[]" multiple="multiple">
                                   </select>
                                </span>
                              </td>
@@ -324,12 +318,7 @@ pg_close($conexion);
                            <div class="form-group">
                               <label for="correo">Correos:</label>
 
-                              <textarea readonly class="form-control"name="" id="correos" cols="60" rows="3">
-<?php 
-  //for ($i=0; $i < count($this->docentes); $i++){ 
-    //echo $this->docentes[$i]['nombre_usuario'].": ".$this->docentes[$i]['correo_usuario']."\n";
-//}?>
-</textarea>
+                              <textarea readonly class="form-control"name="" id="correos" cols="60" rows="3"></textarea>
 
                            </div>
                           </div>
