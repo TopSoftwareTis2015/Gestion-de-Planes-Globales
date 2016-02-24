@@ -11,7 +11,7 @@
         <legend>Objetivo 1</legend>
         <div class="form-group">
           <label for="titulo">Titulo:</label>
-          <input class="form-control" type="text" name="titulo_og1" id="titulo_og1">
+          <input class="form-control" type="text" name="titulo_og1" id="titulo_og1" required>
         </div>
         
         <!--campo para la descripcion del objetivo general-->
@@ -19,8 +19,7 @@
           <label for="descripcion">Descripcion:</label>
           <textarea class="form-control" name="descripcion_og1" id="descripcion_og1" cols="100" rows="5"></textarea>
         </div>
-
-        
+ 
       </fieldset>
     </div>
     <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addObjG('obj_general');" >                                            
@@ -35,7 +34,7 @@
         <legend>Objetivo 1</legend>
         <div class="form-group">
           <label for="nombre">Titulo:</label>
-          <input class="form-control" name="titulo_oe1" type="text" id="titulo_oe1">
+          <input class="form-control" name="titulo_oe1" type="text" id="titulo_oe1" required>
         </div>
         <!--descripcion del objetivo especifico-->
         <div class="form-group">
@@ -44,8 +43,7 @@
         </div>
       </fieldset>    
     </div>
-    
-                         
+                           
     <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addInput('obj_especifico');">
   <!--</form>-->
 <!--Fin Parte 3-->

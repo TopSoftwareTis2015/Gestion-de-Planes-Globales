@@ -1,7 +1,7 @@
 <!-- Metodologia y criterios parte 5 -->
 <legend id="separador"><h2>METODOLOGIAS</h2></legend>
     <!--campo para ingresara las metologias que se usaran para dictar una materia-->
-    <textarea class="form-control" name="metodologias" id="metodologias" cols="100" rows="10"></textarea>
+    <textarea class="form-control" name="metodologias" id="metodologias" cols="100" rows="10" required></textarea>
     <br>
                   
 <legend id="separador"><h2>Cronograma o Duracion en periodos academicos por Unidad</h2></legend>
@@ -39,6 +39,6 @@
 
 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>
     <!--textarea para ingresar la informacion de criterio de evaluacion de una materia-->
-    <textarea class="form-control" name="criterios" id="criterios" cols="100" rows="10"></textarea>
+    <textarea class="form-control" name="criterios" id="criterios" cols="100" rows="10" required></textarea>
     <br>
 <!--Fin parte 5-->

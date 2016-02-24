@@ -8,6 +8,8 @@ var contU = 2;
 var contB = 2;
 var numSub = 1;
 
+var conContenido = 2;
+
 //funcion para crear campos para objetivos generales
 function addObjG(divname)
 {
@@ -27,7 +29,7 @@ function addObjG(divname)
     var nuevoElemento02 = '<fieldset>';
     var nuevoElemento04 = '<div class="form-group">';
     var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_og'+(id)+'" id="titulo_og'+(id)+'">';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_og'+(id)+'" id="titulo_og'+(id)+'" required>';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
     var nuevoElemento09 = '<label for="descripcion">Descripcion:</label>';
@@ -97,7 +99,7 @@ function addInput(divname)
   var nuevoElemento02 = '<fieldset>';
   var nuevoElemento04 = '<div class="form-group">';
   var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
-  var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_oe'+(idE)+'" id="titulo_oe'+(idE)+'">';
+  var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_oe'+(idE)+'" id="titulo_oe'+(idE)+'" required>';
   var nuevoElemento07 = '</div>';
   var nuevoElemento08 = '<div class="form-group">';
   var nuevoElemento09 = '<label for="descripcion">Descripcion:</label>';
@@ -179,7 +181,7 @@ function eliminarSubtitulo(id){
 function addInput3(divname){
 
   if(divname == 'new_capitulo'){
-    var subtitulo = document.getElementById("capitulo");
+    var capitulo = document.getElementById("capitulo");
     //subtitulo.appendChild(elemento);
   }
   contSub++;
@@ -292,7 +294,7 @@ function addInput4(divname){
   var nBibliografia02 = '<legend id="separador"> </legend>';
   var nBibliografia03 = '<div class="form-group">';
   var nBibliografia04 = '<label for="titulo">Titulo Libro</label>';
-  var nBibliografia05 = '<input class="form-control" type="text" name="titulo_'+(b)+'" id="titulo_'+(b)+'">';
+  var nBibliografia05 = '<input class="form-control" type="text" name="titulo_'+(b)+'" id="titulo_'+(b)+'" required>';
   var nBibliografia06 = '</div>';
   var nBibliografia07 = '<div class="form-group">';
   var nBibliografia08 = '<label for="autor">Autor</label>';
@@ -338,3 +340,82 @@ function eliminarOld(divname,id){
     elemento.parentNode.removeChild(elemento);
   }
 }
+
+
+//funcion para crear nuevos contenidos en secciones adicionales
+function addContenidos(divname){
+  if(divname == 'nuevo_contenido'){
+    var contenido = document.getElementById("contenido");
+  }
+  contSub++;
+  var cont=conContenido;
+    
+  var contenido01 = '<div class="clearfix" id="contenido_'+(cont)+'"><button type="button" class="close" aria-hiden="false" onClick="eliminarCapitulo('+(cont)+');">&times;</button><legend>Capitulo '+(conContenido++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" name="titulo_cap'+(cont)+'" id="titulo_cap'+(cont)+'" required></div>';
+  var contenido02 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" name="subtitulo_cap'+(cont)+'" id="subtitulo_cap'+(cont)+'" required></div>';
+  var contenido03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"><br></div>';
+
+   
+  <div class="container-fluid" id="new_contenido">
+                  <fieldset>
+                      <legend>CONTENIDO</legend>
+                       <fieldset>
+                         <div class="container-fluid" id="nuevo_contenido">
+                          
+                            <legend>Contenido 1</legend>
+                            <div class="form-group">
+                                 <label for="nombre">Titulo del contenido</label>
+                                 <input class="form-control" type="text" id="tituloContenido" required>
+                             </div>
+                             <div class="form-group">
+                                  <label for="codigo">Descripcion del contenido</label>
+                                  <textarea class="form-control" id="descripcionContenido" cols="100" rows="3" required></textarea>
+                             </div>
+                             <div class="form-group col-md-6 col-md-offset-3" id="nuevo_subtitulo">
+                                  <label for="codigo">Subtitulo 1</label>
+                                  <input class="form-control" type="text" name="sub_contenido1" id="sub_contenido1" required>
+                                  <br>
+                                  <button class="btn btn-primary" type="button">Añadir subtitulo</button>
+                             </div>
+                          
+                          </div> 
+                       </fieldset>
+                       <br>
+                       <input class="btn btn-primary pull-right" type="button" value="Añadir Contenido" onClick="addContenido('nuevo_contenido');">
+                  </fieldset>
+                  </div> 
+
+  contenido.innerHTML = contenido.innerHTML + capitulo01 + capitulo02 + capitulo03;
+}
+
+function eliminarContenido(id){
+  var objetivo = 'cont_'+id;
+  var elemento = document.getElementById(objetivo);
+  var u=contC-1;
+
+  if (elemento.parentNode) {
+    elemento.parentNode.removeChild(elemento);
+  }
+
+  if(id<u){
+    var p=id+1;
+    for (var i = p; i <= u; i++) {
+      eliminarCap(i);
+    };
+  }
+  
+  contC=id;
+  for (var i = id; i < u; i++) {
+    addInput3("new_capitulo");
+  };
+}
+
+function eliminarCap(id){
+  var objetivo = 'cap_'+id;
+  var elemento = document.getElementById(objetivo);
+  
+  if (elemento.parentNode) {
+    elemento.parentNode.removeChild(elemento);
+  }
+}
+
+

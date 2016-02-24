@@ -122,6 +122,7 @@
                 <th>NOMBRE MATERIA</th>
                 <th>SIGLA</th>
                 <th>ACCIONES</th>
+                <th>REGISTRAR PLAN GLOBAL</th>
                 <th>PLAN GLOBAL</th>
     			</tr>
         </thead>
@@ -154,6 +155,9 @@
                 <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materias[$i]['codigo_materia'];?>">
                   <span class="glyphicon glyphicon-list-alt"></span>
                 </a>
+            </td>
+            <td>
+              <a href="../planGlobal/vistaPG.php"> PG1 </a>
             </td>
           </tr>
 

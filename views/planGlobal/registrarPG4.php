@@ -30,7 +30,7 @@
 
         <div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo1">
           <label for="codigo">Subtitulo:</label>
-          <input class="form-control" type="text" name="subtitulo_cap1" id="subtitulo_cap1" required>
+          <input class="form-control" type="text" name="subtitulo_cap1" id="subtitulo_cap1">
         </div>
 
         <input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addInput2('new_subtitulo',1);">
