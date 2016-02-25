@@ -1,4 +1,3 @@
-
 <?php 
 //Conexion Base de datos
 /*$user = "postgres";
@@ -179,7 +178,7 @@ pg_close($conexion);
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
                               <input type="hidden" name="id_materia"
-                                value="<?php id(isset($this->materia)) echo $this->materia['id_materia']; ?>">
+                                value="<?php if(isset($this->materia)) echo $this->materia['id_materia']; ?>">
                               <label for="nombre_materia">Nombre de la Materia:</label>
                               <input class="form-control" type="text" id="nombre_materia" readonly
                                 value="<?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>">

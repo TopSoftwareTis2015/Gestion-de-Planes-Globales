@@ -1,0 +1,26 @@
+bus de elementos dinamicos.
+
+- cuando se agregar nuevos elementos la información que existía en los demas elementos se borra.
+- si borro un elemento del medio de dos objetivos la información de todos los objetivos se borra.
+	- la info se mantiene cuando se borra un objetivo exterior.
+
+- lo mismo ocurre en el area de objetivos especificos.
+
+- En Seleccion y organización de contenidos.
+	- en subtitulos al añadir un subtitulo se pierde toda la información.
+	- hay un problema con la ultima eliminación, cuando ocurre no se elimina el ultimo subtitulo sino el segundo.
+		- problema recurrente si se eliminan cualquiera superior al segundo subtitulo se elimina el segundo
+		  y no el que se estaba eliminando.
+	- al añadir un capitulo se pierde toda la informacion.
+	- al eliminar un capitulo de enmedio se pierder toda la información.
+	- faltan los inputs para que cada unidad tenga sus horas academicas. y su duraci'on en semanas.
+
+
+TRABAJO REALIZADO.
+- falta añadir unidades. ok
+- falta añadir contenidos. ok
+- falta añadir subitulos. ok
+- Falta controlar los requireds. ok
+- falta eliminar subtitulos.
+- falta eliminar contenidos.
+- falta eliminar unidades.

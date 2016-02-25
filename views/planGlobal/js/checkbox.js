@@ -1,29 +1,25 @@
-function deshabilitarCampoTexto(value,divname) {
-    if(divname == 'hSemestre')
-        var valor = document.getElementById("horaSemestre");
+//////////////////////////////////
+// FUNCIONES PARA CARGA HORARIA //
+//////////////////////////////////
 
-    if(divname == 'hTeorica')
-        var valor = document.getElementById("horaTeorica");
+function cambiarEstado(estadoActual, idElemento) {
+    var inputAsociado = document.getElementById(idElemento);
 
-    if(divname == 'hPractica')
-        var valor = document.getElementById("horaPractica");
-
-    if(divname == 'pSemana')
-        var valor = document.getElementById("periodoSemana");
-
-    if(divname == 'pTeorico')
-        var valor = document.getElementById("periodoTeorico");
-
-    if(divname == 'pPractico')
-        var valor = document.getElementById("periodoPractico");
-
-
-
-    if (value == true) {
+    if (estadoActual) {
         // habilitamos
-        valor.disabled = false;
-    } else if (value == false) {
+        inputAsociado.disabled = false;
+        inputAsociado.required = true;
+    } else if (!estadoActual) {
         // deshabilitamos
-        valor.disabled = true;
+        inputAsociado.disabled = true;
+        inputAsociado.required = false;
+        inputAsociado.value = "";
     }
+}
+
+function cambiarEstadoPorPar(estadoActual, idElemento, idElementoPar, idCheckboxPar){
+    cambiarEstado(estadoActual, idElemento);
+    cambiarEstado(estadoActual, idElementoPar);
+
+    document.getElementById(idCheckboxPar).checked = estadoActual;
 }

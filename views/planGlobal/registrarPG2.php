@@ -14,8 +14,8 @@
         <label for="titulo">Horas semestre</label>
                                         
         <div class="row">                              
-          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hSemestre');">
-          <input id="horaSemestre" type="number" value="0" name="hora_semestre" min="0" max="360" disabled>                                                                    
+          <input type="checkbox" id="checkboxEnLinea1" onchange="cambiarEstado(this.checked, 'horaSemestre');">
+          <input id="horaSemestre" type="number" name="horas_semestre" min="0" max="360" disabled>                                                                    
         </div>
 
       </div>
@@ -26,15 +26,15 @@
 
         <label for="titulo">Horas teoricas por semana</label>
         <div class="row">                                               
-          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hTeorica');">
-          <input id="horaTeorica" type="number" value="0" name="horas_teorica_semana" min="0" max="360" disabled>                                                                    
+          <input type="checkbox" id="checkboxEnLinea2" onchange="cambiarEstadoPorPar(this.checked, 'horaTeorica', 'horaPractica', 'checkboxEnLinea3');">
+          <input id="horaTeorica" type="number" name="horas_teoricas_semana" min="0" max="360" disabled>                                                                    
         </div>                            
         <br>
 
         <label for="titulo">Horas practicas por semana</label>
         <div class="row">                                                                 
-          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'hPractica');">
-          <input id="horaPractica" type="number" value="0" name="horas_practica_semana" min="0" max="360" disabled>                                                                         
+          <input type="checkbox" id="checkboxEnLinea3" onchange="cambiarEstadoPorPar(this.checked, 'horaPractica', 'horaTeorica', 'checkboxEnLinea2');">
+          <input id="horaPractica" type="number" name="horas_practicas_semana" min="0" max="360" disabled>                                                                         
         </div>
 
       </div>
@@ -48,8 +48,8 @@
       <div class="panel-body">
         <label for="titulo">Periodos por semana</label>
         <div class="row">                               
-          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pSemana');">
-          <input id="periodoSemana" type="number" value="0" name="periodo_semana" min="0" max="360" disabled>                                      
+          <input type="checkbox" id="checkboxEnLinea4" onchange="cambiarEstado(this.checked, 'periodoSemana');">
+          <input id="periodoSemana" type="number" name="periodos_semana" min="0" max="360" disabled>                                      
         </div>
       </div>
     </div>    
@@ -59,15 +59,15 @@
 
         <label for="titulo">Periodos teoricos por semana</label>
         <div class="row">                                                                   
-          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pTeorico');">
-          <input id="periodoTeorico" type="number" value="0" name="periodo_teorico_semana" min="0" max="360" disabled>                                  
+          <input type="checkbox" id="checkboxEnLinea5" onchange="cambiarEstadoPorPar(this.checked, 'periodoTeorico', 'periodoPractico', 'checkboxEnLinea6');">
+          <input id="periodoTeorico" type="number" name="periodos_teoricos_semana" min="0" max="360" disabled>                                  
         </div>
         <br>
 
         <label for="titulo">Periodos practicos por semana</label>
         <div class="row">                                                                     
-          <input type="checkbox" id="checkboxEnLinea1" onchange="deshabilitarCampoTexto(this.checked, 'pPractico');">
-          <input id="periodoPractico" type="number" value="0" name="periodo_practico_semana" min="0" max="360" disabled>                                                                     
+          <input type="checkbox" id="checkboxEnLinea6" onchange="cambiarEstadoPorPar(this.checked, 'periodoPractico', 'periodoTeorico', 'checkboxEnLinea5');">
+          <input id="periodoPractico" type="number" name="periodos_practicos_semana" min="0" max="360" disabled>                                                                     
         </div>
       
       </div>                            

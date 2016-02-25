@@ -1,421 +1,300 @@
-var contOG = 2;
-var contOE = 2;
-
-var contSub = 2;
-var contC = 2;
-var contU = 2;
-
-var contB = 2;
-var numSub = 1;
-
-var conContenido = 2;
+function repararContainer(contenedor){
+  if(contenedor.childNodes[0] instanceof Text){
+    var primerObjetivo = contenedor.childNodes[1];
+    contenedor.innerHTML="";
+    contenedor.appendChild(primerObjetivo);
+  }
+}
 
 //funcion para crear campos para objetivos generales
-function addObjG(divname)
+function addObjetivo(idObjetivoContainer)
 {
   
-   var elemento = document.createElement("div");
-    
-    if(divname == 'obj_general'){
-        var objetivo = document.getElementById("objG1");
-        objetivo.appendChild(elemento);
-        id =contOG;
-        var nuevoElemento03 = '<legend>Objetivo '+(contOG++)+'</legend>';
+   var nuevoObjetivo = document.createElement("fieldset");
+   var contenedor = document.getElementById(idObjetivoContainer);
 
-    }
+   repararContainer(contenedor);
+
+   var ultimoObjetivo = parseInt(contenedor.lastChild.dataset.numeroObjetivo) + 1;
+   nuevoObjetivo.dataset.numeroObjetivo = ultimoObjetivo;
+   nuevoObjetivo.id = "container_" + idObjetivoContainer + nuevoObjetivo.dataset.numeroObjetivo;
+    
+    contenedor.appendChild(nuevoObjetivo);
+
+    var nuevoElemento03 = '<legend>Objetivo '+nuevoObjetivo.dataset.numeroObjetivo+'</legend>';
+
+
 
     //var nuevoElemento01 = '<div class="container-fluid" id="obj_'+(cont)+'">';
-    var nuevoElemento01 = '<div class="container-fluid" id="objG'+(id)+'">';
-    var nuevoElemento02 = '<fieldset>';
+    //var nuevoElemento01 = '<div class="container-fluid" id="objG'+(id)+'">';
+    //var nuevoElemento02 = '<fieldset>';
     var nuevoElemento04 = '<div class="form-group">';
-    var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_og'+(id)+'" id="titulo_og'+(id)+'" required>';
+    var nuevoElemento05 = '<label for="titulo_'+idObjetivoContainer+ultimoObjetivo+'">Titulo:</label>';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+idObjetivoContainer+ultimoObjetivo+'" id="titulo_'+idObjetivoContainer+ultimoObjetivo+'">';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
-    var nuevoElemento09 = '<label for="descripcion">Descripcion:</label>';
-    var nuevoElemento10 = '<textarea class="form-control" name="descripcion_og'+(id)+'" id="descripcion_og'+(id)+'" cols="100" rows="5"></textarea>';
+    var nuevoElemento09 = '<label for="descripcion_'+idObjetivoContainer+ultimoObjetivo+'">Descripcion:</label>';
+    var nuevoElemento10 = '<textarea class="form-control" name="descripcion_'+idObjetivoContainer+ultimoObjetivo+'" id="descripcion_'+idObjetivoContainer+ultimoObjetivo+'" cols="100" rows="5"></textarea>';
     var nuevoElemento11 = '</div>';
-    var nuevoElemento12 = '</fieldset>';
-    var nuevoElemento13 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjG('+(id)+');" >'; 
+    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjetivo('+ultimoObjetivo+','+idObjetivoContainer+');" ><br><br><br>'; 
+    //var nuevoElemento13 = '</fieldset>';
      
-    var nuevoElemento14 = '</div>';
+    //var nuevoElemento14 = '</div>';
     
     //window.alert(id);
     
-    objetivo.innerHTML = objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
+    nuevoObjetivo.innerHTML = /*objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + */nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
-        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14;
+        nuevoElemento11 + nuevoElemento12;// + nuevoElemento13;// + nuevoElemento14;
 }
 
-function eliminarObjG(n){
-
-  var objetivo = 'objG' + n;
-  var elemento = document.getElementById(objetivo);
-  var u=contOG-1;
-
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
-
-  if(n<u){
-    var p=n+1;
-    for (var i = p; i <= u; i++) {
-      eliminarOldG(i);
-    };
-  }
-  
-  contOG=n; 
-  for (var i = n; i < u; i++) {
-    addObjG("obj_general");
-  };
-
-}
-
-function eliminarOldG(id){
-  var objetivo = 'objG'+id;
-  var elemento = document.getElementById(objetivo);
-  
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
-}
-
-
-//funcion para crear campos para objetivos especificos
-function addInput(divname)
+function addBibliografia(idBibliografiaContainer)
 {
-    
-  var elemento = document.createElement("div");
-    
-  if(divname == 'obj_especifico'){
-    var objetivo = document.getElementById("objE1");
-    objetivo.appendChild(elemento); 
-    idE=contOE;  
-    var nuevoElemento03 = '<legend>Objetivo '+(contOE++)+'</legend>';
-  }
-
-  //var nuevoElemento01 = '<div class="container-fluid" id="obj_'+(cont)+'">';
-  var nuevoElemento01 = '<div class="container-fluid" id="objE'+(idE)+'">';
-  var nuevoElemento02 = '<fieldset>';
-  var nuevoElemento04 = '<div class="form-group">';
-  var nuevoElemento05 = '<label for="titulo">Titulo:</label>';
-  var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_oe'+(idE)+'" id="titulo_oe'+(idE)+'" required>';
-  var nuevoElemento07 = '</div>';
-  var nuevoElemento08 = '<div class="form-group">';
-  var nuevoElemento09 = '<label for="descripcion">Descripcion:</label>';
-  var nuevoElemento10 = '<textarea class="form-control" name="descripcion_oe'+(idE)+'" id="descripcion_oe'+(idE)+'" cols="100" rows="5"></textarea>';
-  var nuevoElemento11 = '</div>';
-  var nuevoElemento12 = '</fieldset>';
-  var nuevoElemento13 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjE('+(idE)+');" >'; 
-  var nuevoElemento14 = '</div>';
   
-  // window.alert(id);
-                    
-  objetivo.innerHTML = objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
-    nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
-    nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14;
+   var nuevaBibliografia = document.createElement("div");
+   var contenedor = document.getElementById(idBibliografiaContainer);
+
+   repararContainer(contenedor);
+
+   var ultimaBibliogragia = parseInt(contenedor.lastChild.dataset.numeroBibliografia) + 1;
+   nuevaBibliografia.dataset.numeroBibliografia = ultimaBibliogragia;
+   nuevaBibliografia.id = "container_" + idBibliografiaContainer + nuevaBibliografia.dataset.numeroBibliografia;
+    
+    contenedor.appendChild(nuevaBibliografia);
+
+    var nuevoElemento03 = '<legend id="separador"> </legend>';
+    var nuevoElemento04 = '<div class="form-group">';
+    var nuevoElemento05 = '<label for="titulo_'+idBibliografiaContainer+ultimaBibliogragia+'">Titulo:</label>';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+idBibliografiaContainer+ultimaBibliogragia+'" id="titulo_'+idBibliografiaContainer+ultimaBibliogragia+'">';
+    var nuevoElemento07 = '</div>';
+    var nuevoElemento08 = '<div class="form-group">';
+    var nuevoElemento09 = '<label for="autor_'+idBibliografiaContainer+ultimaBibliogragia+'">Autor:</label>';
+    var nuevoElemento10 = '<input class="form-control" type="text" name="autor_'+idBibliografiaContainer+ultimaBibliogragia+'" id="autor_'+idBibliografiaContainer+ultimaBibliogragia+'">';
+    var nuevoElemento11 = '</div>';
+    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjetivo('+ultimaBibliogragia+','+idBibliografiaContainer+');" ><br><br><br>'; 
+    
+    nuevaBibliografia.innerHTML = /*objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + */nuevoElemento03 + nuevoElemento04 +
+        nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
+        nuevoElemento11 + nuevoElemento12;// + nuevoElemento13;// + nuevoElemento14;
 }
 
-function eliminarObjE(n){
-
-  var objetivo = 'objE' + n;
-  var elemento = document.getElementById(objetivo);
-  var u=contOE-1;
-
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
+function addUnidad(idUnidadContainer)
+{
   
-  if(n<u){
-    var p=n+1;
-    for (var i = p; i <= u; i++) {
-      eliminarOldE(i);
-    };
-  }
+   var nuevaUnidad = document.createElement("fieldset");
+   var contenedor = document.getElementById(idUnidadContainer);
+
+   repararContainer(contenedor);
+
+   var ultimaUnidad = parseInt(contenedor.lastChild.dataset.numeroUnidad) + 1;
+   nuevaUnidad.dataset.numeroUnidad = ultimaUnidad;
+   nuevaUnidad.id = "container_" + idUnidadContainer + nuevaUnidad.dataset.numeroUnidad;
+    
+    contenedor.appendChild(nuevaUnidad);
+
+    var nuevoElemento01 = '<button type="button" class="close" aria-hidden="true" onclick="eliminarUnidad(\''+nuevaUnidad.id+'\','+ultimaUnidad+')" title="Eliminar esta unidad!">&times; eliminar unidad</button><br>';
+    var nuevoElemento02 = '<legend>Unidad '+nuevaUnidad.dataset.numeroUnidad+'</legend>';
+
+    var nuevoElemento03 = '<div class="form-group">';
+    var nuevoElemento04 = '<label for="titulo_'+idUnidadContainer+ultimaUnidad+'">Titulo de la Unidad:</label>';
+    var nuevoElemento05 = '<input class="form-control" type="text" name="titulo_'+idUnidadContainer+ultimaUnidad+'" id="titulo_'+idUnidadContainer+ultimaUnidad+'" required>';
+    var nuevoElemento06 = '</div>';
+    var nuevoElemento07 = '<div class="form-group">';
+    var nuevoElemento08 = '<label for="objetivo_'+idUnidadContainer+ultimaUnidad+'">Objetivo:</label>';
+    var nuevoElemento09 = '<textarea class="form-control" name="objetivo_'+idUnidadContainer+ultimaUnidad+'" id="objetivo_'+idUnidadContainer+ultimaUnidad+'" cols="100" rows="3"></textarea>';
+    var nuevoElemento10 = '</div>';
+    var nuevoElemento11 = '<div>';
+    var nuevoElemento12 = '<div class="container-fluid recuadro">';
+    var nuevoElemento13 = '<legend>CONTENIDO</legend>';
+    
+    var nuevoElemento14 = '<div id="contenido_unidad'+ultimaUnidad+'">';
+    var nuevoElemento15 = '<fieldset id="container_contenido1_unidad'+ultimaUnidad+'" data-numero-contenido="1">';
+
+    var nuevoElemento16 = '<div class="clearfix">';
+
+    var nuevoElemento17 = '<legend>Capitulo 1</legend>';
+    var nuevoElemento18 = '<div class="form-group">';
+    var nuevoElemento19 = '<label for="titulo_contenido1_unidad'+ultimaUnidad+'">Titulo del Capitulo:</label>';
+    var nuevoElemento20 = '<input class="form-control" type="text" name="titulo_contenido1_unidad'+ultimaUnidad+'" id="titulo_contenido1_unidad'+ultimaUnidad+'" required>';
+    var nuevoElemento21 = '</div>';
+
+    var nuevoElemento22 = '<div id="subtitulo_contenido1_unidad'+ultimaUnidad+'">';
+    
+    var nuevoElemento23 = '<div class="form-group col-md-6 col-md-offset-3" id="container_subtitulo1_contenido1_unidad'+ultimaUnidad+'" data-numero-subtitulo="1">';
+    var nuevoElemento24 = '<label for="subtitulo1_contenido1_unidad'+ultimaUnidad+'">Subtitulo:</label>';
+    var nuevoElemento25 = '<input class="form-control" type="text" name="subtitulo1_contenido1_unidad'+ultimaUnidad+'" id="subtitulo1_contenido1_unidad'+ultimaUnidad+'" required>';
+    var nuevoElemento26 = '</div>';
+
+    var nuevoElemento27 = '</div>';
+    
+    var nuevoElemento28 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo(\'subtitulo_contenido1_unidad'+ultimaUnidad+'\');">';
+
+    var nuevoElemento29 = '</div>';
+
+    var nuevoElemento30 = '</fieldset>';
+
+    var nuevoElemento31 = '</div>';
+
+    var nuevoElemento32 = '</div>';
+    var nuevoElemento33 = '<br>';
+    var nuevoElemento34 = '</div>';
+    var nuevoElemento35 = '<input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addCapitulo(\'contenido_unidad'+ultimaUnidad+'\');">';
+    var nuevoElemento36 = '<br> <br> ';
+    
+    nuevaUnidad.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
+        nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
+        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 +
+        nuevoElemento15 + nuevoElemento16 + nuevoElemento17 + nuevoElemento18 + nuevoElemento19 + nuevoElemento20 +
+        nuevoElemento21 + nuevoElemento22 + nuevoElemento23 + nuevoElemento24 +
+        nuevoElemento25 + nuevoElemento26 + nuevoElemento27 + nuevoElemento28 + nuevoElemento29 + nuevoElemento30 +
+        nuevoElemento31 + nuevoElemento32 + nuevoElemento33 + nuevoElemento34 + nuevoElemento35 + nuevoElemento36;
+}
+
+function addCapitulo(idContenidoContainer)
+{
   
-  contOE=n; 
-  for (var i = n; i < u; i++) {
-    addInput("obj_especifico");
+   var nuevoContenido = document.createElement("fieldset");
+   var contenedor = document.getElementById(idContenidoContainer);
+
+   repararContainer(contenedor);
+
+   var unidadPadre = idContenidoContainer.replace("contenido_","");
+   var ultimoContenido = parseInt(contenedor.lastChild.dataset.numeroContenido) + 1;
+   nuevoContenido.dataset.numeroContenido = ultimoContenido;
+   nuevoContenido.id = "container_" + idContenidoContainer.replace("contenido", "contenido"+ ultimoContenido);
+    
+    contenedor.appendChild(nuevoContenido);
+
+    var nuevoElemento01 = '<br><br><button type="button" class="close" aria-hidden="true" onclick="eliminarContenido(\''+nuevoContenido.id+'\')" title="Eliminar este Contenido!">&times; eliminar contenido</button><br>';
+    var nuevoElemento02 = '<div class="clearfix">';
+
+    var nuevoElemento03 = '<legend>Capitulo '+ultimoContenido+'</legend>';
+    var nuevoElemento04 = '<div class="form-group">';
+    var nuevoElemento05 = '<label for="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'">Titulo del Capitulo:</label>';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'" id="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'" required>';
+    var nuevoElemento07 = '</div>';
+
+    var nuevoElemento08 = '<div id="subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'">';
+    
+    var nuevoElemento09 = '<div class="form-group col-md-6 col-md-offset-3" id="container_subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" data-numero-subtitulo="1">';
+    var nuevoElemento10 = '<label for="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'">Subtitulo:</label>';
+    var nuevoElemento11 = '<input class="form-control" type="text" name="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" id="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" required>';
+    var nuevoElemento12 = '</div>';
+
+    var nuevoElemento13 = '</div>';
+    
+    var nuevoElemento14 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo(\'subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'\');">';
+
+    var nuevoElemento15 = '</div>';
+    
+    nuevoContenido.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
+        nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
+        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 +
+        nuevoElemento15;
+}
+
+function eliminarContenido(idContenido){
+  contenido = document.getElementById(idContenido);
+
+  var contador = 0; // me sirve para nombrar los  nuevos contenidos.
+  var containerContenido = contenido.parentNode;
+  var numeroContenido = parseInt(contenido.dataset.numeroContenido);
+
+  containerContenido.removeChild(contenido);
+
+  for (var i = 0; i < containerContenido.childNodes.length; i++) {
+    if(i >= (numeroContenido - 1)){
+      modificarContenido(containerContenido.childNodes[i], numeroContenido+contador);
+      contador++;
+    }
   };
 }
 
-function eliminarOldE(id){
-  var objetivo = 'objE'+id;
-  var elemento = document.getElementById(objetivo);
+function modificarContenido(contenido, nuevoNumeroContenido){
+  oldId = contenido.id.split("_")[1];
+  newId = "contenido"+nuevoNumeroContenido;
+
+  contenido.id = contenido.id.replace(oldId, newId);
   
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
+  contenido.dataset.numeroContenido = nuevoNumeroContenido;
+
+  contenido.childNodes[2].setAttribute("onclick","eliminarContenido('"+contenido.id+"')");
+
+  contenido.childNodes[4].childNodes[0].innerHTML = "Capitulo " + nuevoNumeroContenido;
+  contenido.childNodes[4].childNodes[1].childNodes[0].setAttribute("for", contenido.childNodes[4].childNodes[1].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = contenido.childNodes[4].childNodes[1].childNodes[0].getAttribute("for");
+  contenido.childNodes[4].childNodes[1].childNodes[1].id = atributoAuxiliar;
+  contenido.childNodes[4].childNodes[1].childNodes[1].name = atributoAuxiliar;
+
+  contenido.childNodes[4].childNodes[2].id = contenido.childNodes[4].childNodes[2].id.replace(oldId, newId);
+
+  for (var i = 1; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
+    modificarSubtituloContenido(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
+  };
+
+  contenido.childNodes[4].childNodes[3].setAttribute("onclick", "addSubtitulo('"+contenido.childNodes[4].childNodes[2].id+"');")
 }
 
 
-//funcion para crear campos para nuevos subtitulos
-function addInput2(divname,numSub){
+function addSubtitulo(idSubituloContainer)
+{
   
-  //var elemento = document.createElement("div");
+   var nuevoSubtitulo = document.createElement("div");
+   var contenedor = document.getElementById(idSubituloContainer);
 
-  if(divname == 'new_subtitulo'){
-    var idSub = 'aSubtitulo'+numSub;
-    var subtitulo = document.getElementById(idSub);
-    //subtitulo.appendChild(elemento);
-  }
-  numSub++;
-  var subtitulo01 = '<div id="bSubtitulo'+(numSub)+'"><label for="codigo">Subtitulo:</label>';
-  var subtitulo02 = '<button type="button" class="close" aria-hiden="false" onClick="eliminarSubtitulo('+(numSub)+');">&times;</button>';
-  var subtitulo03 = '<input class="form-control" type="text" name="bsubtitulo'+(numSub)+'" id="bsubtitulo'+(numSub)+'" required>';
-  var subtitulo04 = '</div>';
+   repararContainer(contenedor);
 
-  subtitulo.innerHTML = subtitulo.innerHTML + subtitulo01 + subtitulo02 + subtitulo03 + subtitulo04;
-}
-
-function eliminarSubtitulo(id){
-  var objetivo = 'bSubtitulo'+id;
-  var elemento = document.getElementById(objetivo);
-  
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
-}
-
-//funcion para crear campos para nuevo capitulo
-function addInput3(divname){
-
-  if(divname == 'new_capitulo'){
-    var capitulo = document.getElementById("capitulo");
-    //subtitulo.appendChild(elemento);
-  }
-  contSub++;
-  var cap=contC;
+   var ultimoSubtitulo = parseInt(contenedor.lastChild.dataset.numeroSubtitulo) + 1;
+   nuevoSubtitulo.dataset.numeroSubtitulo = ultimoSubtitulo;
+   identificadorObjetos = idSubituloContainer.replace("subtitulo", "subtitulo"+ ultimoSubtitulo);
+   nuevoSubtitulo.id = "container_" + identificadorObjetos;
+   nuevoSubtitulo.className = "form-group col-md-6 col-md-offset-3";
     
-  var capitulo01 = '<div class="clearfix" id="cap_'+(cap)+'"><button type="button" class="close" aria-hiden="false" onClick="eliminarCapitulo('+(cap)+');">&times;</button><legend>Capitulo '+(contC++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" name="titulo_cap'+(cap)+'" id="titulo_cap'+(cap)+'" required></div>';
-  var capitulo02 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" name="subtitulo_cap'+(cap)+'" id="subtitulo_cap'+(cap)+'" required></div>';
-  var capitulo03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"><br></div>';
+    contenedor.appendChild(nuevoSubtitulo);
 
-  capitulo.innerHTML = capitulo.innerHTML + capitulo01 + capitulo02 + capitulo03;
+    var nuevoElemento01 = '<button type="button" class="close" aria-hidden="true" onclick="eliminarSubtitulo(\''+nuevoSubtitulo.id+'\')" title="Eliminar este Subtitulo!">&times;</button><br>';
+    var nuevoElemento02 = '<label for="'+identificadorObjetos+'">Subtitulo:</label>';
+    var nuevoElemento03 = '<input class="form-control" type="text" name="'+identificadorObjetos+'" id="'+identificadorObjetos+'" required>';
+    
+    nuevoSubtitulo.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03;
 }
 
-function eliminarCapitulo(id){
-  var objetivo = 'cap_'+id;
-  var elemento = document.getElementById(objetivo);
-  var u=contC-1;
+function eliminarSubtitulo(idSubtitulo){
+  subtitulo = document.getElementById(idSubtitulo);
+  var contador = 0; // me sirve para nombrar los  nuevos subtitulos.
+  var containerSubtitulo = subtitulo.parentNode;
+  var numeroSubtitulo = parseInt(subtitulo.dataset.numeroSubtitulo);
 
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
+  containerSubtitulo.removeChild(subtitulo);
 
-  if(id<u){
-    var p=id+1;
-    for (var i = p; i <= u; i++) {
-      eliminarCap(i);
-    };
-  }
-  
-  contC=id;
-  for (var i = id; i < u; i++) {
-    addInput3("new_capitulo");
+  for (var i = 0; i < containerSubtitulo.childNodes.length; i++) {
+    if(i >= (numeroSubtitulo - 1)){
+      modificarSubtitulo(containerSubtitulo.childNodes[i], numeroSubtitulo+contador);
+      contador++;
+    }
   };
 }
 
-function eliminarCap(id){
-  var objetivo = 'cap_'+id;
-  var elemento = document.getElementById(objetivo);
-  
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
+function modificarSubtitulo(subtitulo, nuevoNumeroSubtitulo){
+  oldId = subtitulo.id.split("_")[1];
+  newId = "subtitulo"+nuevoNumeroSubtitulo;
+
+  subtitulo.id = subtitulo.id.replace(oldId, newId);
+  subtitulo.dataset.numeroSubtitulo = nuevoNumeroSubtitulo;
+
+  subtitulo.childNodes[0].setAttribute("onclick", "eliminarSubtitulo('container_"+subtitulo.childNodes[3].id.replace(oldId, newId)+"')");
+  subtitulo.childNodes[2].setAttribute("for", subtitulo.childNodes[3].id.replace(oldId, newId));
+  //subtitulo.childNodes[2].for = subtitulo.childNodes[2].for.replace(oldId, newId);
+  subtitulo.childNodes[3].id = subtitulo.childNodes[3].id.replace(oldId, newId);
+  subtitulo.childNodes[3].name = subtitulo.childNodes[3].name.replace(oldId, newId);
 }
 
-//funcion para crear campos para nueva unidad
-function addUnidad(divname){
+function modificarSubtituloContenido(subtitulo, oldId, newId){
+  subtitulo.id = subtitulo.id.replace(oldId, newId);
 
-  var capituloN=1;
-
-  if(divname == 'new_unidad'){
-    var unidad = document.getElementById("unidad");
-    //subtitulo.appendChild(elemento);
-  }
-  contSub++;
-  var unidad01 = '<legend>Unidad '+(contU)+'</legend>'  
-  var unidad02 = '<div class="form-group"><label for="nombre">Titulo de la unidad:</label><input class="form-control" type="text" name="tituloUnidad'+(contU)+'" id="titulo'+(contU)+'" required></div>'
-  var unidad03 = '<div class="form-group"><label for="codigo">Objetivo:</label><textarea class="form-control" name="objetivoUnidad'+(contU++)+'" id="objetivo'+(contU)+'" cols="100" rows="3"></textarea></div>'
-  
-  var unidad04 = '<div class="container-fluid" id="contenido"><form name="formPg6" method="post" action="#"><fieldset>'
-  var unidad05 = '<legend>CONTENIDO</legend><div class="container-fluid" id="capitulo'+(capituloN)+'">'
-  var unidad06 = '<div><legend>Capitulo '+(capituloN)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" id="tituloCapitulo" required></div>';
-  var unidad07 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" id="subtitulo" required></div>';
-  var unidad08 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"></div><br/><br/>';
-  var unidad09 = '</div></fieldset><br>'
-  var unidad10 = '<input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addInput3(new_capitulo);"><br>'      
-  var unidad11 = '</form></div>'
-  unidad.innerHTML = unidad.innerHTML + unidad01 + unidad02 + unidad03 + unidad04 + unidad05 + unidad06 + unidad07 + unidad08 + unidad09 + unidad10 + unidad11;
+  subtitulo.childNodes[0].setAttribute("onclick", "eliminarSubtitulo('container_"+subtitulo.childNodes[3].id.replace(oldId, newId)+"')");
+  subtitulo.childNodes[2].setAttribute("for", subtitulo.childNodes[3].id.replace(oldId, newId));
+  //subtitulo.childNodes[2].for = subtitulo.childNodes[2].for.replace(oldId, newId);
+  subtitulo.childNodes[3].id = subtitulo.childNodes[3].id.replace(oldId, newId);
+  subtitulo.childNodes[3].name = subtitulo.childNodes[3].name.replace(oldId, newId);
 }
-
-// function eliminarUnidad(id){
-//   var objetivo = 'uni_'+id;
-//   var elemento = document.getElementById(objetivo);
-//   var u=contU-1;
-
-//   if (elemento.parentNode) {
-//     elemento.parentNode.removeChild(elemento);
-//   }
-
-//   if(id<u){
-//     var p=id+1;
-//     for (var i = p; i <= u; i++) {
-//       eliminarU(i);
-//     };
-//   }
-  
-//   contC=id;
-//   for (var i = id; i < u; i++) {
-//     addUnidad("new_unidad");
-//   };
-// }
-
-// function eliminarU(id){
-//   var objetivo = 'uni_'+id;
-//   var elemento = document.getElementById(objetivo);
-  
-//   if (elemento.parentNode) {
-//     elemento.parentNode.removeChild(elemento);
-//   }
-// }
-
-
-//funcion para crear campos para bibliografias
-function addInput4(divname){
-
-  if(divname == 'n_biblio'){
-    var biblio = document.getElementById("add_biblio");
-  }
-  var b=contB;
-
-  var nBibliografia01 = '<div class="row container-fluid" id="biblio'+(contB++)+'">';
-  var nBibliografia02 = '<legend id="separador"> </legend>';
-  var nBibliografia03 = '<div class="form-group">';
-  var nBibliografia04 = '<label for="titulo">Titulo Libro</label>';
-  var nBibliografia05 = '<input class="form-control" type="text" name="titulo_'+(b)+'" id="titulo_'+(b)+'" required>';
-  var nBibliografia06 = '</div>';
-  var nBibliografia07 = '<div class="form-group">';
-  var nBibliografia08 = '<label for="autor">Autor</label>';
-  var nBibliografia09 = '<input class="form-control" type="text" name="autor_'+(b)+'" id="autor_'+(b)+'">';
-  var nBibliografia10 = '<input class="btn pull-right btn-warning" type="button" value="eliminar X" onClick="eliminarBiblio(\'biblio\','+(b)+');" >';
-  var nBibliografia10 = '<input class="btn pull-right btn-warning" type="button" value="eliminar X" onClick="eliminarBiblio(\'biblio\','+(b)+');" >'; 
-
-  var nBibliografia11 = '</div>';
-   //var elementos = document.getElementById("add_biblio");
-    
-  biblio.innerHTML = biblio.innerHTML + nBibliografia01 + nBibliografia02 + nBibliografia03 + nBibliografia04 +
-    nBibliografia05 + nBibliografia06 + nBibliografia07 + nBibliografia08 + nBibliografia09 + nBibliografia10 + nBibliografia11;
-}
-
-function eliminarBiblio(divname,num){
-  
-  var objetivo = 'biblio'+num;
-  var elemento = document.getElementById(objetivo);
-  var u=contB-1;
-  
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
-  
-  if(num<u){
-    var p=num+1;
-    for (var i = p; i <= u; i++) {
-      eliminarOld("biblio",i);
-    };
-  }
-  
-  contB=num; 
-  for (var i = num; i < u; i++) {
-    addInput4("n_biblio");
-  };
-   //window.alert(contB);
-}
-function eliminarOld(divname,id){
-  var objetivo = 'biblio'+id;
-  var elemento = document.getElementById(objetivo);
-  
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
-}
-
-
-//funcion para crear nuevos contenidos en secciones adicionales
-function addContenidos(divname){
-  if(divname == 'nuevo_contenido'){
-    var contenido = document.getElementById("contenido");
-  }
-  contSub++;
-  var cont=conContenido;
-    
-  var contenido01 = '<div class="clearfix" id="contenido_'+(cont)+'"><button type="button" class="close" aria-hiden="false" onClick="eliminarCapitulo('+(cont)+');">&times;</button><legend>Capitulo '+(conContenido++)+'</legend><div class="form-group"><label for="nombre">Titulo del capitulo:</label><input class="form-control" type="text" name="titulo_cap'+(cont)+'" id="titulo_cap'+(cont)+'" required></div>';
-  var contenido02 = '<div class="form-group col-md-6 col-md-offset-3" id="aSubtitulo'+(contSub)+'"><label for="codigo">Subtitulo:</label><input class="form-control" type="text" name="subtitulo_cap'+(cont)+'" id="subtitulo_cap'+(cont)+'" required></div>';
-  var contenido03 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onClick="addInput2(\'new_subtitulo\','+(contSub)+');"><br></div>';
-
-   
-  <div class="container-fluid" id="new_contenido">
-                  <fieldset>
-                      <legend>CONTENIDO</legend>
-                       <fieldset>
-                         <div class="container-fluid" id="nuevo_contenido">
-                          
-                            <legend>Contenido 1</legend>
-                            <div class="form-group">
-                                 <label for="nombre">Titulo del contenido</label>
-                                 <input class="form-control" type="text" id="tituloContenido" required>
-                             </div>
-                             <div class="form-group">
-                                  <label for="codigo">Descripcion del contenido</label>
-                                  <textarea class="form-control" id="descripcionContenido" cols="100" rows="3" required></textarea>
-                             </div>
-                             <div class="form-group col-md-6 col-md-offset-3" id="nuevo_subtitulo">
-                                  <label for="codigo">Subtitulo 1</label>
-                                  <input class="form-control" type="text" name="sub_contenido1" id="sub_contenido1" required>
-                                  <br>
-                                  <button class="btn btn-primary" type="button">Añadir subtitulo</button>
-                             </div>
-                          
-                          </div> 
-                       </fieldset>
-                       <br>
-                       <input class="btn btn-primary pull-right" type="button" value="Añadir Contenido" onClick="addContenido('nuevo_contenido');">
-                  </fieldset>
-                  </div> 
-
-  contenido.innerHTML = contenido.innerHTML + capitulo01 + capitulo02 + capitulo03;
-}
-
-function eliminarContenido(id){
-  var objetivo = 'cont_'+id;
-  var elemento = document.getElementById(objetivo);
-  var u=contC-1;
-
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
-
-  if(id<u){
-    var p=id+1;
-    for (var i = p; i <= u; i++) {
-      eliminarCap(i);
-    };
-  }
-  
-  contC=id;
-  for (var i = id; i < u; i++) {
-    addInput3("new_capitulo");
-  };
-}
-
-function eliminarCap(id){
-  var objetivo = 'cap_'+id;
-  var elemento = document.getElementById(objetivo);
-  
-  if (elemento.parentNode) {
-    elemento.parentNode.removeChild(elemento);
-  }
-}
-
-
