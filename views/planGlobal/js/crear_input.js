@@ -17,31 +17,22 @@ function addObjetivo(idObjetivoContainer)
 
    var ultimoObjetivo = parseInt(contenedor.lastChild.dataset.numeroObjetivo) + 1;
    nuevoObjetivo.dataset.numeroObjetivo = ultimoObjetivo;
-   nuevoObjetivo.id = "container_" + idObjetivoContainer + nuevoObjetivo.dataset.numeroObjetivo;
+   identificadorObjetivo = idObjetivoContainer.replace("objetivo", "objetivo"+nuevoObjetivo.dataset.numeroObjetivo);
+   nuevoObjetivo.id = "container_" + identificadorObjetivo;
     
     contenedor.appendChild(nuevoObjetivo);
 
     var nuevoElemento03 = '<legend>Objetivo '+nuevoObjetivo.dataset.numeroObjetivo+'</legend>';
 
-
-
-    //var nuevoElemento01 = '<div class="container-fluid" id="obj_'+(cont)+'">';
-    //var nuevoElemento01 = '<div class="container-fluid" id="objG'+(id)+'">';
-    //var nuevoElemento02 = '<fieldset>';
     var nuevoElemento04 = '<div class="form-group">';
-    var nuevoElemento05 = '<label for="titulo_'+idObjetivoContainer+ultimoObjetivo+'">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+idObjetivoContainer+ultimoObjetivo+'" id="titulo_'+idObjetivoContainer+ultimoObjetivo+'">';
+    var nuevoElemento05 = '<label for="titulo_'+identificadorObjetivo+'">Titulo:</label>';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+identificadorObjetivo+'" id="titulo_'+identificadorObjetivo+'">';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
-    var nuevoElemento09 = '<label for="descripcion_'+idObjetivoContainer+ultimoObjetivo+'">Descripcion:</label>';
-    var nuevoElemento10 = '<textarea class="form-control" name="descripcion_'+idObjetivoContainer+ultimoObjetivo+'" id="descripcion_'+idObjetivoContainer+ultimoObjetivo+'" cols="100" rows="5"></textarea>';
+    var nuevoElemento09 = '<label for="descripcion_'+identificadorObjetivo+'">Descripcion:</label>';
+    var nuevoElemento10 = '<textarea class="form-control" name="descripcion_'+identificadorObjetivo+'" id="descripcion_'+identificadorObjetivo+'" cols="100" rows="5"></textarea>';
     var nuevoElemento11 = '</div>';
-    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjetivo('+ultimoObjetivo+','+idObjetivoContainer+');" ><br><br><br>'; 
-    //var nuevoElemento13 = '</fieldset>';
-     
-    //var nuevoElemento14 = '</div>';
-    
-    //window.alert(id);
+    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjetivo(\''+nuevoObjetivo.id+'\');" ><br><br><br>'; 
     
     nuevoObjetivo.innerHTML = /*objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + */nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
@@ -58,20 +49,22 @@ function addBibliografia(idBibliografiaContainer)
 
    var ultimaBibliogragia = parseInt(contenedor.lastChild.dataset.numeroBibliografia) + 1;
    nuevaBibliografia.dataset.numeroBibliografia = ultimaBibliogragia;
-   nuevaBibliografia.id = "container_" + idBibliografiaContainer + nuevaBibliografia.dataset.numeroBibliografia;
+   identificadorBibliografia = idBibliografiaContainer.replace("bibliografia", "bibliografia"+nuevaBibliografia.dataset.numeroBibliografia);
+   nuevaBibliografia.id = "container_" + identificadorBibliografia;
+   nuevaBibliografia.className = "container-fluid";
     
     contenedor.appendChild(nuevaBibliografia);
 
     var nuevoElemento03 = '<legend id="separador"> </legend>';
     var nuevoElemento04 = '<div class="form-group">';
-    var nuevoElemento05 = '<label for="titulo_'+idBibliografiaContainer+ultimaBibliogragia+'">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+idBibliografiaContainer+ultimaBibliogragia+'" id="titulo_'+idBibliografiaContainer+ultimaBibliogragia+'">';
+    var nuevoElemento05 = '<label for="titulo_'+identificadorBibliografia+'">Titulo:</label>';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+identificadorBibliografia+'" id="titulo_'+identificadorBibliografia+'">';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
-    var nuevoElemento09 = '<label for="autor_'+idBibliografiaContainer+ultimaBibliogragia+'">Autor:</label>';
-    var nuevoElemento10 = '<input class="form-control" type="text" name="autor_'+idBibliografiaContainer+ultimaBibliogragia+'" id="autor_'+idBibliografiaContainer+ultimaBibliogragia+'">';
+    var nuevoElemento09 = '<label for="autor_'+identificadorBibliografia+'">Autor:</label>';
+    var nuevoElemento10 = '<input class="form-control" type="text" name="autor_'+identificadorBibliografia+'" id="autor_'+identificadorBibliografia+'">';
     var nuevoElemento11 = '</div>';
-    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjetivo('+ultimaBibliogragia+','+idBibliografiaContainer+');" ><br><br><br>'; 
+    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarBibliografia(\''+nuevaBibliografia.id+'\');" ><br><br><br>'; 
     
     nuevaBibliografia.innerHTML = /*objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + */nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
@@ -92,7 +85,7 @@ function addUnidad(idUnidadContainer)
     
     contenedor.appendChild(nuevaUnidad);
 
-    var nuevoElemento01 = '<button type="button" class="close" aria-hidden="true" onclick="eliminarUnidad(\''+nuevaUnidad.id+'\','+ultimaUnidad+')" title="Eliminar esta unidad!">&times; eliminar unidad</button><br>';
+    var nuevoElemento01 = '<button type="button" class="close" aria-hidden="true" onclick="eliminarUnidad(\''+nuevaUnidad.id+'\')" title="Eliminar esta unidad!">&times; eliminar unidad</button><br>';
     var nuevoElemento02 = '<legend>Unidad '+nuevaUnidad.dataset.numeroUnidad+'</legend>';
 
     var nuevoElemento03 = '<div class="form-group">';
@@ -193,6 +186,40 @@ function addCapitulo(idContenidoContainer)
         nuevoElemento15;
 }
 
+function eliminarObjetivo(idObjetivo){
+  var objetivo = document.getElementById(idObjetivo);
+
+  var contador = 0; // me sirve para nombrar los nuevos objetivos.
+  var containerObjetivo = objetivo.parentNode;
+  var numeroObjetivo = parseInt(objetivo.dataset.numeroObjetivo);
+
+  containerObjetivo.removeChild(objetivo);
+
+  for (var i = 0; i < containerObjetivo.childNodes.length; i++) {
+    if(i>= (numeroObjetivo - 1)){
+      modificarObjetivo(containerObjetivo.childNodes[i], numeroObjetivo+contador);
+      contador++;
+    }
+  };
+}
+
+function eliminarBibliografia(idBibliografia){
+  var bibliografia = document.getElementById(idBibliografia);
+
+  var contador = 0; // me sirve para nombrar los nuevos bibliografias.
+  var containerBibliografia = bibliografia.parentNode;
+  var numeroBibliografia = parseInt(bibliografia.dataset.numeroBibliografia);
+
+  containerBibliografia.removeChild(bibliografia);
+
+  for (var i = 0; i < containerBibliografia.childNodes.length; i++) {
+    if(i>= (numeroBibliografia - 1)){
+      modificarBibliografia(containerBibliografia.childNodes[i], numeroBibliografia+contador);
+      contador++;
+    }
+  };
+}
+
 function eliminarContenido(idContenido){
   contenido = document.getElementById(idContenido);
 
@@ -209,6 +236,72 @@ function eliminarContenido(idContenido){
     }
   };
 }
+
+function eliminarUnidad(idUnidad){
+  unidad = document.getElementById(idUnidad);
+
+  var contador = 0; // me sirve para nombrar los  nuevos unidads.
+  var containerUnidad = unidad.parentNode;
+  var numeroUnidad = parseInt(unidad.dataset.numeroUnidad);
+
+  containerUnidad.removeChild(unidad);
+
+  for (var i = 0; i < containerUnidad.childNodes.length; i++) {
+    if(i >= (numeroUnidad - 1)){
+      modificarUnidad(containerUnidad.childNodes[i], numeroUnidad+contador);
+      contador++;
+    }
+  };
+}
+
+function modificarObjetivo(objetivo, nuevoNumeroObjetivo){
+  oldId = objetivo.id.split("_")[1];
+  newId = "objetivo"+nuevoNumeroObjetivo;
+
+  objetivo.id = objetivo.id.replace(oldId, newId);
+  
+  objetivo.dataset.numeroObjetivo = nuevoNumeroObjetivo;
+  //modificando el titulo del objetivo.
+  objetivo.childNodes[0].innerHTML = "Objetivo " + nuevoNumeroObjetivo;
+  //modificando el input del titulo del objetivo.
+  objetivo.childNodes[1].childNodes[0].setAttribute("for", objetivo.childNodes[1].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = objetivo.childNodes[1].childNodes[0].getAttribute("for");
+  objetivo.childNodes[1].childNodes[1].id = atributoAuxiliar;
+  objetivo.childNodes[1].childNodes[1].name = atributoAuxiliar;
+
+  //modificando el input de la descripcion del objetivo.
+  objetivo.childNodes[2].childNodes[0].setAttribute("for", objetivo.childNodes[2].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = objetivo.childNodes[2].childNodes[0].getAttribute("for");
+  objetivo.childNodes[2].childNodes[1].id = atributoAuxiliar;
+  objetivo.childNodes[2].childNodes[1].name = atributoAuxiliar;
+  //actualizamos el boton eliminar del objetivo
+  objetivo.childNodes[3].setAttribute("onclick", "eliminarObjetivo('"+objetivo.id+"'");
+}
+
+function modificarBibliografia(bibliografia, nuevoNumeroBibliografia){
+  oldId = bibliografia.id.split("_")[1];
+  newId = "bibliografia"+nuevoNumeroBibliografia;
+
+  bibliografia.id = bibliografia.id.replace(oldId, newId);
+  
+  bibliografia.dataset.numeroBibliografia = nuevoNumeroBibliografia;
+
+  //modificando el input del titulo del bibliografia.
+  bibliografia.childNodes[1].childNodes[0].setAttribute("for", bibliografia.childNodes[1].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = bibliografia.childNodes[1].childNodes[0].getAttribute("for");
+  bibliografia.childNodes[1].childNodes[1].id = atributoAuxiliar;
+  bibliografia.childNodes[1].childNodes[1].name = atributoAuxiliar;
+
+  //modificando el input del autor del bibliografia.
+  bibliografia.childNodes[2].childNodes[0].setAttribute("for", bibliografia.childNodes[2].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = bibliografia.childNodes[2].childNodes[0].getAttribute("for");
+  bibliografia.childNodes[2].childNodes[1].id = atributoAuxiliar;
+  bibliografia.childNodes[2].childNodes[1].name = atributoAuxiliar;
+  //actualizamos el boton eliminar del bibliografia
+  bibliografia.childNodes[3].setAttribute("onclick", "eliminarbibliografia('"+bibliografia.id+"'");
+}
+
+
 
 function modificarContenido(contenido, nuevoNumeroContenido){
   oldId = contenido.id.split("_")[1];
@@ -229,10 +322,66 @@ function modificarContenido(contenido, nuevoNumeroContenido){
   contenido.childNodes[4].childNodes[2].id = contenido.childNodes[4].childNodes[2].id.replace(oldId, newId);
 
   for (var i = 1; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
-    modificarSubtituloContenido(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
+    modificarSectorSubtitulo(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
   };
 
   contenido.childNodes[4].childNodes[3].setAttribute("onclick", "addSubtitulo('"+contenido.childNodes[4].childNodes[2].id+"');")
+}
+
+function modificarSectorContenido(contenido, oldId, newId){
+  contenido.id = contenido.id.replace(oldId, newId);
+
+  contenido.childNodes[2].setAttribute("onclick","eliminarContenido('"+contenido.id+"')");
+
+  contenido.childNodes[4].childNodes[0].innerHTML = "Capitulo " + nuevoNumeroContenido;
+  contenido.childNodes[4].childNodes[1].childNodes[0].setAttribute("for", contenido.childNodes[4].childNodes[1].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = contenido.childNodes[4].childNodes[1].childNodes[0].getAttribute("for");
+  contenido.childNodes[4].childNodes[1].childNodes[1].id = atributoAuxiliar;
+  contenido.childNodes[4].childNodes[1].childNodes[1].name = atributoAuxiliar;
+
+  contenido.childNodes[4].childNodes[2].id = contenido.childNodes[4].childNodes[2].id.replace(oldId, newId);
+
+  for (var i = 1; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
+    modificarSectorSubtitulo(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
+  };
+
+  contenido.childNodes[4].childNodes[3].setAttribute("onclick", "addSubtitulo('"+contenido.childNodes[4].childNodes[2].id+"');")
+}
+
+
+function modificarUnidad(unidad, nuevoNumeroUnidad){
+  oldId = unidad.id.split("_")[1];
+  newId = "unidad"+nuevoNumeroUnidad;
+
+  unidad.id = unidad.id.replace(oldId, newId);
+  
+  unidad.dataset.numeroUnidad = nuevoNumeroUnidad;
+
+  unidad.childNodes[0].setAttribute("onclick","eliminarUnidad('"+unidad.id+"')");
+
+  unidad.childNodes[2].innerHTML = "Unidad " + nuevoNumeroUnidad;
+
+  //modificando id y name del titulo de la unidad.
+  unidad.childNodes[3].childNodes[0].setAttribute("for", unidad.childNodes[3].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = unidad.childNodes[3].childNodes[0].getAttribute("for");
+  unidad.childNodes[3].childNodes[1].id = atributoAuxiliar;
+  unidad.childNodes[3].childNodes[1].name = atributoAuxiliar;
+
+  //modificando id y name del objetivo de la unidad.
+  unidad.childNodes[4].childNodes[0].setAttribute("for", unidad.childNodes[4].childNodes[1].id.replace(oldId, newId));
+  var atributoAuxiliar = unidad.childNodes[4].childNodes[0].getAttribute("for");
+  unidad.childNodes[4].childNodes[1].id = atributoAuxiliar;
+  unidad.childNodes[4].childNodes[1].name = atributoAuxiliar;
+
+  //actualizando los ids y names de contenido y subtitulos.
+  unidad.childNodes[5].childNodes[0].childNodes[1].id.replace(oldId, newId);
+
+  for (var i = 0; i < unidad.childNodes[5].childNodes[0].childNodes[1].length; i++) {
+    modificarSectorContenido(unidad.childNodes[5].childNodes[0].childNodes[1].childNodes[i], oldId, newId);
+  };
+
+  //actualizando el boton de añadir capitulos a una unidad con diferente id.
+  unidad.childNodes[6].setAttribute("onclick", "addCapitulo('"+unidad.childNodes[5].childNodes[0].childNodes[1].id +"');");
 }
 
 
@@ -289,7 +438,7 @@ function modificarSubtitulo(subtitulo, nuevoNumeroSubtitulo){
   subtitulo.childNodes[3].name = subtitulo.childNodes[3].name.replace(oldId, newId);
 }
 
-function modificarSubtituloContenido(subtitulo, oldId, newId){
+function modificarSectorSubtitulo(subtitulo, oldId, newId){
   subtitulo.id = subtitulo.id.replace(oldId, newId);
 
   subtitulo.childNodes[0].setAttribute("onclick", "eliminarSubtitulo('container_"+subtitulo.childNodes[3].id.replace(oldId, newId)+"')");

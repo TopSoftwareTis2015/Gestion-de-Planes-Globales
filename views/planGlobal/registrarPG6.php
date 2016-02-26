@@ -2,27 +2,22 @@
 <legend id="separador"><h2>BIBLIOGRAFIA</h2></legend>
                
 <div class="row" id="biblio">      
-  <fieldset id="bibliografia"><!--seccion para ingresar bibliografia de apoyo para la materia-->
-    <!-- <form  name="formPg7" method="post" action="#"> -->
-      <div class="container-fluid" id="add_biblio">
-        
-        <!--titulo de la bibliografia-->
+  <fieldset id="bibliografia_base" class="recuadro">
+      <div class="container-fluid" id="container_bibliografia1_base" data-numero-bibliografia="1">
         <div class="form-group">
-          <label for="nombre">Titulo Libro</label>
-          <input class="form-control" type="text" name="titulo_1" id="titulo_1" required>
+          <label for="titulo_bibliografia1_base">Titulo Libro</label>
+          <input class="form-control" type="text" name="titulo_bibliografia1_base" id="titulo_bibliografia1_base" required>
         </div>
         
-        <!--campo para ingresar el nombre del autor del libro-->
         <div class="form-group">
-          <label for="codigo">Autor</label>
-          <input class="form-control" type="text" name="autor_1" id="autor_1" required>
+          <label for="autor_bibliografia1_base">Autor</label>
+          <input class="form-control" type="text" name="autor_bibliografia1_base" id="autor_bibliografia1_base" required>
         </div>
 
       </div>
-    <!-- </form> -->
   </fieldset>
 
-<input class="btn btn-primary" type="button" value="añadir bibliografia" onClick="addInput4('n_biblio');">
+<input class="btn btn-primary" type="button" value="añadir bibliografia" onClick="addBibliografia('bibliografia_base');">
 </div> 
 <br>  
 <!--Fin parte 6-->
