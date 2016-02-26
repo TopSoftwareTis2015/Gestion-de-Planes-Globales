@@ -23,4 +23,9 @@ TRABAJO REALIZADO.
 - Falta controlar los requireds. ok
 - falta eliminar subtitulos. ok
 - falta eliminar contenidos. ok
-- falta eliminar unidades.
+- falta eliminar unidades.ok
+
+- añadir y eliminar secciones adicionales con todos sus items.
+- refacotorizar campos opcionales.
+- solucionar el bug de bibliografias.la eliminación de dos bibliografias causa un error.
+- es probable que los nombres no se actualizen bien revizar todas las posibilidades.

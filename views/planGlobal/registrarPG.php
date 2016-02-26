@@ -344,66 +344,21 @@ pg_close($conexion);
       include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG5.php"';                            
      
       //Parte 6
-      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG6.php"';                            
+      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG6.php"';
+
+      //Parte 7                            
+      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG7.php"';                            
 
     ?>
+    
+    <br><br>
+    <button class="submit btn btn-default" type="submit" required>REGISTRAR PLAN GLOBAL</button>
                                 
-               <strong><h2>SECCIONES ADICIONALES</h2></strong>
-               <div class="container-fluid" id="new_seccion"> 
-               <fieldset>
-                  <legend>Seccion personalizada 1</legend>
-                  <div class="form-group">
-                           <label for="nombre">Titulo de la seccion</label>
-                           <input class="form-control" type="text" id="tituloSeccion" required>
-                  </div>
-                  <div class="form-group">
-                           <label for="nombre">Objetivo</label>
-                           <input class="form-control" type="text" id="objetivoNuevaSeccion" required>
-                  </div>
-                  <div class="container-fluid" id="new_contenido">
-                  <fieldset>
-                      <legend>CONTENIDO</legend>
-                       <fieldset>
-                         <div class="container-fluid" id="new_subtitulo">
-                          <!-- <form name="formPg6" method="post" action="#"> -->
-                            <legend>Contenido 1</legend>
-                            <div class="form-group">
-                                 <label for="nombre">Titulo del contenido</label>
-                                 <input class="form-control" type="text" id="tituloContenido" required>
-                             </div>
-                             <div class="form-group">
-                                  <label for="codigo">Descripcion del contenido</label>
-                                  <textarea class="form-control" id="descripcionContenido" cols="100" rows="3" required></textarea>
-                             </div>
-                             <div class="form-group col-md-6 col-md-offset-3">
-                                  <label for="codigo">Subtitulo 1</label>
-                                  <input class="form-control" type="text" id="subtitulo1" required>
-                                  <br>
-                                  <button class="submit btn btn-primary" type="submit" required>Añadir subtitulo</button>
-                             </div>
-                          
-                           <!-- </form> -->
-                          </div> 
-                       </fieldset>
-                       <br>
-                       <button class="btn btn-primary"  required>Añadir contenido</button>
-                  </fieldset>
-                  </div>
-                  <br>
-                  <button class="btn btn-primary" type="submit" required>Añadir Contenido</button>
-               </fieldset>
-                 <br>
-                 <div class="container-fluid col-md-6 col-md-offset-3">
-                    <button class="submit btn btn-default" type="submit" required>Registrar Plan Global</button>                      
-                    <br><br>
-                 </div>
-               </div>
-               <!--Fin parte 7-->
+
 
 
              </fieldset>
-           <!--</div>-->
-        <!--</div>-->
+
        </form>      
       
       </div>             
