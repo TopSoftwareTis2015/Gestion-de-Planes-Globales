@@ -163,3 +163,8 @@ tbody tr:nth-child(odd) {
 input[type=search] { 
   color: black; text-align:left; width:400px; 
 }
+
+.recuadro {
+border: #2c3e50 2px solid;  
+/*background:#9D48ED; */
+}
