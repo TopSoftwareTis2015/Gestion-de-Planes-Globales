@@ -307,18 +307,13 @@ function addCapitulo(idContenidoContainer)
     var nuevoElemento05 = '<label for="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'">Titulo del Capitulo:</label>';
     var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'" id="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'" required>';
     var nuevoElemento07 = '</div>';
-
-    var nuevoElemento08 = '<div id="subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'">';
-    
+    var nuevoElemento08 = '<div id="subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'">';  
     var nuevoElemento09 = '<div class="form-group col-md-6 col-md-offset-3" id="container_subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" data-numero-subtitulo="1">';
     var nuevoElemento10 = '<label for="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'">Subtitulo:</label>';
     var nuevoElemento11 = '<input class="form-control" type="text" name="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" id="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" required>';
     var nuevoElemento12 = '</div>';
-
     var nuevoElemento13 = '</div>';
-    
     var nuevoElemento14 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo(\'subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'\');">';
-
     var nuevoElemento15 = '</div>';
     
     nuevoContenido.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +

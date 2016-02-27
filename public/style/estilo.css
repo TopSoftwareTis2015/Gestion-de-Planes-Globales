@@ -1,6 +1,16 @@
-.vistaSub{
-  color: #600EE8;
+.bordes{
+  color: #080808; 
+  border: solid #121111 2px;
+  background: #76CAF5;
 }
+.unidades{
+  color:#6E52FA;
+}
+
+#cuadros{
+  border: solid #121111 2px;
+}
+
 header{
   background: #2c3e50;
   color:#fff;
@@ -28,7 +38,6 @@ body{
   padding-top: 10px;  
   padding-bottom: 10px;
   background: #071D55;
-  /*background-image: url(../imagen/fondo.jpg);*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -47,6 +56,11 @@ a.style1:visited {
 }*/
 .panel-body {
  background:#B9F0C6;
+}
+
+.panel-vista{
+ background:#FBF9F9;
+ border: solid 2px;
 }
 
 /*tabla materias*/
@@ -75,11 +89,6 @@ border: #2c3e50 2px solid;
 }
 
 #contenido {
-border: #2c3e50 2px solid;  
-/*background:#9D48ED; */
-}
-
-.recuadro {
 border: #2c3e50 2px solid;  
 /*background:#9D48ED; */
 }

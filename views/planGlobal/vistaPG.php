@@ -17,16 +17,7 @@
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/seleccionarItem.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
-  <script>
-      /*function getComboA(sel) {
-          var value = sel.value;
-          var id = 'gMateria' + value;
-          var valor = document.getElementById(id);
-          var dato = valor.innerHTML;
-          //alert(dato);
-          window.location.href = "listaDocControlador.php?dato=" + dato;
-      }*/
-  </script>                      
+     
 </head>
     
 <body>
@@ -102,16 +93,24 @@
      
     <div class="container-fluid col-xs-12 col-sm-8 col-md-9" id="vista">
      <div class="panel panel-default">
-        <div class="panel-body">
-          <h4><p class="text-center">UNIVERSIDAD MAYOR DE SAN SIMON</p></h4>
-          <h4><p class="text-center">FACULTAD DE CIENCIAS Y TECNOLOGIA</p></h4>
-          <legend id="separador"></legend>
+        <div class="panel-vista container-fluid">
+          <div class="col-xs-3 col-sm-3 col-md-2">
+            <img src="<?php echo BASE_URL; ?>views/planGlobal/imagen/fcyt.jpg" class="img-responsive" width="85" height="85" alt="">
+          </div>
+          <div class="col-xs-7 col-sm-7 col-md-8">
+            <h4><p class="text-center">UNIVERSIDAD MAYOR DE SAN SIMON</p></h4>
+            <h4><p class="text-center">FACULTAD DE CIENCIAS Y TECNOLOGIA</p></h4>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2">
+             <img src="<?php echo BASE_URL; ?>views/planGlobal/imagen/umss.png" class="img-responsive" width="85" height="85" alt="">
+          </div>
+            <legend id="separador"></legend>
               
           <h3><strong><center>Plan global</center></strong></h3>
           <h4 class="text-center"><strong>ELEMENTOS DE PROGRAMACION Y ESTRUCTURA DE DATOS</strong></h4>
           <br>
           <ol type="I">
-            <h4 class="vistaSub"><li><b>DATOS DE IDENTIFICACION</b></li></h4>
+            <h4><li><b class="bordes">DATOS DE IDENTIFICACION</b></li></h4>
 
              <div class="panel panel-default">
                 <div class="table-responsive">
@@ -129,8 +128,11 @@
                       <td>1,2,3,4y5</td>
                     </tr>
                     <tr>
-                      <td>Cargahoraria:</td>
+                      <td rowspan="2">Carga horaria:</td>
                       <td>4 periodos teoricos, 2 periodos pr&aacute;ctica</td>
+                    </tr>
+                    <tr>
+                      <td>4 periodos teoricos, 2 periodos pr&aacute;ctica <br>
                     </tr>
                     <tr>
                       <td>Materias relacionadas</td>
@@ -162,24 +164,24 @@
                 </div>
               </div>
 
-            <h4 class="vistaSub"><li><b>JUSTIFICACION</b></li></h4>
+            <h4><li><b class="bordes">JUSTIFICACION</b></li></h4>
               <p class="text-justify">
                 Después de tener los conocimientos básicos de programación, se necesita contar con más elementos que ayuden a un profesional del área de ciencias de la computación, a resolver problemas de forma elegante, eﬁciente y correcta. La ﬁnalidad de este curso es brindar al estudiante un conjunto de conceptos que identiﬁcan elementos importantes que enriquecen la metodología de programación, es importante también considerar las distintas estructuras que existen para representarlos datos.
                 La algoritmia es una parte importante para poder abstraer soluciones que serán automatizadas, la demostración de la correctitud de un algoritmo entonces es importante, para poder asegurar la resolución de un problema; otro aspecto importante que considerar es la eﬁciencia de los algoritmos que se escriben, respecto al tiempo y al recurso de memoria que estos consumen para lograr su objetivos.
-              </p>
+              </p><br>
             
-            <h4 class="vistaSub"><li><b>OBJETIVOS</b></li></h4>
+            <h4><li><b class="bordes">OBJETIVOS</b></li></h4>
               <ol>
                 <!-- lista de objetivos generales -->
                 <h4><li><b>Objetivos Generales</b></h4>
                   <ul>
                     <li type="square">
-                     Conseguir habilidades para enfrentar la solucion de problemas utilizando la POO
-                     <p><b>Descripcion </b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, perferendis maxime reprehenderit voluptatibus accusamus dicta, quasi quia odio nam incidunt id tempore minus non, exercitationem hic voluptate natus totam ea.</p>
+                     <h4>Conseguir habilidades para enfrentar la solucion de problemas utilizando la POO</h4>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, perferendis maxime reprehenderit voluptatibus accusamus dicta, quasi quia odio nam incidunt id tempore minus non, exercitationem hic voluptate natus totam ea.</p>
                     </li>
                     <li type="square"> 
-                     Analizarlaeﬁcienciadesolucionesautomatizadasaproblemas
-                     <p><b>Descripcion </b>Reprehenderit deleniti voluptates pariatur, praesentium sed error, debitis iusto soluta possimus aspernatur necessitatibus inventore ipsa molestias quos rem commodi aliquam quam vel?</p>
+                     <h4>Analizar la eﬁciencia de soluciones automatizadas a problemas</h4>
+                     <p>Reprehenderit deleniti voluptates pariatur, praesentium sed error, debitis iusto soluta possimus aspernatur necessitatibus inventore ipsa molestias quos rem commodi aliquam quam vel?</p>
                     </li>
                   </ul>
                 </li>
@@ -188,91 +190,107 @@
                 <h4><li><b>Objetivos Especificos</b></h4>
                    <ul>
                      <li type="square">
-                       Introducir a las estructuras de datos, de forma conceptual y practica.
-                       <p><b>Descripcion </b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa facere commodi, amet temporibus quisquam asperiores aperiam quae assumenda ducimus. Molestiae, ullam eius, consequuntur unde molestias qui vero pariatur. Error, voluptates.</p>
+                       <h4>Introducir a las estructuras de datos, de forma conceptual y practica.</h4>
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa facere commodi, amet temporibus quisquam asperiores aperiam quae assumenda ducimus. Molestiae, ullam eius, consequuntur unde molestias qui vero pariatur. Error, voluptates.</p>
                      </li>
                      <li type="square">  
-                       Aplicar estructuras de datos adecuadas para la resolucion de problemas
-                       <p><b>Descripcion </b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab sequi sunt perferendis blanditiis, voluptate esse praesentium impedit. Minus perspiciatis similique, adipisci iure id quidem enim, deserunt eaque impedit vero! Quasi.</p>
+                       <h4>Aplicar estructuras de datos adecuadas para la resolucion de problemas</h4>
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab sequi sunt perferendis blanditiis, voluptate esse praesentium impedit. Minus perspiciatis similique, adipisci iure id quidem enim, deserunt eaque impedit vero! Quasi.</p>
                      </li>
                      <li type="square">
-                       Introducir concepto de administracion dinamica de memoria e implementar estructuras de datos en base a enlaces
-                       <p><b>Descripcion </b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, impedit porro laborum fugiat blanditiis non praesentium illo, repellat officia? Minima, a, ullam? Sint, quam! Molestias enim beatae fugiat, reiciendis blanditiis.</p>
+                       <h4>Introducir concepto de administracion dinamica de memoria e implementar estructuras de datos en base a enlaces</h4>
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, impedit porro laborum fugiat blanditiis non praesentium illo, repellat officia? Minima, a, ullam? Sint, quam! Molestias enim beatae fugiat, reiciendis blanditiis.</p>
                      </li>
                    </ul>
                 </li>
-              </ol>
+              </ol><br>
 
             <!-- contenido minimo   -->
-            <h4 class="vistaSub"><li><b>SELECCION Y ORGANIZACION DE CONTENIDOS</b></li></h4>
-              <br><p class="text-center"><b>Unidad1:Programacion orientada al objeto</b></p>
+            <h4><li><b class="bordes">SELECCION Y ORGANIZACION DE CONTENIDOS</b></li></h4>
+              <br><p class="text-center"><b class="unidades">Unidad1:Programacion orientada al objeto</b></p>
                 <p><b>Objetivo de la Unidad</b></p>
                 <p>
                 Al ﬁnal de la unidad, el estudiante tendra un marco general de la POO,retomando lo aprendido en Introduccion a la Programacion y fortaleciendo conceptos de herencia y mane jo de ﬂujos de IO.
                 </p>
-              <br><p class="text-center"><b>Unidad2:Programacion orientada al objeto</b></p>
-                <p><b>Objetivo de la Unidad</b></p>
-                <p>
-                Al ﬁnal de la unidad, el estudiante tendra un marco general de la POO,retomando lo aprendido en Introduccion a la Programacion y fortaleciendo conceptos de herencia y mane jo de ﬂujos de IO.
-                </p>
-                  <ol>
+                <p><b>Contenido:</b></p>
+                <ol>
                     <li>Deﬁnicion de recursion.
                     </li>
                     <li>Partes de la recursion.
-                      <ol>
+                      <ul>
                         <li>Subtitulo</li>
                         <li>Subtitulos</li>
-                      </ol>
+                      </ul>
                     </li>
                     <li>Reglas de recursividad.</li>
                     <li>Implementacion de la recursividad en ejemplos de aplicacion.</li>
-                  </ol>
-              <br><p class="text-center"><b>Unidad3:Programacion orientada al objeto</b></p>
+                </ol>
+              <br><p class="text-center"><b class="unidades">Unidad2:Programacion orientada al objeto</b></p>
+                <p><b>Objetivo de la Unidad</b></p>
+                <p>
+                Al ﬁnal de la unidad, el estudiante tendra un marco general de la POO,retomando lo aprendido en Introduccion a la Programacion y fortaleciendo conceptos de herencia y mane jo de ﬂujos de IO.
+                </p>
+                <p><b>Contenido:</b></p>
+                <ol>
+                  <li>Deﬁnicion de recursion.
+                  </li>
+                  <li>Partes de la recursion.
+                    <ul>
+                      <li>Subtitulo</li>
+                      <li>Subtitulos</li>
+                    </ul>
+                  </li>
+                  <li>Reglas de recursividad.</li>
+                  <li>Implementacion de la recursividad en ejemplos de aplicacion.</li>
+                </ol>
+
+              <br><p class="text-center"><b class="unidades">Unidad3:Programacion orientada al objeto</b></p>
                 <p><b>Objetivo de la Unidad</b></p>
                 <p>
                 Al ﬁnalizar la unidad, el estudiante sera capaz de: encontrar el tiempo de ejecucion de una propuesta de solucion, encontrar la complejidad de una propuesta de solucion elegir entre varias alternativas de solucion en base a metricas de eﬁciencia.Probar la correctitud de las propuestas de solucion de forma matematica.
                 </p>
+                  <p><b>Contenido:</b></p>
                   <ol>
                     <li>Algoritmo.
-                      <ol>
+                      <ul>
                         <li>Subtitulo</li>
                         <li>Subtitulos</li>
-                      </ol>
+                      </ul>
                     </li>
                     <li>Eﬁciencia temporal.</li>
                     <li>Tiemposde ejecucion.</li>
                     <li>Complejidad.</li>
                     <li>Eﬁciencia espacial.</li>
                   </ol>
-              <br><p class="text-center"><b>Unidad4:Programacion orientada al objeto</b></p>
+              <br><p class="text-center"><b class="unidades">Unidad4:Programacion orientada al objeto</b></p>
                 <p><b>Objetivo de la Unidad</b></p>
                 <p>
                  Al ﬁnal de la unidad, el estudiante sera capaz de: explicar, especiﬁcar, distinguir y aplicar las estructuras de datos lineales.
                 </p>
+                <p><b>Contenido:</b></p>
                   <ol>
                       <li>Deﬁnicion de estructuras de datos lineales.
                       </li>
                       <li>Deﬁnicion de listas: organizacion y operaciones estandares.</li>
                       <li>Deﬁnicion de pilas.
-                        <ol>
+                        <ul>
                           <li>Subtitulo</li>
                           <li>Subtitulos</li>
-                        </ol>
+                        </ul>
                       </li>
                       <li>Sobreescritura</li>
                       <li>Deﬁnicion de colas.</li>
                     </ol>
-
-
-            <h4 class="vistaSub"><li><b>METODOLOGIAS</b></li></h4>
+            <br>
+            <h4><li><b class="bordes">METODOLOGIAS</b></li></h4>
               <p class="text-justify">
                 Clases magistrales ilustrando los conceptos con ejemplos. El estudiante tiene que implementar aplicaciones pequeñas utilizando los diferentes conceptos de la materia.
                 Es importante que el estudiante practique en la computadora fuera de clases, por cada unidad, el estudiante debe entregar trabajos de aplicación utilizando de forma correcta los conceptos. Estos trabajos son imprescindibles para rendir los exámenes escritos.
                 Por otro lado, para veriﬁcar el funcionamiento de implementaciones de clase, se plantean algunas de las clases en laboratorio.
                 Material de apoyo se provee a través de la página de la materia www.memi.umss.edu.bo/ elementos, las herramientas para este curso son Java y BlueJ.
              </p>
-             <link rel="stylesheet" href="">
-            <h4 class="vistaSub"><li><b>CRONOGRAMA O DURACION EN PERIODOS ACADEMICOS POR UNIDAD</b></li></h4>
+             <br>
+            <h4><li><b class="bordes">CRONOGRAMA O DURACION EN PERIODOS ACADEMICOS POR UNIDAD</b></li></h4>
               <p>El cronograma y avance de la materia se regir&aacute; por la siguiente secuencia</p>
               <div class="panel panel-default">
                 <div class="table-responsive">
@@ -305,9 +323,9 @@
                   </table>
                 </div>
               </div>
+              <br>
 
-
-            <h4 class="vistaSub"><li><b>CRITERIOS DE EVALUACION</b></li></h4>
+            <h4><li><b class="bordes">CRITERIOS DE EVALUACION</b></li></h4>
               <ul class="text-justify">
                 <li>
                   Evaluación diagnostica. Al principio del semestre es necesario nivelar a los estudiantes respecto a conceptos de POO. Para ello se hace un repaso de los conceptos principales, en base a la participación de los estudiantes respondiendo a preguntas y respuestas que el profesor realiza. Del mismo modo en clases acerca de material ya avanzado.
@@ -319,7 +337,25 @@
                   Evaluación sumativa. La materia consta de exámenes escritos que tienen un ponderado en la nota ﬁnal, así mismo los trabajos que se realizan en el transcurso del semestre son de carácter habilitante a estas pruebas escritas.
                 </li>
               </ul>
-            <h4 class="vistaSub"><li><b>BIBLIOGRAFIA</b></li></h4>    
+              <br>
+            <h4><li><b class="bordes">BIBLIOGRAFIA</b></li></h4>    
+              <h4>Bibliografia base</h4>
+              <ul>
+                <li type="disc">
+                  <b>Estructuras de datos y algoritmos,</b>MARK ALLEN WEISS. Addison Wesley 2nd edition, 2006
+                </li>
+                <li type="disc">
+                  <b>Introduction to algorithms,</b> THOMAS CORMEN, CHARLES LEISERSON,RONALD RIVEST. MITPress-2001
+                </li>
+                <li type="disc">
+                  <b>Algorithms and data structures: the science of computing,</b> DOUGLAS BALD WINANDGREGW. SCRAGG. Charles River Media(C)2004
+                </li>
+                <li type="disc">
+                  <b>Objects ﬁrst with java. A practical introduction using BLUEJ,</b> DAVID BARNES,MICHAEL KOLLING. Prentice Hall,2006
+                </li>
+              </ul>
+
+              <h4>Bibliografia complementaria</h4>
               <ul>
                 <li type="disc">
                   <b>Estructuras de datos y algoritmos,</b>MARK ALLEN WEISS. Addison Wesley 2nd edition, 2006
@@ -340,6 +376,7 @@
      </div>
     </div> 
   </section>
+  <!-- <input type="button" onclick="ver()"> -->
 </div>
   <footer> 
     <!--Codigo para incluir el pie de pagina-->
@@ -347,6 +384,12 @@
        include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
     ?> <!--fin del codigo de pie de pagina-->  
   </footer>
+
+<script>
+  function ver(){
+    print();
+  }
+</script>
 
 </body>
 

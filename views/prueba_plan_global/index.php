@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container" id="cuadro">
 	<header><!-- seccion de la cabecera de la pagina web-->
 		<div class="container">
 		   <div class="row">

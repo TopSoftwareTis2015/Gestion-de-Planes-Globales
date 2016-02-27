@@ -14,11 +14,6 @@ class planGlobalController extends Controller{
 
 	}
 
-	// public function registrar(){//$pagina = false){
-	// 	//$pagina = $pagina? $pagina : "";
-	// 	$this->_view->renderizar('registrarPG');
-	// }
-
 	public function registrar($codigo_materia){
 		$codigo_materia = $codigo_materia[0];
 		$this->_view->materia = $this->_materiaDao->getMateria('codigo_materia',$codigo_materia);
@@ -39,6 +34,8 @@ class planGlobalController extends Controller{
 		$this->_view->docentes = $this->_grupoDao->getDocentesSinPG($codigo_materia);
 
 		$this->_view->renderizar('registrarPG');
+		// $this->_view->renderizar('vistaPG');
+
 	}
 
 	private function verificarSiArrayExiste($array){
