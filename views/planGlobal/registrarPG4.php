@@ -19,9 +19,24 @@
       <!-- <form name="formPg6" method="post" action="#"> -->
         <div class="container-fluid recuadro">
               <legend>CONTENIDO</legend>
-          <div id="contenido_unidad1">
-            <fieldset id="container_contenido1_unidad1" data-numero-contenido="1">
-                <!-- <div class="container-fluid"> -->
+          <div id="contenido_unidad1"></div>
+        </div>
+        <br>
+      </div>
+    <input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addCapitulo('contenido_unidad1');">
+    <br> <br>     
+    </fieldset>
+  </div>
+<!-- </form>  -->
+</div>
+<br>
+
+<!--boton para añadir una nueva unidad de una materia-->
+<button class="btn btn-primary" type="button" onClick="addUnidad('unidad');" >Añadir Unidad</button>
+<!--Fin parte 4-->
+
+
+            <!-- <fieldset id="container_contenido1_unidad1" data-numero-contenido="1">
                 
                 <div class="clearfix">
                   <legend>Capitulo 1</legend>
@@ -41,23 +56,4 @@
                   <input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo('subtitulo_contenido1_unidad1');">
                   
                 </div>
-                
-                <!-- </div> -->
-            </fieldset>
-          </div>
-        </div>
-        <br>
-      <!--boton para añadir mas capitulo a un unidad-->
-      <!-- </form> -->
-      </div>
-    <input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addCapitulo('contenido_unidad1');">
-    <br> <br>     
-    </fieldset>
-  </div>
-<!-- </form>  -->
-</div>
-<br>
-
-<!--boton para añadir una nueva unidad de una materia-->
-<button class="btn btn-primary" type="button" onClick="addUnidad('unidad');" >Añadir Unidad</button>
-<!--Fin parte 4-->
+            </fieldset> -->

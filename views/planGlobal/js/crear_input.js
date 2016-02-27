@@ -13,9 +13,13 @@ function addObjetivo(idObjetivoContainer)
    var nuevoObjetivo = document.createElement("fieldset");
    var contenedor = document.getElementById(idObjetivoContainer);
 
-   repararContainer(contenedor);
+   var ultimoObjetivo = 1;
 
-   var ultimoObjetivo = parseInt(contenedor.lastChild.dataset.numeroObjetivo) + 1;
+  if(contenedor.childNodes.length){
+    repararContainer(contenedor);
+    ultimoObjetivo = parseInt(contenedor.lastChild.dataset.numeroObjetivo) + 1;
+  }
+
    nuevoObjetivo.dataset.numeroObjetivo = ultimoObjetivo;
    identificadorObjetivo = idObjetivoContainer.replace("objetivo", "objetivo"+nuevoObjetivo.dataset.numeroObjetivo);
    nuevoObjetivo.id = "container_" + identificadorObjetivo;
@@ -26,7 +30,7 @@ function addObjetivo(idObjetivoContainer)
 
     var nuevoElemento04 = '<div class="form-group">';
     var nuevoElemento05 = '<label for="titulo_'+identificadorObjetivo+'">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+identificadorObjetivo+'" id="titulo_'+identificadorObjetivo+'">';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+identificadorObjetivo+'" id="titulo_'+identificadorObjetivo+'" required>';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
     var nuevoElemento09 = '<label for="descripcion_'+identificadorObjetivo+'">Descripcion:</label>';
@@ -45,10 +49,15 @@ function addBibliografia(idBibliografiaContainer)
    var nuevaBibliografia = document.createElement("div");
    var contenedor = document.getElementById(idBibliografiaContainer);
 
-   repararContainer(contenedor);
+   ultimaBibliografia = 1;
 
-   var ultimaBibliogragia = parseInt(contenedor.lastChild.dataset.numeroBibliografia) + 1;
-   nuevaBibliografia.dataset.numeroBibliografia = ultimaBibliogragia;
+  if(contenedor.childNodes.length){
+    repararContainer(contenedor);
+    ultimaBibliografia = parseInt(contenedor.lastChild.dataset.numeroObjetivo) + 1;
+  }
+
+
+   nuevaBibliografia.dataset.numeroBibliografia = ultimaBibliografia;
    identificadorBibliografia = idBibliografiaContainer.replace("bibliografia", "bibliografia"+nuevaBibliografia.dataset.numeroBibliografia);
    nuevaBibliografia.id = "container_" + identificadorBibliografia;
    nuevaBibliografia.className = "container-fluid";
@@ -58,13 +67,13 @@ function addBibliografia(idBibliografiaContainer)
     var nuevoElemento03 = '<legend id="separador"> </legend>';
     var nuevoElemento04 = '<div class="form-group">';
     var nuevoElemento05 = '<label for="titulo_'+identificadorBibliografia+'">Titulo:</label>';
-    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+identificadorBibliografia+'" id="titulo_'+identificadorBibliografia+'">';
+    var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_'+identificadorBibliografia+'" id="titulo_'+identificadorBibliografia+'" required>';
     var nuevoElemento07 = '</div>';
     var nuevoElemento08 = '<div class="form-group">';
     var nuevoElemento09 = '<label for="autor_'+identificadorBibliografia+'">Autor:</label>';
-    var nuevoElemento10 = '<input class="form-control" type="text" name="autor_'+identificadorBibliografia+'" id="autor_'+identificadorBibliografia+'">';
+    var nuevoElemento10 = '<input class="form-control" type="text" name="autor_'+identificadorBibliografia+'" id="autor_'+identificadorBibliografia+'" required>';
     var nuevoElemento11 = '</div>';
-    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarBibliografia(\''+nuevaBibliografia.id+'\');" ><br><br><br>'; 
+    var nuevoElemento12 = '<input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onclick="eliminarBibliografia(\''+nuevaBibliografia.id+'\');" ><br><br><br>'; 
     
     nuevaBibliografia.innerHTML = /*objetivo.innerHTML + nuevoElemento01 + nuevoElemento02 + */nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
@@ -76,9 +85,15 @@ function addSeccion(idSeccionContainer)
    var nuevaSeccion = document.createElement("fieldset");
    var contenedor = document.getElementById(idSeccionContainer);
 
-   repararContainer(contenedor);
+   var ultimaSeccion = 1;
 
-   var ultimaSeccion = parseInt(contenedor.lastChild.dataset.numeroSeccion) + 1;
+  if(contenedor.childNodes.length){
+     repararContainer(contenedor);
+     var ultimaSeccion = parseInt(contenedor.lastChild.dataset.numeroSeccion) + 1;
+  }
+
+
+
    nuevaSeccion.dataset.numeroSeccion = ultimaSeccion;
    identificadorSeccion = idSeccionContainer + ultimaSeccion;
    nuevaSeccion.id = "container_" + identificadorSeccion;
@@ -102,47 +117,47 @@ function addSeccion(idSeccionContainer)
     var nuevoElemento12 = '<div class="container-fluid recuadro">';
     var nuevoElemento13 = '<legend>CONTENIDO</legend>';
     
-    var nuevoElemento14 = '<fieldset id="contenido_seccion'+ultimaSeccion+'">';
-    var nuevoElemento15 = '<div class="container-fluid recuadro" id="container_contenido1_seccion'+ultimaSeccion+'" data-numero-contenido="1">';
-    var nuevoElemento16 = "";
+    var nuevoElemento14 = '<fieldset id="contenido_seccion'+ultimaSeccion+'"></fieldset>';
+    // var nuevoElemento15 = '<div class="container-fluid recuadro" id="container_contenido1_seccion'+ultimaSeccion+'" data-numero-contenido="1">';
+    // var nuevoElemento16 = "";
 
-    var nuevoElemento17 = '<legend>Contenido 1</legend>';
-    var nuevoElemento18 = '<div class="form-group">';
-    var nuevoElemento19 = '<label for="titulo_contenido1_seccion'+ultimaSeccion+'">Titulo del Capitulo:</label>';
-    var nuevoElemento20 = '<input class="form-control" type="text" name="titulo_contenido1_seccion'+ultimaSeccion+'" id="titulo_contenido1_seccion'+ultimaSeccion+'" required>';
-    var nuevoElemento21 = '</div>';
+    // var nuevoElemento17 = '<legend>Contenido 1</legend>';
+    // var nuevoElemento18 = '<div class="form-group">';
+    // var nuevoElemento19 = '<label for="titulo_contenido1_seccion'+ultimaSeccion+'">Titulo del Capitulo:</label>';
+    // var nuevoElemento20 = '<input class="form-control" type="text" name="titulo_contenido1_seccion'+ultimaSeccion+'" id="titulo_contenido1_seccion'+ultimaSeccion+'" required>';
+    // var nuevoElemento21 = '</div>';
 
-    var nuevoElemento22 = '<div class="form-group">';
-    var nuevoElemento23 = '<label for="descripcion_contenido1_seccion'+ultimaSeccion+'">Descripcion del Contenido:</label>';
-    var nuevoElemento24 = '<textarea class="form-control" name="descripcion_contenido1_seccion'+ultimaSeccion+'" id="descripcion_contenido1_seccion'+ultimaSeccion+'" cols="100" rows="3"></textarea>';
-    var nuevoElemento25 = '</div>';
+    // var nuevoElemento22 = '<div class="form-group">';
+    // var nuevoElemento23 = '<label for="descripcion_contenido1_seccion'+ultimaSeccion+'">Descripcion del Contenido:</label>';
+    // var nuevoElemento24 = '<textarea class="form-control" name="descripcion_contenido1_seccion'+ultimaSeccion+'" id="descripcion_contenido1_seccion'+ultimaSeccion+'" cols="100" rows="3"></textarea>';
+    // var nuevoElemento25 = '</div>';
 
-    var nuevoElemento26 = '<div id="subtitulo_contenido1_seccion'+ultimaSeccion+'" class="form-group col-md-6 col-md-offset-3">';
+    // var nuevoElemento26 = '<div id="subtitulo_contenido1_seccion'+ultimaSeccion+'" class="form-group col-md-6 col-md-offset-3">';
     
-    var nuevoElemento27 = '<div id="container_subtitulo1_contenido1_seccion'+ultimaSeccion+'" data-numero-subtitulo="1">';
-    var nuevoElemento28 = '<label for="subtitulo1_contenido1_seccion'+ultimaSeccion+'">Subtitulo:</label>';
-    var nuevoElemento29 = '<input class="form-control" type="text" name="subtitulo1_contenido1_seccion'+ultimaSeccion+'" id="subtitulo1_contenido1_seccion'+ultimaSeccion+'" required>';
-    var nuevoElemento30 = '</div>';
+    // var nuevoElemento27 = '<div id="container_subtitulo1_contenido1_seccion'+ultimaSeccion+'" data-numero-subtitulo="1">';
+    // var nuevoElemento28 = '<label for="subtitulo1_contenido1_seccion'+ultimaSeccion+'">Subtitulo:</label>';
+    // var nuevoElemento29 = '<input class="form-control" type="text" name="subtitulo1_contenido1_seccion'+ultimaSeccion+'" id="subtitulo1_contenido1_seccion'+ultimaSeccion+'" required>';
+    // var nuevoElemento30 = '</div>';
 
-    var nuevoElemento31 = '</div>';
+    // var nuevoElemento31 = '</div>';
     
-    var nuevoElemento32 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtituloContenidoSeccion(\'subtitulo_contenido1_seccion'+ultimaSeccion+'\');">';
+    // var nuevoElemento32 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtituloContenidoSeccion(\'subtitulo_contenido1_seccion'+ultimaSeccion+'\');">';
 
-    var nuevoElemento33 = '</div>';
+    // var nuevoElemento33 = '</div>';
 
-    var nuevoElemento34 = '</fieldset>';
+    // var nuevoElemento34 = '</fieldset>';
 
-    var nuevoElemento35 = '<br>';
-    var nuevoElemento36 = '<input class="btn btn-primary type="button" value="Añadir Contenido" onClick="addContenidoSeccion(\'contenido_seccion'+ultimaSeccion+'\');"> <br> <br>';
-    var nuevoElemento37 = '</div><br><br>';
+    var nuevoElemento15 = '<br>';
+    var nuevoElemento16 = '<input class="btn btn-primary type="button" value="Añadir Contenido" onClick="addContenidoSeccion(\'contenido_seccion'+ultimaSeccion+'\');"> <br> <br>';
+    var nuevoElemento17 = '</div><br><br>';
     
     nuevaSeccion.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
         nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 +
-        nuevoElemento15 + nuevoElemento16 + nuevoElemento17 + nuevoElemento18 + nuevoElemento19 + nuevoElemento20 +
+        nuevoElemento15 + nuevoElemento16 + nuevoElemento17;/* + nuevoElemento18 + nuevoElemento19 + nuevoElemento20 +
         nuevoElemento21 + nuevoElemento22 + nuevoElemento23 + nuevoElemento24 +
         nuevoElemento25 + nuevoElemento26 + nuevoElemento27 + nuevoElemento28 + nuevoElemento29 + nuevoElemento30 +
-        nuevoElemento31 + nuevoElemento32 + nuevoElemento33 + nuevoElemento34 + nuevoElemento35 + nuevoElemento36 + nuevoElemento37;
+        nuevoElemento31 + nuevoElemento32 + nuevoElemento33 + nuevoElemento34 + nuevoElemento35 + nuevoElemento36 + nuevoElemento37;*/
 }
 
 
@@ -151,8 +166,16 @@ function addContenidoSeccion(idContenidoContainer)
    var nuevoContenido = document.createElement("div");
    var contenedor = document.getElementById(idContenidoContainer);
 
-   repararContainer(contenedor);
-   var ultimoContenido = parseInt(contenedor.lastChild.dataset.numeroContenido) + 1;
+
+   var ultimoContenido = 1;
+
+  if(contenedor.childNodes.length){
+     repararContainer(contenedor);
+     var ultimoContenido = parseInt(contenedor.lastChild.dataset.numeroContenido) + 1;
+  }
+   
+
+
    nuevoContenido.dataset.numeroContenido = ultimoContenido;
    var identificadorContenido = idContenidoContainer.replace("contenido", "contenido"+ ultimoContenido);
    nuevoContenido.id = "container_" + identificadorContenido;
@@ -174,21 +197,21 @@ function addContenidoSeccion(idContenidoContainer)
     var nuevoElemento10 = '<textarea class="form-control" name="descripcion_'+identificadorContenido+'" id="descripcion_'+identificadorContenido+'" cols="100" rows="3"></textarea>';
     var nuevoElemento11 = '</div>';
 
-    var nuevoElemento12 = '<div id="subtitulo_'+identificadorContenido+'" class="form-group col-md-6 col-md-offset-3">';
+    var nuevoElemento12 = '<div id="subtitulo_'+identificadorContenido+'" class="form-group col-md-6 col-md-offset-3"></div>';
     
-    var nuevoElemento13 = '<div id="container_subtitulo1_'+identificadorContenido+'" data-numero-subtitulo="1">';
-    var nuevoElemento14 = '<label for="subtitulo1_'+identificadorContenido+'">Subtitulo:</label>';
-    var nuevoElemento15 = '<input class="form-control" type="text" name="subtitulo1_'+identificadorContenido+'" id="subtitulo1_'+identificadorContenido+'" required>';
-    var nuevoElemento16 = '</div>';
+    // var nuevoElemento13 = '<div id="container_subtitulo1_'+identificadorContenido+'" data-numero-subtitulo="1">';
+    // var nuevoElemento14 = '<label for="subtitulo1_'+identificadorContenido+'">Subtitulo:</label>';
+    // var nuevoElemento15 = '<input class="form-control" type="text" name="subtitulo1_'+identificadorContenido+'" id="subtitulo1_'+identificadorContenido+'" required>';
+    // var nuevoElemento16 = '</div>';
 
-    var nuevoElemento17 = '</div>';
+    // var nuevoElemento17 = '</div>';
     
-    var nuevoElemento18 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtituloContenidoSeccion(\'subtitulo_'+identificadorContenido+'\');"> <br> <br>';
+    var nuevoElemento13 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtituloContenidoSeccion(\'subtitulo_'+identificadorContenido+'\');"> <br> <br>';
     
     nuevoContenido.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
-        nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 +
-        nuevoElemento15 + nuevoElemento16 + nuevoElemento17 + nuevoElemento18;
+        nuevoElemento11 + nuevoElemento12 + nuevoElemento13;/* + nuevoElemento14 +
+        nuevoElemento15 + nuevoElemento16 + nuevoElemento17 + nuevoElemento18;*/
 }
 
 function addSubtituloContenidoSeccion(idSubituloContainer)
@@ -196,9 +219,16 @@ function addSubtituloContenidoSeccion(idSubituloContainer)
    var nuevoSubtitulo = document.createElement("div");
    var contenedor = document.getElementById(idSubituloContainer);
 
-   repararContainer(contenedor);
+    var ultimoSubtitulo = 1;
 
-   var ultimoSubtitulo = parseInt(contenedor.lastChild.dataset.numeroSubtitulo) + 1;
+  if(contenedor.childNodes.length){
+     repararContainer(contenedor);
+     var ultimoSubtitulo = parseInt(contenedor.lastChild.dataset.numeroSubtitulo) + 1;
+  }
+
+
+
+
    nuevoSubtitulo.dataset.numeroSubtitulo = ultimoSubtitulo;
    identificadorObjetos = idSubituloContainer.replace("subtitulo", "subtitulo"+ ultimoSubtitulo);
    nuevoSubtitulo.id = "container_" + identificadorObjetos;
@@ -241,47 +271,47 @@ function addUnidad(idUnidadContainer)
     var nuevoElemento12 = '<div class="container-fluid recuadro">';
     var nuevoElemento13 = '<legend>CONTENIDO</legend>';
     
-    var nuevoElemento14 = '<div id="contenido_unidad'+ultimaUnidad+'">';
-    var nuevoElemento15 = '<fieldset id="container_contenido1_unidad'+ultimaUnidad+'" data-numero-contenido="1">';
+    var nuevoElemento14 = '<div id="contenido_unidad'+ultimaUnidad+'"></div>';
+    // var nuevoElemento15 = '<fieldset id="container_contenido1_unidad'+ultimaUnidad+'" data-numero-contenido="1">';
 
-    var nuevoElemento16 = '<div class="clearfix">';
+    // var nuevoElemento16 = '<div class="clearfix">';
 
-    var nuevoElemento17 = '<legend>Capitulo 1</legend>';
-    var nuevoElemento18 = '<div class="form-group">';
-    var nuevoElemento19 = '<label for="titulo_contenido1_unidad'+ultimaUnidad+'">Titulo del Capitulo:</label>';
-    var nuevoElemento20 = '<input class="form-control" type="text" name="titulo_contenido1_unidad'+ultimaUnidad+'" id="titulo_contenido1_unidad'+ultimaUnidad+'" required>';
-    var nuevoElemento21 = '</div>';
+    // var nuevoElemento17 = '<legend>Capitulo 1</legend>';
+    // var nuevoElemento18 = '<div class="form-group">';
+    // var nuevoElemento19 = '<label for="titulo_contenido1_unidad'+ultimaUnidad+'">Titulo del Capitulo:</label>';
+    // var nuevoElemento20 = '<input class="form-control" type="text" name="titulo_contenido1_unidad'+ultimaUnidad+'" id="titulo_contenido1_unidad'+ultimaUnidad+'" required>';
+    // var nuevoElemento21 = '</div>';
 
-    var nuevoElemento22 = '<div id="subtitulo_contenido1_unidad'+ultimaUnidad+'">';
+    // var nuevoElemento22 = '<div id="subtitulo_contenido1_unidad'+ultimaUnidad+'">';
     
-    var nuevoElemento23 = '<div class="form-group col-md-6 col-md-offset-3" id="container_subtitulo1_contenido1_unidad'+ultimaUnidad+'" data-numero-subtitulo="1">';
-    var nuevoElemento24 = '<label for="subtitulo1_contenido1_unidad'+ultimaUnidad+'">Subtitulo:</label>';
-    var nuevoElemento25 = '<input class="form-control" type="text" name="subtitulo1_contenido1_unidad'+ultimaUnidad+'" id="subtitulo1_contenido1_unidad'+ultimaUnidad+'" required>';
-    var nuevoElemento26 = '</div>';
+    // var nuevoElemento23 = '<div class="form-group col-md-6 col-md-offset-3" id="container_subtitulo1_contenido1_unidad'+ultimaUnidad+'" data-numero-subtitulo="1">';
+    // var nuevoElemento24 = '<label for="subtitulo1_contenido1_unidad'+ultimaUnidad+'">Subtitulo:</label>';
+    // var nuevoElemento25 = '<input class="form-control" type="text" name="subtitulo1_contenido1_unidad'+ultimaUnidad+'" id="subtitulo1_contenido1_unidad'+ultimaUnidad+'" required>';
+    // var nuevoElemento26 = '</div>';
 
-    var nuevoElemento27 = '</div>';
+    // var nuevoElemento27 = '</div>';
     
-    var nuevoElemento28 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo(\'subtitulo_contenido1_unidad'+ultimaUnidad+'\');">';
+    // var nuevoElemento28 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo(\'subtitulo_contenido1_unidad'+ultimaUnidad+'\');">';
 
-    var nuevoElemento29 = '</div>';
+    // var nuevoElemento29 = '</div>';
 
-    var nuevoElemento30 = '</fieldset>';
+    // var nuevoElemento30 = '</fieldset>';
 
-    var nuevoElemento31 = '</div>';
+    // var nuevoElemento31 = '</div>';
 
-    var nuevoElemento32 = '</div>';
-    var nuevoElemento33 = '<br>';
-    var nuevoElemento34 = '</div>';
-    var nuevoElemento35 = '<input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addCapitulo(\'contenido_unidad'+ultimaUnidad+'\');">';
-    var nuevoElemento36 = '<br> <br> ';
+    var nuevoElemento15 = '</div>';
+    var nuevoElemento16 = '<br>';
+    var nuevoElemento17 = '</div>';
+    var nuevoElemento18 = '<input class="btn btn-primary pull-right" type="button" value="Añadir Capitulo" onClick="addCapitulo(\'contenido_unidad'+ultimaUnidad+'\');">';
+    var nuevoElemento19 = '<br> <br> ';
     
     nuevaUnidad.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
         nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
         nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 +
-        nuevoElemento15 + nuevoElemento16 + nuevoElemento17 + nuevoElemento18 + nuevoElemento19 + nuevoElemento20 +
+        nuevoElemento15 + nuevoElemento16 + nuevoElemento17 + nuevoElemento18 + nuevoElemento19;/* + nuevoElemento20 +
         nuevoElemento21 + nuevoElemento22 + nuevoElemento23 + nuevoElemento24 +
         nuevoElemento25 + nuevoElemento26 + nuevoElemento27 + nuevoElemento28 + nuevoElemento29 + nuevoElemento30 +
-        nuevoElemento31 + nuevoElemento32 + nuevoElemento33 + nuevoElemento34 + nuevoElemento35 + nuevoElemento36;
+        nuevoElemento31 + nuevoElemento32 + nuevoElemento33 + nuevoElemento34 + nuevoElemento35 + nuevoElemento36;*/
 }
 
 function addCapitulo(idContenidoContainer)
@@ -290,10 +320,14 @@ function addCapitulo(idContenidoContainer)
    var nuevoContenido = document.createElement("fieldset");
    var contenedor = document.getElementById(idContenidoContainer);
 
-   repararContainer(contenedor);
+   var ultimoContenido = 1;
+
+  if(contenedor.childNodes.length){
+    repararContainer(contenedor);
+    ultimoContenido = parseInt(contenedor.lastChild.dataset.numeroContenido) + 1;
+  }
 
    var unidadPadre = idContenidoContainer.replace("contenido_","");
-   var ultimoContenido = parseInt(contenedor.lastChild.dataset.numeroContenido) + 1;
    nuevoContenido.dataset.numeroContenido = ultimoContenido;
    nuevoContenido.id = "container_" + idContenidoContainer.replace("contenido", "contenido"+ ultimoContenido);
     
@@ -307,19 +341,24 @@ function addCapitulo(idContenidoContainer)
     var nuevoElemento05 = '<label for="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'">Titulo del Capitulo:</label>';
     var nuevoElemento06 = '<input class="form-control" type="text" name="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'" id="titulo_contenido'+ultimoContenido+'_'+unidadPadre+'" required>';
     var nuevoElemento07 = '</div>';
-    var nuevoElemento08 = '<div id="subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'">';  
-    var nuevoElemento09 = '<div class="form-group col-md-6 col-md-offset-3" id="container_subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" data-numero-subtitulo="1">';
-    var nuevoElemento10 = '<label for="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'">Subtitulo:</label>';
-    var nuevoElemento11 = '<input class="form-control" type="text" name="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" id="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" required>';
-    var nuevoElemento12 = '</div>';
-    var nuevoElemento13 = '</div>';
-    var nuevoElemento14 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo(\'subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'\');">';
-    var nuevoElemento15 = '</div>';
+
+    var nuevoElemento08 = '<div id="subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'"></div>';
+    
+    // var nuevoElemento09 = '<div class="form-group col-md-6 col-md-offset-3" id="container_subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" data-numero-subtitulo="1">';
+    // var nuevoElemento10 = '<label for="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'">Subtitulo:</label>';
+    // var nuevoElemento11 = '<input class="form-control" type="text" name="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" id="subtitulo1_contenido'+ultimoContenido+'_'+unidadPadre+'" required>';
+    // var nuevoElemento12 = '</div>';
+
+    // var nuevoElemento13 = '</div>';
+    
+    var nuevoElemento09 = '<input class="btn btn-primary col-md-6 col-sm-6 col-xs-6 col-md-offset-3" type="button" value="Añadir Subtitulo" onclick="addSubtitulo(\'subtitulo_contenido'+ultimoContenido+'_'+unidadPadre+'\');">';
+
+    var nuevoElemento10 = '</div>';
     
     nuevoContenido.innerHTML = nuevoElemento01 + nuevoElemento02 + nuevoElemento03 + nuevoElemento04 +
-        nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10 +
+        nuevoElemento05 + nuevoElemento06 + nuevoElemento07 + nuevoElemento08 + nuevoElemento09 + nuevoElemento10;/* +
         nuevoElemento11 + nuevoElemento12 + nuevoElemento13 + nuevoElemento14 +
-        nuevoElemento15;
+        nuevoElemento15;*/
 }
 
 function eliminarObjetivo(idObjetivo){
@@ -469,7 +508,7 @@ function modificarBibliografia(bibliografia, nuevoNumeroBibliografia){
   bibliografia.childNodes[2].childNodes[1].id = atributoAuxiliar;
   bibliografia.childNodes[2].childNodes[1].name = atributoAuxiliar;
   //actualizamos el boton eliminar del bibliografia
-  bibliografia.childNodes[3].setAttribute("onclick", "eliminarbibliografia('"+bibliografia.id+"'");
+  bibliografia.childNodes[3].setAttribute("onclick", "eliminarBibliografia('"+bibliografia.id+"');");
 }
 
 
@@ -492,7 +531,7 @@ function modificarContenido(contenido, nuevoNumeroContenido){
 
   contenido.childNodes[4].childNodes[2].id = contenido.childNodes[4].childNodes[2].id.replace(oldId, newId);
 
-  for (var i = 1; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
+  for (var i = 0; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
   };
 
@@ -523,7 +562,7 @@ function modificarContenidoSeccion(contenido, nuevoNumeroContenido){
 
   contenido.childNodes[7].id = contenido.childNodes[7].id.replace(oldId, newId);
 
-  for (var i = 1; i < contenido.childNodes[7].childNodes.length; i++) {
+  for (var i = 0; i < contenido.childNodes[7].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[7].childNodes[i], oldId, newId);
   };
 
@@ -543,7 +582,7 @@ function modificarSectorContenido(contenido, oldId, newId){
 
   contenido.childNodes[4].childNodes[2].id = contenido.childNodes[4].childNodes[2].id.replace(oldId, newId);
 
-  for (var i = 1; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
+  for (var i = 0; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
   };
 
@@ -569,7 +608,7 @@ function modificarSectorContenidoSeccion(contenido, oldId, newId){
 
   contenido.childNodes[7].id = contenido.childNodes[7].id.replace(oldId, newId);
 
-  for (var i = 1; i < contenido.childNodes[7].childNodes.length; i++) {
+  for (var i = 0; i < contenido.childNodes[7].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[7].childNodes[i], oldId, newId);
   };
 
@@ -603,7 +642,7 @@ function modificarUnidad(unidad, nuevoNumeroUnidad){
   //actualizando los ids y names de contenido y subtitulos.
   unidad.childNodes[5].childNodes[0].childNodes[1].id = unidad.childNodes[5].childNodes[0].childNodes[1].id.replace(oldId, newId);
 
-  for (var i = 1; i < unidad.childNodes[5].childNodes[0].childNodes[1].length; i++) {
+  for (var i = 0; i < unidad.childNodes[5].childNodes[0].childNodes[1].length; i++) {
     modificarSectorContenido(unidad.childNodes[5].childNodes[0].childNodes[1].childNodes[i], oldId, newId);
   };
 
@@ -637,7 +676,7 @@ function modificarSeccion(seccion, nuevoNumeroSeccion){
   //actualizando los ids y names de contenido y subtitulos.
   seccion.childNodes[5].childNodes[1].id = seccion.childNodes[5].childNodes[1].id.replace(oldId, newId);
 
-  for (var i = 1; i < seccion.childNodes[5].childNodes[1].childNodes.length; i++) {
+  for (var i = 0; i < seccion.childNodes[5].childNodes[1].childNodes.length; i++) {
     modificarSectorContenidoSeccion(seccion.childNodes[5].childNodes[1].childNodes[i], oldId, newId);
   };
 
@@ -652,9 +691,13 @@ function addSubtitulo(idSubituloContainer)
    var nuevoSubtitulo = document.createElement("div");
    var contenedor = document.getElementById(idSubituloContainer);
 
-   repararContainer(contenedor);
+   var ultimoSubtitulo = 1;
 
-   var ultimoSubtitulo = parseInt(contenedor.lastChild.dataset.numeroSubtitulo) + 1;
+  if(contenedor.childNodes.length){
+    repararContainer(contenedor);
+    ultimoSubtitulo = parseInt(contenedor.lastChild.dataset.numeroSubtitulo) + 1;
+  }
+
    nuevoSubtitulo.dataset.numeroSubtitulo = ultimoSubtitulo;
    identificadorObjetos = idSubituloContainer.replace("subtitulo", "subtitulo"+ ultimoSubtitulo);
    nuevoSubtitulo.id = "container_" + identificadorObjetos;

@@ -1,7 +1,15 @@
                <strong><h2>SECCIONES ADICIONALES</h2></strong>
                <div class="container-fluid" id="new_seccion"> 
-              <div id="seccion">
-                 <fieldset id="container_seccion1" data-numero-seccion="1">
+              <div id="seccion"></div>
+              <br>
+               </div>
+               <br>
+              <button class="btn btn-primary" type="button" onclick="addSeccion('seccion');" required>Añadir Seccion</button>
+                 
+
+
+
+                 <!-- <fieldset id="container_seccion1" data-numero-seccion="1">
                     <legend>Seccion personalizada 1</legend>
                     <div class="form-group">
                              <label for="titulo_seccion1">Titulo de la seccion</label>
@@ -37,9 +45,4 @@
                          <br>
                          <button class="btn btn-primary" type="button" onclick="addContenidoSeccion('contenido_seccion1');" required>Añadir contenido</button> <br> <br>
                     </div> <br><br>
-                 </fieldset>
-              </div>
-              <br>
-               </div>
-               <br>
-              <button class="btn btn-primary" type="button" onclick="addSeccion('seccion');" required>Añadir Seccion</button>
+                 </fieldset> -->

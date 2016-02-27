@@ -28,23 +28,21 @@
 
 <legend id="separador"><h3>OBJETIVOS ESPECIFICOS</h3></legend> <!--campos para ingresar los objetivos especificos-->
   <!--<form name="formPg4" method="post" action="#">-->
-    <div class="container-fluid" id="objetivo_especifico">
-      <fieldset data-numero-objetivo="1" id="container_objetivo1_especifico">
-        <!--titulo del objetivo especifico -->
-        <legend>Objetivo 1</legend>
-        <div class="form-group">
-          <label for="titulo_objetivo1_especifico">Titulo:</label>
-          <input class="form-control" name="titulo_objetivo1_especifico" type="text" id="titulo_objetivo1_especifico" required>
-        </div>
-        <!--descripcion del objetivo especifico-->
-        <div class="form-group">
-          <label for="descripcion_objetivo1_especifico">Descripcion:</label>
-           <textarea class="form-control" name="descripcion_objetivo1_especifico" id="descripcion_objetivo1_especifico"cols="100" rows="5"></textarea>
-        </div>
-      </fieldset>    
-    </div>
+    <div class="container-fluid" id="objetivo_especifico"></div>
     
                          
     <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addObjetivo('objetivo_especifico');">
   <!--</form>-->
 <!--Fin Parte 3-->
+
+      <!-- <fieldset data-numero-objetivo="1" id="container_objetivo1_especifico">
+        <legend>Objetivo 1</legend>
+        <div class="form-group">
+          <label for="titulo_objetivo1_especifico">Titulo:</label>
+          <input class="form-control" name="titulo_objetivo1_especifico" type="text" id="titulo_objetivo1_especifico" required>
+        </div>
+        <div class="form-group">
+          <label for="descripcion_objetivo1_especifico">Descripcion:</label>
+           <textarea class="form-control" name="descripcion_objetivo1_especifico" id="descripcion_objetivo1_especifico"cols="100" rows="5"></textarea>
+        </div>
+      </fieldset>  -->   
