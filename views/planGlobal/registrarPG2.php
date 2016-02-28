@@ -49,7 +49,7 @@
         <label for="titulo">Periodos por semana</label>
         <div class="row">                               
           <input type="checkbox" id="checkboxEnLinea4" onchange="cambiarEstado(this.checked, 'periodoSemana');">
-          <input id="periodoSemana" type="number" name="periodos_semana" min="0" max="360" disabled>                                      
+          <input id="periodoSemana" type="number" name="periodos_semana" min="0" max="10" disabled>                                      
         </div>
       </div>
     </div>    
