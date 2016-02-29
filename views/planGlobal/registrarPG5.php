@@ -8,52 +8,76 @@
 <div class="panel panel-default">
     <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered" id="tab_cronograma">
-            <tr><!--nombre de las columnas de la tabla para el cronograma-->
-                <th>UNIDAD</th>
-                <th>DURACION HRS. ACADEMICAS</th>
-                <th>DURACION SEMANAS</th>
-            </tr>
+            <thead>      
+               <tr><!--nombre de las columnas de la tabla para el cronograma-->
+                   <th>UNIDAD</th>
+                   <th>DURACION HRS. ACADEMICAS</th>
+                   <th>DURACION SEMANAS</th>
+               </tr>
+            </thead>
+
             <tr>
                 <td>Programacion Orientada a Objetos</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true" onblur="sumar()"></td>
+                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
             </tr>
             <tr>
                 <td>Elementos de Progamacion</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true" onblur="sumar()"></td>
+                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
             </tr>
             <tr>
                 <td>Unidad ..3</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true" onblur="sumar()"></td>
+                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
             </tr>
             <tr>
                 <td>Unidad ..4</td>
                 <td></td>
-                <td contenteditable="true" onblur="sumar()"></td>
+                <td contenteditable="true" onblur="sumar();"></td>
             </tr>
             <tr>
+                <td>Unidad ..5</td>
                 <td></td>
-                <td>60</td>
-                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
             </tr>
         </table>
     </div> 
-    <!-- <p id="mensaje" class="label label-danger text-right"> horas academicas sobrepasan</p> -->
+    <span id="alerta_cronograma" style='display:none;' class="label label-danger">Sobrepasa los periodos academicos establecidos</span>
     
 </div>
 
 <script>
  function sumar(){
- //   var tabla = document.getElementById("tab_cronograma");   
- //   var total = 0;
+   var tabla = document.getElementById("tab_cronograma");   
+   var total = 0;
+
  //   total = Number(tabla.rows[0].cells[2]);
  //   tabla.rows[0].cells[1] = total;
  //   // for(var i = 0;tabla.rows[i]; i++) {
  //   // total += Number(tabla.rows[i].cells[2]);
  //   // }
- //   window.alert(total);
+   
+    var periodo_semana=document.getElementById("periodoSemana").value;
+    if (periodo_semana=="") {
+        window.alert('Ingrese el numero de periodos por semana asignada a la materia');
+    }else{
+
+     var x=tabla.getElementsByTagName("td");
+
+      for(var i = 1;tabla.rows[i]; i++) {
+        var semana=Number(tabla.rows[i].cells[2].innerHTML) 
+        total += semana;
+        tabla.rows[i].cells[1].innerHTML= semana * parseInt(periodo_semana);
+        if (total>20) {
+          document.getElementById('alerta_cronograma').style.display = 'block';
+        }else{
+        document.getElementById('alerta_cronograma').style.display = 'none'; 
+        }
+      }
+    }
+      
+    // x[14].innerHTML=parseInt(dato1) * 1.5;
  } 
 </script>
 
