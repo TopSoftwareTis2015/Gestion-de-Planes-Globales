@@ -8,7 +8,8 @@
       <legend>Unidad 1</legend>  
       <div class="form-group">
         <label for="titulo_unidad1">Titulo de la unidad:</label> <!--Titulo de la unidad que tendra el temario para la materia-->
-        <input class="form-control" type="text" name="titulo_unidad1" id="titulo_unidad1" required>
+        <input class="form-control" type="text" name="titulo_unidad1" id="titulo_unidad1" required
+                onkeyup="actualizarUnidadCronograma('container_unidad1');">
       </div>
       <div class="form-group">
         <label for="objetivo_unidad1">Objetivo:</label><!--campo para describir la unidad de avance de una materia-->

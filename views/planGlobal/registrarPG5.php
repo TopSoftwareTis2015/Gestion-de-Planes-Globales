@@ -9,38 +9,19 @@
     <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered" id="tab_cronograma">
             <thead>      
-               <tr><!--nombre de las columnas de la tabla para el cronograma-->
+               <tr>
                    <th>UNIDAD</th>
                    <th>DURACION HRS. ACADEMICAS</th>
                    <th>DURACION SEMANAS</th>
                </tr>
             </thead>
-
-            <tr>
-                <td>Programacion Orientada a Objetos</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
-            <tr>
-                <td>Elementos de Progamacion</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
-            <tr>
-                <td>Unidad ..3</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
-            <tr>
-                <td>Unidad ..4</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
-            <tr>
-                <td>Unidad ..5</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
+            <tbody>
+                <tr id="container_unidad1_fila">
+                    <td id="container_unidad1_titulo"></td>
+                    <td><input id="container_unidad1_horas" name="container_unidad1_horas" type="number" min="1" required></td>
+                    <td><input id="container_unidad1_semanas" name="container_unidad1_semanas" type="text" required></td>
+                </tr>
+            </tbody>
         </table>
     </div> 
     <span id="alerta_cronograma" style='display:none;' class="label label-danger">Sobrepasa los periodos academicos establecidos</span>
@@ -86,3 +67,23 @@
     <textarea class="form-control" name="criterios_evaluacion" id="criterios" cols="100" rows="10"></textarea>
     <br>
 <!--Fin parte 5-->
+            <!-- <tr>
+                <td>Elementos de Progamacion</td>
+                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
+            </tr>
+            <tr>
+                <td>Unidad ..3</td>
+                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
+            </tr>
+            <tr>
+                <td>Unidad ..4</td>
+                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
+            </tr>
+            <tr>
+                <td>Unidad ..5</td>
+                <td></td>
+                <td contenteditable="true" onblur="sumar();"></td>
+            </tr> -->

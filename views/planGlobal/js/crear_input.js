@@ -261,7 +261,7 @@ function addUnidad(idUnidadContainer)
 
     var nuevoElemento03 = '<div class="form-group">';
     var nuevoElemento04 = '<label for="titulo_'+idUnidadContainer+ultimaUnidad+'">Titulo de la Unidad:</label>';
-    var nuevoElemento05 = '<input class="form-control" type="text" name="titulo_'+idUnidadContainer+ultimaUnidad+'" id="titulo_'+idUnidadContainer+ultimaUnidad+'" required>';
+    var nuevoElemento05 = '<input class="form-control" type="text" name="titulo_'+idUnidadContainer+ultimaUnidad+'" id="titulo_'+idUnidadContainer+ultimaUnidad+'" required onkeyup="actualizarUnidadCronograma(\''+nuevaUnidad.id+'\');">';
     var nuevoElemento06 = '</div>';
     var nuevoElemento07 = '<div class="form-group">';
     var nuevoElemento08 = '<label for="objetivo_'+idUnidadContainer+ultimaUnidad+'">Objetivo:</label>';
@@ -312,6 +312,38 @@ function addUnidad(idUnidadContainer)
         nuevoElemento21 + nuevoElemento22 + nuevoElemento23 + nuevoElemento24 +
         nuevoElemento25 + nuevoElemento26 + nuevoElemento27 + nuevoElemento28 + nuevoElemento29 + nuevoElemento30 +
         nuevoElemento31 + nuevoElemento32 + nuevoElemento33 + nuevoElemento34 + nuevoElemento35 + nuevoElemento36;*/
+
+    actualizarCronograma(nuevaUnidad.id);
+}
+
+function actualizarCronograma(idUnidad){
+  var tablaCronograma = document.getElementById('tab_cronograma');
+
+
+  var nuevaFilaCronograma = document.createElement('tr');
+  
+  repararContainer(tablaCronograma.childNodes[3]);
+
+
+
+  tablaCronograma.childNodes[3].appendChild(nuevaFilaCronograma);
+
+  nuevaFilaCronograma.id = idUnidad+"_fila";
+  var elemento01 = '<td id="'+idUnidad+'_titulo"></td>';
+  var elemento02 = '<td><input id="'+idUnidad+'_horas" name="'+idUnidad+'_horas" type="number" min="1" required></td>';
+  var elemento03 = '<td><input id="'+idUnidad+'_semanas" name="'+idUnidad+'_semanas" type="text" required></td>';
+
+  nuevaFilaCronograma.innerHTML = elemento01 + elemento02 + elemento03;
+}
+
+
+//cambia el nombre de la unidad en la fila respectiva del cronograma.
+function actualizarUnidadCronograma(idUnidad){
+  var fila = document.getElementById(idUnidad+"_fila");
+
+  //cambiando la fila en base al idUnidad encontrando el idTitulo y del titulo sacando su valor.
+  document.getElementById(idUnidad+"_titulo").innerHTML= document.getElementById(
+                                                    "titulo_"+idUnidad.replace("container_","")).value;
 }
 
 function addCapitulo(idContenidoContainer)
@@ -445,7 +477,15 @@ function eliminarUnidad(idUnidad){
       contador++;
     }
   };
+
+  eliminarUnidadCronograma(idUnidad);
 }
+
+function eliminarUnidadCronograma(idUnidad){
+  var filaAEliminar = document.getElementById(idUnidad+"_fila");
+  filaAEliminar.parentNode.removeChild(filaAEliminar);
+}
+
 
 function eliminarSeccion(idSeccion){
   seccion = document.getElementById(idSeccion);
@@ -619,6 +659,9 @@ function modificarUnidad(unidad, nuevoNumeroUnidad){
   oldId = unidad.id.split("_")[1];
   newId = "unidad"+nuevoNumeroUnidad;
 
+  //actualiza el valor de su cronograma
+  modificarUnidadCronograma(unidad.id, oldId, newId);
+
   unidad.id = unidad.id.replace(oldId, newId);
   
   unidad.dataset.numeroUnidad = nuevoNumeroUnidad;
@@ -632,6 +675,8 @@ function modificarUnidad(unidad, nuevoNumeroUnidad){
   var atributoAuxiliar = unidad.childNodes[3].childNodes[0].getAttribute("for");
   unidad.childNodes[3].childNodes[1].id = atributoAuxiliar;
   unidad.childNodes[3].childNodes[1].name = atributoAuxiliar;
+
+  unidad.childNodes[3].childNodes[1].setAttribute("onkeyup","actualizarUnidadCronograma('"+unidad.id+"');")
 
   //modificando id y name del objetivo de la unidad.
   unidad.childNodes[4].childNodes[0].setAttribute("for", unidad.childNodes[4].childNodes[1].id.replace(oldId, newId));
@@ -648,6 +693,20 @@ function modificarUnidad(unidad, nuevoNumeroUnidad){
 
   //actualizando el boton de añadir capitulos a una unidad con diferente id.
   unidad.childNodes[6].setAttribute("onclick", "addCapitulo('"+unidad.childNodes[5].childNodes[0].childNodes[1].id +"');");
+}
+
+function modificarUnidadCronograma(idUnidad, oldId, newId){
+  var fila = document.getElementById(idUnidad+"_fila");
+  var titulo = document.getElementById(idUnidad+"_titulo");
+  var horas = document.getElementById(idUnidad+"_horas");
+  var semanas = document.getElementById(idUnidad+"_semanas");
+
+  fila.id = fila.id.replace(oldId, newId);
+  titulo.id = titulo.id.replace(oldId, newId);
+  horas.name = horas.name.replace(oldId, newId);
+  horas.id = horas.name;
+  semanas.name = semanas.name.replace(oldId, newId);
+  semanas.id = semanas.name;
 }
 
 function modificarSeccion(seccion, nuevoNumeroSeccion){
