@@ -1,0 +1,2 @@
+- realizar las consultas para insertar la informacion del plan global.
+trabajar con la información de la tabla Planes globales.

@@ -74,6 +74,21 @@ class planGlobalModel extends Model{
 		return $planGlobal->fetch();
 	}
 
+	public function insertarPlanGlobal($titulo, $justificacion, $metodologias, $criterios_evaluacion,
+																		$gestion_pg, $codigo_plan_global){
+		$this->_db->prepare("INSERT INTO planes_globales values
+													(default, :titulo, :justificacion, :metodologias, :criterios_evaluacion,
+														TRUE, :habilitado_plan_global, :gestion_pg, codigo_plan_global)")
+													->execute(array(
+														':titulo' => $titulo,
+														':justificacion' => $justificacion,
+														':metodologias' => $metodologias,
+														':criterios_evaluacion' => $criterios_evaluacion,
+														':gestion_pg' => $gestion_pg,
+														':codigo_plan_global' => $codigo_plan_global
+														));
+	}	
+
 	public function getObjetivosGenerales($id_pg){
 		$objetivosGenerales = $this->_db->query(
 			"SELECT * FROM objetivos_generales
