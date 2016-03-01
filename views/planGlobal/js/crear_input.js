@@ -330,7 +330,7 @@ function actualizarCronograma(idUnidad){
 
   nuevaFilaCronograma.id = idUnidad+"_fila";
   var elemento01 = '<td id="'+idUnidad+'_titulo"></td>';
-  var elemento02 = '<td><input id="'+idUnidad+'_horas" name="'+idUnidad+'_horas" type="number" min="1" required></td>';
+  var elemento02 = '<td><input id="'+idUnidad+'_horas" name="'+idUnidad+'_horas" type="number" min="1" required onblur="sumar(this.value,this.id)"></td>';
   var elemento03 = '<td><input id="'+idUnidad+'_semanas" name="'+idUnidad+'_semanas" type="text" required></td>';
 
   nuevaFilaCronograma.innerHTML = elemento01 + elemento02 + elemento03;

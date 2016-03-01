@@ -18,8 +18,8 @@
             <tbody>
                 <tr id="container_unidad1_fila">
                     <td id="container_unidad1_titulo"></td>
-                    <td><input id="container_unidad1_horas" name="container_unidad1_horas" type="number" min="1" required></td>
-                    <td><input id="container_unidad1_semanas" name="container_unidad1_semanas" type="text" required></td>
+                    <td><input id="container_unidad1_horas" name="container_unidad1_horas" type="number" min="1" required onblur="sumar(this.value,this.id)"></td>
+                    <td><input id="container_unidad1_semanas" name="container_unidad1_semanas" type="text" required readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -29,36 +29,42 @@
 </div>
 
 <script>
- function sumar(){
+ function sumar(num,id){
    var tabla = document.getElementById("tab_cronograma");   
-   var total = 0;
-
- //   total = Number(tabla.rows[0].cells[2]);
- //   tabla.rows[0].cells[1] = total;
- //   // for(var i = 0;tabla.rows[i]; i++) {
- //   // total += Number(tabla.rows[i].cells[2]);
- //   // }
+   var total=0;
+   var duracion_semana = 0;
+   duracion_semana=num / 6;
+   var indice =id.substring(16,17);
+   // parseInt(document.getElementById("input").rows[i].cells[2].innerText);
    
-    var periodo_semana=document.getElementById("periodoSemana").value;
-    if (periodo_semana=="") {
-        window.alert('Ingrese el numero de periodos por semana asignada a la materia');
-    }else{
+   document.getElementById('container_unidad'+indice+'_semanas').value=duracion_semana;
+   total+=num;
 
-     var x=tabla.getElementsByTagName("td");
+   if (total>120) {
+     document.getElementById('alerta_cronograma').style.display = 'block';
+   }else{
+     document.getElementById('alerta_cronograma').style.display = 'none'; 
+   }
+ 
+ 
+    // parseInt(document.getElementById(nombre).rows[i].cells[2].innerText);
+    // if (periodo_semana=="") {
+    //     window.alert('Ingrese el numero de periodos por semana asignada a la materia');
+    // }else{
 
-      for(var i = 1;tabla.rows[i]; i++) {
-        var semana=Number(tabla.rows[i].cells[2].innerHTML) 
-        total += semana;
-        tabla.rows[i].cells[1].innerHTML= semana * parseInt(periodo_semana);
-        if (total>20) {
-          document.getElementById('alerta_cronograma').style.display = 'block';
-        }else{
-        document.getElementById('alerta_cronograma').style.display = 'none'; 
-        }
-      }
-    }
+    
+    //   for(var i = 1;tabla.rows[i]; i++) {
+    //     var semana=Number(tabla.rows[i].cells[1].innerHTML) 
+    //     total += semana;
+    //     tabla.rows[i].cells[1].innerHTML= semana * parseInt(periodo_semana);
+    //     if (total>20) {
+    //       document.getElementById('alerta_cronograma').style.display = 'block';
+    //     }else{
+    //       document.getElementById('alerta_cronograma').style.display = 'none'; 
+    //     }
+    //   }
+    // }
       
-    // x[14].innerHTML=parseInt(dato1) * 1.5;
  } 
 </script>
 
@@ -67,23 +73,3 @@
     <textarea class="form-control" name="criterios_evaluacion" id="criterios" cols="100" rows="10"></textarea>
     <br>
 <!--Fin parte 5-->
-            <!-- <tr>
-                <td>Elementos de Progamacion</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
-            <tr>
-                <td>Unidad ..3</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
-            <tr>
-                <td>Unidad ..4</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr>
-            <tr>
-                <td>Unidad ..5</td>
-                <td></td>
-                <td contenteditable="true" onblur="sumar();"></td>
-            </tr> -->

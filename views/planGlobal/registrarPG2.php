@@ -8,42 +8,7 @@
     <label for="codigo"><h3>Seleccione los items que entraran en su descripcion</h3></label>
   </div>
                          
-  <div class="col-xs-6">  
-    <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en horas semestre-->
-      <div class="panel-body">
-        <label for="titulo">Horas semestre</label>
-                                        
-        <div class="row">                              
-          <input type="checkbox" id="checkboxEnLinea1" onchange="cambiarEstado(this.checked, 'horaSemestre');">
-          <input id="horaSemestre" type="number" name="horas_semestre" min="0" max="360" disabled>                                                                    
-        </div>
-
-      </div>
-    </div>    
-
-    <div class="panel panel-default"><!--campo para seleccionar la duracion de una materia en horas teoricas y practica por semana-->
-      <div class="panel-body">
-
-        <label for="titulo">Horas teoricas por semana</label>
-        <div class="row">                                               
-          <input type="checkbox" id="checkboxEnLinea2" onchange="cambiarEstadoPorPar(this.checked, 'horaTeorica', 'horaPractica', 'checkboxEnLinea3');">
-          <input id="horaTeorica" type="number" name="horas_teoricas_semana" min="0" max="360" disabled>                                                                    
-        </div>                            
-        <br>
-
-        <label for="titulo">Horas practicas por semana</label>
-        <div class="row">                                                                 
-          <input type="checkbox" id="checkboxEnLinea3" onchange="cambiarEstadoPorPar(this.checked, 'horaPractica', 'horaTeorica', 'checkboxEnLinea2');">
-          <input id="horaPractica" type="number" name="horas_practicas_semana" min="0" max="360" disabled>                                                                         
-        </div>
-
-      </div>
-    </div>   
-
- </div> 
- <!--Fin de la primera columna de la carga horaria-->
-
-  <div class="col-xs-6">  
+    <div class="col-xs-6">  
     <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos por semana-->
       <div class="panel-body">
         <label for="titulo">Periodos por semana</label>
@@ -53,27 +18,56 @@
         </div>
       </div>
     </div>    
-                            
-    <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos teoricas y practicas por semana-->
+                      
+  </div>
+
+  <div class="col-xs-6">  
+    <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en horas semestre-->
       <div class="panel-body">
-
-        <label for="titulo">Periodos teoricos por semana</label>
-        <div class="row">                                                                   
-          <input type="checkbox" id="checkboxEnLinea5" onchange="cambiarEstadoPorPar(this.checked, 'periodoTeorico', 'periodoPractico', 'checkboxEnLinea6');">
-          <input id="periodoTeorico" type="number" name="periodos_teoricos_semana" min="0" max="360" disabled>                                  
+        <label for="titulo">Horas totales por semestre</label>
+        <div class="row">
+          <input id="horaSemestre" type="text" name="horas_semestre" value="120 horas" disabled>
         </div>
-        <br>
+      </div>
+    </div>    
 
-        <label for="titulo">Periodos practicos por semana</label>
-        <div class="row">                                                                     
-          <input type="checkbox" id="checkboxEnLinea6" onchange="cambiarEstadoPorPar(this.checked, 'periodoPractico', 'periodoTeorico', 'checkboxEnLinea5');">
-          <input id="periodoPractico" type="number" name="periodos_practicos_semana" min="0" max="360" disabled>                                                                     
-        </div>
-      
-      </div>                            
+ </div>
+  
+ <div class="container-fluid">
+    <div class="col-xs-6">
+      <label for="titulo">Periodos teoricos por semana</label>
+      <div class="row">                                                                   
+        <input type="checkbox" id="checkboxEnLinea5" onchange="cambiarEstadoPorPar(this.checked, 'periodoTeorico', 'periodoPractico', 'checkboxEnLinea6');">
+        <input id="periodoTeorico" type="number" name="periodos_teoricos_semana" min="0" max="360" onblur="verificar();" disabled>                               
+      </div>
+
     </div>
 
-  </div>    
+    <div class="col-xs-6">
+      <label for="titulo">Periodos practicos por semana</label>
+      <div class="row">                                                                     
+        <input type="checkbox" id="checkboxEnLinea6" onchange="cambiarEstadoPorPar(this.checked, 'periodoPractico', 'periodoTeorico', 'checkboxEnLinea5');">
+        <input id="periodoPractico" type="number" name="periodos_practicos_semana" min="0" max="360" disabled>                                                                     
+      </div>
+    </div>     
+ </div> <br>
+ <span id="alerta_cargahoraria" style='display:none;' class="label label-danger">No debe pasarse la duracion de periodo por semana que se establecio</span>
+
+ <script>
+   function verificar(){
+     // var dur_semana = parseInt(document.getElementById('periodoSemana').value);
+     // var dur_teorica_semana = parseInt(document.getElementById('periodoTeorico').value);
+     // var dur_practica_semana = parseInt(document.getElementById('periodoPractico').value);
+
+     // if (dur_semana < (dur_practica_semana + dur_teorica_semana) ){
+     //   document.getElementById('alerta_cargahoraria').style.display = 'block';
+     // }else{
+     //   document.getElementById('alerta_cargahoraria').style.display = 'none'; 
+     // }
+   }
+ </script>
+ <!--Fin de la primera columna de la carga horaria-->
+
   <!--Fin Parte 2-->
 
 </div>
