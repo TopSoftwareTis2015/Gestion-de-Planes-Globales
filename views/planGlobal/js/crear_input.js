@@ -53,7 +53,7 @@ function addBibliografia(idBibliografiaContainer)
 
   if(contenedor.childNodes.length){
     repararContainer(contenedor);
-    ultimaBibliografia = parseInt(contenedor.lastChild.dataset.numeroObjetivo) + 1;
+    ultimaBibliografia = parseInt(contenedor.lastChild.dataset.numeroBibliografia) + 1;
   }
 
 

@@ -24,13 +24,6 @@ class grupoModel extends Model{
 
 		return $docentes->fetchall();
 	}
-
-	public function registrarGrupo($codigo_materia, $id_usuario, $grupo, $id_pg){
-		$this->_db->query("UPDATE grupos SET
-												id_pg = $id_pg
-												WHERE codigo_materia = '$codigo_materia' AND id_usuario = $id_usuario
-															AND grupo = $grupo;");
-	}
 }
 
 

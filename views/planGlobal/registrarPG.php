@@ -132,7 +132,8 @@ pg_close($conexion);
               <!--Titulo del formulario-->
               <h1><strong><center>Registrar Plan global</center></strong></h1>
                    
-              <form name="formPg1" method="post" action="<?php echo BASE_URL; ?>planGlobal/registrar">
+              <form name="formPg1" method="post" 
+                action="<?php echo BASE_URL . 'planGlobal/registrar/'; echo (isset($this->materia))?$this->materia['codigo_materia']:""; ?>">
 
                 <input type="hidden" name='guardar' value="1">
 
@@ -177,8 +178,6 @@ pg_close($conexion);
                         <div class="row container-fluid">
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
-                              <input type="hidden" name="id_materia"
-                                value="<?php if(isset($this->materia)) echo $this->materia['id_materia']; ?>">
                               <label for="nombre_materia">Nombre de la Materia:</label>
                               <input class="form-control" type="text" id="nombre_materia" readonly
                                 value="<?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>">
@@ -224,7 +223,7 @@ pg_close($conexion);
                                 <?php
                                   for ($i=0; $i < count($this->grupos); $i++) { 
                                 ?>
-                                <option value="<?php echo $this->grupos[$i]['grupo'] ?>"
+                                <option value="<?php echo $this->grupos[$i]['id_usuario'] .'_'. $this->grupos[$i]['grupo'] ?>"
                                   data-docente="<?php echo $this->grupos[$i]['id_usuario'] ?>">
                                   Grupo <?php echo $this->grupos[$i]['grupo']; ?>
                                 </option>
@@ -241,7 +240,7 @@ pg_close($conexion);
 
                              <td>
                              <span class="navArriba">
-                                 <select name="grupos_plan_global" id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
+                                 <select name="grupos_plan_global[]" id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
                                  </select>
                                </span>
                              </td>

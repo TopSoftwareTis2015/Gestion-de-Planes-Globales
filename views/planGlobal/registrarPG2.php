@@ -24,9 +24,9 @@
   <div class="col-xs-6">  
     <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en horas semestre-->
       <div class="panel-body">
-        <label for="titulo">Horas totales por semestre</label>
+        <label for="titulo">Periodos totales por semestre</label>
         <div class="row">
-          <input id="horaSemestre" type="text" name="horas_semestre" value="120 horas" disabled>
+          <input id="horaSemestre" type="text" name="horas_semestre" value="120" size="5" readonly required>
         </div>
       </div>
     </div>    
