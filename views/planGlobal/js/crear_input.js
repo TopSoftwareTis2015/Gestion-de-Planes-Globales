@@ -525,7 +525,7 @@ function modificarObjetivo(objetivo, nuevoNumeroObjetivo){
   objetivo.childNodes[2].childNodes[1].id = atributoAuxiliar;
   objetivo.childNodes[2].childNodes[1].name = atributoAuxiliar;
   //actualizamos el boton eliminar del objetivo
-  objetivo.childNodes[3].setAttribute("onclick", "eliminarObjetivo('"+objetivo.id+"'");
+  objetivo.childNodes[3].setAttribute("onclick", "eliminarObjetivo('"+objetivo.id+"')");
 }
 
 function modificarBibliografia(bibliografia, nuevoNumeroBibliografia){
