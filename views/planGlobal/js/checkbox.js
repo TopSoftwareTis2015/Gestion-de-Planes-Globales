@@ -9,11 +9,13 @@ function cambiarEstado(estadoActual, idElemento) {
         // habilitamos
         inputAsociado.disabled = false;
         inputAsociado.required = true;
+        inputAsociado.setAttribute("onkeyup","verificarNumerosCargaHoraria(this)");
     } else if (!estadoActual) {
         // deshabilitamos
         inputAsociado.disabled = true;
         inputAsociado.required = false;
         inputAsociado.value = "";
+        inputAsociado.setAttribute("onkeyup","");
     }
 }
 

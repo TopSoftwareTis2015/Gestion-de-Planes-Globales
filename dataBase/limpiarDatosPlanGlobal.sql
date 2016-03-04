@@ -1,0 +1,11 @@
+﻿--TRUNCATE grupos CASCADE;
+TRUNCATE objetivos_generales CASCADE;
+TRUNCATE objetivos_especificos CASCADE;
+TRUNCATE bibliografias CASCADE;
+TRUNCATE subtitulo CASCADE;
+TRUNCATE capitulo CASCADE;
+TRUNCATE unidad CASCADE;
+TRUNCATE subtitulos_contenido_seccion CASCADE;
+TRUNCATE contenidos_seccion CASCADE;
+TRUNCATE secciones_adicionales CASCADE;
+TRUNCATE planes_globales CASCADE;

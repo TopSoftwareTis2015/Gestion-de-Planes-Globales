@@ -76,9 +76,9 @@ class planGlobalModel extends Model{
 
 	public function insertarPlanGlobal($titulo, $justificacion, $metodologias, $criterios_evaluacion,
 																		$gestion_pg, $codigo_plan_global){
-		$this->_db->prepare("INSERT INTO planes_globales values
+		$this->_db->prepare("INSERT INTO planes_globales VALUES
 													(default, :titulo, :justificacion, :metodologias, :criterios_evaluacion,
-														TRUE, :habilitado_plan_global, :gestion_pg, codigo_plan_global)")
+														TRUE, :gestion_pg, :codigo_plan_global)")
 													->execute(array(
 														':titulo' => $titulo,
 														':justificacion' => $justificacion,
@@ -134,6 +134,29 @@ class planGlobalModel extends Model{
 			);
 
 		return $seccionesAdicionales->fetchall();
+	}
+
+	public function getId($codigo_plan_global){
+		$id = $this->_db->query(
+			"SELECT id_pg FROM planes_globales
+				WHERE codigo_plan_global = '$codigo_plan_global';"
+			);
+
+		return $id->fetch();
+	}
+
+	public function registrarGrupoPlanGlobal($codigo_materia, $id_usuario, $grupo, $id_pg){
+		$this->_db->query("UPDATE grupos SET
+												id_pg = $id_pg
+												WHERE codigo_materia = '$codigo_materia' AND id_usuario = $id_usuario
+															AND grupo = $grupo;");
+	}
+
+	public function existeCodigo($codigo_plan_global){
+		$planGlobal = $this->_db->query("SELECT * FROM planes_globales
+																			WHERE codigo_plan_global = '$codigo_plan_global';");
+
+		return $planGlobal->fetch();
 	}
 
 }

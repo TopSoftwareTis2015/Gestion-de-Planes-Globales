@@ -1,4 +1,4 @@
-<!-- Metodologia y criterios parte 5 -->
+ <!-- Metodologia y criterios parte 5 -->
 <legend id="separador"><h2>METODOLOGIAS</h2></legend>
     <!--campo para ingresara las metologias que se usaran para dictar una materia-->
     <textarea class="form-control" name="metodologias" id="metodologias" cols="100" rows="10"></textarea>
@@ -18,32 +18,42 @@
             <tbody>
                 <tr id="container_unidad1_fila">
                     <td id="container_unidad1_titulo"></td>
-                    <td><input id="container_unidad1_horas" name="container_unidad1_horas" type="number" min="1" required onblur="sumar(this.value,this.id)"></td>
+                    <td><input id="container_unidad1_horas" name="container_unidad1_horas" type="number" min="1" required onkeyup="sumar(this.value,this.id)"></td>
                     <td><input id="container_unidad1_semanas" name="container_unidad1_semanas" type="text" required readonly></td>
                 </tr>
             </tbody>
         </table>
     </div> 
-    <span id="alerta_cronograma" style='display:none;' class="label label-danger">Sobrepasa los periodos academicos establecidos</span>
     
 </div>
+    <span id="error_cronograma" class="label label-danger"></span>
 
 <script>
  function sumar(num,id){
-   var tabla = document.getElementById("tab_cronograma");   
+   var tabla = document.getElementById("tab_cronograma"); 
    var total=0;
    var duracion_semana = 0;
    duracion_semana=num / 6;
    var indice =id.substring(16,17);
-   // parseInt(document.getElementById("input").rows[i].cells[2].innerText);
-   
-   document.getElementById('container_unidad'+indice+'_semanas').value=duracion_semana;
-   total+=num;
+   for(var j = 1;tabla.rows[j]; j++) {
+   }
 
+   for (var i = 1; i <parseInt(j); i++) {
+    var dato=document.getElementById('container_unidad'+i+'_horas').value;
+     if (dato=='') {
+       dato=0;
+     }
+     total+=parseInt(dato);       
+   } 
+   // window.alert(total); 
+   document.getElementById('container_unidad'+indice+'_semanas').value=duracion_semana;
+   
    if (total>120) {
-     document.getElementById('alerta_cronograma').style.display = 'block';
+     // document.getElementById('alerta_cronograma').style.display = 'block';
+     actualizarError("error_cronograma", "sobrepasa la duracion de horas academicas establecidas");
    }else{
-     document.getElementById('alerta_cronograma').style.display = 'none'; 
+     //document.getElementById('alerta_cronograma').style.display = 'none'; 
+     actualizarError("error_cronograma", "");
    }
  
  
@@ -67,9 +77,8 @@
       
  } 
 </script>
-
 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>
     <!--textarea para ingresar la informacion de criterio de evaluacion de una materia-->
     <textarea class="form-control" name="criterios_evaluacion" id="criterios" cols="100" rows="10"></textarea>
     <br>
-<!--Fin parte 5-->
+<!--Fin parte 5

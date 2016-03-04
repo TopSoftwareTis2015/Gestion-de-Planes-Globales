@@ -1,23 +1,3 @@
-<?php 
-//Conexion Base de datos
-/*$user = "postgres";
-$password = "postgres";
-$dbname = "planGlobal";
-$port = "5432";
-$host = "localhost";
-
-$cadenaConexion = "host=$host port=$port dbname=$dbname user=$user password=$password";
-
-$conexion = pg_connect($cadenaConexion) or die("Error en la Conexión: ".pg_last_error());
-
-$query = 'SELECT id_usuario, grupo FROM grupos';
-$resultado = pg_query( $query) or die("Error en la Consulta SQL");
-$numReg = pg_num_rows($resultado);
-
-pg_close($conexion);
-*/
-?> 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,19 +12,11 @@ pg_close($conexion);
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/crear_input.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/checkbox.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarDatosBackEnd.js"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarDatosFrontEnd.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/seleccionarItem.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
-  <script>
-      /*function getComboA(sel) {
-          var value = sel.value;
-          var id = 'gMateria' + value;
-          var valor = document.getElementById(id);
-          var dato = valor.innerHTML;
-          //alert(dato);
-          window.location.href = "listaDocControlador.php?dato=" + dato;
-      }*/
-  </script>                      
+                      
 </head>
     
 <body>
@@ -132,7 +104,8 @@ pg_close($conexion);
               <!--Titulo del formulario-->
               <h1><strong><center>Registrar Plan global</center></strong></h1>
                    
-              <form name="formPg1" method="post" action="<?php echo BASE_URL; ?>planGlobal/registrar">
+              <form name="formPg1" method="post" onsubmit="return antesDeEnviar();"
+                action="<?php echo BASE_URL . 'planGlobal/registrar/'; echo (isset($this->materia))?$this->materia['codigo_materia']:""; ?>/1">
 
                 <input type="hidden" name='guardar' value="1">
 
@@ -143,18 +116,21 @@ pg_close($conexion);
                     <div class="form-inline">
                       <label for="gestion">Gestion:</label>
                       <!--<input class="form-control" type="" id="nomMateria">-->
-                      <select class="form-control" name="gestion" style="width:25%" id="gestion" size="1">
+                      <select class="form-control" name="gestion" style="width:25%" id="gestion" size="1" required>
                            <option value="I">I</option>
                            <option value="II">II</option>
                            <option value="III">III</option>
                            <option value="IV">IV</option>
                       </select>
                       <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio_gestion"
-                              id="anio_gestion" placeholder="Año 4 digitos" onchange="validarSiNumero(this.value);" required>
+                              id="anio_gestion" placeholder="Año 4 digitos" onkeyup="validarAnioGestion(this.value);" required
+                              title="1832 hasta el año actual!">
                       &nbsp;&nbsp;&nbsp; 
                       <label for="codigo_plan_global">Codigo:</label>
-                      <input type="text" name="codigo_plan_global" id="codigo_plan_global" title="numeros, letras, _ , -" 
-                              class="form-control" maxlength="30" placeholder="Código del plan global" pattern="[\w-]*"><br>
+                      <input type="text" name="codigo_plan_global" id="codigo_plan_global"
+                              class="form-control" maxlength="30" placeholder="Código del plan global" 
+                              onkeyup="validarCodigoUnico(this);" 
+                              data-url-validar="<?php echo BASE_URL.'planGlobal/validar_codigo';?>"><br>
                     </div><br>
 
                     <div class="form-group">
@@ -177,8 +153,6 @@ pg_close($conexion);
                         <div class="row container-fluid">
                           <!--<div class="col-xs-9 col-md-12">-->
                             <div class="form-group">
-                              <input type="hidden" name="id_materia"
-                                value="<?php if(isset($this->materia)) echo $this->materia['id_materia']; ?>">
                               <label for="nombre_materia">Nombre de la Materia:</label>
                               <input class="form-control" type="text" id="nombre_materia" readonly
                                 value="<?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>">
@@ -224,7 +198,7 @@ pg_close($conexion);
                                 <?php
                                   for ($i=0; $i < count($this->grupos); $i++) { 
                                 ?>
-                                <option value="<?php echo $this->grupos[$i]['grupo'] ?>"
+                                <option value="<?php echo $this->grupos[$i]['id_usuario'] .'_'. $this->grupos[$i]['grupo'] ?>"
                                   data-docente="<?php echo $this->grupos[$i]['id_usuario'] ?>">
                                   Grupo <?php echo $this->grupos[$i]['grupo']; ?>
                                 </option>
@@ -241,7 +215,7 @@ pg_close($conexion);
 
                              <td>
                              <span class="navArriba">
-                                 <select name="grupos_plan_global" id="sel2" style="width:220px" size="6" name="carrera[]" multiple="multiple">
+                                 <select name="grupos_plan_global[]" id="sel2" style="width:220px" size="6" multiple="multiple" required>
                                  </select>
                                </span>
                              </td>
@@ -386,6 +360,36 @@ pg_close($conexion);
        include ROOT.'views'.DS.'include'.DS.'pie_de_pagina.php"'
     ?> <!--fin del codigo de pie de pagina-->  
   </footer>
+
+  <div class="modal fade" id="modalProcesoExitoso" data-keyboard="false" data-backdrop="static"> <!--div contenedor de la ventana emergente de registro de materia-->
+           <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
+               <div class="modal-content">
+                       <!--Cabecera de la ventana-->
+                       <!-- <div class="modal-header"> -->
+                         <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--Boton para cerrar la ventana emergente--> -->
+                       <!-- </div> -->
+                       
+                       <!--Contenido de la ventana-->
+                       <div class="modal-body"> 
+                         <div id="nuevo"> <!--formulario para regitrar los datos de una materia-->
+                           <h5 class="modal-title">Plan Global registrada exitosamente!!</h5> <!--Titulo del formulario de registro de materia-->
+                         </div>
+                       </div> 
+
+                       <!--footer de la ventana-->
+                       <div class="modal-footer">
+                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button> -->
+                          <a href="<?php echo BASE_URL; ?>materias" class="btn btn-default">Aceptar</a>
+                       </div>
+                </div>
+            </div>
+        </div>
+
+  <script>
+    confirmar = <?php echo isset($this->confirmarGuardar)?$this->confirmarGuardar:"2";?>;
+    if(confirmar == "1")
+      $("#modalProcesoExitoso").modal('show');
+  </script>
 
 </body>
 
