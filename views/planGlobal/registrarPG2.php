@@ -71,14 +71,14 @@
      var t = parseInt(dur_teorica_semana);
 
 
-     // if (sem < p){
-     //   //document.getElementById('alerta_cargahoraria').style.display = 'block';
-     //   actualizarError("error_carga_horaria", "No debe pasar la duracion de periodos por semanas establecidos.");
+     if (sem < p){
+       //document.getElementById('alerta_cargahoraria').style.display = 'block';
+       actualizarError("error_carga_horaria", "No debe pasar la duracion de periodos por semanas establecidos.");
        
-     // }else{
-     //   if (sem < t) {
-     //     //document.getElementById('alerta_cargahoraria').style.display = 'block'; 
-     //   }else{
+     }else{
+       if (sem < t) {
+         //document.getElementById('alerta_cargahoraria').style.display = 'block'; 
+       }else{
          if (sem < (t + p)) {
            //document.getElementById('alerta_cargahoraria').style.display = 'block'; 
           actualizarError("error_carga_horaria", "No debe pasar la duracion de periodos por semanas establecidos.");
@@ -86,8 +86,8 @@
            //document.getElementById('alerta_cargahoraria').style.display = 'none'; 
           actualizarError("error_carga_horaria", "");
          }
-     //   }
-     // }
+       }
+     }
    }
  </script>
  <!--Fin de la primera columna de la carga horaria-->
