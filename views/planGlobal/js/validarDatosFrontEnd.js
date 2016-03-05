@@ -26,12 +26,16 @@
   function verificarNumerosCargaHoraria(inputNumero){
     var numero = Number(inputNumero.value);
     
-    if(!esNumeroEntero(numero) || numero == 0)
+    if(!esNumeroEntero(numero))
     	actualizarError("error_carga_horaria","hay entradas con números no válidos");
-    else
-    	actualizarError("error_carga_horaria","");
+    else{
+       // if(){
+       // }else{
+    	  //  actualizarError("error_carga_horaria","");
+       // }
+       verificar();
+      }
 
-    verificar();
 	}
 
 	function esNumeroEntero(numero){

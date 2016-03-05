@@ -366,9 +366,6 @@
                <div class="modal-content">
                        <!--Cabecera de la ventana-->
                        <!-- <div class="modal-header"> -->
-                         <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--Boton para cerrar la ventana emergente--> -->
-                       <!-- </div> -->
-                       
                        <!--Contenido de la ventana-->
                        <div class="modal-body"> 
                          <div id="nuevo"> <!--formulario para regitrar los datos de una materia-->
@@ -390,7 +387,7 @@
     if(confirmar == "1")
       $("#modalProcesoExitoso").modal('show');
   </script>
-
+  
 </body>
 
 </html>

@@ -24,6 +24,4 @@ class objetivosModel extends Model{
 }
 
 
-
-
  ?>

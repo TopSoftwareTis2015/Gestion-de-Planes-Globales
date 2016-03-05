@@ -55,25 +55,6 @@
      //document.getElementById('alerta_cronograma').style.display = 'none'; 
      actualizarError("error_cronograma", "");
    }
- 
- 
-    // parseInt(document.getElementById(nombre).rows[i].cells[2].innerText);
-    // if (periodo_semana=="") {
-    //     window.alert('Ingrese el numero de periodos por semana asignada a la materia');
-    // }else{
-
-    
-    //   for(var i = 1;tabla.rows[i]; i++) {
-    //     var semana=Number(tabla.rows[i].cells[1].innerHTML) 
-    //     total += semana;
-    //     tabla.rows[i].cells[1].innerHTML= semana * parseInt(periodo_semana);
-    //     if (total>20) {
-    //       document.getElementById('alerta_cronograma').style.display = 'block';
-    //     }else{
-    //       document.getElementById('alerta_cronograma').style.display = 'none'; 
-    //     }
-    //   }
-    // }
       
  } 
 </script>

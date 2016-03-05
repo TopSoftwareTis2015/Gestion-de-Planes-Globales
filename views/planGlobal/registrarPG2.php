@@ -1,7 +1,7 @@
+<!--Parte 2-->
 <div class="container-fluid">
   
-<!--Parte 2-->
-<legend id="separador">Carga Horaria</legend> <!--titulo del fieldset-->
+<legend id="separador">Carga Horaria</legend>
   
   <!--titulo de la seccion del formulario-->                         
   <div class="form-group">
@@ -56,42 +56,37 @@
 
  <script>
    function verificar(){
-     var dur_semana = parseInt(document.getElementById('periodoSemana').value);
-     var dur_teorica_semana = document.getElementById('periodoTeorico').value;
-     var dur_practica_semana = document.getElementById('periodoPractico').value;
-
-     if (dur_practica_semana=='') {
-       dur_practica_semana=0;
-     }
-     if (dur_teorica_semana=='') {
+    var dur_semana = document.getElementById('periodoSemana').value;    
+    var dur_teorica_semana = document.getElementById('periodoTeorico').value;
+    var dur_practica_semana = document.getElementById('periodoPractico').value;
+    
+    if (dur_practica_semana=='') {
+      dur_practica_semana=0;
+    }
+    if (dur_teorica_semana=='') {
       dur_teorica_semana=0;
-     }
-     var sem = parseInt(dur_semana);
-     var p = parseInt(dur_practica_semana);
-     var t = parseInt(dur_teorica_semana);
-
-
-     if (sem < p){
-       //document.getElementById('alerta_cargahoraria').style.display = 'block';
-       actualizarError("error_carga_horaria", "No debe pasar la duracion de periodos por semanas establecidos.");
+    }
+    if (dur_semana=='') {
+      dur_semana=0;
+    }
        
-     }else{
-       if (sem < t) {
-         //document.getElementById('alerta_cargahoraria').style.display = 'block'; 
-       }else{
-         if (sem < (t + p)) {
-           //document.getElementById('alerta_cargahoraria').style.display = 'block'; 
-          actualizarError("error_carga_horaria", "No debe pasar la duracion de periodos por semanas establecidos.");
-         }else{
-           //document.getElementById('alerta_cargahoraria').style.display = 'none'; 
-          actualizarError("error_carga_horaria", "");
-         }
-       }
-     }
+    var sem = parseInt(dur_semana);
+    var p = parseInt(dur_practica_semana);
+    var t = parseInt(dur_teorica_semana);
+
+    if (sem < (t + p)) {
+      actualizarError("error_carga_horaria", "No debe pasar la duracion de periodos por semanas establecidos.");
+    }else{ 
+      actualizarError("error_carga_horaria", "");
+    }
+
+     // if (sem < p){
+     //   actualizarError("error_carga_horaria", "No debe pasar la duracion de periodos por semanas establecidos.");
+         //document.getElementById('alerta_cargahoraria').style.display = 'block';
+     // }
+
    }
  </script>
- <!--Fin de la primera columna de la carga horaria-->
-
-  <!--Fin Parte 2-->
 
 </div>
+<!--Fin Parte 2-->
