@@ -9,7 +9,7 @@ class materiasController extends Controller{
 	}
 
 	public function index(){
-		$this->_view->materias = $this->_materiaDao->getMaterias();
+		$this->_view->materias = $this->_materiaDao->getMateriasGrupos();
 
 		$this->_view->renderizar('index');
 	}

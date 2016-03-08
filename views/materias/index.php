@@ -131,8 +131,8 @@
           
           <?php 
             if(isset($this->materias) && count($this->materias)){
-              for ($i=0; $i < count($this->materias); $i++) { ?>
-
+              for ($i=0; $i < count($this->materias); $i++) { 
+                ?>
           <tr>
             <td><?php echo $this->materias[$i]['codigo_materia']; ?></td>
             <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
@@ -157,7 +157,24 @@
                 </a>
             </td>
             <td>
-              <a href="../planGlobal/vistaPG.php"> PG1 </a>
+              <?php
+                $codigoAnterior = $this->materias[$i]['codigo_materia'];
+
+                for ($j=$i; $j < count($this->materias) ; $j++) { 
+                  if($this->materias[$j]['codigo_materia'] == $codigoAnterior){
+                    if($this->materias[$j]['numero_plan_global']){
+              ?>
+              <a href="<?php echo BASE_URL . 'planGlobal/mostrarPlanGlobal/' . $this->materias[$j]['numero_plan_global'];?>">
+                PG<?php echo $this->materias[$j]['numero_plan_global']; ?> 
+              </a>
+              <?php
+                    }
+                    $codigoAnterior = $this->materias[$j]['codigo_materia'];
+                    if($i < $j)
+                      $i++;
+                  }
+                }
+               ?>
             </td>
           </tr>
 
