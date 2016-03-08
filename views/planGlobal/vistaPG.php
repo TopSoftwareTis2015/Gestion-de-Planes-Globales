@@ -17,10 +17,8 @@
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/validarSoloNumero.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/seleccionarItem.js"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
-  <script src="<?php echo BASE_URL; ?>views/materias/js/materias.js"></script>
      
 </head>
-
     
 <body>
                   
@@ -168,33 +166,15 @@
 
             <h4><li><b class="bordes">JUSTIFICACION</b></li></h4>
               <p class="text-justify">
-               <!--  Después de tener los conocimientos básicos de programación, se necesita contar con más elementos que ayuden a un profesional del área de ciencias de la computación, a resolver problemas de forma elegante, eﬁciente y correcta. La ﬁnalidad de este curso es brindar al estudiante un conjunto de conceptos que identiﬁcan elementos importantes que enriquecen la metodología de programación, es importante también considerar las distintas estructuras que existen para representarlos datos.
-                La algoritmia es una parte importante para poder abstraer soluciones que serán automatizadas, la demostración de la correctitud de un algoritmo entonces es importante, para poder asegurar la resolución de un problema; otro aspecto importante que considerar es la eﬁciencia de los algoritmos que se escriben, respecto al tiempo y al recurso de memoria que estos consumen para lograr su objetivos. -->
-                <?php  
-
-                $user = "postgres";
-                $password = "postgres";
-                $dbname = "planGlobal";
-                $port = "5432";
-                $host = "localhost";
-
-                $cadenaConexion = "host=$host port=$port dbname=$dbname user=$user password=$password";
-
-                $conexion = pg_connect($cadenaConexion) or die("Error en la Conexión: ".pg_last_error());
-                $query = "SELECT 'titulo' FROM planes_globales WHERE id_pg=6 ";
-
-                $resultado = pg_query($conexion, $query) or die("Error en la Consulta SQL");
-                  
-                echo "<h3>"+$resultado+"</h3><hr><br>";
-                ?>
+                Después de tener los conocimientos básicos de programación, se necesita contar con más elementos que ayuden a un profesional del área de ciencias de la computación, a resolver problemas de forma elegante, eﬁciente y correcta. La ﬁnalidad de este curso es brindar al estudiante un conjunto de conceptos que identiﬁcan elementos importantes que enriquecen la metodología de programación, es importante también considerar las distintas estructuras que existen para representarlos datos.
+                La algoritmia es una parte importante para poder abstraer soluciones que serán automatizadas, la demostración de la correctitud de un algoritmo entonces es importante, para poder asegurar la resolución de un problema; otro aspecto importante que considerar es la eﬁciencia de los algoritmos que se escriben, respecto al tiempo y al recurso de memoria que estos consumen para lograr su objetivos.
               </p><br>
             
             <h4><li><b class="bordes">OBJETIVOS</b></li></h4>
               <ol>
                 <!-- lista de objetivos generales -->
-                <li><h4><b>Objetivos Generales</b></h4>
-
-                   <ul>
+                <h4><li><b>Objetivos Generales</b></h4>
+                  <ul>
                     <li type="square">
                      <h4>Conseguir habilidades para enfrentar la solucion de problemas utilizando la POO</h4>
                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, perferendis maxime reprehenderit voluptatibus accusamus dicta, quasi quia odio nam incidunt id tempore minus non, exercitationem hic voluptate natus totam ea.</p>
@@ -204,7 +184,7 @@
                      <p>Reprehenderit deleniti voluptates pariatur, praesentium sed error, debitis iusto soluta possimus aspernatur necessitatibus inventore ipsa molestias quos rem commodi aliquam quam vel?</p>
                     </li>
                   </ul>
-               </li>
+                </li>
                 
                 <!-- lista de objetivos especificos -->
                 <h4><li><b>Objetivos Especificos</b></h4>

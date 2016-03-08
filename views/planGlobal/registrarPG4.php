@@ -7,8 +7,7 @@
     <fieldset id="container_unidad1" data-numero-unidad="1">
       <legend>Unidad 1</legend>  
       <div class="form-group">
-        <label for="titulo_unidad1">Titulo de la unidad:</label> 
-        <!--Titulo de la unidad que tendra el temario para la materia-->
+        <label for="titulo_unidad1">Titulo de la unidad:</label> <!--Titulo de la unidad que tendra el temario para la materia-->
         <input class="form-control" type="text" name="titulo_unidad1" id="titulo_unidad1" required
                 onkeyup="actualizarUnidadCronograma('container_unidad1');">
       </div>
@@ -17,7 +16,8 @@
         <textarea class="form-control"name="objetivo_unidad1" id="objetivo_unidad1" cols="100" rows="3"></textarea>
       </div>
 
-      <div>      
+      <div>
+      <!-- <form name="formPg6" method="post" action="#"> -->
         <div class="container-fluid recuadro">
               <legend>CONTENIDO</legend>
           <div id="contenido_unidad1"></div>
@@ -28,6 +28,7 @@
     <br> <br>     
     </fieldset>
   </div>
+<!-- </form>  -->
 </div>
 <br>
 

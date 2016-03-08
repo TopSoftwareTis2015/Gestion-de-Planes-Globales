@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: ISXT
+ * Date: 08/02/2016
+ * Time: 02:39 AM
+ */
 
 $user = "postgres";
 $password = "postgres";
@@ -21,7 +27,7 @@ FROM
 WHERE
   docente.nombre_usuario = '".$gM."';";
 
-$resultado = pg_query( $query) or die("Error Consulta SQL");
+$resultado = pg_query( $query) or die("Error Conchulta SQL cucu");
 $numReg = pg_num_rows($resultado);
 
 if($numReg>0){
@@ -34,5 +40,3 @@ if($numReg>0){
 }else{
     echo "No hay Registros";
 }
-
-?>
