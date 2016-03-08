@@ -215,7 +215,7 @@
 
                              <td>
                              <span class="navArriba">
-                                 <select name="grupos_plan_global[]" id="sel2" style="width:220px" size="6" multiple="multiple" required>
+                                 <select name="grupos_plan_global[]" id="sel2" style="width:220px" size="6" multiple="multiple">
                                  </select>
                                </span>
                              </td>

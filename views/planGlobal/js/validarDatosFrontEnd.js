@@ -50,6 +50,8 @@
 
 
   function antesDeEnviar(){
+    verificarGrupos();
+
     spans = document.getElementsByTagName("span");
     var patt = /error_/;
 
@@ -63,9 +65,19 @@
         }
     };
 
-    return habilitarSelectGrupos();
+    habilitarSelectGrupos();
 
-    //return true;  
+    return true;  
+  }
+
+  function verificarGrupos(){
+    spanErrorGrupo = document.getElementById("error_grupo");
+    selectGrupo = document.getElementById("sel2");
+    if(selectGrupo.getElementsByTagName("option").length==0){
+      spanErrorGrupo.innerHTML = "Elija por lo menos un grupo o docente!";
+    }
+    else
+      spanErrorGrupo.innerHTML = "";
   }
 
   function habilitarSelectGrupos(){
