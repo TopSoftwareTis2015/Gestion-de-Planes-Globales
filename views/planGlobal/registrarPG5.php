@@ -33,29 +33,35 @@
    var tabla = document.getElementById("tab_cronograma"); 
    var total=0;
    var duracion_semana = 0;
-   duracion_semana=num / 6;
-   var indice =id.substring(16,17);
-   for(var j = 1;tabla.rows[j]; j++) {
-   }
-
-   for (var i = 1; i <parseInt(j); i++) {
-    var dato=document.getElementById('container_unidad'+i+'_horas').value;
-     if (dato=='') {
-       dato=0;
-     }
-     total+=parseInt(dato);       
-   } 
-   // window.alert(total); 
-   document.getElementById('container_unidad'+indice+'_semanas').value=duracion_semana;
-   
-   if (total>120) {
-     // document.getElementById('alerta_cronograma').style.display = 'block';
-     actualizarError("error_cronograma", "sobrepasa la duracion de horas academicas establecidas");
+   var dato=document.getElementById('periodoSemana').value;
+   if(dato==''){
+     actualizarError("error_cronograma", "establecer la duracion de semana en la seccion carga horaria");
    }else{
-     //document.getElementById('alerta_cronograma').style.display = 'none'; 
-     actualizarError("error_cronograma", "");
-   }
+
+     duracion_semana=num /parseInt(dato);
+     var indice =id.substring(16,17);
+     for(var j = 1;tabla.rows[j]; j++) {
+     }
+
+     for (var i = 1; i <parseInt(j); i++) {
+      var dato=document.getElementById('container_unidad'+i+'_horas').value;
+       if (dato=='') {
+         dato=0;
+       }
+       total+=parseInt(dato);       
+     } 
+     // window.alert(total); 
+     document.getElementById('container_unidad'+indice+'_semanas').value=duracion_semana;
+     
+     if (total>120) {
+       // document.getElementById('alerta_cronograma').style.display = 'block';
+       actualizarError("error_cronograma", "sobrepasa la duracion de horas academicas establecidas");
+     }else{
+       //document.getElementById('alerta_cronograma').style.display = 'none'; 
+       actualizarError("error_cronograma", "");
+     }
       
+   }
  } 
 </script>
 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>

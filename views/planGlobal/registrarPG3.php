@@ -1,5 +1,6 @@
 <!--Parte 3-->  
-<legend id="separador"><h3>JUSTIFICACION</h3></legend><!--seccion para ingresar la informacion de justificacion del plan global dentro de un textarea-->
+<legend id="separador"><h3>JUSTIFICACION</h3></legend>
+<!--seccion para ingresar la informacion de justificacion del plan global dentro de un textarea-->
   <textarea class="form-control"name="justificacion" id="justificacion" cols="100" rows="10"></textarea>
   <br>
 <legend id="separador"><h3>OBJETIVOS GENERALES</h3></legend> <!--campos para ingresar los objetivos generales -->

@@ -7,7 +7,9 @@
 	<!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"><!--hoja de estilo personalizado-->
+  <!--hoja de estilo personalizado-->
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+  
   <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
   <script src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
