@@ -376,7 +376,9 @@
                        <!--footer de la ventana-->
                        <div class="modal-footer">
                           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button> -->
-                          <a href="<?php echo BASE_URL; ?>materias" class="btn btn-default">Aceptar</a>
+                          <a data-url="<?php echo BASE_URL; ?>planGlobal/mostrarPlanGlobal/" 
+                            data-url-buscar="<?php echo BASE_URL; ?>planGlobal/getPlanGlobalInsertado"
+                            onclick="irANuevoPlanGlobal(this);" class="btn btn-default">Aceptar</a>
                        </div>
                 </div>
             </div>
@@ -386,6 +388,8 @@
     confirmar = <?php echo isset($this->confirmarGuardar)?$this->confirmarGuardar:"2";?>;
     if(confirmar == "1")
       $("#modalProcesoExitoso").modal('show');
+
+    
   </script>
   
 </body>

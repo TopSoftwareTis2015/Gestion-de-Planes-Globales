@@ -33,6 +33,26 @@ class planGlobalController extends Controller{
 
 	}
 
+	public function mostrarPlanGlobal($id_plan_global){
+		$id_plan_global = $id_plan_global[0];
+
+		$this->_view->planGlobal = $this->_planGlobalDao->getPlanGlobal($id_plan_global);
+		$this->_view->materia = $this->_planGlobalDao->getMateria($id_plan_global);
+		$this->_view->grupos = $this->_planGlobalDao->getGrupos($id_plan_global);
+		$this->_view->carga_horaria = $this->_planGlobalDao->getCargaHoraria($id_plan_global);
+		$this->_view->materias_relacionadas = $this->_planGlobalDao->getMateriasRelacionadas(
+			$this->_view->materia['codigo_materia']);
+		$this->_view->docentes = $this->_planGlobalDao->getDocentes($id_plan_global);
+		$this->_view->objetivosGenerales = $this->_planGlobalDao->getObjetivosGenerales($id_plan_global);
+		$this->_view->objetivosEspecificos = $this->_planGlobalDao->getObjetivosEspecificos($id_plan_global);
+		$this->_view->unidades = $this->_planGlobalDao->getUnidades($id_plan_global);
+		$this->_view->bibliografiasBase = $this->_planGlobalDao->getBibliografiasBase($id_plan_global);
+		$this->_view->bibliografiasComplementaria = $this->_planGlobalDao->getBibliografiasComplementaria($id_plan_global);
+		$this->_view->seccionesAdicionales = $this->_planGlobalDao->getSeccionesAdicionales($id_plan_global);
+
+		$this->_view->renderizar('vistaPG');
+	}
+
 	public function registrar($codigo){
 		$codigo_materia = $codigo[0];
 		$this->_view->materia = $this->_materiaDao->getMateria('codigo_materia',$codigo_materia);
@@ -280,6 +300,12 @@ class planGlobalController extends Controller{
 			echo 1;
 		else
 			echo 0;
+	}
+
+	public function getPlanGlobalInsertado(){
+		$id_pg = $this->_planGlobalDao->getPlanGlobalInsertado();
+		$id_pg = $id_pg[0];
+		echo $id_pg;
 	}
 }
  ?>

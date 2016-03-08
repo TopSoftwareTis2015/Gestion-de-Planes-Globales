@@ -107,7 +107,7 @@
             <legend id="separador"></legend>
               
           <h3><strong><center>Plan global</center></strong></h3>
-          <h4 class="text-center"><strong>ELEMENTOS DE PROGRAMACION Y ESTRUCTURA DE DATOS</strong></h4>
+          <h4 class="text-center"><strong><?php if(isset($this->planGlobal))echo $this->planGlobal['titulo']; ?></strong></h4>
           <br>
           <ol type="I">
             <h4><li><b class="bordes">DATOS DE IDENTIFICACION</b></li></h4>
@@ -117,47 +117,108 @@
                   <table class="table table-striped table-bordered">
                     <tr class="text-align-legf">
                       <td>Nombre de la materia:</td>
-                      <td>Elementos de Programacion y Estructura de Datos</td>
+                      <td><?php if(isset($this->materia))echo $this->materia['nombre_materia']; ?></td>
                     </tr>
                     <tr>
                       <td>Codigo:</td>
-                      <td>2010003</td>
+                      <td><?php if(isset($this->materia))echo $this->materia['codigo_materia']; ?></td>
                     </tr>
                     <tr>
-                      <td>Grupo:</td>
-                      <td>1,2,3,4y5</td>
+                      <td>Grupos:</td>
+                      <td>
+                        <?php
+                          if(isset($this->grupos)) 
+                            for ($i=0; $i < count($this->grupos) ; $i++) { 
+                              echo $this->grupos[$i]['grupo'] . " ";
+                            }
+                         ?>
+                      </td>
                     </tr>
                     <tr>
-                      <td rowspan="2">Carga horaria:</td>
-                      <td>4 periodos teoricos, 2 periodos pr&aacute;ctica</td>
+                      <td <?php if(isset($this->carga_horaria) && 
+                                  $this->carga_horaria['periodos_teoricos_semana']) echo 'rowspan="2"'; ?>>
+                        Carga horaria:
+                      </td>
+                      <td>
+                        <?php 
+                          if(isset($this->carga_horaria)){
+                            echo $this->carga_horaria['horas_semestre'] . " periodos totales";
+                            if($this->carga_horaria['periodos_semana'])
+                              echo ", " . $this->carga_horaria['periodos_semana'] . "periodos por semana";
+                          }
+                         ?>
+                      </td>
                     </tr>
+                    <?php 
+                      if(isset($this->carga_horaria)){
+                        if($this->carga_horaria['periodos_teoricos_semana']){
+                     ?>
                     <tr>
-                      <td>4 periodos teoricos, 2 periodos pr&aacute;ctica <br>
+                      <td>
+                        <?php
+                          echo $this->carga_horaria['periodos_teoricos_semana'] . 
+                                " periodos teoricos por semana, " .
+                                $this->carga_horaria['periodos_practicos_semana'] .
+                                " periodos practicos por semana";
+                         ?>
+                      </td>
                     </tr>
+                    <?php 
+                        }
+                      }
+                     ?>
                     <tr>
                       <td>Materias relacionadas</td>
                       <td>
-                        Introducci&oacute;n a la Programaci&oacute;n M&aacute;todos,T&aacute;cnicas y Taller de Programaci&oacute;n
+                        <?php 
+                          if(isset($this->materias_relacionadas))
+                            for ($i=0; $i < count($this->materias_relacionadas); $i++) { 
+                              echo $this->materias_relacionadas[$i]['nombre_materia'] . "<br>";
+                            }
+                         ?>
                       </td>
                     </tr>
                     <tr>
                       <td>Docentes:</td>
                       <td>
-                        RoseMary Salazar <br>
-                        Leticia Blanco Coca <br>
-                        Jhonny Arias Tapia <br>
+                        <?php 
+                          if(isset($this->docentes)){
+                            for ($i=0; $i < count($this->docentes); $i++) { 
+                              echo $this->docentes[$i]['nombre_usuario'] . "<br>";
+                            }
+                          }
+                         ?>
                       </td>
                     </tr>
                     <tr>
-                      <td>Tel&eacute;fono:</td>
-                      <td>4233719</td>
+                      <td>Tel&eacute;fonos:</td>
+                      <td>
+                        <?php 
+                          if(isset($this->docentes)){
+                            for ($i=0; $i < count($this->docentes); $i++) { 
+                              echo $this->docentes[$i]['nombre_usuario'] .": ".
+                                    $this->docentes[$i]['numero_movil_usuario'];
+                              echo $this->docentes[$i]['numero_fijo_usuario']?
+                                    " - " . $this->docentes[$i]['numero_fijo_usuario']:""; 
+                              echo "<br>";
+                            }
+                          }
+                         ?>
+                      </td>
                     </tr>
                     <tr>
-                      <td>Correoelectr&oacute;nico:</td>
+                      <td>Correo electr&oacute;nico:</td>
                       <td>
-                        r.salazar@umss.edu.bo <br>
-                        leticia@memi.umss.edu.bo <br>
-                        jarias@memi.umss.edu.bo <br>
+                        <?php 
+                          if(isset($this->docentes)){
+                            for ($i=0; $i < count($this->docentes); $i++) { 
+                              echo $this->docentes[$i]['nombre_usuario'] .": ".
+                                    $this->docentes[$i]['correo_usuario'] . "<br>";
+                            }
+                          }
+                         ?>
+                      </td>
+                    </tr>
                       </td> 
                     </tr>
                   </table>
@@ -165,129 +226,151 @@
               </div>
 
             <h4><li><b class="bordes">JUSTIFICACION</b></li></h4>
-              <p class="text-justify">
-                Después de tener los conocimientos básicos de programación, se necesita contar con más elementos que ayuden a un profesional del área de ciencias de la computación, a resolver problemas de forma elegante, eﬁciente y correcta. La ﬁnalidad de este curso es brindar al estudiante un conjunto de conceptos que identiﬁcan elementos importantes que enriquecen la metodología de programación, es importante también considerar las distintas estructuras que existen para representarlos datos.
-                La algoritmia es una parte importante para poder abstraer soluciones que serán automatizadas, la demostración de la correctitud de un algoritmo entonces es importante, para poder asegurar la resolución de un problema; otro aspecto importante que considerar es la eﬁciencia de los algoritmos que se escriben, respecto al tiempo y al recurso de memoria que estos consumen para lograr su objetivos.
-              </p><br>
+              <p>
+              <?php if(isset($this->planGlobal))echo $this->planGlobal['justificacion']; ?>
+              </p>
             
             <h4><li><b class="bordes">OBJETIVOS</b></li></h4>
               <ol>
                 <!-- lista de objetivos generales -->
                 <h4><li><b>Objetivos Generales</b></h4>
                   <ul>
+                    <?php 
+                      if(isset($this->objetivosGenerales)){
+                        for ($i=0; $i < count($this->objetivosGenerales); $i++) { 
+                    ?>
+
                     <li type="square">
-                     <h4>Conseguir habilidades para enfrentar la solucion de problemas utilizando la POO</h4>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, perferendis maxime reprehenderit voluptatibus accusamus dicta, quasi quia odio nam incidunt id tempore minus non, exercitationem hic voluptate natus totam ea.</p>
+                     <h4><?php echo $this->objetivosGenerales[$i]['titulo_objetivo_general']; ?></h4>
+                     <?php 
+                          if($this->objetivosGenerales[$i]['descripcion_objetivo_general'])
+                            echo "<p>" . $this->objetivosGenerales[$i]['descripcion_objetivo_general'] .
+                                  "</p>";
+                      ?>
                     </li>
-                    <li type="square"> 
-                     <h4>Analizar la eﬁciencia de soluciones automatizadas a problemas</h4>
-                     <p>Reprehenderit deleniti voluptates pariatur, praesentium sed error, debitis iusto soluta possimus aspernatur necessitatibus inventore ipsa molestias quos rem commodi aliquam quam vel?</p>
-                    </li>
+
+                    <?php
+                        }
+                      }
+                     ?>
                   </ul>
                 </li>
                 
                 <!-- lista de objetivos especificos -->
+                <?php 
+                  if(isset($this->objetivosEspecificos) && $this->objetivosEspecificos){
+                ?>
+
                 <h4><li><b>Objetivos Especificos</b></h4>
                    <ul>
-                     <li type="square">
-                       <h4>Introducir a las estructuras de datos, de forma conceptual y practica.</h4>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa facere commodi, amet temporibus quisquam asperiores aperiam quae assumenda ducimus. Molestiae, ullam eius, consequuntur unde molestias qui vero pariatur. Error, voluptates.</p>
-                     </li>
-                     <li type="square">  
-                       <h4>Aplicar estructuras de datos adecuadas para la resolucion de problemas</h4>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab sequi sunt perferendis blanditiis, voluptate esse praesentium impedit. Minus perspiciatis similique, adipisci iure id quidem enim, deserunt eaque impedit vero! Quasi.</p>
-                     </li>
-                     <li type="square">
-                       <h4>Introducir concepto de administracion dinamica de memoria e implementar estructuras de datos en base a enlaces</h4>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, impedit porro laborum fugiat blanditiis non praesentium illo, repellat officia? Minima, a, ullam? Sint, quam! Molestias enim beatae fugiat, reiciendis blanditiis.</p>
-                     </li>
-                   </ul>
+                    <?php 
+                      if(isset($this->objetivosEspecificos)){
+                        for ($i=0; $i < count($this->objetivosEspecificos); $i++) { 
+                    ?>
+
+                    <li type="square">
+                     <h4><?php echo $this->objetivosEspecificos[$i]['titulo_objetivo_especifico']; ?></h4>
+                     <?php 
+                          if($this->objetivosEspecificos[$i]['descripcion_objetivo_especifico'])
+                            echo "<p>" . $this->objetivosGenerales[$i]['descripcion_objetivo_especifico'] .
+                                  "</p>";
+                      ?>
+                    </li>
+
+                    <?php
+                        }
+                      }
+                     ?>
+                  </ul>
                 </li>
+                <?php
+                  }
+                 ?>
               </ol><br>
 
             <!-- contenido minimo   -->
             <h4><li><b class="bordes">SELECCION Y ORGANIZACION DE CONTENIDOS</b></li></h4>
-              <br><p class="text-center"><b class="unidades">Unidad1:Programacion orientada al objeto</b></p>
+              <?php 
+                if(isset($this->unidades)){
+                  for ($i=0; $i < count($this->unidades); $i++) {
+                  
+              ?>
+              <br>
+              <p class="text-center">
+                <b class="unidades">Unidad<?php echo $this->unidades[$i]['numero_unidad'] . ":" .
+                $this->unidades[$i]['titulo_unidad']; ?></b>
+              </p>
+                <?php 
+                  if($this->unidades[$i]['objetivo_unidad']){
+                ?>
                 <p><b>Objetivo de la Unidad</b></p>
                 <p>
-                Al ﬁnal de la unidad, el estudiante tendra un marco general de la POO,retomando lo aprendido en Introduccion a la Programacion y fortaleciendo conceptos de herencia y mane jo de ﬂujos de IO.
+                  <?php echo $this->unidades[$i]['objetivo_unidad']; ?>
                 </p>
-                <p><b>Contenido:</b></p>
-                <ol>
-                    <li>Deﬁnicion de recursion.
-                    </li>
-                    <li>Partes de la recursion.
-                      <ul>
-                        <li>Subtitulo</li>
-                        <li>Subtitulos</li>
-                      </ul>
-                    </li>
-                    <li>Reglas de recursividad.</li>
-                    <li>Implementacion de la recursividad en ejemplos de aplicacion.</li>
-                </ol>
-              <br><p class="text-center"><b class="unidades">Unidad2:Programacion orientada al objeto</b></p>
-                <p><b>Objetivo de la Unidad</b></p>
-                <p>
-                Al ﬁnal de la unidad, el estudiante tendra un marco general de la POO,retomando lo aprendido en Introduccion a la Programacion y fortaleciendo conceptos de herencia y mane jo de ﬂujos de IO.
-                </p>
-                <p><b>Contenido:</b></p>
-                <ol>
-                  <li>Deﬁnicion de recursion.
-                  </li>
-                  <li>Partes de la recursion.
-                    <ul>
-                      <li>Subtitulo</li>
-                      <li>Subtitulos</li>
-                    </ul>
-                  </li>
-                  <li>Reglas de recursividad.</li>
-                  <li>Implementacion de la recursividad en ejemplos de aplicacion.</li>
-                </ol>
+                
+                <?php  
+                  }
 
-              <br><p class="text-center"><b class="unidades">Unidad3:Programacion orientada al objeto</b></p>
-                <p><b>Objetivo de la Unidad</b></p>
-                <p>
-                Al ﬁnalizar la unidad, el estudiante sera capaz de: encontrar el tiempo de ejecucion de una propuesta de solucion, encontrar la complejidad de una propuesta de solucion elegir entre varias alternativas de solucion en base a metricas de eﬁciencia.Probar la correctitud de las propuestas de solucion de forma matematica.
-                </p>
-                  <p><b>Contenido:</b></p>
-                  <ol>
-                    <li>Algoritmo.
+                  if($this->unidades[$i][9]){
+                    $unidadAnterior = $this->unidades[$i][1];
+                ?>
+                <p><b>Contenido:</b></p>
+                <ol>
+                <?php
+                    for ($j=$i; $j < count($this->unidades); $j++) { 
+                      if($unidadAnterior == $this->unidades[$j][1]){
+                ?>
+                    <li><?php echo $this->unidades[$j]['titulo_capitulo']; ?>
+                <?php 
+                        if($this->unidades[$j][16]){
+                ?>
                       <ul>
-                        <li>Subtitulo</li>
-                        <li>Subtitulos</li>
+                <?php
+                          $capituloAnterior = $this->unidades[$j]['id_capitulo'];
+
+                          for ($k=$j; $k < count($this->unidades); $k++) {
+                            if($unidadAnterior == $this->unidades[$j][1] &&
+                              $capituloAnterior == $this->unidades[$k][9]){
+                        ?>
+                        <li><?php echo $this->unidades[$k][16]; ?></li>                        
+                        <?php
+                              if($j<$k){
+                                $j++; $i++;
+                              }
+                              $capituloAnterior = $this->unidades[$k][9];
+                            }
+                            else{
+                              break;
+                            }
+                 ?>                      
                       </ul>
                     </li>
-                    <li>Eﬁciencia temporal.</li>
-                    <li>Tiemposde ejecucion.</li>
-                    <li>Complejidad.</li>
-                    <li>Eﬁciencia espacial.</li>
-                  </ol>
-              <br><p class="text-center"><b class="unidades">Unidad4:Programacion orientada al objeto</b></p>
-                <p><b>Objetivo de la Unidad</b></p>
-                <p>
-                 Al ﬁnal de la unidad, el estudiante sera capaz de: explicar, especiﬁcar, distinguir y aplicar las estructuras de datos lineales.
-                </p>
-                <p><b>Contenido:</b></p>
-                  <ol>
-                      <li>Deﬁnicion de estructuras de datos lineales.
-                      </li>
-                      <li>Deﬁnicion de listas: organizacion y operaciones estandares.</li>
-                      <li>Deﬁnicion de pilas.
-                        <ul>
-                          <li>Subtitulo</li>
-                          <li>Subtitulos</li>
-                        </ul>
-                      </li>
-                      <li>Sobreescritura</li>
-                      <li>Deﬁnicion de colas.</li>
-                    </ol>
+                <?php          
+                          }  
+                        }
+
+                        if($i<$j){
+                          $i++;
+                        }
+                        $unidadAnterior = $this->unidades[$j][1];
+                      }
+                      else{
+                        break;
+                      }
+                    }    
+                  } 
+                ?>
+
+                </ol>
+              
+              <?php
+                  }
+                }
+               ?>
             <br>
             <h4><li><b class="bordes">METODOLOGIAS</b></li></h4>
               <p class="text-justify">
-                Clases magistrales ilustrando los conceptos con ejemplos. El estudiante tiene que implementar aplicaciones pequeñas utilizando los diferentes conceptos de la materia.
-                Es importante que el estudiante practique en la computadora fuera de clases, por cada unidad, el estudiante debe entregar trabajos de aplicación utilizando de forma correcta los conceptos. Estos trabajos son imprescindibles para rendir los exámenes escritos.
-                Por otro lado, para veriﬁcar el funcionamiento de implementaciones de clase, se plantean algunas de las clases en laboratorio.
-                Material de apoyo se provee a través de la página de la materia www.memi.umss.edu.bo/ elementos, las herramientas para este curso son Java y BlueJ.
+                <?php if(isset($this->planGlobal))echo $this->planGlobal['metodologias']; ?>
              </p>
              <br>
             <h4><li><b class="bordes">CRONOGRAMA O DURACION EN PERIODOS ACADEMICOS POR UNIDAD</b></li></h4>
@@ -300,76 +383,129 @@
                       <th class="text-center">DURACION HRS. ACADEMICAS</th>
                       <th class="text-center">DURACION SEMANAS</th>
                     </tr>
+                    <?php 
+                      if(isset($this->unidades)){
+                        $unidadAnterior = "";
+                        for ($i=0; $i < count($this->unidades); $i++) {                          
+                          if($unidadAnterior != $this->unidades[$i][1]){
+
+                    ?>
                     <tr>
-                        <td>Programacion Orientada a Objetos</td>
-                        <td>22</td>
-                        <td>3</td>
+                        <td><?php echo $this->unidades[$i]['titulo_unidad']; ?></td>
+                        <td><?php echo $this->unidades[$i]['duracion_horas_academicas']; ?></td>
+                        <td><?php echo $this->unidades[$i]['duracion_semanas']; ?></td>
                     </tr>
-                    <tr>
-                      <td>Elementos de Progamacion</td>
-                      <td>22</td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>Unidad ..3</td>
-                      <td>22</td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>Unidad ..4</td>
-                      <td>22</td>
-                      <td>3</td>
-                    </tr>
+                    <?php
+                            $unidadAnterior = $this->unidades[$i][1];
+                          }
+                        }
+                      }
+                     ?>
                   </table>
                 </div>
               </div>
               <br>
 
             <h4><li><b class="bordes">CRITERIOS DE EVALUACION</b></li></h4>
-              <ul class="text-justify">
-                <li>
-                  Evaluación diagnostica. Al principio del semestre es necesario nivelar a los estudiantes respecto a conceptos de POO. Para ello se hace un repaso de los conceptos principales, en base a la participación de los estudiantes respondiendo a preguntas y respuestas que el profesor realiza. Del mismo modo en clases acerca de material ya avanzado.
-                </li>
-                <li>
-                  Evaluación formativa. Durante el semestre y por cada unidad el estudiante debe entregar trabajos que apliquen los conceptos introducidos, esta tarea se hace en coordinación con los auxiliares de la materia.
-                </li>
-                <li>
-                  Evaluación sumativa. La materia consta de exámenes escritos que tienen un ponderado en la nota ﬁnal, así mismo los trabajos que se realizan en el transcurso del semestre son de carácter habilitante a estas pruebas escritas.
-                </li>
-              </ul>
+              <p>
+                <?php if(isset($this->planGlobal)) echo $this->planGlobal['criterios_evaluacion']; ?>
+              </p>
               <br>
             <h4><li><b class="bordes">BIBLIOGRAFIA</b></li></h4>    
               <h4>Bibliografia base</h4>
               <ul>
+                <?php 
+                  if(isset($this->bibliografiasBase)){
+                    for ($i=0; $i < count($this->bibliografiasBase); $i++) { 
+                ?>
                 <li type="disc">
-                  <b>Estructuras de datos y algoritmos,</b>MARK ALLEN WEISS. Addison Wesley 2nd edition, 2006
+                  <b>
+                    <?php echo $this->bibliografiasBase[$i]['nombre_libro']; ?>
+                  </b>
+                  <?php echo $this->bibliografiasBase[$i]['autor_libro']; ?>
                 </li>
-                <li type="disc">
-                  <b>Introduction to algorithms,</b> THOMAS CORMEN, CHARLES LEISERSON,RONALD RIVEST. MITPress-2001
-                </li>
-                <li type="disc">
-                  <b>Algorithms and data structures: the science of computing,</b> DOUGLAS BALD WINANDGREGW. SCRAGG. Charles River Media(C)2004
-                </li>
-                <li type="disc">
-                  <b>Objects ﬁrst with java. A practical introduction using BLUEJ,</b> DAVID BARNES,MICHAEL KOLLING. Prentice Hall,2006
-                </li>
+                <?php
+                    }
+                  }
+                 ?>
               </ul>
-
+              
+              <?php 
+                if(isset($this->bibliografiasComplementaria) && $this->bibliografiasComplementaria){
+              ?>
               <h4>Bibliografia complementaria</h4>
-              <ul>
+              <?php 
+                  if(isset($this->bibliografiasComplementaria)){
+                    for ($i=0; $i < count($this->bibliografiasComplementaria); $i++) { 
+                ?>
                 <li type="disc">
-                  <b>Estructuras de datos y algoritmos,</b>MARK ALLEN WEISS. Addison Wesley 2nd edition, 2006
+                  <b>
+                    <?php echo $this->bibliografiasComplementaria[$i]['nombre_libro']; ?>
+                  </b>
+                  <?php echo $this->bibliografiasComplementaria[$i]['autor_libro']; ?>
                 </li>
-                <li type="disc">
-                  <b>Introduction to algorithms,</b> THOMAS CORMEN, CHARLES LEISERSON,RONALD RIVEST. MITPress-2001
-                </li>
-                <li type="disc">
-                  <b>Algorithms and data structures: the science of computing,</b> DOUGLAS BALD WINANDGREGW. SCRAGG. Charles River Media(C)2004
-                </li>
-                <li type="disc">
-                  <b>Objects ﬁrst with java. A practical introduction using BLUEJ,</b> DAVID BARNES,MICHAEL KOLLING. Prentice Hall,2006
-                </li>
-              </ul>
+                <?php
+                    }
+                  }
+                }
+               ?>
+
+              <br>
+              <!--Secciones Adicionales-->
+
+              <?php 
+                if(isset($this->seccionesAdicionales) && $this->seccionesAdicionales){
+              ?>
+              <?php 
+                  for ($i=0; $i < count($this->seccionesAdicionales); $i++) { 
+              ?>
+              <h4><li><b class="bordes">
+                <?php echo $this->seccionesAdicionales[$i]['titulo_seccion']; ?>
+              </b></li></h4>
+              <?php 
+                    if($this->seccionesAdicionales[$i]['objetivo_seccion']){
+                      echo "<p>".$this->seccionesAdicionales[$i]['objetivo_seccion']."</p>";
+                    }
+                    if($this->seccionesAdicionales[$i]['id_contenido']){
+                      $seccionAnterior = 
+
+                      for ($j=$i; $j < count($this->seccionesAdicionales); $j++) { 
+                        
+                      }
+                    }
+
+                  }
+               ?>
+              <?php 
+                }
+               ?>
+                
+                <h4><b>Parte Teorica</b></h4>
+                <p class="text-justify">Los alumnos deben rendir las dos evaluaciones teóricas, y  obligatoriamente deben entregar su proyecto final para aprobar y caso de no hacerlo tener derecho a segunda instancia y final.
+                </p>
+                <ul class"text-justify">
+                  <li>Subtitulo 1</li>
+                  <li>Subtitulo 2</li>
+                  <li>Subtitulo 3</li>
+                </ul> 
+                
+                <h4><b>Grupos Parte Practica</b></h4>
+                <p class="text-justify"> El proyecto (práctica) será elaborado en grupos de mínimo dos y máximo tres personas.Estos grupos serán para todo el semestre. 
+                Se pide flexibilidad al hacer los grupos de modo de no excluir a ningún 
+                alumno. En caso de problemas de este tipo, el profesor se reserva el derecho de 
+                nominar grupos.  
+                </p>
+                <ul class="text-justify">
+                  <li>Primera presentacion</li>
+                  <li>Segunda presentacion</li>
+                  <li>Entrega final</li>
+                </ul>
+          </ol>
+          
+        </div>
+     </div>
+    </div> 
+  </section>
           </ol>
 
         </div>

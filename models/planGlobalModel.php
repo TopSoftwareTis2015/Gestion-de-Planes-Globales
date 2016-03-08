@@ -20,7 +20,8 @@ class planGlobalModel extends Model{
 	public function getGrupos($id_pg){
 		$grupos = $this->_db->query(
 			"SELECT * FROM grupos
-				WHERE id_pg = $id_pg;"
+				WHERE id_pg = $id_pg
+				ORDER BY grupo;"
 			);
 
 		return $grupos->fetchall();
@@ -93,7 +94,8 @@ class planGlobalModel extends Model{
 	public function getObjetivosGenerales($id_pg){
 		$objetivosGenerales = $this->_db->query(
 			"SELECT * FROM objetivos_generales
-				WHERE id_pg = $id_pg;"
+				WHERE id_pg = $id_pg
+				ORDER BY numero_objetivo_general;"
 			);
 
 		return $objetivosGenerales->fetchall();
@@ -102,7 +104,8 @@ class planGlobalModel extends Model{
 	public function getObjetivosEspecificos($id_pg){
 		$objetivosEspecificos = $this->_db->query(
 			"SELECT * FROM objetivos_especificos
-				WHERE id_pg = $id_pg;"
+				WHERE id_pg = $id_pg
+				ORDER BY numero_objetivo_especifico;"
 			);
 
 		return $objetivosEspecificos->fetchall();
@@ -118,10 +121,19 @@ class planGlobalModel extends Model{
 		return $unidades->fetchall();
 	}
 
-	public function getBibliografias($id_pg){
+	public function getBibliografiasBase($id_pg){
 		$bibliografias = $this->_db->query(
 			"SELECT * FROM bibliografias
-				WHERE id_pg = $id_pg;"
+				WHERE id_pg = $id_pg AND tipo_libro = 'base';"
+			);
+
+		return $bibliografias->fetchall();
+	}
+
+	public function getBibliografiasComplementaria($id_pg){
+		$bibliografias = $this->_db->query(
+			"SELECT * FROM bibliografias
+				WHERE id_pg = $id_pg AND tipo_libro = 'complementaria';"
 			);
 
 		return $bibliografias->fetchall();
@@ -165,6 +177,12 @@ class planGlobalModel extends Model{
 																							WHERE g.id_pg = p.id_pg AND codigo_materia = '$codigo_materia';");
 
 		return $numero_plan_global->fetch();
+	}
+
+	public function getPlanGlobalInsertado(){
+		$id_pg = $this->_db->query("SELECT MAX(id_pg) FROM planes_globales;");
+
+		return $id_pg->fetch();
 	}
 
 }

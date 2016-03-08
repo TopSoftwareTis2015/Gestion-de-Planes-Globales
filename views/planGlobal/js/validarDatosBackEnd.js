@@ -21,4 +21,15 @@ function validarCodigoUnico(codigo_pg){
 			alert(status + " aqui es el error "+ xhr);
 		}
 	});
+	
 }
+	
+	function irANuevoPlanGlobal(enlace){
+      $.ajax({
+        url : enlace.dataset.urlBuscar,
+
+        success : function(id_pg){
+          window.location = enlace.dataset.url + id_pg;
+        } 
+      });
+    }

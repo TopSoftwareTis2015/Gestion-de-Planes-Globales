@@ -164,7 +164,7 @@
                   if($this->materias[$j]['codigo_materia'] == $codigoAnterior){
                     if($this->materias[$j]['numero_plan_global']){
               ?>
-              <a href="<?php echo BASE_URL . 'planGlobal/mostrarPlanGlobal/' . $this->materias[$j]['numero_plan_global'];?>">
+              <a href="<?php echo BASE_URL . 'planGlobal/mostrarPlanGlobal/' . $this->materias[$j]['id_pg'];?>">
                 PG<?php echo $this->materias[$j]['numero_plan_global']; ?> 
               </a>
               <?php
