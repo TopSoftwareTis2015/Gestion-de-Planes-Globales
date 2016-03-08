@@ -18,7 +18,7 @@ function validarCodigoUnico(codigo_pg){
 		},
 
 		error : function(xhr, status) {
-			alert(status + " "+ xhr);
+			alert(status + " aqui es el error "+ xhr);
 		}
 	});
 }

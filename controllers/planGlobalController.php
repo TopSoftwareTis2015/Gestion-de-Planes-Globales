@@ -41,7 +41,7 @@ class planGlobalController extends Controller{
 		}
 
 		if($this->getInt('guardar')==1){
-			$this->registrarTablaPlanglobal();
+			$this->registrarTablaPlanglobal($codigo_materia);
 			
 			$id_pg = $this->_planGlobalDao->getId($_POST['codigo_plan_global']);
 			$id_pg = $id_pg[0];
@@ -80,7 +80,7 @@ class planGlobalController extends Controller{
 
 	}
 
-	private function registrarTablaPlanglobal(){
+	private function registrarTablaPlanglobal($codigo_materia){
 		$titulo = $_POST['titulo'];
 		$justificacion = $_POST['justificacion'];
 		$metodologias = $_POST['metodologias'];
@@ -88,8 +88,25 @@ class planGlobalController extends Controller{
 		$gestion_pg = $_POST['gestion'] . $_POST['anio_gestion'];
 		$codigo_plan_global = $_POST['codigo_plan_global'];
 
+		$numero_plan_global = $this->getNumeroPlanGlobal($codigo_materia);
+
 		$this->_planGlobalDao->insertarPlanGlobal($titulo, $justificacion, $metodologias, 
-			$criterios_evaluacion, $gestion_pg, $codigo_plan_global);
+			$criterios_evaluacion, $gestion_pg, $codigo_plan_global, $numero_plan_global);
+	}
+
+	private function getNumeroPlanGlobal($codigo_materia){
+		$numeroActual = $this->_planGlobalDao->getNumeroPlanGlobal($codigo_materia);
+		if($numeroActual){
+			$numeroActual = $numeroActual[0];
+			if($numeroActual){
+				$numeroActual = (int)$numeroActual;
+				return ++$numeroActual;
+			}
+			else
+				return 1;
+		}
+		else
+			return 1;
 	}
 
 	private function registrarGrupos($id_pg, $codigo_materia){

@@ -75,17 +75,18 @@ class planGlobalModel extends Model{
 	}
 
 	public function insertarPlanGlobal($titulo, $justificacion, $metodologias, $criterios_evaluacion,
-																		$gestion_pg, $codigo_plan_global){
+																		$gestion_pg, $codigo_plan_global, $numero_plan_global){
 		$this->_db->prepare("INSERT INTO planes_globales VALUES
 													(default, :titulo, :justificacion, :metodologias, :criterios_evaluacion,
-														TRUE, :gestion_pg, :codigo_plan_global)")
+														TRUE, :gestion_pg, :codigo_plan_global, :numero_plan_global)")
 													->execute(array(
 														':titulo' => $titulo,
 														':justificacion' => $justificacion,
 														':metodologias' => $metodologias,
 														':criterios_evaluacion' => $criterios_evaluacion,
 														':gestion_pg' => $gestion_pg,
-														':codigo_plan_global' => $codigo_plan_global
+														':codigo_plan_global' => $codigo_plan_global,
+														':numero_plan_global' => $numero_plan_global
 														));
 	}	
 
@@ -157,6 +158,13 @@ class planGlobalModel extends Model{
 																			WHERE codigo_plan_global = '$codigo_plan_global';");
 
 		return $planGlobal->fetch();
+	}
+
+	public function getNumeroPlanGlobal($codigo_materia){
+		$numero_plan_global = $this->_db->query("SELECT MAX(numero_plan_global) AS numero_maximo FROM planes_globales p, grupos g
+																							WHERE g.id_pg = p.id_pg AND codigo_materia = '$codigo_materia';");
+
+		return $numero_plan_global->fetch();
 	}
 
 }
