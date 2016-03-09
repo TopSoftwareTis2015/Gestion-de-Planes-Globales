@@ -24,6 +24,10 @@ class prueba_plan_globalController extends Controller{
 
 		$this->_view->renderizar('index');
 	}
+
+	public function mostrarSoloVista(){
+		$this->_view->renderizar('vistaPG1');
+	}
 }
 
 

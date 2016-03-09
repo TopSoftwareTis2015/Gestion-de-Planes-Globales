@@ -272,7 +272,7 @@
                      <h4><?php echo $this->objetivosEspecificos[$i]['titulo_objetivo_especifico']; ?></h4>
                      <?php 
                           if($this->objetivosEspecificos[$i]['descripcion_objetivo_especifico'])
-                            echo "<p>" . $this->objetivosGenerales[$i]['descripcion_objetivo_especifico'] .
+                            echo "<p>" . $this->objetivosEspecificos[$i]['descripcion_objetivo_especifico'] .
                                   "</p>";
                       ?>
                     </li>
@@ -293,40 +293,39 @@
               <?php 
                 if(isset($this->unidades)){
                   for ($i=0; $i < count($this->unidades); $i++) {
-                  
               ?>
               <br>
               <p class="text-center">
-                <b class="unidades">Unidad<?php echo $this->unidades[$i]['numero_unidad'] . ":" .
-                $this->unidades[$i]['titulo_unidad']; ?></b>
+                <b class="unidades">UNIDAD<?php echo $this->unidades[$i]['numero_unidad'] . ": " .
+                strtoupper($this->unidades[$i]['titulo_unidad']); ?></b>
               </p>
-                <?php 
+              <?php 
                   if($this->unidades[$i]['objetivo_unidad']){
-                ?>
-                <p><b>Objetivo de la Unidad</b></p>
-                <p>
-                  <?php echo $this->unidades[$i]['objetivo_unidad']; ?>
-                </p>
+              ?>
+              <p><b>Objetivo de la Unidad</b></p>
+              <p>
+                <?php echo $this->unidades[$i]['objetivo_unidad']; ?>
+              </p>
                 
-                <?php  
+              <?php  
                   }
 
-                  if($this->unidades[$i][9]){
-                    $unidadAnterior = $this->unidades[$i][1];
+                  if($this->unidades[$i][9]){// 'id_capitulo' = 9
+                    $unidadAnterior = $this->unidades[$i][1]; // 'id_unidad' = 1
                 ?>
-                <p><b>Contenido:</b></p>
-                <ol>
+              <p><b>Contenido:</b></p>
+              <ol>
                 <?php
                     for ($j=$i; $j < count($this->unidades); $j++) { 
                       if($unidadAnterior == $this->unidades[$j][1]){
                 ?>
-                    <li><?php echo $this->unidades[$j]['titulo_capitulo']; ?>
+                <li><?php echo $this->unidades[$j]['titulo_capitulo']; ?>
                 <?php 
-                        if($this->unidades[$j][16]){
+                        if($this->unidades[$j][16]){ // 'id_subtitulo' = 16
                 ?>
-                      <ul>
+                  <ul>
                 <?php
-                          $capituloAnterior = $this->unidades[$j]['id_capitulo'];
+                          $capituloAnterior = $this->unidades[$j][9];
 
                           for ($k=$j; $k < count($this->unidades); $k++) {
                             if($unidadAnterior == $this->unidades[$j][1] &&
@@ -342,28 +341,30 @@
                             else{
                               break;
                             }
-                 ?>                      
-                      </ul>
-                    </li>
-                <?php          
                           }  
+                 ?>                      
+                  </ul>
+                <?php          
                         }
 
                         if($i<$j){
                           $i++;
                         }
                         $unidadAnterior = $this->unidades[$j][1];
-                      }
+                ?>
+                </li>
+                <?php
+                      }//777777777777777777
                       else{
                         break;
                       }
                     }    
-                  } 
                 ?>
 
                 </ol>
               
               <?php
+                  } 
                   }
                 }
                ?>
@@ -434,6 +435,7 @@
                 if(isset($this->bibliografiasComplementaria) && $this->bibliografiasComplementaria){
               ?>
               <h4>Bibliografia complementaria</h4>
+              <ul>
               <?php 
                   if(isset($this->bibliografiasComplementaria)){
                     for ($i=0; $i < count($this->bibliografiasComplementaria); $i++) { 
@@ -447,6 +449,9 @@
                 <?php
                     }
                   }
+              ?>
+              </ul>
+              <?php
                 }
                ?>
 
@@ -455,81 +460,81 @@
 
               <?php 
                 if(isset($this->seccionesAdicionales) && $this->seccionesAdicionales){
-              ?>
-
-              <?php 
                   for ($i=0; $i < count($this->seccionesAdicionales); $i++) { 
               ?>
-              <li><h4><b class="bordes">
-                <?php echo $this->seccionesAdicionales[$i]['titulo_seccion']; ?>
-              </b></h4></li>
+              <h4><li><b class="bordes">
+                <?php echo strtoupper($this->seccionesAdicionales[$i]['titulo_seccion']); ?>
+              </b></li></h4>
               <?php 
                     //implemantar las funcionalidad para que se muestre los objetivos que tenga una seccion
                     if($this->seccionesAdicionales[$i]['objetivo_seccion']){
                       echo "<p>".$this->seccionesAdicionales[$i]['objetivo_seccion']."</p>";
                     }
-                    if($this->seccionesAdicionales[$i]['id_contenido']){
-                      $seccionAnterior = $this->seccionesAdicionales[$i][1];;
 
-                      for ($j=$i; $j < count($this->seccionesAdicionales[$i]['id_contenido']); $j++) { 
+                    //implementacion de los contenidos de una seccion. 'id_contenido' = 7
+                    if($this->seccionesAdicionales[$i][7]){
+                      $seccionAnterior = $this->seccionesAdicionales[$i][1]; // 'id_seccion' = 1'
+              ?>
+                <ul>
+              <?php
+
+                      for ($j=$i; $j < count($this->seccionesAdicionales); $j++) { 
                         if($seccionAnterior == $this->seccionesAdicionales[$j][1]){
               ?>
-                       <?php
-
-                          for ($k=$j; $k < count($this->seccionesAdicionales[$k]['id_contenido']); $k++) {
-                        ?>    
-                            <?php echo $this->seccionesAdicionales[$k]['titulo_contenido']; ?> 
-                        <?php    
-                            if($seccionAnterior == $this->seccionesAdicionales[$j][1] &&
-                              $seccionAnterior == $this->seccionesAdicionales[$k][5]){
-                        ?>
-                            <ul>
-                            <li><?php echo $this->seccionesAdicionales[$k][1]; ?></li>                        
-                                <?php
-                                      if($j<$k){
-                                        $j++; $i++;
-                                      }
-                                      $seccionAnterior = $this->seccionesAdicionales[$k][9];
-                                    }
-                                    else{
-                                      break;
-                                    }
-                         ?>                   
-                       </ul>
+                <li>
+                  <h4><b><?php echo $this->seccionesAdicionales[$j]['titulo_contenido']; ?></b></h4>
+              <?php 
+                          if($this->seccionesAdicionales[$j]['descripcion_contenido']){
+              ?>
+                  <p class="text-justify">
+                    <?php echo $this->seccionesAdicionales[$j]['descripcion_contenido']; ?>
+                  </p>
               <?php
+                          }
+                          if($this->seccionesAdicionales[$j]['id_subtitulo_seccion']){
+                            $contenidoAnterior = $this->seccionesAdicionales[$j][7];
+              ?>
+                  <ul class"text-justify">
+              <?php 
+                            for ($k=$j; $k < count($this->seccionesAdicionales); $k++) {
+                              if($seccionAnterior == $this->seccionesAdicionales[$k][1] &&
+                                  $contenidoAnterior == $this->seccionesAdicionales[$k][7]){
+
+               ?>
+                    <li><?php echo $this->seccionesAdicionales[$k]['subtitulo_seccion']; ?></li>
+              <?php
+                                if($k>$j){
+                                  $j++; $i++;
+                                }
+                                $contenidoAnterior = $this->seccionesAdicionales[$k][7];
+                              }
+                              else
+                                break;
+                            }
+              ?>
+                  </ul> 
+              <?php
+                          }
+               ?>
+                  
+                </li>                        
+                  
+              <?php
+                          if($j>$i){
+                            $i++;
+                          }
+                          $seccionAnterior = $this->seccionesAdicionales[$j][1];
                         }
+                        else
+                          break;
                        }
+              ?>
+                </ul>
+              <?php
                       }
                     }              
+                  }                
               ?>
-
-              
-              <?php
-                   }
-                  }
-                }
-              ?>
-                
-                <!-- <h4><b>Parte Teorica</b></h4>
-                <p class="text-justify">Los alumnos deben rendir las dos evaluaciones teóricas, y  obligatoriamente deben entregar su proyecto final para aprobar y caso de no hacerlo tener derecho a segunda instancia y final.
-                </p>
-                <ul class"text-justify">
-                  <li>Subtitulo 1</li>
-                  <li>Subtitulo 2</li>
-                  <li>Subtitulo 3</li>
-                </ul> 
-                
-                <h4><b>Grupos Parte Practica</b></h4>
-                <p class="text-justify"> El proyecto (práctica) será elaborado en grupos de mínimo dos y máximo tres personas.Estos grupos serán para todo el semestre. 
-                Se pide flexibilidad al hacer los grupos de modo de no excluir a ningún 
-                alumno. En caso de problemas de este tipo, el profesor se reserva el derecho de 
-                nominar grupos.  
-                </p>
-                <ul class="text-justify">
-                  <li>Primera presentacion</li>
-                  <li>Segunda presentacion</li>
-                  <li>Entrega final</li>
-                </ul> -->
           </ol>
 
         </div>

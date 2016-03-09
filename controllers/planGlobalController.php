@@ -50,6 +50,8 @@ class planGlobalController extends Controller{
 		$this->_view->bibliografiasComplementaria = $this->_planGlobalDao->getBibliografiasComplementaria($id_plan_global);
 		$this->_view->seccionesAdicionales = $this->_planGlobalDao->getSeccionesAdicionales($id_plan_global);
 
+		//var_dump($this->_view->seccionesAdicionales); exit;
+
 		$this->_view->renderizar('vistaPG');
 	}
 

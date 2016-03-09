@@ -114,7 +114,7 @@ class planGlobalModel extends Model{
 	public function getUnidades($id_pg){
 		$unidades = $this->_db->query(
 			"SELECT * from (SELECT * FROM unidad u FULL OUTER JOIN capitulo c on u.id_unidad = c.id_unidad
-												where u.id_pg = $id_pg) as consulta full outer join subtitulo s on consulta.id_capitulo = s.id_capitulo
+												where u.id_pg = $id_pg) as consulta LEFT OUTER JOIN subtitulo s on consulta.id_capitulo = s.id_capitulo
 				order by consulta.numero_unidad, consulta.numero_capitulo, s.numero_subtitulo;"
 			);
 
@@ -142,7 +142,7 @@ class planGlobalModel extends Model{
 	public function getSeccionesAdicionales($id_pg){
 		$seccionesAdicionales = $this->_db->query(
 			"SELECT * from (SELECT * FROM secciones_adicionales s FULL OUTER JOIN contenidos_seccion c on s.id_seccion = c.id_seccion
-												where s.id_pg = $id_pg) as consulta full outer join subtitulos_contenido_seccion ss on consulta.id_contenido = ss.id_contenido
+												where s.id_pg = $id_pg) as consulta LEFT OUTER JOIN subtitulos_contenido_seccion ss on consulta.id_contenido = ss.id_contenido
 				order by consulta.numero_seccion, consulta.numero_contenido, ss.numero_subtitulo_seccion;"
 			);
 
