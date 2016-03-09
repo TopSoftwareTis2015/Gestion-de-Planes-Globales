@@ -233,7 +233,7 @@
             <h4><li><b class="bordes">OBJETIVOS</b></li></h4>
               <ol>
                 <!-- lista de objetivos generales -->
-                <h4><li><b>Objetivos Generales</b></h4>
+                <li><h4><b>Objetivos Generales</b></h4>
                   <ul>
                     <?php 
                       if(isset($this->objetivosGenerales)){
@@ -261,7 +261,7 @@
                   if(isset($this->objetivosEspecificos) && $this->objetivosEspecificos){
                 ?>
 
-                <h4><li><b>Objetivos Especificos</b></h4>
+                <li><h4><b>Objetivos Especificos</b></h4>
                    <ul>
                     <?php 
                       if(isset($this->objetivosEspecificos)){
@@ -368,12 +368,12 @@
                 }
                ?>
             <br>
-            <h4><li><b class="bordes">METODOLOGIAS</b></li></h4>
+            <li><h4><b class="bordes">METODOLOGIAS</b></h4></li>
               <p class="text-justify">
                 <?php if(isset($this->planGlobal))echo $this->planGlobal['metodologias']; ?>
              </p>
              <br>
-            <h4><li><b class="bordes">CRONOGRAMA O DURACION EN PERIODOS ACADEMICOS POR UNIDAD</b></li></h4>
+            <li><h4><b class="bordes">CRONOGRAMA O DURACION EN PERIODOS ACADEMICOS POR UNIDAD</b></h4></li>
               <p>El cronograma y avance de la materia se regir&aacute; por la siguiente secuencia</p>
               <div class="panel panel-default">
                 <div class="table-responsive">
@@ -456,31 +456,61 @@
               <?php 
                 if(isset($this->seccionesAdicionales) && $this->seccionesAdicionales){
               ?>
+
               <?php 
                   for ($i=0; $i < count($this->seccionesAdicionales); $i++) { 
               ?>
-              <h4><li><b class="bordes">
+              <li><h4><b class="bordes">
                 <?php echo $this->seccionesAdicionales[$i]['titulo_seccion']; ?>
-              </b></li></h4>
+              </b></h4></li>
               <?php 
+                    //implemantar las funcionalidad para que se muestre los objetivos que tenga una seccion
                     if($this->seccionesAdicionales[$i]['objetivo_seccion']){
                       echo "<p>".$this->seccionesAdicionales[$i]['objetivo_seccion']."</p>";
                     }
                     if($this->seccionesAdicionales[$i]['id_contenido']){
-                      $seccionAnterior = 
+                      $seccionAnterior = $this->seccionesAdicionales[$i][1];;
 
-                      for ($j=$i; $j < count($this->seccionesAdicionales); $j++) { 
-                        
+                      for ($j=$i; $j < count($this->seccionesAdicionales[$i]['id_contenido']); $j++) { 
+                        if($seccionAnterior == $this->seccionesAdicionales[$j][1]){
+              ?>
+                       <?php
+
+                          for ($k=$j; $k < count($this->seccionesAdicionales[$k]['id_contenido']); $k++) {
+                        ?>    
+                            <?php echo $this->seccionesAdicionales[$k]['titulo_contenido']; ?> 
+                        <?php    
+                            if($seccionAnterior == $this->seccionesAdicionales[$j][1] &&
+                              $seccionAnterior == $this->seccionesAdicionales[$k][5]){
+                        ?>
+                            <ul>
+                            <li><?php echo $this->seccionesAdicionales[$k][1]; ?></li>                        
+                                <?php
+                                      if($j<$k){
+                                        $j++; $i++;
+                                      }
+                                      $seccionAnterior = $this->seccionesAdicionales[$k][9];
+                                    }
+                                    else{
+                                      break;
+                                    }
+                         ?>                   
+                       </ul>
+              <?php
+                        }
+                       }
                       }
-                    }
+                    }              
+              ?>
 
+              
+              <?php
+                   }
                   }
-               ?>
-              <?php 
                 }
-               ?>
+              ?>
                 
-                <h4><b>Parte Teorica</b></h4>
+                <!-- <h4><b>Parte Teorica</b></h4>
                 <p class="text-justify">Los alumnos deben rendir las dos evaluaciones teóricas, y  obligatoriamente deben entregar su proyecto final para aprobar y caso de no hacerlo tener derecho a segunda instancia y final.
                 </p>
                 <ul class"text-justify">
@@ -499,13 +529,7 @@
                   <li>Primera presentacion</li>
                   <li>Segunda presentacion</li>
                   <li>Entrega final</li>
-                </ul>
-          </ol>
-          
-        </div>
-     </div>
-    </div> 
-  </section>
+                </ul> -->
           </ol>
 
         </div>
