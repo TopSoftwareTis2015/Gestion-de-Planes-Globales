@@ -309,5 +309,16 @@ class planGlobalController extends Controller{
 		$id_pg = $id_pg[0];
 		echo $id_pg;
 	}
+
+	public function editarPlanGlobal($id_pg){
+		$id = $id[0];
+
+		if($id == "0")
+			$this->redireccionar("materias");
+
+		$this->_view->hola = "edite su plan global";
+
+		$this->_view->renderizar("editarPlanGlobal");
+	}
 }
  ?>

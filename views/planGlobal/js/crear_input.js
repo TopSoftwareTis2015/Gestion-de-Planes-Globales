@@ -108,8 +108,8 @@ function addSeccion(idSeccionContainer)
     var nuevoElemento05 = '<input class="form-control" type="text" name="titulo_'+identificadorSeccion+'" id="titulo_'+identificadorSeccion+'" required>';
     var nuevoElemento06 = '</div>';
     var nuevoElemento07 = '<div class="form-group">';
-    var nuevoElemento08 = '<label for="objetivo_'+identificadorSeccion+'">Objetivo:</label>';
-    var nuevoElemento09 = '<textarea class="form-control" name="objetivo_'+identificadorSeccion+'" id="objetivo_'+identificadorSeccion+'" cols="100" rows="3"></textarea>';
+    var nuevoElemento08 = '<label for="objetivo_'+identificadorSeccion+'">Descripcion:</label>';
+    var nuevoElemento09 = '<textarea class="form-control" name="objetivo_'+identificadorSeccion+'" id="objetivo_'+identificadorSeccion+'" cols="100" rows="3" required></textarea>';
     var nuevoElemento10 = '</div>';
 
     var nuevoElemento11 = "";
