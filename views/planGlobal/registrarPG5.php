@@ -34,7 +34,7 @@
    var total=0;
    var duracion_semana = 0; 
    if(document.getElementById("periodoSemana").value==''){
-     actualizarError("error_cronograma", "Indique las duracion de periodos por semana en la seccion de carga horaria");        
+     actualizarError("error_cronograma", "Indique la duracion de periodos por semana en la seccion de carga horaria");        
    }else{
 
      duracion_semana=num / parseInt(document.getElementById("periodoSemana").value);

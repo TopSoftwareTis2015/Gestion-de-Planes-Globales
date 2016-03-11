@@ -91,7 +91,15 @@
       </div>
      </nav>
      
-    <div class="container-fluid col-xs-12 col-sm-8 col-md-9" id="vista">
+    <div class="container-fluid col-xs-12 col-sm-8 col-md-9" id="vista"> 
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li><a href=""><b>Editar</b></a></li>
+              <li><a href=""><b>Contenido Minimo</b></a></li>  
+            </ul>
+          </div>
+        </nav>
      <div class="panel panel-default">
         <div class="panel-vista container-fluid">
           <div class="col-xs-3 col-sm-3 col-md-2">
