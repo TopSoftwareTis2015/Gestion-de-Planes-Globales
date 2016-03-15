@@ -95,7 +95,11 @@
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <ul class="nav navbar-nav">
-              <li><a href=""><b>Editar</b></a></li>
+              <li>
+                <a href="<?php echo BASE_URL.'planglobal/editarPlanGlobal/'. $this->planGlobal['id_pg'];?>">
+                  <b>Editar</b>
+                </a>
+              </li>
               <li><a href=""><b>Contenido Minimo</b></a></li>  
             </ul>
           </div>
