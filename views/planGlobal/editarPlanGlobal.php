@@ -102,7 +102,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
               <!--Titulo del formulario-->
-              <h1><strong><center><?php if(isset($this->hola)) echo $this->hola; ?></center></strong></h1>
+              <h1><strong><center><?php if(isset($this->tituloFormulario)) echo $this->tituloFormulario; ?></center></strong></h1>
                    
               <form name="formPg1" method="post" onsubmit="return antesDeEnviar();"
                 action="<?php echo BASE_URL . 'planGlobal/registrar/'; echo (isset($this->materia))?$this->materia['codigo_materia']:""; ?>/1">
@@ -113,6 +113,7 @@
                   <!--<div class="col-xs-12 col-md-9">--> 
                     <span id="error_anio_gestion" class="label label-danger"></span>
                     <span id="error_codigo_pg" class="label label-danger"></span>
+                    <br>
                     <div class="form-inline">
                       <label for="gestion">Gestion:</label>
                       <!--<input class="form-control" type="" id="nomMateria">-->
@@ -122,23 +123,43 @@
                            <option value="III">III</option>
                            <option value="IV">IV</option>
                       </select>
+                      <script>
+                        insertarGestion();
+                        function insertarGestion(){
+                          var gestion = document.getElementById("gestion");
+                          var elemento;
+
+                          for (var i = 0; i < gestion.childNodes.length; i++) {
+                            elemento = gestion.childNodes[i];
+
+                            if(elemento instanceof HTMLOptionElement){
+                              if(elemento.value == "<?php if(isset($this->gestion)) echo $this->gestion;?>"){
+                                elemento.selected = true;
+                                break;
+                              }
+                            }
+                          };
+                        }
+                      </script>
                       <input type="text" class="form-control" pattern="[/^([0-9])*$/]{4}" name="anio_gestion"
                               id="anio_gestion" placeholder="Año 4 digitos" onkeyup="validarAnioGestion(this.value);" required
-                              title="1832 hasta el año actual!">
+                              title="1832 hasta el año actual!"
+                              value="<?php if(isset($this->anio_gestion)) echo $this->anio_gestion; ?>">
                       &nbsp;&nbsp;&nbsp; 
                       <label for="codigo_plan_global">Codigo:</label>
                       <input type="text" name="codigo_plan_global" id="codigo_plan_global"
                               class="form-control" maxlength="30" placeholder="Código del plan global" 
                               onkeyup="validarCodigoUnico(this);" 
-                              data-url-validar="<?php echo BASE_URL.'planGlobal/validar_codigo';?>"><br>
+                              data-url-validar="<?php echo BASE_URL.'planGlobal/validar_codigo';?>"
+                              value = "<?php if(isset($this->planGlobal)) echo $this->planGlobal['codigo_plan_global'];?>"><br>
                     </div><br>
 
                     <div class="form-group">
                       <div class="input-group">
                            <span class="input-group-addon">Titulo</span>
                            <input type="text" class="form-control"name="titulo" id="titulo" required maxlength="300"
-                                  value="Plan Global - <?php if(isset($this->materia)) echo $this->materia['nombre_materia']; ?>"
-                                  title="Titulo sugerido, editelo deacuerdo a sus especificaciones."><br>
+                                  value="<?php if(isset($this->planGlobal)) echo $this->planGlobal['titulo']; ?>">
+                                  <br>
                       </div>
                     </div> 
 
@@ -196,11 +217,11 @@
 
                                <select id="sel1" style="width:250px" size="6">
                                 <?php
-                                  for ($i=0; $i < count($this->grupos); $i++) { 
+                                  for ($i=0; $i < count($this->gruposTotales); $i++) { 
                                 ?>
-                                <option value="<?php echo $this->grupos[$i]['id_usuario'] .'_'. $this->grupos[$i]['grupo'] ?>"
-                                  data-docente="<?php echo $this->grupos[$i]['id_usuario'] ?>">
-                                  Grupo <?php echo $this->grupos[$i]['grupo']; ?>
+                                <option value="<?php echo $this->gruposTotales[$i]['id_usuario'] .'_'. $this->gruposTotales[$i]['grupo'] ?>"
+                                  data-docente="<?php echo $this->gruposTotales[$i]['id_usuario'] ?>">
+                                  Grupo <?php echo $this->gruposTotales[$i]['grupo']; ?>
                                 </option>
                                 <?php  }?>
                                </select>
@@ -216,6 +237,14 @@
                              <td>
                              <span class="navArriba">
                                  <select name="grupos_plan_global[]" id="sel2" style="width:220px" size="6" multiple="multiple">
+                                  <?php
+                                    for ($i=0; $i < count($this->gruposPlanGlobal); $i++) { 
+                                  ?>
+                                  <option value="<?php echo $this->gruposPlanGlobal[$i]['id_usuario'] .'_'. $this->gruposPlanGlobal[$i]['grupo'] ?>"
+                                    data-docente="<?php echo $this->gruposPlanGlobal[$i]['id_usuario'] ?>">
+                                    Grupo <?php echo $this->gruposPlanGlobal[$i]['grupo']; ?>
+                                  </option>
+                                  <?php  }?>
                                  </select>
                                </span>
                              </td>
@@ -243,10 +272,10 @@
 
                               <select id="sel3" style="width:250px" size="6">
                                 <?php 
-                                  for ($i=0; $i < count($this->docentes); $i++) { 
+                                  for ($i=0; $i < count($this->docentesTotales); $i++) { 
                                     ?>
-                                <option value="<?php echo $this->docentes[$i]['id_usuario']; ?>">
-                                  <?php echo $this->docentes[$i]['nombre_usuario']; ?>
+                                <option value="<?php echo $this->docentesTotales[$i]['id_usuario']; ?>">
+                                  <?php echo $this->docentesTotales[$i]['nombre_usuario']; ?>
                                 </option>
                                 <?php  }
                                  ?>
@@ -264,6 +293,14 @@
                              <td>
                              <span class="navArriba">
                                  <select id="sel4" style="width:220px" size="6" name="carrera[]" multiple="multiple">
+                                  <?php 
+                                    for ($i=0; $i < count($this->docentesPlanGlobal); $i++) { 
+                                      ?>
+                                  <option value="<?php echo $this->docentesPlanGlobal[$i]['id_usuario']; ?>">
+                                    <?php echo $this->docentesPlanGlobal[$i]['nombre_usuario']; ?>
+                                  </option>
+                                  <?php  }
+                                   ?>
                                   </select>
                                </span>
                              </td>
@@ -277,9 +314,18 @@
                            <div class="form-group ">
 
                              <label for="telefono">Telefonos:</label>
-                             <textarea readonly class="form-control"name="" id="telefonos" cols="60" rows="3"></textarea>
-                            <script>                              
-                              setDocentes(<?php echo json_encode($this->docentes); ?>);
+                             <textarea readonly class="form-control"name="" id="telefonos" cols="60" rows="3">
+<?php 
+for ($i=0; $i < count($this->docentesPlanGlobal); $i++) { 
+echo $this->docentesPlanGlobal[$i]['nombre_usuario'] . ": " . $this->docentesPlanGlobal[$i]['numero_movil_usuario'] . " " . $this->docentesPlanGlobal[$i]['numero_fijo_usuario'] . "\n";
+}
+ ?>                               
+                             </textarea>
+                            <script>
+                              docentesTotales = <?php echo json_encode($this->docentesTotales); ?>                              
+                              docentesPlanGlobal = <?php echo json_encode($this->docentesPlanGlobal); ?>
+
+                              setDocentes(docentesTotales.concat(docentesPlanGlobal));
                             </script>
 
                            </div>
@@ -291,7 +337,13 @@
                            <div class="form-group">
                               <label for="correo">Correos:</label>
 
-                              <textarea readonly class="form-control"name="" id="correos" cols="60" rows="3"></textarea>
+                              <textarea readonly class="form-control"name="" id="correos" cols="60" rows="3">
+<?php 
+for ($i=0; $i < count($this->docentesPlanGlobal); $i++) { 
+echo $this->docentesPlanGlobal[$i]['nombre_usuario'] . ": " . $this->docentesPlanGlobal[$i]['correo_usuario'] . "\n";
+}
+ ?>                                
+                              </textarea>
 
                            </div>
                           </div>
@@ -304,24 +356,24 @@
  ?>  
     <?php 
       //Parte 2
-      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG2.php"';
+      include ROOT.'views'.DS.'planGlobal'.DS.'editarPG2.php"';
       
       //Parte 3
-      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG3.php"';                            
+      include ROOT.'views'.DS.'planGlobal'.DS.'editarPG3.php"';                            
     ?>
     
     <?php
       // Parte 4
-      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG4.php"';                             
+      include ROOT.'views'.DS.'planGlobal'.DS.'editarPG4.php"';                             
       
       //Parte 5
-      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG5.php"';                            
+      include ROOT.'views'.DS.'planGlobal'.DS.'editarPG5.php"';                            
      
       //Parte 6
-      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG6.php"';
+      include ROOT.'views'.DS.'planGlobal'.DS.'editarPG6.php"';
 
       //Parte 7                            
-      include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG7.php"';                            
+      include ROOT.'views'.DS.'planGlobal'.DS.'editarPG7.php"';                            
 
     ?>
     

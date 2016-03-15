@@ -32,6 +32,16 @@ class materiasModel extends Model{
 		return $materia->fetch();
 	}
 
+	public function getMateriaPlanGlobal($id_pg){
+		$materia = $this->_db->query(
+			"SELECT * FROM materias
+				WHERE	codigo_materia = (SELECT codigo_materia FROM grupos
+																	WHERE id_pg = $id_pg LIMIT 1);
+			");
+
+		return $materia->fetch();
+	}
+
 	public function eliminarMateria($codigo_materia){
 		$this->_db-> query("update materias set 
 													habilitada_materia = FALSE

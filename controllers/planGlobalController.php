@@ -107,7 +107,7 @@ class planGlobalController extends Controller{
 		$justificacion = $_POST['justificacion'];
 		$metodologias = $_POST['metodologias'];
 		$criterios_evaluacion = $_POST['criterios_evaluacion'];
-		$gestion_pg = $_POST['gestion'] . $_POST['anio_gestion'];
+		$gestion_pg = $_POST['gestion'] .'-'. $_POST['anio_gestion'];
 		$codigo_plan_global = $_POST['codigo_plan_global'];
 
 		$numero_plan_global = $this->getNumeroPlanGlobal($codigo_materia);
@@ -311,12 +311,30 @@ class planGlobalController extends Controller{
 	}
 
 	public function editarPlanGlobal($id_pg){
-		$id = $id[0];
+		$id_pg = $id_pg[0];
 
-		if($id == "0")
+		$planGlobal = $this->_planGlobalDao->getPlanGlobal($id_pg);
+
+		if(!$planGlobal)
 			$this->redireccionar("materias");
 
-		$this->_view->hola = "edite su plan global";
+		$this->_view->tituloFormulario = "Editar Plan Global";
+		$this->_view->planGlobal = $planGlobal;
+		$this->_view->materia = $this->_materiaDao->getMateriaPlanGlobal($id_pg);
+		
+		$this->_view->gruposTotales = $this->_grupoDao->getGruposSinPG($this->_view->materia['codigo_materia']);
+		$this->_view->gruposPlanGlobal = $this->_grupoDao->getGruposPG($id_pg, $this->_view->materia['codigo_materia']);
+
+		$this->_view->docentesTotales = $this->_grupoDao->getDocentesSinPG($this->_view->materia['codigo_materia']);
+		$this->_view->docentesPlanGlobal = $this->_grupoDao->getDocentesPG($id_pg, $this->_view->materia['codigo_materia']);
+
+		$this->_view->carga_horaria = $this->_planGlobalDao->getCargaHoraria($id_pg);
+
+		//cargando datos de la gestion.
+		$datosGestion = explode('-', $planGlobal['gestion_pg']);
+		$this->_view->gestion = $datosGestion[0];
+		$this->_view->anio_gestion = $datosGestion[1];
+
 
 		$this->_view->renderizar("editarPlanGlobal");
 	}
