@@ -335,6 +335,12 @@ class planGlobalController extends Controller{
 		$this->_view->gestion = $datosGestion[0];
 		$this->_view->anio_gestion = $datosGestion[1];
 
+		$this->_view->objetivosGenerales = $this->_planGlobalDao->getObjetivosGenerales($id_pg);
+		$this->_view->objetivosEspecificos = $this->_planGlobalDao->getObjetivosEspecificos($id_pg);
+		$this->_view->unidades = $this->_planGlobalDao->getUnidades($id_pg);
+		$this->_view->bibliografiasBase = $this->_planGlobalDao->getBibliografiasBase($id_pg);
+		$this->_view->bibliografiasComplementaria = $this->_planGlobalDao->getBibliografiasComplementaria($id_pg);
+		$this->_view->seccionesAdicionales = $this->_planGlobalDao->getSeccionesAdicionales($id_pg);
 
 		$this->_view->renderizar("editarPlanGlobal");
 	}

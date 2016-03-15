@@ -64,6 +64,6 @@
 </script>
 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>
     <!--textarea para ingresar la informacion de criterio de evaluacion de una materia-->
-    <textarea class="form-control" name="criterios_evaluacion" id="criterios" cols="100" rows="10"></textarea>
+    <textarea class="form-control" name="criterios_evaluacion" id="criterios" cols="100" rows="10"><?php echo $this->planGlobal['criterios_evaluacion']; ?></textarea>
     <br>
 <!--Fin parte 5
