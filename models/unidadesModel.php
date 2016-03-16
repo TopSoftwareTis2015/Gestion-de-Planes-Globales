@@ -34,6 +34,11 @@ class unidadesModel extends Model{
 
 		return $id->fetch();
 	}
+
+	public function eliminarUnidades($id_pg){
+		$this->_db->query("DELETE FROM unidad
+												WHERE id_pg = $id_pg;");
+	}
 }
 
 

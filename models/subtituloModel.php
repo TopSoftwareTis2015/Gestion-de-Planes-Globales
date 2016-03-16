@@ -22,6 +22,11 @@ class subtituloModel extends Model{
 			exit;
 		}
 	}
+
+	public function eliminarSubtitulos($id_pg, $id_unidad, $id_contenido){
+		$this->_db->query("DELETE FROM subtitulo
+												WHERE id_pg = $id_pg and id_unidad = $id_unidad and id_capitulo = $id_contenido");
+	}
 }
 
 

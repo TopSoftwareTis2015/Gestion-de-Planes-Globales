@@ -33,6 +33,11 @@ class contenidos_seccionModel extends Model{
 
 		return $id->fetch();
 	}
+
+	public function eliminarContenidos($id_pg, $id_seccion){
+		$this->_db->query("DELETE FROM contenidos_seccion
+												WHERE id_pg = $id_pg and id_seccion = $id_unidad;");
+	}
 }
 
 

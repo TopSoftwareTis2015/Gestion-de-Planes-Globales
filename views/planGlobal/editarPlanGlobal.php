@@ -105,7 +105,7 @@
               <h1><strong><center><?php if(isset($this->tituloFormulario)) echo $this->tituloFormulario; ?></center></strong></h1>
                    
               <form name="formPg1" method="post" onsubmit="return antesDeEnviar();"
-                action="<?php echo BASE_URL . 'planGlobal/registrar/'; echo (isset($this->materia))?$this->materia['codigo_materia']:""; ?>/1">
+                action="<?php echo BASE_URL . 'planGlobal/actualizar/'; echo (isset($this->materia))?$this->materia['codigo_materia']:""; ?>/1/<?php echo $this->planGlobal['id_pg']; ?>">
 
                 <input type="hidden" name='guardar' value="1">
 
@@ -149,7 +149,8 @@
                       <label for="codigo_plan_global">Codigo:</label>
                       <input type="text" name="codigo_plan_global" id="codigo_plan_global"
                               class="form-control" maxlength="30" placeholder="Código del plan global" 
-                              onkeyup="validarCodigoUnico(this);" 
+                              onkeyup="validarCodigoUnico(this);"
+                              data-value-anterior = "<?php if(isset($this->planGlobal)) echo $this->planGlobal['codigo_plan_global'];?>"
                               data-url-validar="<?php echo BASE_URL.'planGlobal/validar_codigo';?>"
                               value = "<?php if(isset($this->planGlobal)) echo $this->planGlobal['codigo_plan_global'];?>"><br>
                     </div><br>

@@ -187,6 +187,11 @@ class planGlobalModel extends Model{
 		return $id_pg->fetch();
 	}
 
+	public function eliminarPlanGlobal($id_pg){
+		$this->_db->query("DELETE FROM planes_globales
+												WHERE id_pg = $id_pg;");
+	}
+
 }
 
 

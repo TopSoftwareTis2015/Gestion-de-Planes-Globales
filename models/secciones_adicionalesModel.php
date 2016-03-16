@@ -30,6 +30,11 @@ class secciones_adicionalesModel extends Model{
 
 		return $id->fetch();
 	}
+
+	public function eliminarSecciones($id_pg){
+		$this->_db->query("DELETE FROM secciones_adicionales
+												WHERE id_pg = $id_pg;");
+	}
 }
 
 

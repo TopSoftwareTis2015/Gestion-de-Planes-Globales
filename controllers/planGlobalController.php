@@ -55,6 +55,108 @@ class planGlobalController extends Controller{
 		$this->_view->renderizar('vistaPG');
 	}
 
+	public function actualizar($codigo){
+		$this->eliminarPlanGlobal($codigo);
+		$this->registrar($codigo);
+	}
+
+	public function eliminarPlanGlobal($codigo){
+		$this->actualizarGrupos($codigo);
+		$this->eliminarCargaHoraria($codigo);
+		$this->eliminarBibliografias($codigo);
+		$this->eliminarObjetivos($codigo);
+		$this->eliminarUnidades($codigo);
+		$this->eliminarSeccionesAdicionales($codigo);
+		$this->eliminarPlanGlobalTabla($codigo);
+	}
+
+	private function eliminarPlanGlobalTabla($codigo){
+		$this->_planGlobalDao->eliminarPlanGlobal($codigo[2]);
+	}
+
+	private function eliminarSeccionesAdicionales($codigo){
+		$secciones = $this->_planGlobalDao->getSeccionesAdicionales($codigo[2]);
+
+		for ($i=0; $i < count($secciones); $i++) { 
+			if($secciones[$i][7]){
+				$seccionAnterior = $secciones[$i][1];
+				for ($j=$i; $j < count($secciones); $j++) { 
+					if($seccionAnterior == $secciones[$j][1]){
+						if($secciones[$j][14]){
+							//for ($k=$j; $k < count($secciones); $k++) { 
+								//if($seccionAnterior == $secciones[$k][1] && $contenidoAnterior == $secciones[$k][9]){
+									$this->_subtituloSeccionDao->eliminarSubtitulos($codigo[2], $secciones[$j][1], $secciones[$j][7]);
+								//}
+							//}
+
+						}
+						if($j>$i){
+							$i++;
+						}
+						$seccionAnterior = $secciones[$j][1];
+					}
+					else
+						break;
+				}
+
+				$this->_contenidoDao->eliminarContenidos($codigo[2], $secciones[$i][1]);
+			}
+		}
+
+		$this->_seccionDao->eliminarSecciones($codigo[2]);
+	}
+
+	private function eliminarUnidades($codigo){
+		$unidades = $this->_planGlobalDao->getUnidades($codigo[2]);
+
+		for ($i=0; $i < count($unidades); $i++) { 
+			if($unidades[$i][9]){
+				$unidadAnterior = $unidades[$i][1];
+				for ($j=$i; $j < count($unidades); $j++) { 
+					if($unidadAnterior == $unidades[$j][1]){
+						if($unidades[$j][16]){
+							//for ($k=$j; $k < count($unidades); $k++) { 
+								//if($unidadAnterior == $unidades[$k][1] && $contenidoAnterior == $unidades[$k][9]){
+									$this->_subtituloDao->eliminarSubtitulos($codigo[2], $unidades[$j][1], $unidades[$j][9]);
+								//}
+							//}
+
+						}
+						if($j>$i){
+							$i++;
+						}
+						$unidadAnterior = $unidades[$j][1];
+					}
+					else
+						break;
+				}
+
+				$this->_capituloDao->eliminarContenidos($codigo[2], $unidades[$i][1]);
+			}
+		}
+
+		$this->_unidadDao->eliminarUnidades($codigo[2]);
+	}
+
+	private function eliminarObjetivos($codigo){
+		$this->_objetivosDao->eliminarObjetivos($codigo[2]);
+	}
+
+	private function eliminarBibliografias($codigo){
+		$this->_bibliografiasDao->eliminarBibliografias($codigo[2]);
+	}
+
+	private function eliminarCargaHoraria($codigo){
+		$this->_cargaHorariasDao->eliminarCargaHoraria($codigo[2]);
+	}
+
+	private function actualizarGrupos($codigo){
+		$grupos = $this->_planGlobalDao->getGrupos($codigo[2]);
+		//for ($i=0; $i < count($grupos); $i++) { 
+			$this->_grupoDao->eliminarPlanGlobal($codigo[2]);
+		//}
+	}
+
 	public function registrar($codigo){
 		$codigo_materia = $codigo[0];
 		$this->_view->materia = $this->_materiaDao->getMateria('codigo_materia',$codigo_materia);
@@ -83,7 +185,7 @@ class planGlobalController extends Controller{
 
 			$this->registrarSeccionesAdicionales($id_pg);
 
-			if(count($codigo)==2){
+			if(count($codigo)>1){
 				$this->_view->confirmarGuardar = $codigo[1];
 			}
 

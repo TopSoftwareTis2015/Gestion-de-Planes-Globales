@@ -8,7 +8,7 @@ function repararContainer(contenedor){
   var nodos = [], j=0;
 
   for (var i = 0; i < contenedor.childNodes.length; i++) {
-     if(!(contenedor.childNodes[i] instanceof Text)){
+     if(!(contenedor.childNodes[i] instanceof Text || contenedor.childNodes[i] instanceof Comment)){
         nodos[j] = contenedor.childNodes[i];
         j++;
      }
@@ -545,14 +545,18 @@ function modificarObjetivo(objetivo, nuevoNumeroObjetivo){
   
   objetivo.dataset.numeroObjetivo = nuevoNumeroObjetivo;
   //modificando el titulo del objetivo.
+  
+  repararContainer(objetivo);
   objetivo.childNodes[0].innerHTML = "Objetivo " + nuevoNumeroObjetivo;
   //modificando el input del titulo del objetivo.
+  repararContainer(objetivo.childNodes[1]);
   objetivo.childNodes[1].childNodes[0].setAttribute("for", objetivo.childNodes[1].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = objetivo.childNodes[1].childNodes[0].getAttribute("for");
   objetivo.childNodes[1].childNodes[1].id = atributoAuxiliar;
   objetivo.childNodes[1].childNodes[1].name = atributoAuxiliar;
 
   //modificando el input de la descripcion del objetivo.
+  repararContainer(objetivo.childNodes[2]);
   objetivo.childNodes[2].childNodes[0].setAttribute("for", objetivo.childNodes[2].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = objetivo.childNodes[2].childNodes[0].getAttribute("for");
   objetivo.childNodes[2].childNodes[1].id = atributoAuxiliar;
@@ -570,12 +574,15 @@ function modificarBibliografia(bibliografia, nuevoNumeroBibliografia){
   bibliografia.dataset.numeroBibliografia = nuevoNumeroBibliografia;
 
   //modificando el input del titulo del bibliografia.
+  repararContainer(bibliografia);
+  repararContainer(bibliografia.childNodes[1]);
   bibliografia.childNodes[1].childNodes[0].setAttribute("for", bibliografia.childNodes[1].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = bibliografia.childNodes[1].childNodes[0].getAttribute("for");
   bibliografia.childNodes[1].childNodes[1].id = atributoAuxiliar;
   bibliografia.childNodes[1].childNodes[1].name = atributoAuxiliar;
 
   //modificando el input del autor del bibliografia.
+  repararContainer(bibliografia.childNodes[2]);
   bibliografia.childNodes[2].childNodes[0].setAttribute("for", bibliografia.childNodes[2].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = bibliografia.childNodes[2].childNodes[0].getAttribute("for");
   bibliografia.childNodes[2].childNodes[1].id = atributoAuxiliar;
@@ -594,16 +601,22 @@ function modificarContenido(contenido, nuevoNumeroContenido){
   
   contenido.dataset.numeroContenido = nuevoNumeroContenido;
 
+  repararContainer(contenido);
   contenido.childNodes[2].setAttribute("onclick","eliminarContenido('"+contenido.id+"')");
 
+  repararContainer(contenido.childNodes[4]);
   contenido.childNodes[4].childNodes[0].innerHTML = "Capitulo " + nuevoNumeroContenido;
+
+  repararContainer(contenido.childNodes[4].childNodes[1]);
   contenido.childNodes[4].childNodes[1].childNodes[0].setAttribute("for", contenido.childNodes[4].childNodes[1].childNodes[1].id.replace(oldId, newId));
+
   var atributoAuxiliar = contenido.childNodes[4].childNodes[1].childNodes[0].getAttribute("for");
   contenido.childNodes[4].childNodes[1].childNodes[1].id = atributoAuxiliar;
   contenido.childNodes[4].childNodes[1].childNodes[1].name = atributoAuxiliar;
 
   contenido.childNodes[4].childNodes[2].id = contenido.childNodes[4].childNodes[2].id.replace(oldId, newId);
 
+  repararContainer(contenido.childNodes[4].childNodes[2]);
   for (var i = 0; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
   };
@@ -619,15 +632,19 @@ function modificarContenidoSeccion(contenido, nuevoNumeroContenido){
   
   contenido.dataset.numeroContenido = nuevoNumeroContenido;
 
+  repararContainer(contenido);
+
   contenido.childNodes[2].setAttribute("onclick","eliminarContenidoSeccion('"+contenido.id+"')");
 
   contenido.childNodes[4].innerHTML = "Contenido " + nuevoNumeroContenido;
   
+  repararContainer(contenido.childNodes[5]);
   contenido.childNodes[5].childNodes[0].setAttribute("for", contenido.childNodes[5].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = contenido.childNodes[5].childNodes[0].getAttribute("for");
   contenido.childNodes[5].childNodes[1].id = atributoAuxiliar;
   contenido.childNodes[5].childNodes[1].name = atributoAuxiliar;
 
+  repararContainer(contenido.childNodes[6]);
   contenido.childNodes[6].childNodes[0].setAttribute("for", contenido.childNodes[6].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = contenido.childNodes[6].childNodes[0].getAttribute("for");
   contenido.childNodes[6].childNodes[1].id = atributoAuxiliar;
@@ -635,6 +652,7 @@ function modificarContenidoSeccion(contenido, nuevoNumeroContenido){
 
   contenido.childNodes[7].id = contenido.childNodes[7].id.replace(oldId, newId);
 
+  repararContainer(contenido.childNodes[7]);
   for (var i = 0; i < contenido.childNodes[7].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[7].childNodes[i], oldId, newId);
   };
@@ -645,9 +663,13 @@ function modificarContenidoSeccion(contenido, nuevoNumeroContenido){
 function modificarSectorContenido(contenido, oldId, newId){
   contenido.id = contenido.id.replace(oldId, newId);
 
+  repararContainer(contenido);
   contenido.childNodes[2].setAttribute("onclick","eliminarContenido('"+contenido.id+"')");
 
-  contenido.childNodes[4].childNodes[0].innerHTML = "Capitulo " + nuevoNumeroContenido;
+  repararContainer(contenido.childNodes[4]);
+  //contenido.childNodes[4].childNodes[0].innerHTML = "Capitulo " + nuevoNumeroContenido;
+
+  repararContainer(contenido.childNodes[4].childNodes[1]);
   contenido.childNodes[4].childNodes[1].childNodes[0].setAttribute("for", contenido.childNodes[4].childNodes[1].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = contenido.childNodes[4].childNodes[1].childNodes[0].getAttribute("for");
   contenido.childNodes[4].childNodes[1].childNodes[1].id = atributoAuxiliar;
@@ -655,6 +677,7 @@ function modificarSectorContenido(contenido, oldId, newId){
 
   contenido.childNodes[4].childNodes[2].id = contenido.childNodes[4].childNodes[2].id.replace(oldId, newId);
 
+  repararContainer(contenido.childNodes[4].childNodes[2]);
   for (var i = 0; i < contenido.childNodes[4].childNodes[2].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[4].childNodes[2].childNodes[i], oldId, newId);
   };
@@ -664,16 +687,18 @@ function modificarSectorContenido(contenido, oldId, newId){
 
 
 function modificarSectorContenidoSeccion(contenido, oldId, newId){
-  alert(contenido.id);
   contenido.id = contenido.id.replace(oldId, newId);
 
+  repararContainer(contenido);
   contenido.childNodes[2].setAttribute("onclick","eliminarContenidoSeccion('"+contenido.id+"')");
-  console.log(contenido);
+  
+  repararContainer(contenido.childNodes[5]);
   contenido.childNodes[5].childNodes[0].setAttribute("for", contenido.childNodes[5].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = contenido.childNodes[5].childNodes[0].getAttribute("for");
   contenido.childNodes[5].childNodes[1].id = atributoAuxiliar;
   contenido.childNodes[5].childNodes[1].name = atributoAuxiliar;
 
+  repararContainer(contenido.childNodes[6]);
   contenido.childNodes[6].childNodes[0].setAttribute("for", contenido.childNodes[6].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = contenido.childNodes[6].childNodes[0].getAttribute("for");
   contenido.childNodes[6].childNodes[1].id = atributoAuxiliar;
@@ -681,6 +706,7 @@ function modificarSectorContenidoSeccion(contenido, oldId, newId){
 
   contenido.childNodes[7].id = contenido.childNodes[7].id.replace(oldId, newId);
 
+  repararContainer(contenido.childNodes[7]);
   for (var i = 0; i < contenido.childNodes[7].childNodes.length; i++) {
     modificarSectorSubtitulo(contenido.childNodes[7].childNodes[i], oldId, newId);
   };
@@ -699,11 +725,16 @@ function modificarUnidad(unidad, nuevoNumeroUnidad){
   
   unidad.dataset.numeroUnidad = nuevoNumeroUnidad;
 
+  repararContainer(unidad);
+
   unidad.childNodes[0].setAttribute("onclick","eliminarUnidad('"+unidad.id+"')");
 
   unidad.childNodes[2].innerHTML = "Unidad " + nuevoNumeroUnidad;
 
   //modificando id y name del titulo de la unidad.
+  repararContainer(unidad.childNodes[3]);
+
+
   unidad.childNodes[3].childNodes[0].setAttribute("for", unidad.childNodes[3].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = unidad.childNodes[3].childNodes[0].getAttribute("for");
   unidad.childNodes[3].childNodes[1].id = atributoAuxiliar;
@@ -712,15 +743,23 @@ function modificarUnidad(unidad, nuevoNumeroUnidad){
   unidad.childNodes[3].childNodes[1].setAttribute("onkeyup","actualizarUnidadCronograma('"+unidad.id+"');")
 
   //modificando id y name del objetivo de la unidad.
+  
+  repararContainer(unidad.childNodes[4]);
   unidad.childNodes[4].childNodes[0].setAttribute("for", unidad.childNodes[4].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = unidad.childNodes[4].childNodes[0].getAttribute("for");
   unidad.childNodes[4].childNodes[1].id = atributoAuxiliar;
   unidad.childNodes[4].childNodes[1].name = atributoAuxiliar;
 
   //actualizando los ids y names de contenido y subtitulos.
+  
+  repararContainer(unidad.childNodes[5]);
+  repararContainer(unidad.childNodes[5].childNodes[0]);
+  repararContainer(unidad.childNodes[5].childNodes[0].childNodes[1]);
   unidad.childNodes[5].childNodes[0].childNodes[1].id = unidad.childNodes[5].childNodes[0].childNodes[1].id.replace(oldId, newId);
 
-  for (var i = 0; i < unidad.childNodes[5].childNodes[0].childNodes[1].length; i++) {
+  repararContainer(unidad.childNodes[5].childNodes[0].childNodes[1]);
+
+  for (var i = 0; i < unidad.childNodes[5].childNodes[0].childNodes[1].childNodes.length; i++) {
     modificarSectorContenido(unidad.childNodes[5].childNodes[0].childNodes[1].childNodes[i], oldId, newId);
   };
 
@@ -749,25 +788,30 @@ function modificarSeccion(seccion, nuevoNumeroSeccion){
 
   seccion.dataset.numeroSeccion = nuevoNumeroSeccion;
 
+  repararContainer(seccion);
   seccion.childNodes[0].setAttribute("onclick","eliminarSeccion('"+seccion.id+"')");
 
   seccion.childNodes[2].innerHTML = "Seccion Personalizada " + nuevoNumeroSeccion;
 
   //modificando id y name del titulo de la seccion.
+  repararContainer(seccion.childNodes[3]);
   seccion.childNodes[3].childNodes[0].setAttribute("for", seccion.childNodes[3].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = seccion.childNodes[3].childNodes[0].getAttribute("for");
   seccion.childNodes[3].childNodes[1].id = atributoAuxiliar;
   seccion.childNodes[3].childNodes[1].name = atributoAuxiliar;
 
   //modificando id y name del objetivo de la seccion.
+  repararContainer(seccion.childNodes[4]);
   seccion.childNodes[4].childNodes[0].setAttribute("for", seccion.childNodes[4].childNodes[1].id.replace(oldId, newId));
   var atributoAuxiliar = seccion.childNodes[4].childNodes[0].getAttribute("for");
   seccion.childNodes[4].childNodes[1].id = atributoAuxiliar;
   seccion.childNodes[4].childNodes[1].name = atributoAuxiliar;
 
   //actualizando los ids y names de contenido y subtitulos.
+  repararContainer(seccion.childNodes[5]);
   seccion.childNodes[5].childNodes[1].id = seccion.childNodes[5].childNodes[1].id.replace(oldId, newId);
 
+  repararContainer(seccion.childNodes[5].childNodes[1]);
   for (var i = 0; i < seccion.childNodes[5].childNodes[1].childNodes.length; i++) {
     modificarSectorContenidoSeccion(seccion.childNodes[5].childNodes[1].childNodes[i], oldId, newId);
   };
@@ -829,6 +873,7 @@ function modificarSubtitulo(subtitulo, nuevoNumeroSubtitulo){
   subtitulo.id = subtitulo.id.replace(oldId, newId);
   subtitulo.dataset.numeroSubtitulo = nuevoNumeroSubtitulo;
 
+  repararContainer(subtitulo);
   subtitulo.childNodes[0].setAttribute("onclick", "eliminarSubtitulo('container_"+subtitulo.childNodes[3].id.replace(oldId, newId)+"')");
   subtitulo.childNodes[2].setAttribute("for", subtitulo.childNodes[3].id.replace(oldId, newId));
   //subtitulo.childNodes[2].for = subtitulo.childNodes[2].for.replace(oldId, newId);
@@ -839,6 +884,7 @@ function modificarSubtitulo(subtitulo, nuevoNumeroSubtitulo){
 function modificarSectorSubtitulo(subtitulo, oldId, newId){
   subtitulo.id = subtitulo.id.replace(oldId, newId);
 
+  repararContainer(subtitulo);
   subtitulo.childNodes[0].setAttribute("onclick", "eliminarSubtitulo('container_"+subtitulo.childNodes[3].id.replace(oldId, newId)+"')");
   subtitulo.childNodes[2].setAttribute("for", subtitulo.childNodes[3].id.replace(oldId, newId));
   //subtitulo.childNodes[2].for = subtitulo.childNodes[2].for.replace(oldId, newId);

@@ -12,6 +12,7 @@
     <?php
     ?>
       <div class="container-fluid" id="container_bibliografia<?php echo $numeroBibliografiaActual; ?>_base" data-numero-bibliografia="1">
+        <span></span>
         <div class="form-group">
           <label for="titulo_bibliografia<?php echo $numeroBibliografiaActual; ?>_base">Titulos Libro</label>
           <input class="form-control" type="text" name="titulo_bibliografia<?php echo $numeroBibliografiaActual; ?>_base" 
@@ -56,6 +57,7 @@
           $numeroBibliografiaActual = $this->bibliografiasComplementaria[$i]['numero_bibliografia'];
     ?>
       <div class="container-fluid" id="container_bibliografia<?php echo $numeroBibliografiaActual; ?>_complementaria" data-numero-bibliografia="1">
+        <span></span>
         <div class="form-group">
           <label for="titulo_bibliografia<?php echo $numeroBibliografiaActual; ?>_complementaria">Titulo Libro</label>
           <input class="form-control" type="text" name="titulo_bibliografia<?php echo $numeroBibliografiaActual; ?>_complementaria" 

@@ -19,6 +19,11 @@ class bibliografiasModel extends Model{
 													':numero_bibliografia' => $numero_bibliografia
 													));
 	}
+
+	public function eliminarBibliografias($id_pg){
+		$this->_db->query("DELETE FROM bibliografias
+												WHERE id_pg = $id_pg;");
+	}
 }
 
 

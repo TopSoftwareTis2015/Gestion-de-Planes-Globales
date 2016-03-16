@@ -19,6 +19,11 @@ class cargaHorariasModel extends Model{
 														':periodos_practicos_semana' => $periodos_practicos_semana
 													));
 	}
+
+	public function eliminarCargaHoraria($id_pg){
+		$this->_db->query("DELETE FROM carga_horarias
+ 										WHERE id_pg = $id_pg;");
+	}
 	
 }
 

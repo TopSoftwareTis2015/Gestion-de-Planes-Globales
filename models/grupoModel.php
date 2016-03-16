@@ -43,6 +43,12 @@ class grupoModel extends Model{
 
 		return $docentes->fetchall();
 	}
+
+	public function eliminarPlanGlobal($id_pg){
+		$this->_db->query("UPDATE grupos SET
+												id_pg = NULL
+												WHERE id_pg = $id_pg;");
+	}
 }
 
 

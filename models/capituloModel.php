@@ -30,6 +30,11 @@ class capituloModel extends Model{
 
 		return $id->fetch();
 	}
+
+	public function eliminarContenidos($id_pg, $id_unidad){
+		$this->_db->query("DELETE FROM capitulo
+												WHERE id_pg = $id_pg and id_unidad = $id_unidad;");
+	}
 }
 
 

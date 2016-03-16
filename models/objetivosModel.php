@@ -21,6 +21,13 @@ class objetivosModel extends Model{
 			exit;
 		}
 	}
+
+	public function eliminarObjetivos($id_pg){
+		$this->_db->query("DELETE FROM objetivos_especificos
+												WHERE id_pg = $id_pg;");
+		$this->_db->query("DELETE FROM objetivos_generales
+												WHERE id_pg = $id_pg;");
+	}
 }
 
 
