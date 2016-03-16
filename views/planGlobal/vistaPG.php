@@ -100,7 +100,7 @@
                   <b>Editar</b>
                 </a>
               </li>
-              <li> <a href="<?php echo BASE_URL . 'planGlobal/contenidoMinimo/63'?>"><b>Contenido Minimo</b></a>
+              <li> <a href="<?php echo BASE_URL . 'planGlobal/contenidoMinimo/'. $this->planGlobal['id_pg']?>"><b>Contenido Minimo</b></a>
               </li>  
             </ul>
           </div>

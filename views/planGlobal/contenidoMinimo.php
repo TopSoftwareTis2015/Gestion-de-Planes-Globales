@@ -97,29 +97,32 @@
 	          </div>
 	        </nav> -->
 	        <div class="page-header">
-	        	<h1><u>Contenido Minimo de Materia</u></h1>
+	        	<h1 class="text-center"><u>Contenido Minimo de Materia</u></h1>
 	        </div>
             
             <div class="panel panel-default">
 			 <div class="panel-vista container-fluid">
-	           <div class="row col-md-12">
+	           <div class="col-md-10">
 	            <h5><p><b>UNIVERSIDAD MAYOR DE SAN SIMON</b></p></h5>
 	            <h5><p><b>FACULTAD DE CIENCIAS Y TECNOLOGIA<b></p></h5>
 	            <h5><p><b>UNIDAD ACADEMICA DEPARTAMENTO DE INFORMATICA - SISTEMAS<b></p></h5>
-	            <h5><p><b>PLAN DE ESTUDIO: LICENCIATURA EN INFORMATICA – LICENCIATURA EN INGENIERIA DE SISTEMAS – LICENCIATURA EN INGENIERIA ELECTRONICA<b></p></h5>
+	            <h5><p><b>PLAN DE ESTUDIO: LICENCIATURA EN INFORMATICA – LICENCIATURA EN INGENIERIA DE SISTEMAS<b></p></h5>
+	           </div>
+	           <div class="col-md-2">
+	              <br>
+	           	  <img src="<?php echo BASE_URL; ?>views/planGlobal/imagen/fcyt.jpg" class="img-responsive" width="85" height="85" alt="">
 	           </div>
 	           <legend id="separador"></legend>
-	            <h5><p><b>Gestion:</b></p></h5>
+	           
 	           <div class="table-responsive">
     		     <div class="datagrid">
 	    		    <table class="table table-bordered order-table" id="datos">
 	    		      <thead>
 				         <tr class="contenido_minimo">
-				            <!--nombres de las columnas de la tabla de materias-->  
-					        <th>Asignatura: Elementos de programacion y estructura de datos</th>
-				            <th>Codigo: <?php if(isset($this->codigo)) echo $this->codigo; ?></th>
+				           <!--nombres de las columnas de la tabla de materias-->  
+					       <th>Asignatura: <?php if(isset($this->materia)) echo $this->materia['nombre_materia'];?></th>
+				           <th>Codigo: <?php if(isset($this->codigo)) echo $this->codigo;?></th>
 
-				            
 				    	 </tr>
 				      </thead>
 				      <tbody>
