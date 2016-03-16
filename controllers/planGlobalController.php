@@ -346,6 +346,7 @@ class planGlobalController extends Controller{
 	}
 
     public function contenidoMinimo($id_pg){
+        // contenido minimo
         $id = $id_pg[0];
 
 		if($id == "0")
@@ -356,6 +357,7 @@ class planGlobalController extends Controller{
 		$this->_view->materia = $this->_planGlobalDao->getMateria($id);
 		$this->_view->codigo = $this->_view->materia['codigo_materia'];
 		$this->_view->renderizar("contenidoMinimo");
+
 	}
 
 }
