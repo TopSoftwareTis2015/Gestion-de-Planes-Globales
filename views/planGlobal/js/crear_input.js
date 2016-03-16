@@ -1,9 +1,30 @@
 function repararContainer(contenedor){
-  if(contenedor.childNodes[0] instanceof Text){
-    var primerObjetivo = contenedor.childNodes[1];
-    contenedor.innerHTML="";
-    contenedor.appendChild(primerObjetivo);
-  }
+  // if(contenedor.childNodes[0] instanceof Text){
+  //   var primerObjetivo = contenedor.childNodes[1];
+  //   contenedor.innerHTML="";
+  //   contenedor.appendChild(primerObjetivo);
+  // }
+  // 
+  var nodos = [], j=0;
+
+  for (var i = 0; i < contenedor.childNodes.length; i++) {
+     if(!(contenedor.childNodes[i] instanceof Text)){
+        nodos[j] = contenedor.childNodes[i];
+        j++;
+     }
+   };
+
+   contenedor.innerHTML = "";
+
+  for (var i = 0; i < nodos.length; i++) {
+     contenedor.appendChild(nodos[i]);
+   }; 
+  
+}
+
+repararAllContainer();
+function repararAllContainer(){//////repararrrrrrr
+
 }
 
 //funcion para crear campos para objetivos generales
@@ -402,6 +423,8 @@ function eliminarObjetivo(idObjetivo){
 
   containerObjetivo.removeChild(objetivo);
 
+  repararContainer(containerObjetivo);//POSIBLEMENTE LENTEARA NUESTRO APP WEB.
+
   for (var i = 0; i < containerObjetivo.childNodes.length; i++) {
     if(i>= (numeroObjetivo - 1)){
       modificarObjetivo(containerObjetivo.childNodes[i], numeroObjetivo+contador);
@@ -418,6 +441,8 @@ function eliminarBibliografia(idBibliografia){
   var numeroBibliografia = parseInt(bibliografia.dataset.numeroBibliografia);
 
   containerBibliografia.removeChild(bibliografia);
+
+  repararContainer(containerBibliografia);
 
   for (var i = 0; i < containerBibliografia.childNodes.length; i++) {
     if(i>= (numeroBibliografia - 1)){
@@ -436,6 +461,8 @@ function eliminarContenido(idContenido){
 
   containerContenido.removeChild(contenido);
 
+  repararContainer(containerContenido);
+
   for (var i = 0; i < containerContenido.childNodes.length; i++) {
     if(i >= (numeroContenido - 1)){
       modificarContenido(containerContenido.childNodes[i], numeroContenido+contador);
@@ -452,6 +479,8 @@ function eliminarContenidoSeccion(idContenido){
   var numeroContenido = parseInt(contenido.dataset.numeroContenido);
 
   containerContenido.removeChild(contenido);
+
+  repararContainer(containerContenido);
 
   for (var i = 0; i < containerContenido.childNodes.length; i++) {
     if(i >= (numeroContenido - 1)){
@@ -470,6 +499,8 @@ function eliminarUnidad(idUnidad){
   var numeroUnidad = parseInt(unidad.dataset.numeroUnidad);
 
   containerUnidad.removeChild(unidad);
+
+  repararContainer(containerUnidad);
 
   for (var i = 0; i < containerUnidad.childNodes.length; i++) {
     if(i >= (numeroUnidad - 1)){
@@ -495,6 +526,8 @@ function eliminarSeccion(idSeccion){
   var numeroSeccion = parseInt(seccion.dataset.numeroSeccion);
 
   containerSeccion.removeChild(seccion);
+
+  repararContainer(containerSeccion);
 
   for (var i = 0; i < containerSeccion.childNodes.length; i++) {
     if(i >= (numeroSeccion - 1)){
@@ -778,6 +811,8 @@ function eliminarSubtitulo(idSubtitulo){
   var numeroSubtitulo = parseInt(subtitulo.dataset.numeroSubtitulo);
 
   containerSubtitulo.removeChild(subtitulo);
+
+  repararContainer(containerSubtitulo);
 
   for (var i = 0; i < containerSubtitulo.childNodes.length; i++) {
     if(i >= (numeroSubtitulo - 1)){

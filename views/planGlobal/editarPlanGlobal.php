@@ -314,13 +314,12 @@
                            <div class="form-group ">
 
                              <label for="telefono">Telefonos:</label>
-                             <textarea readonly class="form-control"name="" id="telefonos" cols="60" rows="3">
+<textarea readonly class="form-control"name="" id="telefonos" cols="60" rows="3">
 <?php 
 for ($i=0; $i < count($this->docentesPlanGlobal); $i++) { 
 echo $this->docentesPlanGlobal[$i]['nombre_usuario'] . ": " . $this->docentesPlanGlobal[$i]['numero_movil_usuario'] . " " . $this->docentesPlanGlobal[$i]['numero_fijo_usuario'] . "\n";
 }
- ?>                               
-                             </textarea>
+ ?></textarea>
                             <script>
                               docentesTotales = <?php echo json_encode($this->docentesTotales); ?>                              
                               docentesPlanGlobal = <?php echo json_encode($this->docentesPlanGlobal); ?>
@@ -337,13 +336,12 @@ echo $this->docentesPlanGlobal[$i]['nombre_usuario'] . ": " . $this->docentesPla
                            <div class="form-group">
                               <label for="correo">Correos:</label>
 
-                              <textarea readonly class="form-control"name="" id="correos" cols="60" rows="3">
+<textarea readonly class="form-control"name="" id="correos" cols="60" rows="3">
 <?php 
 for ($i=0; $i < count($this->docentesPlanGlobal); $i++) { 
 echo $this->docentesPlanGlobal[$i]['nombre_usuario'] . ": " . $this->docentesPlanGlobal[$i]['correo_usuario'] . "\n";
 }
- ?>                                
-                              </textarea>
+ ?></textarea>
 
                            </div>
                           </div>

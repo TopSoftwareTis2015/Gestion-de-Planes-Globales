@@ -30,7 +30,7 @@
           </div>
           <?php if($i>0){
             ?>
-          <input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjetivo('container_objetivo<?php echo $numeroObjetivoActual; ?>_especifico');" ><br><br><br>
+          <input class="btn pull-right btn-primary btn-warning" type="button" value="eliminar X" onClick="eliminarObjetivo('container_objetivo<?php echo $numeroObjetivoActual; ?>_general');" ><br><br><br>
           <?php
           } ?>
 
