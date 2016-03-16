@@ -28,7 +28,9 @@
         <label for="titulo">Horas teoricas por semana</label>
         <div class="row">                                               
           <input type="checkbox" id="checkboxEnLinea2" onchange="cambiarEstadoPorPar(this.checked, 'horaTeorica', 'horaPractica', 'checkboxEnLinea3');">
-          <input id="horaTeorica" type="number" name="horas_teoricas_semana" min="0" max="360" disabled>                                                                    
+          <input id="horaTeorica" type="number" name="horas_teoricas_semana" min="0" max="360" disabled>        
+
+                                                                      
         </div>                            
         <br>
 

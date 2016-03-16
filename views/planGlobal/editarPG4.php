@@ -12,7 +12,7 @@
                 onkeyup="actualizarUnidadCronograma('container_unidad1');">
       </div>
       <div class="form-group">
-        <label for="objetivo_unidad1">Objetivo:</label>
+        <label for="objetivo_unidad1">Objetivo:</label><!--campo para describir la unidad de avance de una materia-->
         <textarea class="form-control"name="objetivo_unidad1" id="objetivo_unidad1" cols="100" rows="3"></textarea>
       </div>
 

@@ -21,6 +21,7 @@
           </div>
 
         </fieldset>
+        
     </div>
     <input class="btn btn-primary" type="button" value="añadir nuevo Objetivo" onClick="addObjetivo('objetivo_general');" >                                            
   <!--</form>-->                

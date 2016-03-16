@@ -95,13 +95,17 @@
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <ul class="nav navbar-nav">
-              <li><a href=""><b>Editar</b></a></li>
-              <li> <a href="<?php echo BASE_URL . 'planGlobal/contenidoMinimo/62'?>"><b>Contenido Minimo</b></a>
+              <li>
+                <a href="<?php echo BASE_URL.'planglobal/editarPlanGlobal/'. $this->planGlobal['id_pg'];?>">
+                  <b>Editar</b>
+                </a>
+              </li>
+              <li> <a href="<?php echo BASE_URL . 'planGlobal/contenidoMinimo/63'?>"><b>Contenido Minimo</b></a>
               </li>  
             </ul>
           </div>
         </nav>
-      <div class="panel panel-default">
+     <div class="panel panel-default">
         <div class="panel-vista container-fluid">
           <div class="col-xs-3 col-sm-3 col-md-2">
             <img src="<?php echo BASE_URL; ?>views/planGlobal/imagen/fcyt.jpg" class="img-responsive" width="85" height="85" alt="">
@@ -548,7 +552,7 @@
 
         </div>
      </div>
-    </div>
+    </div> 
   </section>
   <!-- <input type="button" onclick="ver()"> -->
 </div>

@@ -12,13 +12,20 @@
     <div class="panel panel-default"> <!--campo para seleccionar la duracion de una materia en periodos por semana-->
       <div class="panel-body">
         <label for="titulo">Periodos por semana</label>
-        <div class="row">                               
-          <input type="checkbox" id="checkboxEnLinea4" onchange="cambiarEstado(this.checked, 'periodoSemana');">
-          <input id="periodoSemana" type="number" name="periodos_semana" min="4" max="10" disabled>                                     
+        <div class="row">
+        <?php
+          if($this->carga_horaria['periodos_semana'])
+            $checkedS = " checked";            
+          else
+            $disabledS = " disabled";
+         ?>                               
+          <input type="checkbox" id="checkboxEnLinea4" onchange="cambiarEstado(this.checked, 'periodoSemana');"
+            <?php if(isset($checkedS))echo $checkedS; ?>>
+          <input id="periodoSemana" type="number" name="periodos_semana" min="4" max="10"
+            <?php if(isset($disabledS))echo $disabledS; else echo " value=\"". $this->carga_horaria['periodos_semana'] . "\"";?>>
         </div>
       </div>
     </div>    
-                      
                       
   </div>
 
@@ -33,13 +40,20 @@
     </div>    
 
  </div>
-  
+  <?php
+  if($this->carga_horaria['periodos_teoricos_semana'])
+    $checked = " checked";
+  else
+    $disabled = " disabled";
+  ?> 
  <div class="container-fluid">
     <div class="col-xs-6">
       <label for="titulo">Periodos teoricos por semana</label>
       <div class="row">                                                                   
-        <input type="checkbox" id="checkboxEnLinea5" onchange="cambiarEstadoPorPar(this.checked, 'periodoTeorico', 'periodoPractico', 'checkboxEnLinea6');">
-        <input id="periodoTeorico" type="number" name="periodos_teoricos_semana" min="0" max="360" onkeyup="verificar();" disabled>                               
+        <input type="checkbox" id="checkboxEnLinea5" onchange="cambiarEstadoPorPar(this.checked, 'periodoTeorico', 'periodoPractico', 'checkboxEnLinea6');"
+          <?php if(isset($checked))echo $checked; ?>>
+        <input id="periodoTeorico" type="number" name="periodos_teoricos_semana" min="0" max="360" onkeyup="verificar();"
+          <?php if(isset($disabled))echo $disabled; else echo " value=\"". $this->carga_horaria['periodos_teoricos_semana'] . "\"";?>>                               
       </div>
 
     </div>
@@ -47,8 +61,10 @@
     <div class="col-xs-6">
       <label for="titulo">Periodos practicos por semana</label>
       <div class="row">                                                                     
-        <input type="checkbox" id="checkboxEnLinea6" onchange="cambiarEstadoPorPar(this.checked, 'periodoPractico', 'periodoTeorico', 'checkboxEnLinea5');">
-        <input id="periodoPractico" type="number" name="periodos_practicos_semana" min="0" max="360" onkeyup="verificar();" disabled>                                                                     
+        <input type="checkbox" id="checkboxEnLinea6" onchange="cambiarEstadoPorPar(this.checked, 'periodoPractico', 'periodoTeorico', 'checkboxEnLinea5');"
+          <?php if(isset($checked))echo $checked; ?>>
+        <input id="periodoPractico" type="number" name="periodos_practicos_semana" min="0" max="360" onkeyup="verificar();"
+          <?php if(isset($disabled))echo $disabled; else echo " value=\"". $this->carga_horaria['periodos_practicos_semana'] . "\"";?>>
       </div>
     </div>     
  </div> <br>

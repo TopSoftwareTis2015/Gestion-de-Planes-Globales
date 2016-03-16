@@ -1,7 +1,7 @@
  <!-- Metodologia y criterios parte 5 -->
 <legend id="separador"><h2>METODOLOGIAS</h2></legend>
     <!--campo para ingresara las metologias que se usaran para dictar una materia-->
-    <textarea class="form-control" name="metodologias" id="metodologias" cols="100" rows="10"></textarea>
+    <textarea class="form-control" name="metodologias" id="metodologias" cols="100" rows="10"><?php echo $this->planGlobal['metodologias']; ?></textarea>
     <br>
                   
 <legend id="separador"><h2>Cronograma o Duracion en periodos academicos por Unidad</h2></legend>
@@ -10,11 +10,9 @@
         <table class="table table-striped table-hover table-bordered" id="tab_cronograma">
             <thead>      
                <tr>
-               
                    <th>UNIDAD</th>
                    <th>DURACION HRS. ACADEMICAS</th>
                    <th>DURACION SEMANAS</th>
-
                </tr>
             </thead>
             <tbody>
@@ -66,6 +64,6 @@
 </script>
 <legend id="separador"><h2>CRITERIOS DE EVALUACION</h2></legend>
     <!--textarea para ingresar la informacion de criterio de evaluacion de una materia-->
-    <textarea class="form-control" name="criterios_evaluacion" id="criterios" cols="100" rows="10"></textarea>
+    <textarea class="form-control" name="criterios_evaluacion" id="criterios" cols="100" rows="10"><?php echo $this->planGlobal['criterios_evaluacion']; ?></textarea>
     <br>
 <!--Fin parte 5

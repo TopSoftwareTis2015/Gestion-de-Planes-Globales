@@ -124,7 +124,8 @@ class planGlobalModel extends Model{
 	public function getBibliografiasBase($id_pg){
 		$bibliografias = $this->_db->query(
 			"SELECT * FROM bibliografias
-				WHERE id_pg = $id_pg AND tipo_libro = 'base';"
+				WHERE id_pg = $id_pg AND tipo_libro = 'base'
+				ORDER BY numero_bibliografia;"
 			);
 
 		return $bibliografias->fetchall();
@@ -133,7 +134,8 @@ class planGlobalModel extends Model{
 	public function getBibliografiasComplementaria($id_pg){
 		$bibliografias = $this->_db->query(
 			"SELECT * FROM bibliografias
-				WHERE id_pg = $id_pg AND tipo_libro = 'complementaria';"
+				WHERE id_pg = $id_pg AND tipo_libro = 'complementaria'
+				ORDER BY numero_bibliografia;"
 			);
 
 		return $bibliografias->fetchall();
