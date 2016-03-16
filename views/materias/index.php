@@ -114,18 +114,17 @@
         <table class="table table-hover table-bordered order-table" id="datos">
           <!--Cabecera de la tabla de materias-->
           
-          <thead>
+        <thead>
           <tr class="titulo">
-                <!--nombres de las columnas de la tabla de materias-->
-                
-	        <th>CODIGO</th>
-                <th>NOMBRE MATERIA</th>
-                <th>SIGLA</th>
-                <th>ACCIONES</th>
-                <th>REGISTRAR PLAN GLOBAL</th>
-                <th>PLAN GLOBAL</th>
+            <!--nombres de las columnas de la tabla de materias-->  
+	          <th>CODIGO</th>
+            <th>NOMBRE MATERIA</th>
+            <th>SIGLA</th>
+            <th>ACCIONES</th>
+            <th><h4>REGISTRAR PLAN GLOBAL</h4></th>
+            <th>PLAN GLOBAL</th>
     			</tr>
-        </thead>
+       </thead>
 
         <tbody>
           

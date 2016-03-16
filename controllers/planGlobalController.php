@@ -98,8 +98,6 @@ class planGlobalController extends Controller{
 		$this->_view->docentes = $this->_grupoDao->getDocentesSinPG($codigo_materia);
 
 		$this->_view->renderizar('registrarPG');
-		// $this->_view->renderizar('vistaPG');
-
 	}
 
 	private function registrarTablaPlanglobal($codigo_materia){
@@ -319,6 +317,19 @@ class planGlobalController extends Controller{
 		$this->_view->hola = "edite su plan global";
 
 		$this->_view->renderizar("editarPlanGlobal");
+	}
+
+	public function contenidoMinimo($id_pg){
+        $id = $id_pg[0];
+
+		if($id == "0")
+			$this->redireccionar("materias");
+
+		// $this->_view->codigo =$id;
+		$this->_view->unidades = $this->_planGlobalDao->getUnidades($id);
+		$this->_view->materia = $this->_planGlobalDao->getMateria($id);
+		$this->_view->codigo = $this->_view->materia['codigo_materia'];
+		$this->_view->renderizar("contenidoMinimo");
 	}
 }
  ?>

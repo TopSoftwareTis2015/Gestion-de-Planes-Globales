@@ -149,6 +149,9 @@ tbody tr:nth-child(odd) {
   text-align: center;
   font-size: 21px;
 }
+.contenido_minimo{
+  background: #7CBFF7 ;
+}
 #buscar{
   width: 550px;
   font-size: 15px;
