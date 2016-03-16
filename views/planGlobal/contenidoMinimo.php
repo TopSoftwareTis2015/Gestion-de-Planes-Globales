@@ -97,7 +97,7 @@
 	          </div>
 	        </nav> -->
 	        <div class="page-header">
-	        	<h1 class="text-center"><u>Contenido Minimo de Materia</u></h1>
+	        	<h1 class="text-center"><u>Contenido Minimo</u></h1>
 	        </div>
             
             <div class="panel panel-default">
