@@ -104,9 +104,9 @@ border: #2c3e50 2px solid;
 /* background:#8289E0;*/
 }
 
-#separador{
+/*#separador{
  border-color:#2D0DF0;
-}
+}*/
 
 #new_contenido{
   border: #2c3e50 2px solid;
@@ -170,4 +170,9 @@ input[type=search] {
 .recuadro {
 border: #2c3e50 2px solid;  
 /*background:#9D48ED; */
+}
+
+#carreras{
+  background: #B19EF9;
+  color:#2B35F7;
 }

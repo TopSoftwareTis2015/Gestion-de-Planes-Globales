@@ -3,14 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Materias</title>
+	<title>Plan de Estudio</title>
   
   <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.css"> 
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"> 
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
 
   
 </head>
@@ -57,11 +58,10 @@
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li> <a href="#">Materias</a> </li>
-                <li> <a href="#">Planes de Estudio</a> </li>
-                <li> <a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>facultad">Carreras</a> </li>
+                
               </ul>
             </li>
           </ul>
@@ -70,43 +70,93 @@
 
   </nav>
   <!--fin del menu horizontal-->
-	
+  <div class="container-fluid">
+    <div class="row fondo">
+      <h1 class ="text-center">Carrera Ingenieria Inform&aacute;tica</h1>
+    </div>
+  </div>
+
   <section class="main row"> <!--seccion donde esta el contenido del sistema web -->
   <br>
 
   <!-- Menu de navegacion vertical del sistema web-->
-	 <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
-	  <div class="container-fluid">
-		 <div class="row">
-		   	  	<ul class="nav nav-pills nav-stacked">
-		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
-		   	  		<li role="presentation"><a href="#">Carreras</a></li>
-		   	  		<li role="presentation"><a href="#">Planes de Estudio</a></li>
-		   	  		<li role="presentation" class="active"><a href="#">Materias</a></li>
-		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
-		   	  	</ul>
-		 </div>
-	  </div>
-	 </nav> <!--fin del menu vertical -->
+   <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
+    <div class="container-fluid">
+     <div class="row">
+        
+        <!-- <ul class="nav nav-pills nav-stacked">
+          <li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
+          <li role="presentation"><a href="<?php echo BASE_URL . 'facultad'?>">Facultad</a></li>
+          <li role="presentation"><a href="#">Carreras</a></li>
+          <li role="presentation" class="active"><a href="#">Planes de Estudio</a></li>
+        </ul> -->
 
-           
-   <!--<div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"></div>-->
+        <div id="MainMenu">
+          <div class="list-group panel">
+
+            <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Volver</a>
+             <div class="collapse" id="demo4">
+                <a href="<?php echo BASE_URL; ?>index.php" class="list-group-item"><i>Inicio</i></a>
+                <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item"><i>Facultad</i></a>
+             </div>
+
+            <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Carreras</a>
+            <div class="collapse" id="demo3">
+              <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Plan de Estudios <i class="fa fa-caret-down"></i></a>
+              <div class="collapse list-group-submenu" id="SubMenu1">
+                
+                <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+                  <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Materias</a>
+                  <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Plan global</a>
+                </div>
+                <!-- <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a> -->
+              </div>
+              <!-- <a href="javascript:;" class="list-group-item">Subitem 2</a> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <ul class="nav" id="nav">
+            <li><a href="">Inicios</a></li>
+            <li><a href="">Facultad</a>
+                <ul>
+                    
+                    <li><a href="">Carreras</a>
+                        <ul>
+                          <li class="active"><a href="">Plan de Estudios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul> -->
+
+
+     </div>
+    </div>
+   </nav>
+
+          
   <div class="container-fluid">
-   <div class="row col-xs-12 col-sm-8 col-md-9"> 
-     <!--<div class="col-sm-4 col-sm-offset-2">-->
+   <div class="row "> 
+     <!-- <div class="col-sm-4 col-sm-offset-2"> -->
 
-    <!--campo para visualizar el contenido del sistema web -->
-    <div class="row"> 
+    <!--campo para visualizar el contenido del sistema web-->
+    <div class="col-xs-12 col-sm-8 col-md-9"> 
      
      <!--Buscador-->
-     <div class="row">  
-       <div class="col-xs-12 col-sm-4 col-sm-offset-2" >
+     <div class="row">        
+       <div class="col-xs-12 col-sm-4 ">
+         <h2><center>Plan de Estudios</center></h2>  
+       </div>
+       
+       <!-- <div class="col-xs-12 col-sm-4 col-sm-offset-2" > -->
+       <div class="col-xs-12 col-sm-6" >
           <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia">    
           </div>
        </div>
+       
      </div>
      
-     <h2><center>Lista de Materias</center></h2>  
 	  
     	<div class="table-responsive"><!-- tabla donde se muestra todas las materias que estan registradas en el sistema-->
     	<div class="datagrid">

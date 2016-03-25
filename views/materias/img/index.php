@@ -3,14 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Materias</title>
+	<title>Planes de Estudio</title>
   
   <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.css"> 
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"> 
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
 
   
 </head>
@@ -57,11 +58,11 @@
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li> <a href="#">Materias</a> </li>
+                <li> <a href="#">Carreras</a> </li>
                 <li> <a href="#">Planes de Estudio</a> </li>
-                <li> <a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a> </li>
+                
               </ul>
             </li>
           </ul>
@@ -70,32 +71,48 @@
 
   </nav>
   <!--fin del menu horizontal-->
-	
+  <div class="container-fluid">
+    <div class="row fondo">
+        <h1 class ="text-center">Plan de Estudios</h1>
+    </div>
+  </div>
+
   <section class="main row"> <!--seccion donde esta el contenido del sistema web -->
   <br>
 
   <!-- Menu de navegacion vertical del sistema web-->
-	 <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
-	  <div class="container-fluid">
-		 <div class="row">
-		   	  	<ul class="nav nav-pills nav-stacked">
-		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
-		   	  		<li role="presentation"><a href="#">Carreras</a></li>
-		   	  		<li role="presentation"><a href="#">Planes de Estudio</a></li>
-		   	  		<li role="presentation" class="active"><a href="#">Materias</a></li>
-		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
-		   	  	</ul>
-		 </div>
-	  </div>
-	 </nav> <!--fin del menu vertical -->
+   <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
+    <div class="container-fluid">
+     <div class="row">
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
+          <li role="presentation"><a href="#">Carreras</a></li>
+          <li role="presentation" clas="active"><a href="#">Planes de Estudio</a></li>
+        </ul>
 
-           
-   <!--<div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia"></div>-->
+        <!-- <ul class="dropdown-menu">
+            <li><a href="#">Login</a></li>
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">More options</a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">Second level</a></li>
+                    <li><a href="#">Second level</a></li>
+                    <li><a href="#">Second level</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Logout</a></li>
+        </ul> -->
+
+     </div>
+    </div>
+   </nav>
+
+          
   <div class="container-fluid">
    <div class="row col-xs-12 col-sm-8 col-md-9"> 
-     <!--<div class="col-sm-4 col-sm-offset-2">-->
+     <!-- <div class="col-sm-4 col-sm-offset-2"> -->
 
-    <!--campo para visualizar el contenido del sistema web -->
+    <!--campo para visualizar el contenido del sistema web-->
     <div class="row"> 
      
      <!--Buscador-->

@@ -1,0 +1,68 @@
+/*Menu desplegable*/
+
+.list-group.panel > .list-group-item {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px
+}
+.list-group-submenu {
+  margin-left:20px;
+}
+
+/*fin del Menu desplegable*/
+
+
+#list-carrera{
+ color: #0C0CF0;
+}
+.fondo{
+	background: #2A0A0A;
+	color: #FAF2F2;
+}
+#sitiosUmss >li{
+  /*border-top: solid #1E0303;*/
+  border-bottom: 2px solid #5C3C3C;
+}
+
+* {
+font-family:sans-serif;
+list-style:none;
+text-decoration:none;
+margin:0;
+padding:0;
+}
+ 
+#nav > li {
+float:left;
+}
+ 
+#nav li a {
+background:#0c9ba0;
+color:#FFF;
+display:block;
+border:1px solid;
+padding:10px 12px;
+}
+ 
+#nav li a:hover {
+background:#0fbfc6;
+}
+
+#nav li ul {
+display:none;
+position:absolute;
+min-width:140px;
+}
+
+#nav li:hover > ul {
+display:block;
+}
+
+
+#nav li ul li {
+position:relative;
+}
+ 
+#nav li ul li ul {
+right:-140px;
+top:0;
+}

@@ -80,6 +80,7 @@
 		 <div class="row">
 		   	  	<ul class="nav nav-pills nav-stacked">
 		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
+		   	  		<li role="presentation"><a href="#">Facultades</a></li>
 		   	  		<li role="presentation"><a href="#">Carreras</a></li>
 		   	  		<li role="presentation"><a href="#">Planes de Estudio</a></li>
 		   	  		<li role="presentation" class="active"><a href="#">Materias</a></li>

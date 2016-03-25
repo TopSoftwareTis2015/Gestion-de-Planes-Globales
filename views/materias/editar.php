@@ -7,7 +7,10 @@
 	<!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css"><!--hoja de estilo personalizado-->
+  <!--hoja de estilo personalizado-->
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
+  
   <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
   <script src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
   <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
@@ -36,14 +39,38 @@
 	 <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
 	  <div class="container-fluid">
 		 <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
-		   	  	<ul class="nav nav-pills nav-stacked">
+		   	  	<!-- <ul class="nav nav-pills nav-stacked">
 		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
-		   	  		<li role="presentation"><a href="#">Facultades</a></li>
-		   	  		<li role="presentation"><a href="#">Carreras</a></li>
+		   	  		<li role="presentation"><a href="<?php echo BASE_URL . 'facultad'?>">Facultades</a></li>
 		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a></li>
            		   	<li role="presentation"class="active"> <a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
              		<li role="presentation"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
-		   	  	</ul>
+		   	  	</ul> -->
+                <div id="MainMenu">
+                  <div class="list-group panel">
+
+                    <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Volver</a>
+                     <div class="collapse" id="demo4">
+                        <a href="<?php echo BASE_URL; ?>index.php" class="list-group-item"><i>Inicio</i></a>
+                        <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item"><i>Facultad</i></a>
+                        <a href="<?php echo BASE_URL; ?>planEstudios" class="list-group-item"><i>Plan de Estudios</i></a>
+
+                     </div>
+
+                    <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Materia</a>
+                    <div class="collapse" id="demo3">
+                      <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Plan Global <i class="fa fa-caret-down"></i></a>
+                      <div class="collapse list-group-submenu" id="SubMenu1">
+                        
+                        
+                        <!-- <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a> -->
+                      </div>
+                      <!-- <a href="javascript:;" class="list-group-item">Subitem 2</a> -->
+                    </div>
+                  </div>
+                </div>
+
+
 		 </div>
 	  </div>
 	 </nav>
@@ -87,9 +114,15 @@
                        <button class="btn btn-primary" type="submit">Guardar</button>                                                                            
                     </div>  
                     <div class="col-xs-6">
-                         <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
+                        <!--  <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
                              Volver
-                         </a>  
+                         </a> -->
+
+                         <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL . 'planEstudios'?>">
+                             Volver
+                         </a>
+
+
                     </div>
                 </div> <br>
             </div>
