@@ -78,39 +78,23 @@
      <!--seccion del menu de navegacion vertical--> 
      <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
       <div class="container-fluid">
-         <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
-                <!-- <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
-                    <li role="presentation"><a href="#">Facultades</a></li>
-                    <li role="presentation"><a href="#">Carreras</a></li>
-                    <li role="presentation"><a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a></li>
-                    <li role="presentation"><a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
-                    <li role="presentation"class="active"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
-                </ul> -->
-
-                <div id="MainMenu">
-                  <div class="list-group panel">
-
-                    <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Volver</a>
-                     <div class="collapse" id="demo4">
-                        <a href="<?php echo BASE_URL; ?>index.php" class="list-group-item"><i>Inicio</i></a>
-                        <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item"><i>Facultad</i></a>
-                        <a href="<?php echo BASE_URL; ?>planEstudios" class="list-group-item"><i>Plan de Estudios</i></a>
-                        <a href="<?php echo BASE_URL.'planglobal/mostrarPlanGlobal/'. $this->planGlobal['id_pg'];?>" class="list-group-item"><i>Vista Plan Global</i></a>
-
-                     </div>
-
-                    <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Plan Global</a>
-                    <div class="collapse" id="demo3">
-                      <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Ver plan global<i class="fa fa-caret-down"></i></a>
-                      <div class="collapse list-group-submenu" id="SubMenu1">
-                        <!-- <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a> -->
-                      </div>
-                        
-                      <!-- <a href="javascript:;" class="list-group-item">Subitem 2</a> -->
+         <div class="row">
+         
+             
+             <div id="MainMenu">
+                    <div class="list-group panel">
+                          
+                    <a href="<?php echo BASE_URL; ?>index" class="list-group-item list-group-item-success">Inicio</a> 
+                          
+                    <a href="#menu2" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Facultad</a>
+                    <div class="collapse list-group-submenu" id="menu2">
+                      <a href="<?php echo BASE_URL; ?>facultad/carreras" class="list-group-item"><i>Carreras</i></a>
                     </div>
-                  </div>
-                </div>
+                    <a href="<?php echo BASE_URL; ?>materias" class="list-group-item list-group-item-success">Materias Registradas</a>
+                    <a href="#SubMenu3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Contenido Minimo</a>
+                    </div>
+              </div>
+              
 
          </div>
       </div>

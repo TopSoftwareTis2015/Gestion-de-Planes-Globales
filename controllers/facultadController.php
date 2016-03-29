@@ -1,5 +1,5 @@
 <?php 
-
+ 
 class facultadController extends Controller{
 	private $_facultadDao;
 
@@ -10,6 +10,14 @@ class facultadController extends Controller{
 
 	public function index(){
 		$this->_view->renderizar('index');
+	}
+
+	public function carreras(){
+		
+		// $facultadAnterior = $this->_facultadDao->getMateria('codigo_materia', $codigo_materia[0]);
+		
+
+		$this->_view->renderizar('carreras');
 	}
 
 }

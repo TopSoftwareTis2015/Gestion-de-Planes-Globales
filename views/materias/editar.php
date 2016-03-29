@@ -10,6 +10,7 @@
   <!--hoja de estilo personalizado-->
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
+
   
   <!--importantando las librerias para trabajar con jquery y javascript de bootstrap-->  
   <script src="<?php echo BASE_URL; ?>public/js/jquery-1.12.0.js"></script>
@@ -31,54 +32,86 @@
 		   </div>
 			
 		</div>
-	</header><!--fin de la cabecera--> 
+	</header> <br>
+  <!--fin de la cabecera--> 
+   
+  <!--Menu de navegacion Horizontal-->
+  <nav class="navbar navbar-default"><!--"nabar-default" es el estandar del nav el cual ocupa todo el ancho de la pagina-->
+    
+    <!--contenedor para el menu en dispositivos moviles-->
+    <div class="container-fluid"> 
+       <!--div para realizar un menu desplegable que funcione en dispositivos moviles--> 
+       <div class="navbar-header">
+         <!--boton que funciona como disparador para desplegar el menu en dispositivos moviles-->
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_horizontal">
+           <span class="sr-only">toggle-navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a href="#" class="navbar-brand">Menu</a>
+       </div><!--fin del div del menu desplegable--> 
+
+        <!--div para el contenido de los elementos y enlaces que tendra el menu horizontal los cuales seran visualidados en los desktop-->
+        <div class="collapse navbar-collapse" id="menu_horizontal">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
+            <li><a href="ejemplo.php">Contactos</a></li>
+            
+            <li class="dropdown"><!--Opcion dropdown-->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li> <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div> 
+
+  </nav>
+  <!--fin del menu horizontal--> 
+
+
+   <div class="container-fluid"> 
+    <div class="row fondo">
+      <div class="col-md-2">
+        <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/ciencia_y_tec.jpg"  alt="">  
+      </div>
+      <div class="col-md-8 col-md-offset2">
+        <h2 class ="text-center">Edicion de Materias</h2> 
+      </div>
+    </div><br>
+  </div>
 
 	<section class="main row">
 	<br>
 	 <!--seccion del menu de navegacion vertical--> 
 	 <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
 	  <div class="container-fluid">
-		 <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
-		   	  	<!-- <ul class="nav nav-pills nav-stacked">
-		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
-		   	  		<li role="presentation"><a href="<?php echo BASE_URL . 'facultad'?>">Facultades</a></li>
-		   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a></li>
-           		   	<li role="presentation"class="active"> <a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
-             		<li role="presentation"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
-		   	  	</ul> -->
-                <div id="MainMenu">
-                  <div class="list-group panel">
+		<div class="row">
+     
+        <div id="MainMenu">
+          <div class="list-group panel">
+            
+            <a href="<?php echo BASE_URL; ?>index" class="list-group-item list-group-item-success">Inicio</a> 
+            
+            <a href="#menu2" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Facultad</a>
+            <div class="collapse list-group-submenu" id="menu2">
+              <a href="<?php echo BASE_URL; ?>facultad/carreras" class="list-group-item"><i>Carreras</i></a>
+            </div>
+            <a href="<?php echo BASE_URL; ?>materias" class="list-group-item list-group-item-success">Materias Registradas</a>
+            <a href="#SubMenu3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Editar Materias</a>
+          </div>
+        </div>
 
-                    <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Volver</a>
-                     <div class="collapse" id="demo4">
-                        <a href="<?php echo BASE_URL; ?>index.php" class="list-group-item"><i>Inicio</i></a>
-                        <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item"><i>Facultad</i></a>
-                        <a href="<?php echo BASE_URL; ?>planEstudios" class="list-group-item"><i>Plan de Estudios</i></a>
-
-                     </div>
-
-                    <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Materia</a>
-                    <div class="collapse" id="demo3">
-                      <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Plan Global <i class="fa fa-caret-down"></i></a>
-                      <div class="collapse list-group-submenu" id="SubMenu1">
-                        
-                        
-                        <!-- <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a> -->
-                      </div>
-                      <!-- <a href="javascript:;" class="list-group-item">Subitem 2</a> -->
-                    </div>
-                  </div>
-                </div>
-
-
-		 </div>
+		</div>
 	  </div>
 	 </nav>
 
      <article class="col-xs-12 col-sm-8 col-md-9">
 	    <div class="container-fluid" id="cabecera"> <!-- titulo de la nueva ventana-->
           <!--<div class="col-xs-12 col-sm-8 col-md-9">--> 
-            <h3><center><strong>EDITAR MATERIA</strong></center></h3>  
+            <h3><center><strong>FORMULARIO EDICION</strong></center></h3>  
           <!--</div>-->
 	    </div> <!-- fin del titulo-->
     	
@@ -118,7 +151,7 @@
                              Volver
                          </a> -->
 
-                         <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL . 'planEstudios'?>">
+                         <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
                              Volver
                          </a>
 

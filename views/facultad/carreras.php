@@ -60,7 +60,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
               <ul class="dropdown-menu" >
                 <li> 
-                    <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
+                    <a href="<?php echo BASE_URL; ?>materias">Materias Habilitadas</a>
                 </li>
               </ul>
             </li>
@@ -71,38 +71,66 @@
   <!--fin del menu horizontal-->
 	
 <div class="container-fluid">
-    <div class="container-fluid"> 
-     <div class="row fondo">
-       <div class="col-md-2">
-          <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/ciencia_y_tec.jpg"  alt="">  
-       </div>
-       <div class="col-md-8 col-md-offset2">
-         <h2 class ="text-center">Facultad Ciencias y Tecnologia</h2> 
-       </div>
-     </div><br>
-    </div> 
-<div class="container-fluid">
+    
+  <div class="container-fluid"> 
+    <div class="row fondo">
+      <div class="col-md-2">
+          <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/carreras.jpg"  alt="">  
+      </div>
+      <div class="col-md-8 col-md-offset2">
+         <h2 class ="text-center">Carreras Facultad Ciencias y Tecnologia</h2> 
+      </div>
+    </div><br>
+  </div>
+
+ <div class="container-fluid">
   <div class="row">
 
      <div class="col-md-4">
-    
+        
         <div id="MainMenu">
           <div class="list-group panel">
 
-            <a href="#menu1" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Inicio</a>
-
-            <a href="#menu2" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Facultad</a>
-            <div class="collapse list-group-submenu" id="menu2">
-              <a href="<?php echo BASE_URL; ?>facultad/carreras" class="list-group-item"><i>Carreras</i></a>
-            </div>
+            <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item list-group-item-success">Inicio</a>
+             <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item list-group-item-success">Facultad</a>
+            <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Carreras</a>
+            
           </div>
         </div>
 
-        <figure>
-        <img width="200" class="img-responsive" alt="" src="<?php echo BASE_URL; ?>views/facultad/img/logo_fcyt.jpg" ><br>
-        </figure>
-        
-        <ul class="nav navbar nav" id="sitiosUmss">
+
+       <img src="<?php echo BASE_URL; ?>views/materias/img/fcyt2.jpg" height="200" class="img-responsive" alt=""><br>
+     </div>
+
+     <div class="col-md-5">
+   
+      <h2 id="list-carrera"><strong><ins>Lista de Carreras</ins></strong></h2>
+      <table class="table">
+        <tr class="success">
+          <th>Nombre</th>
+          <th>Año</th>
+        </tr>
+        <tr>
+          <td>
+            <a href="<?php echo BASE_URL . 'planEstudios'?>"><storng>Informatica</storng></a>
+          </td>
+          <td>
+            1978
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="#"><storng>Sistemas</storng></a> 
+          </td>
+          <td>
+            1980
+          </td>
+        </tr>
+      </table>
+
+     </div>
+     <div class="col-md-3">
+      <ul class="nav navbar nav" id="sitiosUmss">
          <li>
            <h3>Sitios Importantes</h3>
          </li>
@@ -116,28 +144,7 @@
            <a href="http://www.fcyt.umss.edu.bo/" target="_blank">FCYT</a>
          </li>
        </ul>
-
-        
-
-
      </div>
-
-     <div class="col-md-8">
-
-       <section>
-        <h2 id="subtitulo">Antecedentes</h2>
-        <figure class="pull-right" id="img_fcyt">
-          <img class="img-responsive" width="450" src="<?php echo BASE_URL; ?>views/facultad/img/fcyt.jpg"  alt="">  
-          <img src="" alt="">
-        </figure>
-        <p class="text-justify">
-           La Facultad de Ciencias y Tecnología de la Universidad Mayor de San Simón nace con la concepción de un Instituto de Ciencias Básicas, en la década del 60 bajo la gestión rectoral del Dr. Arturo Urquidi. En 1972, se crea la Facultad de Ciencias Puras y Naturales como unidad de servicios para todas las carreras de la U.M.S.S., en el campo de las Matemáticas, Física, Química, y Biología, lográndose posteriormente la creación de sus primeras carreras: Licenciatura y Técnico Superior en Química y Biología entre 1975 y 1976. En los años 1976 a 1979, se comisiona la realización de un estudio de factibilidad para la viabilización de las carreras de ingeniería de la U.M.S.S., en base al cual, mediante Resolución del Consejo Universitario No. 07/79, se crean las carreras de ingeniería Eléctrica, Industrial y Mecánica de un Facultad de Tecnología y un Instituto politécnico, conectándolas a las carreras de ciencias con funcionamiento de la Facultad de Ciencias Puras y Naturales. El 21 de septiembre de 1979, mediante Resolución Rectoral No. 471/79 se dispone la conjunción de la carreras de Ciencias y las de Tecnología en una facultad con denominación de FACULTAD DE CIENCIAS Y TECNOLOGÍA.
-        </p>
-        
-       </section>
-
-     </div>
-    
  </div>
 </div> 
 </div>

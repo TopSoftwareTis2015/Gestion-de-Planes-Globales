@@ -14,9 +14,15 @@
 #list-carrera{
  color: #0C0CF0;
 }
+
+#img_fcyt{
+ padding-left: 20px;
+}
 .fondo{
 	background: #2A0A0A;
 	color: #FAF2F2;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 #sitiosUmss >li{
   /*border-top: solid #1E0303;*/
@@ -65,4 +71,8 @@ position:relative;
 #nav li ul li ul {
 right:-140px;
 top:0;
+}
+
+#subtitulo{
+	color: #233EE3;
 }

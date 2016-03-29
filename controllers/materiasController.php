@@ -6,7 +6,7 @@ class materiasController extends Controller{
 	public  function __construct(){
 		parent::__construct();
 		$this->_materiaDao = $this->loadModel('materias');
-	}
+	} 
 
 	public function index(){
 		$this->_view->materias = $this->_materiaDao->getMateriasGrupos();
@@ -57,7 +57,7 @@ class materiasController extends Controller{
 		$materiaAnterior = $this->_materiaDao->getMateria('codigo_materia', $codigo_materia[0]);
 		if(!$materiaAnterior){
 			$this->redireccionar('materias');
-		}
+		} 
 
 		$this->_view->materiaAnterior = $materiaAnterior;
 

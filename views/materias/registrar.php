@@ -70,6 +70,18 @@
 	  </nav>
 	  <!--fin del menu horizontal-->
 	  
+	  <div class="container-fluid"> 
+	    <div class="row fondo">
+	      <div class="col-md-2">
+	        <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/ciencia_y_tec.jpg"  alt="">  
+	      </div>
+	      <div class="col-md-8 col-md-offset2">
+	        <h2 class ="text-center">Registrar Materias</h2> 
+	      </div>
+	    </div><br>
+	  </div>
+
+
 	  <!--Contenido central--> 
 	  <div class="row clearfix">
 	  	
@@ -78,38 +90,20 @@
 	  		
 	  		<nav id="menu">
 			  <div class="container-fluid">
-				 <div class="row"><!--menu con las opciones mas relevantes por el momento.. -->
-				   	  	<!-- <ul class="nav nav-pills nav-stacked">
-				   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>index.php">Inicio</a></li>
-				   	  		<li role="presentation"><a href="<?php echo BASE_URL . 'facultad'?>">Facultades</a></li>
-				   	  		<li role="presentation"><a href="<?php echo BASE_URL; ?>planDeEstudio">Planes de Estudio</a></li>
-		                    <li role="presentation" class="active"><a href="<?php echo BASE_URL; ?>materias">Materias</a></li>
-		                    <li role="presentation"><a href="<?php echo BASE_URL; ?>planGlobal/registrar">Planes Globales</a></li>
-				   	  	</ul> -->
+				 <div class="row">
 
-				   	  	<div id="MainMenu">
-				          <div class="list-group panel">
-
-				            <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Volver</a>
-				             <div class="collapse" id="demo4">
-				                <a href="<?php echo BASE_URL; ?>index.php" class="list-group-item"><i>Inicio</i></a>
-				                <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item"><i>Facultad</i></a>
-				                <a href="<?php echo BASE_URL; ?>planEstudios" class="list-group-item"><i>Plan de Estudios</i></a>
-
-				             </div>
-
-				            <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Materia</a>
-				            <div class="collapse" id="demo3">
-				              <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Plan Global <i class="fa fa-caret-down"></i></a>
-				              <div class="collapse list-group-submenu" id="SubMenu1">
-				                
-				                
-				                <!-- <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a> -->
-				              </div>
-				              <!-- <a href="javascript:;" class="list-group-item">Subitem 2</a> -->
-				            </div>
-				          </div>
-				        </div>
+			        <div id="MainMenu">
+			          <div class="list-group panel">
+			            
+			            <a href="<?php echo BASE_URL; ?>index" class="list-group-item list-group-item-success">Inicio</a> 
+			            
+			            <a href="#menu2" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Facultad</a>
+			            <div class="collapse list-group-submenu" id="menu2">
+			              <a href="<?php echo BASE_URL; ?>facultad/carreras" class="list-group-item"><i>Carreras</i></a>
+			            </div>
+			            <a href="#SubMenu3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Registrar Materia</a>
+			          </div>
+			        </div>
 
 				 </div>
 			  </div>
@@ -152,7 +146,7 @@
 								                <button class="btn btn-primary center-block" type="submit">Registrar</button>						            						          					                  	
 							            </div>  
 										<div class="col-xs-6">
-									          <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL; ?>planEstudios">
+									          <a role="button" class="btn btn-primary" id="btn_volver" href="<?php echo BASE_URL; ?>materias">
 								                  	Volver
 								              </a>	
 								        </div>

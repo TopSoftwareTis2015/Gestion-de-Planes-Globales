@@ -18,7 +18,7 @@ class planEstudiosController extends Controller{
 		$this->_view->renderizar('index');
 	}
 
-	// public function editarCarrera($array = false){
-		
-	// }
+	public function planDeEstudios(){		
+		$this->_view->renderizar('planDeEstudios');
+	}
 }
