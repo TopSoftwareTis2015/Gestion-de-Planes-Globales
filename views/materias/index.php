@@ -147,7 +147,7 @@
             <th>NOMBRE MATERIA</th>
             <th>SIGLA</th>
             <th>ACCIONES</th>
-            <th><h4>REGISTRAR PLAN GLOBAL</h4></th>
+            <!-- <th><h4>REGISTRAR PLAN GLOBAL</h4></th> -->
             <th>PLAN GLOBAL</th>
     			</tr>
        </thead>
@@ -162,11 +162,13 @@
             <td><?php echo $this->materias[$i]['codigo_materia']; ?></td>
             <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
             <td><?php echo $this->materias[$i]['sigla_materia']; ?></td>
-             <!-- Boton para editar una materia --> 
             <td>
+              
+              <!-- Boton para editar una materia --> 
               <a class="btn btn-primary" role="button"
                   href = "<?php echo BASE_URL . 'materias/editar/' . $this->materias[$i]['codigo_materia']; ?>">
                 <span class="glyphicon glyphicon-edit"></span></a>
+              
               <!--Boton para eliminar una materia -->  
               <a class="btn btn-primary" role="button"
                   data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
@@ -176,11 +178,14 @@
                 <span class="glyphicon glyphicon-remove-circle"></span></a>
                 <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
             </td>
-            <td>
+            
+            <!-- Registrar plan Global -->
+            <!-- <td>
                 <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materias[$i]['codigo_materia'];?>">
                   <span class="glyphicon glyphicon-list-alt"></span>
                 </a>
-            </td>
+            </td> -->
+            
             <td>
               <?php
                 $codigoAnterior = $this->materias[$i]['codigo_materia'];

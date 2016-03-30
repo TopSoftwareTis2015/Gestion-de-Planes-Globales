@@ -130,12 +130,9 @@
      
      <!--Buscador-->
      <div class="row">        
-       <div class="col-xs-12 col-sm-4 ">
-         <h2><center></center></h2>  
-       </div>
-       
-       <!-- <div class="col-xs-12 col-sm-4 col-sm-offset-2" > -->
-       <div class="col-xs-12 col-sm-6" >
+
+       <div class="col-xs-12 col-sm-10 col-sm-offset-2" >
+       <!-- <div class="col-xs-12 col-sm-6" > -->
           <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia">    
           </div>
        </div>
@@ -170,12 +167,13 @@
             <td><?php echo $this->materias[$i]['codigo_materia']; ?></td>
             <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
             <td><?php echo $this->materias[$i]['sigla_materia']; ?></td>
-             <!-- Boton para editar una materia --> 
-            <td>
+            
+            <!-- <td>
+              Boton para editar una materia 
               <a class="btn btn-primary" role="button"
                   href = "<?php echo BASE_URL . 'materias/editar/' . $this->materias[$i]['codigo_materia']; ?>">
                 <span class="glyphicon glyphicon-edit"></span></a>
-              <!--Boton para eliminar una materia -->  
+              Boton para eliminar una materia 
               <a class="btn btn-primary" role="button"
                   data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
                   data-valor="<?php echo $this->materias[$i]['codigo_materia']; ?>"
@@ -183,12 +181,18 @@
                   onclick = "confirmarEliminacion(this);">
                 <span class="glyphicon glyphicon-remove-circle"></span></a>
                 <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
-            </td>
-            <!-- <td>
+            </td> -->
+            
+            <td>
+                <!--Boton para registrar Plan Global -->
                 <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materias[$i]['codigo_materia'];?>">
                   <span class="glyphicon glyphicon-list-alt"></span>
                 </a>
-            </td> -->
+                <!-- <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planEstudios/registrar/'. $this->materias[$i]['codigo_materia'];?>">
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                </a> -->
+            </td>
+
             <td>
               <?php
                 $codigoAnterior = $this->materias[$i]['codigo_materia'];
@@ -209,6 +213,7 @@
                 }
                ?>
             </td>
+
           </tr>
 
           <?php
@@ -216,6 +221,13 @@
             }
 
            ?>
+           
+           <!-- mostrar niveles -->
+           <!-- <?php
+              // for ($i=1; $i < 3; $i++) { 
+              //   echo '<tr><td colspan="5">Nivel '.$i.'</td></tr>';
+              // } 
+           ?> -->
 
         </tbody>
        
@@ -231,7 +243,7 @@
              <div class="col-xs-4"> 
              </div>
               <!--Boton para registrar una materia -->   
-          	  <div class="col-xs-4">   
+          	  <div class="col-xs-4">     
                    <a href="<?php echo BASE_URL; ?>materias/nuevo" role="button" class="btn btn-primary">
                      <strong>Agregar Materia</strong>
                    </a>
@@ -239,7 +251,8 @@
               
 
              
-                <div class="modal fade" id="eliminar_materia" > <!--div contenedor de la ventana emergente de registro de materia-->
+              <div class="modal fade" id="eliminar_materia" > 
+              <!--div contenedor de la ventana emergente de registro de materia-->
                    <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                      <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
                        

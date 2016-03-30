@@ -57,7 +57,7 @@ class materiasController extends Controller{
 		$materiaAnterior = $this->_materiaDao->getMateria('codigo_materia', $codigo_materia[0]);
 		if(!$materiaAnterior){
 			$this->redireccionar('materias');
-		} 
+		}  
 
 		$this->_view->materiaAnterior = $materiaAnterior;
 

@@ -321,7 +321,7 @@
     ?>
     
     <?php
-      // Parte 4
+      //Parte 4
       include ROOT.'views'.DS.'planGlobal'.DS.'registrarPG4.php"';                             
       
       //Parte 5
@@ -336,7 +336,7 @@
     ?>
     
     <br><br>
-    <button class="submit btn btn-default" type="submit" required>REGISTRAR PLAN GLOBAL</button>
+    <button class="submit btn btn-success" type="submit" required>REGISTRAR PLAN GLOBAL</button>
                                 
 
 
@@ -351,14 +351,14 @@
       </div>
      </article>
      
-     <div class="container-fluid" id="paginador">
+     <!-- <div class="container-fluid" id="paginador">
             <nav>
-            <ul class="pager"> <!--campo para los paginadores para pasar a la continuacion del formulario-->
-              <!--<li class="next"><a href="<?php echo BASE_URL; ?>planGlobal/registrar/2">siguiente &rarr;</a></li>-->
+            <ul class="pager"> 
+              <li class="next"><a href="<?php echo BASE_URL; ?>planGlobal/registrar/2">siguiente &rarr;</a></li>
               <li class="next"><a href="#">siguiente &rarr;</a></li>
             </ul>
             </nav>
-      </div>
+      </div> -->
 
   </section>
 

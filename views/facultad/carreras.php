@@ -105,27 +105,38 @@
      <div class="col-md-5">
    
       <h2 id="list-carrera"><strong><ins>Lista de Carreras</ins></strong></h2>
-      <table class="table">
-        <tr class="success">
-          <th>Nombre</th>
-          <th>Año</th>
-        </tr>
-        <tr>
-          <td>
-            <a href="<?php echo BASE_URL . 'planEstudios'?>"><storng>Informatica</storng></a>
-          </td>
-          <td>
-            1978
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#"><storng>Sistemas</storng></a> 
-          </td>
-          <td>
-            1980
-          </td>
-        </tr>
+      <table class="table table-hover table-bordered" id="datos">
+      <!-- <table class="table"> -->
+        <thead>
+          <tr class="success">
+            <th>Nombre</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php 
+            if(isset($this->facultad) && count($this->facultad)){
+              for ($i=0; $i < count($this->facultad); $i++) { 
+          ?>
+          <tr>
+            <td> 
+            <!-- <a href="<?php echo BASE_URL . 'planEstudios/'. $this->facultad[$i]['nombre'];?>"><storng><?php echo $this->facultad[$i]['nombre']; ?></storng>
+            </a> -->
+
+            <a href="<?php echo BASE_URL . 'planEstudios/'?>"><storng><?php echo $this->facultad[$i]['nombre']; ?></storng>
+            </a>
+
+            </td>
+            <td><?php echo $this->facultad[$i]['anio_carrera']; ?></td>
+            
+          </tr>
+          <?php
+              }
+            }
+
+           ?>
+        </tbody>
+        
       </table>
 
      </div>
