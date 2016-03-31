@@ -59,9 +59,9 @@
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li> <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>materias">Materias Habilitadas</a> </li>
                 
               </ul>
             </li>
@@ -91,30 +91,48 @@
     <div class="container-fluid">
      <div class="row">  
 
-        <div id="MainMenu">
-           <div class="list-group panel">
+        <!-- <div id="MainMenu">
+          <div class="list-group panel">
             
             <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item list-group-item-success">Inicio</a>
             <a href="<?php echo BASE_URL . 'planEstudios'?>" class="list-group-item list-group-item-success">Informatica</a>
             <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Plan de Estudios</a>
-            
-            <!-- <div class="collapse" id="demo3">
-              <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Carreras <i class="fa fa-caret-down"></i></a>
-              <div class="collapse list-group-submenu" id="SubMenu1">
-                <a href="#SubSubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubSubMenu1">Plan de Estudios <i class="fa fa-caret-down"></i></a>
-                <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
-                  <a href="<?php echo BASE_URL . 'facultad'?>" class="list-group-item" data-parent="#SubSubMenu1">Materias</a>
-                  <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Plan global</a>
-                </div>
-              </div>
-            </div> -->
+          </div>
+        </div> -->
 
-           </div>
-         </div>
+        <h3><ins>Navegacion</ins></h3>
+        <div class="tree muro">
+          <ul>
+            <li>  
+               <a href="<?php echo BASE_URL; ?>index">Inicio</a>
+                <ul>
+                    <li>  
+                      <a href="<?php echo BASE_URL; ?>facultad">Facultad</a>
+                      <ul>
+                        <li>
+                         <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
+                        </li>
+                        <li class="active">  
+                          <a href="<?php echo BASE_URL; ?>planEstudios">Inform&aacute;tica</a>
+                          <ul>
+                            <li >  
+                              <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios"><strong>Plan de Estudios</strong></a>
+                            </li>
+                          </ul>
+                        </li>
+                        <!-- <li>
+                          <a href="#">Nivel 1</a>
+                        </li> -->
+                      </ul>
+                    </li>
+                </ul>
+            </li>
+          </ul>
+        </div>
 
-         <picture>
+        <picture>
           <img class="img-responsive" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/logoInformatica.png"  alt="">  
-         </picture>
+        </picture>
 
      </div>
     </div>
@@ -244,7 +262,7 @@
              </div>
               <!--Boton para registrar una materia -->   
           	  <div class="col-xs-4">     
-                   <a href="<?php echo BASE_URL; ?>materias/nuevo" role="button" class="btn btn-primary">
+                   <a href="" role="button" class="btn btn-primary">
                      <strong>Agregar Materia</strong>
                    </a>
               </div>

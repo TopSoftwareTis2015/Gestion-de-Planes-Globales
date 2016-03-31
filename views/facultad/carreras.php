@@ -7,12 +7,11 @@
   
   <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.css"> 
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
-  
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.css"> 
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
 </head>
 <body>
 <div id="cuadro">  
@@ -57,7 +56,7 @@
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu" >
                 <li> 
                     <a href="<?php echo BASE_URL; ?>materias">Materias Habilitadas</a>
@@ -88,7 +87,7 @@
 
      <div class="col-md-4">
         
-        <div id="MainMenu">
+        <!-- <div id="MainMenu">
           <div class="list-group panel">
 
             <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item list-group-item-success">Inicio</a>
@@ -96,10 +95,42 @@
             <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Carreras</a>
             
           </div>
-        </div>
+        </div> -->
 
-
+        <h3><ins>Navegacion</ins></h3>
+        <div class="tree muro">
+          <ul>
+            <li>  
+               <a href="<?php echo BASE_URL; ?>index">Inicio</a>
+                <ul>
+                    <li>  
+                      <a href="<?php echo BASE_URL; ?>facultad">Facultad</a>
+                      <ul>
+                        <li>
+                         <a href="<?php echo BASE_URL; ?>facultad/carreras"><strong>Carreras</strong></a>
+                         <!-- chevron   menu-->
+                        </li>
+                        <!-- <li class="active">  
+                          <a href=""><strong>Inform&aacute;tica</strong></a>
+                          <ul>
+                            <li >  
+                              <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
+                            </li>
+                          </ul>
+                        </li> -->
+                        <!-- <li>
+                          <a href="#">Nivel 1</a>
+                        </li> -->
+                      </ul>
+                    </li>
+                </ul>
+            </li>
+          </ul>
+        </div> <br>
+      <picture>
        <img src="<?php echo BASE_URL; ?>views/materias/img/fcyt2.jpg" height="200" class="img-responsive" alt=""><br>
+      </picture>
+
      </div>
 
      <div class="col-md-5">

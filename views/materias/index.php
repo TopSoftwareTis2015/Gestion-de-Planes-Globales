@@ -89,7 +89,7 @@
 	  <div class="container-fluid">
 		 <div class="row">
 		   	  	
-        <div id="MainMenu">
+        <!-- <div id="MainMenu">
           <div class="list-group panel">
             
             <a href="<?php echo BASE_URL; ?>index" class="list-group-item list-group-item-success">Inicio</a> 
@@ -100,7 +100,38 @@
             </div>
             <a href="#SubMenu3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Materias Registradas</a>
           </div>
+        </div> -->
+
+        <h3><ins>Navegacion</ins></h3>
+        <div class="tree muro">
+          <ul>
+            <li>  
+              <a href="<?php echo BASE_URL; ?>index">Inicio</a>
+              <ul>
+                <li>  
+                  <a href="<?php echo BASE_URL; ?>facultad">Facultad</a>
+                  <ul>
+                    <li>
+                      <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
+                    </li>
+                    <li class="active">  
+                      <a href="<?php echo BASE_URL; ?>planEstudios">Inform&aacute;tica</a>
+                      <ul>
+                        <li>  
+                          <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
+                        </li>                                   
+                      </ul>
+                    </li>
+                    <!-- <li>
+                      <a href="#">Nivel 1</a>
+                    </li> -->
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
+
 
 		 </div>
 	  </div>

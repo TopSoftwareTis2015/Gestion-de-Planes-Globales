@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
-  
+
+
 </head>
 <body>
 <div id="cuadro">  
@@ -57,11 +58,9 @@
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu" >
-                <li> 
-                    <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
-                </li>
+                <li> <a href="<?php echo BASE_URL; ?>materias">Materias Habilitadas</a> </li>
               </ul>
             </li>
           </ul>
@@ -86,7 +85,7 @@
 
      <div class="col-md-4">
     
-        <div id="MainMenu">
+        <!-- <div id="MainMenu">
           <div class="list-group panel">
 
             <a href="#menu1" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Inicio</a>
@@ -96,7 +95,37 @@
               <a href="<?php echo BASE_URL; ?>facultad/carreras" class="list-group-item"><i>Carreras</i></a>
             </div>
           </div>
-        </div>
+        </div> -->
+
+        <h3><ins>Navegacion</ins></h3>
+        <div class="tree muro">
+          <ul>
+            <li>  
+               <a href="<?php echo BASE_URL; ?>index">Inicio</a>
+                <ul>
+                    <li>  
+                      <a href="<?php echo BASE_URL; ?>facultad"><strong>Facultad</strong></a>
+                      <ul>
+                        <li>
+                         <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
+                        </li>
+                        <!-- <li class="active">  
+                          <a href=""><strong>Inform&aacute;tica</strong></a>
+                          <ul>
+                            <li >  
+                              <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
+                            </li>
+                          </ul>
+                        </li> -->
+                        <!-- <li>
+                          <a href="#">Nivel 1</a>
+                        </li> -->
+                      </ul>
+                    </li>
+                </ul>
+            </li>
+          </ul>
+        </div> <br>
 
         <figure>
         <img width="200" class="img-responsive" alt="" src="<?php echo BASE_URL; ?>views/facultad/img/logo_fcyt.jpg" ><br>
