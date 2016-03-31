@@ -1,0 +1,40 @@
+.elemento-basico{
+	margin: 2px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 10px;
+  border: 2px solid #004d00; /*#73AD21;*/
+  padding: 10px; 
+  /*width: 200px;
+  height: 150px;*/ 
+}
+
+.controles{
+	margin: 1px;
+	float: right;
+}
+
+.itemControles{
+	margin: 2px;
+	display: inline;
+}
+
+.elemento-titulo{
+	margin: 2px;
+	background-color: #6fdc6d;
+}
+
+.elemento-input-titulo, .elemento-input-descripcion{
+	margin: 2px;
+	background-color: #c1f0c1;
+}
+
+.elemento-lista-contenidos-basicos{
+	margin: 2px;
+	background-color: lightgray;
+}
+
+.elemento-contenedor-lista{
+	margin: 2px;
+	background-color: #ffffb3;
+}
