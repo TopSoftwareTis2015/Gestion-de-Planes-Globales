@@ -59,10 +59,10 @@
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li> <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>
-                
+                <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
+                <li> <a href="">Formatos Plan Global</a> </li>  
               </ul>
             </li>
           </ul>
@@ -91,30 +91,48 @@
     <div class="container-fluid">
      <div class="row">  
 
-        <div id="MainMenu">
-           <div class="list-group panel">
+        <!-- <div id="MainMenu">
+          <div class="list-group panel">
             
             <a href="<?php echo BASE_URL; ?>facultad" class="list-group-item list-group-item-success">Inicio</a>
             <a href="<?php echo BASE_URL . 'planEstudios'?>" class="list-group-item list-group-item-success">Informatica</a>
             <a href="#demo3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Plan de Estudios</a>
-            
-            <!-- <div class="collapse" id="demo3">
-              <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Carreras <i class="fa fa-caret-down"></i></a>
-              <div class="collapse list-group-submenu" id="SubMenu1">
-                <a href="#SubSubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubSubMenu1">Plan de Estudios <i class="fa fa-caret-down"></i></a>
-                <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
-                  <a href="<?php echo BASE_URL . 'facultad'?>" class="list-group-item" data-parent="#SubSubMenu1">Materias</a>
-                  <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Plan global</a>
-                </div>
-              </div>
-            </div> -->
+          </div>
+        </div> -->
 
-           </div>
-         </div>
+        <h3><ins>Navegacion</ins></h3>
+        <div class="tree muro">
+          <ul>
+            <li>  
+               <a href="<?php echo BASE_URL; ?>index">Inicio</a>
+                <ul>
+                    <li>  
+                      <a href="<?php echo BASE_URL; ?>facultad">Facultad</a>
+                      <ul>
+                        <li>
+                         <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
+                        </li>
+                        <li class="active">  
+                          <a href="<?php echo BASE_URL; ?>planEstudios">Inform&aacute;tica</a>
+                          <ul>
+                            <li >  
+                              <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios"><strong>Plan de Estudios</strong></a>
+                            </li>
+                          </ul>
+                        </li>
+                        <!-- <li>
+                          <a href="#">Nivel 1</a>
+                        </li> -->
+                      </ul>
+                    </li>
+                </ul>
+            </li>
+          </ul>
+        </div>
 
-         <picture>
+        <picture>
           <img class="img-responsive" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/logoInformatica.png"  alt="">  
-         </picture>
+        </picture>
 
      </div>
     </div>
@@ -130,12 +148,9 @@
      
      <!--Buscador-->
      <div class="row">        
-       <div class="col-xs-12 col-sm-4 ">
-         <h2><center></center></h2>  
-       </div>
-       
-       <!-- <div class="col-xs-12 col-sm-4 col-sm-offset-2" > -->
-       <div class="col-xs-12 col-sm-6" >
+
+       <div class="col-xs-12 col-sm-10 col-sm-offset-2" >
+       <!-- <div class="col-xs-12 col-sm-6" > -->
           <div class="derecha" id="buscar">Buscar <input type="search" class="light-table-filter" data-table="order-table" placeholder="Ingrese nombre o descripcion de materia">    
           </div>
        </div>
@@ -161,21 +176,33 @@
        </thead>
 
         <tbody>
+          <?php
+          for ($a=1; $a < 5; $a++) { 
+              echo '<tr><td colspan="5" id="nivel"><strong>NIVEL<strong> '.$a.'</td></tr>';
           
-          <?php 
-            if(isset($this->materias) && count($this->materias)){
-              for ($i=0; $i < count($this->materias); $i++) { 
-                ?>
+            if(isset($this->materiasN) && count($this->materiasN)){
+              for ($i=0; $i < count($this->materiasN); $i++) {
+                 if($this->materiasN[$i]['numero_nivel']==$a){               
+          ?>
           <tr>
-            <td><?php echo $this->materias[$i]['codigo_materia']; ?></td>
-            <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
-            <td><?php echo $this->materias[$i]['sigla_materia']; ?></td>
-             <!-- Boton para editar una materia --> 
-            <td>
+            <!-- <td><?php echo $this->materias[$i]['codigo_materia']; ?></td> -->
+            <td><?php echo $this->materiasN[$i]['codigo_materia']; ?></td>
+
+            <!-- <td><?php echo $this->materias[$i]['nombre_materia']; ?></td> -->
+            <td><?php echo $this->materiasN[$i]['nombre_materia']; ?></td>
+
+            <!-- <td><?php echo $this->materias[$i]['sigla_materia']; ?></td> -->
+            <td><?php echo $this->materiasN[$i]['sigla_materia']; ?></td>
+            <!-- <td><?php echo $this->materiasN[$i]['numero_nivel']; ?></td> -->
+
+             
+            
+            <!-- <td>
+              Boton para editar una materia 
               <a class="btn btn-primary" role="button"
                   href = "<?php echo BASE_URL . 'materias/editar/' . $this->materias[$i]['codigo_materia']; ?>">
                 <span class="glyphicon glyphicon-edit"></span></a>
-              <!--Boton para eliminar una materia -->  
+              Boton para eliminar una materia 
               <a class="btn btn-primary" role="button"
                   data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
                   data-valor="<?php echo $this->materias[$i]['codigo_materia']; ?>"
@@ -183,39 +210,55 @@
                   onclick = "confirmarEliminacion(this);">
                 <span class="glyphicon glyphicon-remove-circle"></span></a>
                 <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
-            </td>
-            <!-- <td>
-                <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materias[$i]['codigo_materia'];?>">
+            </td> -->
+            
+            <td>
+                <!--Boton para registrar Plan Global -->
+                <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materiasN[$i]['codigo_materia'];?>">
                   <span class="glyphicon glyphicon-list-alt"></span>
                 </a>
-            </td> -->
+                <!-- <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planEstudios/registrar/'. $this->materias[$i]['codigo_materia'];?>">
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                </a> -->
+            </td>
+
             <td>
               <?php
-                $codigoAnterior = $this->materias[$i]['codigo_materia'];
+                $codigoAnterior = $this->materiasN[$i]['codigo_materia'];
 
-                for ($j=$i; $j < count($this->materias) ; $j++) { 
-                  if($this->materias[$j]['codigo_materia'] == $codigoAnterior){
-                    if($this->materias[$j]['numero_plan_global']){
+                for ($j=$i; $j < count($this->materiasN) ; $j++) { 
+                  if($this->materiasN[$j]['codigo_materia'] == $codigoAnterior){
+                    if($this->materiasN[$j]['numero_plan_global']){
               ?>
-              <a href="<?php echo BASE_URL . 'planGlobal/mostrarPlanGlobal/' . $this->materias[$j]['id_pg'];?>">
-                PG<?php echo $this->materias[$j]['numero_plan_global']; ?> 
+              <a href="<?php echo BASE_URL . 'planGlobal/mostrarPlanGlobal/' . $this->materiasN[$j]['id_pg'];?>">
+                PG<?php echo $this->materiasN[$j]['numero_plan_global']; ?> 
               </a>
               <?php
                     }
-                    $codigoAnterior = $this->materias[$j]['codigo_materia'];
+                    $codigoAnterior = $this->materiasN[$j]['codigo_materia'];
                     if($i < $j)
                       $i++;
                   }
                 }
                ?>
             </td>
+
           </tr>
 
           <?php
+               }
               }
             }
+          } 
 
-           ?>
+          ?>
+           
+           <!-- mostrar niveles -->
+           <!-- <?php
+              // for ($i=1; $i < 3; $i++) { 
+              //   echo '<tr><td colspan="5">Nivel '.$i.'</td></tr>';
+              // } 
+           ?> -->
 
         </tbody>
        
@@ -231,15 +274,16 @@
              <div class="col-xs-4"> 
              </div>
               <!--Boton para registrar una materia -->   
-          	  <div class="col-xs-4">   
-                   <a href="<?php echo BASE_URL; ?>materias/nuevo" role="button" class="btn btn-primary">
+          	  <div class="col-xs-4">     
+                   <!-- <a href="" role="button" class="btn btn-primary">
                      <strong>Agregar Materia</strong>
-                   </a>
+                   </a> -->
               </div>
               
 
              
-                <div class="modal fade" id="eliminar_materia" > <!--div contenedor de la ventana emergente de registro de materia-->
+              <div class="modal fade" id="eliminar_materia" > 
+              <!--div contenedor de la ventana emergente de registro de materia-->
                    <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                      <div class="modal-content"> <!--div para el contenido de la ventana emergente-->
                        
