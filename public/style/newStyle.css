@@ -32,6 +32,10 @@
 	color: #233EE3;
 }
 
+#nivel{
+    color: #0D0DDD;
+}
+
 .tree li {
     margin: 0px 0;
     list-style-type: none;

@@ -61,8 +61,8 @@
             <li class="dropdown"><!--Opcion dropdown-->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li> <a href="<?php echo BASE_URL; ?>materias">Materias Habilitadas</a> </li>
-                
+                <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
+                <li> <a href="">Formatos Plan Global</a> </li>  
               </ul>
             </li>
           </ul>
@@ -176,15 +176,26 @@
        </thead>
 
         <tbody>
+          <?php
+          for ($a=1; $a < 5; $a++) { 
+              echo '<tr><td colspan="5" id="nivel"><strong>NIVEL<strong> '.$a.'</td></tr>';
           
-          <?php 
-            if(isset($this->materias) && count($this->materias)){
-              for ($i=0; $i < count($this->materias); $i++) { 
-                ?>
+            if(isset($this->materiasN) && count($this->materiasN)){
+              for ($i=0; $i < count($this->materiasN); $i++) {
+                 if($this->materiasN[$i]['numero_nivel']==$a){               
+          ?>
           <tr>
-            <td><?php echo $this->materias[$i]['codigo_materia']; ?></td>
-            <td><?php echo $this->materias[$i]['nombre_materia']; ?></td>
-            <td><?php echo $this->materias[$i]['sigla_materia']; ?></td>
+            <!-- <td><?php echo $this->materias[$i]['codigo_materia']; ?></td> -->
+            <td><?php echo $this->materiasN[$i]['codigo_materia']; ?></td>
+
+            <!-- <td><?php echo $this->materias[$i]['nombre_materia']; ?></td> -->
+            <td><?php echo $this->materiasN[$i]['nombre_materia']; ?></td>
+
+            <!-- <td><?php echo $this->materias[$i]['sigla_materia']; ?></td> -->
+            <td><?php echo $this->materiasN[$i]['sigla_materia']; ?></td>
+            <!-- <td><?php echo $this->materiasN[$i]['numero_nivel']; ?></td> -->
+
+             
             
             <!-- <td>
               Boton para editar una materia 
@@ -203,7 +214,7 @@
             
             <td>
                 <!--Boton para registrar Plan Global -->
-                <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materias[$i]['codigo_materia'];?>">
+                <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materiasN[$i]['codigo_materia'];?>">
                   <span class="glyphicon glyphicon-list-alt"></span>
                 </a>
                 <!-- <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planEstudios/registrar/'. $this->materias[$i]['codigo_materia'];?>">
@@ -213,18 +224,18 @@
 
             <td>
               <?php
-                $codigoAnterior = $this->materias[$i]['codigo_materia'];
+                $codigoAnterior = $this->materiasN[$i]['codigo_materia'];
 
-                for ($j=$i; $j < count($this->materias) ; $j++) { 
-                  if($this->materias[$j]['codigo_materia'] == $codigoAnterior){
-                    if($this->materias[$j]['numero_plan_global']){
+                for ($j=$i; $j < count($this->materiasN) ; $j++) { 
+                  if($this->materiasN[$j]['codigo_materia'] == $codigoAnterior){
+                    if($this->materiasN[$j]['numero_plan_global']){
               ?>
-              <a href="<?php echo BASE_URL . 'planGlobal/mostrarPlanGlobal/' . $this->materias[$j]['id_pg'];?>">
-                PG<?php echo $this->materias[$j]['numero_plan_global']; ?> 
+              <a href="<?php echo BASE_URL . 'planGlobal/mostrarPlanGlobal/' . $this->materiasN[$j]['id_pg'];?>">
+                PG<?php echo $this->materiasN[$j]['numero_plan_global']; ?> 
               </a>
               <?php
                     }
-                    $codigoAnterior = $this->materias[$j]['codigo_materia'];
+                    $codigoAnterior = $this->materiasN[$j]['codigo_materia'];
                     if($i < $j)
                       $i++;
                   }
@@ -235,10 +246,12 @@
           </tr>
 
           <?php
+               }
               }
             }
+          } 
 
-           ?>
+          ?>
            
            <!-- mostrar niveles -->
            <!-- <?php
@@ -262,9 +275,9 @@
              </div>
               <!--Boton para registrar una materia -->   
           	  <div class="col-xs-4">     
-                   <a href="" role="button" class="btn btn-primary">
+                   <!-- <a href="" role="button" class="btn btn-primary">
                      <strong>Agregar Materia</strong>
-                   </a>
+                   </a> -->
               </div>
               
 

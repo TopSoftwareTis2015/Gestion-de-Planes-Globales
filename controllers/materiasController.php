@@ -54,6 +54,10 @@ class materiasController extends Controller{
 	}
 
 	public function editar($codigo_materia){
+		
+       if ($this->getTexto('codigo_materia')!=$codigo_materia ) {
+       	echo $this->getTexto('codigo_materia');
+
 		$materiaAnterior = $this->_materiaDao->getMateria('codigo_materia', $codigo_materia[0]);
 		if(!$materiaAnterior){
 			$this->redireccionar('materias');
@@ -73,6 +77,16 @@ class materiasController extends Controller{
 			//$this->redireccionar('materias');
 			$this->_view->procesoTerminado = true;
 		}
+       }else{
+       	  $this->_materiaDao->editarMateria(
+				$this->getTexto('nombre_materia'),
+				$this->getTexto('codigo_materia'),
+				$this->getTexto('sigla_materia'),
+				$codigo_materia[0]
+				);
+			//$this->redireccionar('materias');
+			$this->_view->procesoTerminado = true;
+        }
 
 		$this->_view->renderizar('editar');
 	}

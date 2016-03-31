@@ -25,7 +25,7 @@ class planEstudiosController extends Controller{
 
 	public function planDeEstudios(){
 		// $this->_view->materias = $this->_planGlobalDao->getMateriasGrupos();
-		$this->_view->materias = $this->_planEstudioDao->getMateriasGrupos();
+		$this->_view->materiasN = $this->_planEstudioDao->getMateriasGrupos();
 		
 	    		
 		$this->_view->renderizar('planDeEstudios');
