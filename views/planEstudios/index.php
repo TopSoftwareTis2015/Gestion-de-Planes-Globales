@@ -66,7 +66,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
-                <li> <a href="">Formatos Plan Global</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>
               </ul>
             </li>
           </ul>
@@ -89,6 +89,12 @@
 
   <section class="main row"> <!--seccion donde esta el contenido del sistema web -->
   <br>
+  <ol class="breadcrumb"> 
+    <li><a href="">Inicio</a> </li>
+    <li><a href="<?php echo BASE_URL; ?>facultad">Facultad</a> </li>
+    <li><a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>  
+    <li class="active">Informatica</li>
+  </ol>
 
   <!-- Menu de navegacion vertical del sistema web-->
    <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
@@ -109,8 +115,13 @@
            </div>
       </div> -->
       
-     <!-- arbol de navegacion-->
-     
+    <!-- <ol class="breadcrumb"> 
+      <li><a href="">Inicio</a> </li>
+      <li><a href="<?php echo BASE_URL; ?>facultad">Facultad</a> </li>
+      <li><a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>  
+      <li class="active">Plan de Estudios</li>
+    </ol> -->
+    <!-- arbol de navegacion--> 
     <h3><ins>Navegacion</ins></h3>
     <div class="tree muro">
       <ul>
@@ -140,66 +151,6 @@
         </li>
       </ul>
     </div> <br>
-
-      <!-- <div class="tree well">
-        <ul>
-            <li>
-               <span><i class="icon-folder-open"></i> Parent</span> <a href="">Goes somewhere</a>
-              <span title="Collapse this branch" class="glyphicon glyphicon-triangle-bottom"><i class="icon-folder-open"></i></span> <a href="">Goes somewhere</a>
-              <ul>
-                <li>
-                  <span><i class="icon-minus-sign"></i> Child</span> <a href="">Goes somewhere</a>
-                    <ul>
-                      <li>
-                        <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                      </li>
-                    </ul>
-                </li>
-                <li>
-                  <span><i class="icon-minus-sign"></i> Child</span> <a href="">Goes somewhere</a>
-                    <ul>
-                      <li>
-                        <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                      </li>
-                      <li>
-                        <span><i class="icon-minus-sign"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                        <ul>
-                          <li>
-                            <span><i class="icon-minus-sign"></i> Great Grand Child</span> <a href="">Goes somewhere</a>
-                            <ul>
-                              <li>
-                                <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="">Goes somewhere</a>
-                              </li>
-                              <li>
-                                <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="">Goes somewhere</a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="">Mesa</a>
-                          </li>
-                          <li>
-                            <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="">Silla</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
-                      </li>
-                    </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-             <span><i class="icon-folder-open"></i> Parent2</span> <a href="">Goes somewhere</a>
-             <ul>
-               <li>
-                <span><i class="icon-leaf"></i> Child</span> <a href="">Goes somewhere</a>
-               </li>
-             </ul>
-            </li>
-        </ul>
-      </div> -->
 
       <picture>
         <img class="img-responsive" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/logoInformatica.png"  alt="">  

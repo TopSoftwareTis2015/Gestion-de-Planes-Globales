@@ -62,7 +62,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
-                <li> <a href="">Formatos Plan Global</a> </li>  
+                <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>  
               </ul>
             </li>
           </ul>
@@ -85,6 +85,12 @@
 
   <section class="main row"> <!--seccion donde esta el contenido del sistema web -->
   <br>
+  <ol class="breadcrumb"> 
+    <li><a href="">Inicio</a> </li>
+    <li><a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>
+    <li><a href="<?php echo BASE_URL; ?>planEstudios">Informatica</a> </li>    
+    <li class="active">Plan de Estudios</li>
+  </ol>
 
   <!-- Menu de navegacion vertical del sistema web-->
    <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
@@ -128,7 +134,7 @@
                 </ul>
             </li>
           </ul>
-        </div>
+        </div><br>
 
         <picture>
           <img class="img-responsive" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/logoInformatica.png"  alt="">  
@@ -169,7 +175,7 @@
 	          <th>CODIGO</th>
             <th>NOMBRE MATERIA</th>
             <th>SIGLA</th>
-            <!-- <th>ACCIONES</th> -->
+            <th>PRE-REQUISITO</th>
             <th><h4>REGISTRAR PLAN GLOBAL</h4></th>
             <th>PLAN GLOBAL</th>
     			</tr>
@@ -178,7 +184,7 @@
         <tbody>
           <?php
           for ($a=1; $a < 5; $a++) { 
-              echo '<tr><td colspan="5" id="nivel"><strong>NIVEL<strong> '.$a.'</td></tr>';
+              echo '<tr><td colspan="6" id="nivel"><strong>NIVEL<strong> '.$a.'</td></tr>';
           
             if(isset($this->materiasN) && count($this->materiasN)){
               for ($i=0; $i < count($this->materiasN); $i++) {
@@ -193,25 +199,9 @@
 
             <!-- <td><?php echo $this->materias[$i]['sigla_materia']; ?></td> -->
             <td><?php echo $this->materiasN[$i]['sigla_materia']; ?></td>
-            <!-- <td><?php echo $this->materiasN[$i]['numero_nivel']; ?></td> -->
 
-             
-            
-            <!-- <td>
-              Boton para editar una materia 
-              <a class="btn btn-primary" role="button"
-                  href = "<?php echo BASE_URL . 'materias/editar/' . $this->materias[$i]['codigo_materia']; ?>">
-                <span class="glyphicon glyphicon-edit"></span></a>
-              Boton para eliminar una materia 
-              <a class="btn btn-primary" role="button"
-                  data-baseurl="<?php echo BASE_URL; ?>materias/verificar_eliminar"
-                  data-valor="<?php echo $this->materias[$i]['codigo_materia']; ?>"
-                  data-habilitada="<?php echo $this->materias[$i]['habilitada_materia'] ?>"
-                  onclick = "confirmarEliminacion(this);">
-                <span class="glyphicon glyphicon-remove-circle"></span></a>
-                <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
-            </td> -->
-            
+            <td><?php echo $this->materiasN[$i]['materia_prerequisito']; ?></td>
+                              
             <td>
                 <!--Boton para registrar Plan Global -->
                 <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materiasN[$i]['codigo_materia'];?>">

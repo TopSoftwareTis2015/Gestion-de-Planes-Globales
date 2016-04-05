@@ -7,11 +7,11 @@
   
   <!--importando librerias utiles para trabajar con estilos CSS de bootstrap-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.css"> 
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/estilo.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style/newStyle.css">
 </head>
 <body>
 <div id="cuadro">  
@@ -60,7 +60,7 @@
               <ul class="dropdown-menu" >
                 <li> 
                     <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
-                    <li> <a href="">Formatos Plan Global</a> </li>
+                    <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>
                 </li>
               </ul>
             </li>
@@ -82,6 +82,12 @@
       </div>
     </div><br>
   </div>
+  
+<ol class="breadcrumb"> 
+  <li><a href="">Inicio</a> </li>
+  <li><a href="<?php echo BASE_URL; ?>facultad">Facultad</a> </li>
+  <li class="active">Carreras</li>
+</ol>
 
  <div class="container-fluid">
   <div class="row">
@@ -97,7 +103,7 @@
             
           </div>
         </div> -->
-
+        
         <h3><ins>Navegacion</ins></h3>
         <div class="tree muro">
           <ul>

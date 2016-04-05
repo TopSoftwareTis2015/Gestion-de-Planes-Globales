@@ -21,7 +21,8 @@
 <body>
 
 <!--Contenido del Body-->
-<div class="container" id="cuadro">
+<div id="cuadro">
+<div class="container">
 	  <header>
 	     <div class="container">
 			 <div class="row">
@@ -57,9 +58,10 @@
             <li><a href="<?php echo BASE_URL; ?>materia/nuevo">Contactos</a></li>
             <!--Opcion dropdown-->
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li> <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
+              <ul class="dropdown-menu" >
+                <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>
               </ul>
             </li>
             <!--Fin opciones dropdown-->
@@ -68,73 +70,67 @@
 	  </nav>
 	  <!--fin del menu horizontal-->
 	  
-	  <div class="container-fluid"> 
+	<div class="container-fluid"> 
 	    <div class="row fondo">
-	      <div class="col-md-2">
-	        <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/ciencia_y_tec.jpg"  alt="">  
-	      </div>
-	      <div class="col-md-8 col-md-offset2">
-	        <h2 class ="text-center">Registrar Materias</h2> 
-	      </div>
+	    	<div class="col-md-2">
+	        	<img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/ciencia_y_tec.jpg"  alt="">  
+	    	</div>
+	    	<div class="col-md-8 col-md-offset2">
+	        	<h2 class ="text-center">Agregar &nbsp; Nueva &nbsp; Materia</h2> 
+	    	</div>
 	    </div><br>
-	  </div>
+	</div>
 
 
 	  <!--Contenido central--> 
-	  <div class="row clearfix">
+	<div class="row clearfix">
+
+	  <ol class="breadcrumb"> 
+	    <li><a href="<?php echo BASE_URL; ?>facultad">Inicio</a></li>
+	    <li><a href="<?php echo BASE_URL; ?>materias">Administracion</a></li>
+	    <li><a href="<?php echo BASE_URL; ?>materias">Registro Materias</a></li>        
+	    <li class="active">Agregar Materia</li>
+	  </ol>
 	  	
 	  	<!--Columna del menu vertical-->
 	  	<div class="col-xs-12 col-sm-4 col-md-3">
 	  		
 	  		<nav id="menu">
-			  <div class="container-fluid">
-				 <div class="row">
-
-			        <!-- <div id="MainMenu">
-			          <div class="list-group panel">
-			            
-			            <a href="<?php echo BASE_URL; ?>index" class="list-group-item list-group-item-success">Inicio</a> 
-			            
-			            <a href="#menu2" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Facultad</a>
-			            <div class="collapse list-group-submenu" id="menu2">
-			              <a href="<?php echo BASE_URL; ?>facultad/carreras" class="list-group-item"><i>Carreras</i></a>
-			            </div>
-			            <a href="#SubMenu3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Registrar Materia</a>
-			          </div>
-			        </div> -->
-
-			       <h3><ins>Navegacion</ins></h3>
-			        <div class="tree muro">
-			          <ul>
-			            <li>  
-			              <a href="<?php echo BASE_URL; ?>index">Inicio</a>
-			              <ul>
-			                <li>  
-			                  <a href="<?php echo BASE_URL; ?>facultad">Facultad</a>
-			                  <ul>
-			                    <li>
-			                      <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
-			                    </li>
-			                    <li class="active">  
-			                      <a href="<?php echo BASE_URL; ?>planEstudios">Inform&aacute;tica</a>
-			                      <ul>
-			                        <li>  
-			                          <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
-			                        </li>                                   
-			                      </ul>
-			                    </li>
-			                    <!-- <li>
-			                      <a href="#">Nivel 1</a>
-			                    </li> -->
-			                  </ul>
-			                </li>
-			              </ul>
-			            </li>
-			          </ul>
-			        </div>
-
-				 </div>
-			  </div>
+				<div class="container-fluid">
+					<div class="row">
+			        	<h3><ins>Navegacion</ins></h3>
+			        	<div class="tree muro">
+				            <ul>
+					            <li>  
+					            	<a href="<?php echo BASE_URL; ?>index">Inicio</a>
+					            	<ul>
+					                	<li>  
+					                    	<a href="<?php echo BASE_URL; ?>facultad">Facultad</a>
+					                  		<ul>
+					                    		<li>
+					                     			 <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
+					                   			 </li>
+					                  		</ul>
+					                	</li>
+					                	<li>  
+					                  		<a href="<?php echo BASE_URL; ?>materias">Administracion</a>
+					                  		<ul>
+					                  			<li>
+					                     			<a href="<?php echo BASE_URL; ?>materias">Registro Materias</a>
+					                    		    <ul>
+							                  			<li>
+							                     			<a href=""><strong>Agregar Materia</strong></a>
+							                    		</li>
+							                  		</ul>
+					                    		</li>
+					                  		</ul>
+					                	</li>
+					            	</ul>
+					            </li>
+				            </ul>
+			        	</div>
+				    </div>
+				</div>
 		    </nav>
 	  	</div>
 	  	<!--Fin cloumna para el menu vertical--> 
@@ -225,7 +221,12 @@
 	  </div>
 	
       <br>
-	  <!--Contenido del footer--> 
+	   
+    </div>
+ <!--Fin contenido del Body-->
+ </div> 
+	
+	<!--Contenido del footer--> 
 	  <div class="row clearfix">
 	  	<footer>  		 		
 			<?php 
@@ -233,10 +234,8 @@
 			?>
 	  	</footer>
 	  </div>
-	  <!--Fin del contenido del footer--> 
- </div>
- <!--Fin contenido del Body-->
-	
+	  <!--Fin del contenido del footer-->
+
 	<script>
 	if("<?php if(isset($this->procesoTerminado)) echo $this->procesoTerminado; else echo false; ?>"){
 		$("#modalProcesoExitoso").modal('show');
@@ -251,6 +250,5 @@
 			}
 		}
 	</script>
- 
  </body>
 </html>

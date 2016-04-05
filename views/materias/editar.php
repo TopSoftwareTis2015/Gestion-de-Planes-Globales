@@ -19,9 +19,12 @@
 </head>
 
 <body>
-<div class="container" id="cuadro">
-	<header><!-- seccion de la cabecera de la pagina web-->
-		<div class="container">
+<div id="cuadro">
+  
+<div class="container">
+  <header><!-- seccion de la cabecera de la pagina web-->
+    <div class="container">
+
 		   <div class="row">
 		   	  <div class="col-xs-3 col-md-3"> <!--seccion para el logo del sistema web-->
 		   	  	<img src="<?php echo BASE_URL; ?>public/imagen/logoUmss.png" class="img-responsive"	alt="">
@@ -62,8 +65,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
-                <li> <a href="">Formatos Plan Global</a> </li>
-              </ul>
+                <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>
+              </ul> 
             </li>
           </ul>
         </div>
@@ -86,6 +89,12 @@
 
 	<section class="main row">
 	<br>
+  <ol class="breadcrumb"> 
+    <li><a href="<?php echo BASE_URL; ?>facultad">Inicio</a></li>
+    <li><a href="<?php echo BASE_URL; ?>materias">Administracion</a></li>
+    <li><a href="<?php echo BASE_URL; ?>materias">Registro Materias</a></li>        
+    <li class="active">Editar Materia</li>
+  </ol>
 	 <!--seccion del menu de navegacion vertical--> 
 	 <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
 	  <div class="container-fluid">
@@ -115,23 +124,26 @@
                     <li>
                       <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
                     </li>
-                    <li class="active">  
-                      <a href="<?php echo BASE_URL; ?>planEstudios">Inform&aacute;tica</a>
+                  </ul>
+                </li>
+                <li>  
+                  <a href="<?php echo BASE_URL; ?>materias">Administracion</a>
+                  <ul>
+                    <li>
+                      <a href="<?php echo BASE_URL; ?>materias">Registro Materia</a>
                       <ul>
-                        <li>  
-                          <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
-                        </li>                                   
+                        <li>
+                          <a href=""><strong>Editar Materia</strong></a>
+                        </li>
                       </ul>
                     </li>
-                    <!-- <li>
-                      <a href="#">Nivel 1</a>
-                    </li> -->
                   </ul>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
+
 
 		</div>
 	  </div>
@@ -226,17 +238,11 @@
 
   </section>
 
-  <div class="row clearfix">
-	  <footer>
-		<!--Codigo para incluir el pie de pagina-->
-		<?php 
-		    include ROOT . DS . 'views' . DS . 'include' . DS . 'pie_de_pagina.php';
-		?>
-	  </footer>
-  </div>
    
  </div>
 
+ 
+  
  <div class="modal fade" id="modalProcesoExitoso" data-keyboard="false" data-backdrop="static"> <!--div contenedor de la ventana emergente de registro de materia-->
            <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
                <div class="modal-content">
@@ -267,6 +273,15 @@
   }
   </script> 
  
-</body>
+</div>
 
+<div class="row clearfix">
+    <footer>
+    <!--Codigo para incluir el pie de pagina-->
+    <?php 
+        include ROOT . DS . 'views' . DS . 'include' . DS . 'pie_de_pagina.php';
+    ?>
+    </footer>
+</div>
+</body>
 </html>

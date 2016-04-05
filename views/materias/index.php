@@ -15,7 +15,7 @@
 
   
 </head>
-<body>
+<body> 
 <div id="cuadro">  
  <div class="container">
 
@@ -58,9 +58,10 @@
             <li><a href="ejemplo.php">Contactos</a></li>
             
             <li class="dropdown"><!--Opcion dropdown-->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facultad<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li> <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a> </li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
+              <ul class="dropdown-menu" >
+                <li> <a href="">Registro Materias</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>
               </ul>
             </li>
           </ul>
@@ -83,6 +84,11 @@
 
   <section class="main row"> <!--seccion donde esta el contenido del sistema web -->
   <br>
+  <ol class="breadcrumb"> 
+    <li><a href="<?php echo BASE_URL; ?>facultad">Inicio</a></li>
+    <li><a href="">Administracion</a></li>        
+    <li class="active">Registro Materias</li>
+  </ol>
 
   <!-- Menu de navegacion vertical del sistema web-->
 	 <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
@@ -114,17 +120,14 @@
                     <li>
                       <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
                     </li>
-                    <li class="active">  
-                      <a href="<?php echo BASE_URL; ?>planEstudios">Inform&aacute;tica</a>
-                      <ul>
-                        <li>  
-                          <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
-                        </li>                                   
-                      </ul>
+                  </ul>
+                </li>
+                <li>  
+                  <a href="<?php echo BASE_URL; ?>materias">Administracion</a>
+                  <ul>
+                    <li>
+                      <a href=""><strong>Registro Materias</strong></a>
                     </li>
-                    <!-- <li>
-                      <a href="#">Nivel 1</a>
-                    </li> -->
                   </ul>
                 </li>
               </ul>
@@ -178,8 +181,7 @@
             <th>NOMBRE MATERIA</th>
             <th>SIGLA</th>
             <th>ACCIONES</th>
-            <!-- <th><h4>REGISTRAR PLAN GLOBAL</h4></th> -->
-            <th>PLAN GLOBAL</th>
+            <!-- <th>PLAN GLOBAL</th> -->
     			</tr>
        </thead>
 
@@ -209,15 +211,8 @@
                 <span class="glyphicon glyphicon-remove-circle"></span></a>
                 <span id="auxiliarNoBorrar" data-codigo="a" class="a"></span>
             </td>
-            
-            <!-- Registrar plan Global -->
-            <!-- <td>
-                <a class="btn btn-primary" role="button" href = "<?php echo BASE_URL . 'planGlobal/registrar/'. $this->materias[$i]['codigo_materia'];?>">
-                  <span class="glyphicon glyphicon-list-alt"></span>
-                </a>
-            </td> -->
-            
-            <td>
+              
+           <!--  <td>
               <?php
                 $codigoAnterior = $this->materias[$i]['codigo_materia'];
 
@@ -236,7 +231,7 @@
                   }
                 }
                ?>
-            </td>
+            </td> -->
           </tr>
 
           <?php
