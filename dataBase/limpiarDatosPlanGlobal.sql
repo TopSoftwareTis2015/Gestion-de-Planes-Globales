@@ -8,4 +8,5 @@ TRUNCATE unidad CASCADE;
 TRUNCATE subtitulos_contenido_seccion CASCADE;
 TRUNCATE contenidos_seccion CASCADE;
 TRUNCATE secciones_adicionales CASCADE;
+TRUNCATE secciones CASCADE;
 TRUNCATE planes_globales CASCADE;

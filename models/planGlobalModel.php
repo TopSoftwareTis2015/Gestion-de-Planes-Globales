@@ -6,6 +6,28 @@ class planGlobalModel extends Model{
 		parent::__construct();
 	}
 
+
+	public function registrarPGG(){
+		$this->_db->query("INSERT INTO planes_globales VALUES
+													(default, NULL, NULL, NULL, NULL,
+														NULL, NULL, NULL)");
+													
+	}
+
+	public function getIdd(){
+		$id = $this->_db->query(
+			"SELECT id_pg FROM planes_globales
+				ORDER BY id_pg DESC
+				LIMIT 1;"
+			);
+
+		return $id->fetch();
+	}
+
+
+
+
+
 	public function getMateria($id_pg){
 		$materia = $this->_db->query(
 			"SELECT * FROM materias

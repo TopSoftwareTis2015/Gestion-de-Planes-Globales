@@ -84,7 +84,7 @@
       <div class="container-fluid">
          <div class="row">
 
-           <div id="MainMenu">
+           <!-- <div id="MainMenu">
              <div class="list-group panel">
                           
                <a href="<?php echo BASE_URL; ?>index" class="list-group-item list-group-item-success">Inicio</a> 
@@ -96,7 +96,37 @@
                <a href="<?php echo BASE_URL; ?>materias" class="list-group-item list-group-item-success">Materias Registradas</a>
                <a href="#SubMenu3" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Plan Global</a>
              </div>
-           </div>
+           </div> -->
+
+           <h3><ins>Navegacion</ins></h3>
+        <div class="tree muro">
+          <ul>
+            <li>  
+               <a href="<?php echo BASE_URL; ?>index">Inicio</a>
+                <ul>
+                    <li>  
+                      <a href="<?php echo BASE_URL; ?>facultad"><strong>Facultad</strong></a>
+                      <ul>
+                        <li>
+                         <a href="<?php echo BASE_URL; ?>facultad/carreras">Carreras</a>
+                        </li>
+                        <!-- <li class="active">  
+                          <a href=""><strong>Inform&aacute;tica</strong></a>
+                          <ul>
+                            <li >  
+                              <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
+                            </li>
+                          </ul>
+                        </li> -->
+                        <!-- <li>
+                          <a href="#">Nivel 1</a>
+                        </li> -->
+                      </ul>
+                    </li>
+                </ul>
+            </li>
+          </ul>
+        </div> <br>
 
          </div>
       </div>
@@ -121,18 +151,22 @@
           </ul>
 
 				  <!-- Tab panes -->
-				  <div class="tab-content">
-				    <div role="tabpanel" class="tab-pane fade in active" id="datosI"></div>
-				    <div role="tabpanel" class="tab-pane fade" id="justificacion">hola</div>
-				    <div role="tabpanel" class="tab-pane fade" id="objetivos">como estas</div>
-            <div role="tabpanel" class="tab-pane fade" id="unidades"></div>
-            <div role="tabpanel" class="tab-pane fade" id="metodologias"></div>
-            <div role="tabpanel" class="tab-pane fade" id="cronograma"></div>
-            <div role="tabpanel" class="tab-pane fade" id="criteriosEval"></div>
-            <div role="tabpanel" class="tab-pane fade" id="bibliografias"></div>
-            <div role="tabpanel" class="tab-pane fade" id="reglamentos"></div>
-				    <div role="tabpanel" class="tab-pane fade" id="prerequisitos"></div>
-				  </div>
+          <form method="post" action="<?php echo BASE_URL; ?>/gestorFormularios/nuevoFormato">
+            <input type="hidden" name="guardar" value="1">
+  				  <div class="tab-content">
+  				    <div role="tabpanel" class="tab-pane fade in active" id="datosI"></div>
+  				    <div role="tabpanel" class="tab-pane fade" id="justificacion">hola</div>
+  				    <div role="tabpanel" class="tab-pane fade" id="objetivos">como estas</div>
+              <div role="tabpanel" class="tab-pane fade" id="unidades"></div>
+              <div role="tabpanel" class="tab-pane fade" id="metodologias"></div>
+              <div role="tabpanel" class="tab-pane fade" id="cronograma"></div>
+              <div role="tabpanel" class="tab-pane fade" id="criteriosEval"></div>
+              <div role="tabpanel" class="tab-pane fade" id="bibliografias"></div>
+              <div role="tabpanel" class="tab-pane fade" id="reglamentos"></div>
+  				    <div role="tabpanel" class="tab-pane fade" id="prerequisitos"></div>
+  				  </div>
+            <input type="submit">
+          </form>
 
 				</div>
       </div>
@@ -149,28 +183,23 @@
     ?> <!--fin del codigo de pie de pagina-->  
   </footer>
 
-  <div class="modal fade" id="modalProcesoExitoso" data-keyboard="false" data-backdrop="static"> <!--div contenedor de la ventana emergente de registro de materia-->
-           <div class="modal-dialog modal-sm"> <!--div de la ventana emergente-->
-               <div class="modal-content">
-                       <!--Cabecera de la ventana-->
-                       <!-- <div class="modal-header"> -->
-                       <!--Contenido de la ventana-->
-                       <div class="modal-body"> 
-                         <div id="nuevo"> <!--formulario para regitrar los datos de una materia-->
-                           <h5 class="modal-title">Plan Global registrada exitosamente!!</h5> <!--Titulo del formulario de registro de materia-->
-                         </div>
-                       </div> 
 
-                       <!--footer de la ventana-->
-                       <div class="modal-footer">
-                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button> -->
-                          <a data-url="<?php echo BASE_URL; ?>planGlobal/mostrarPlanGlobal/" 
-                            data-url-buscar="<?php echo BASE_URL; ?>planGlobal/getPlanGlobalInsertado"
-                            onclick="irANuevoPlanGlobal(this);" class="btn btn-default">Aceptar</a>
-                       </div>
-                </div>
-            </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="modal-title">Modal title</h4>
         </div>
+        <div class="modal-body" id="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="" id="modal-btn">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
   <script>
     confirmar = <?php echo isset($this->confirmarGuardar)?$this->confirmarGuardar:"2";?>;

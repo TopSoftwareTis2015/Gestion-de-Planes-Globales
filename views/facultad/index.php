@@ -61,7 +61,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu" >
                 <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
-                <li> <a href="">Formatos Plan Global</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>
               </ul>
             </li>
           </ul>
