@@ -182,8 +182,10 @@ ElementoBasico.prototype.establecerPanelConfiguracion= function(){
 	contenedor.style.display = "none";
 	this.contenedor.insertBefore(contenedor, this.contenedor.firstChild);
 
-	var parte1 = '<input type="checkbox" name="required" value="ok"> El Elemento es Required?';
+	var parte1 = '<input type="checkbox" name="required" value="required"> El Elemento es Required?';
 	contenedor.innerHTML = parte1;
+
+	contenedor.childNodes[0].name = this.contenedor.id +"_required";
 
 	//elemento hidden que nos dice que numero de componente es por defecto es 0
 	this.numeroElemento = document.createElement("input");
