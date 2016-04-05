@@ -95,7 +95,7 @@ class gestorFormulariosController extends Controller{
 					$this->_elementoDao->guardarElemento(1, NUll, $_POST[$idTitulo], $_POST[$idContainer."_required"], $_POST[$idContainer."_numeroElemento"]);
 		}
 
-		$this->registrarFormulario($id_elementoBD, $id_elemento, $_POST[$id_elemento."_2B_numeroElemento"])
+		$this->registrarFormulario($id_elementoBD, $id_elemento, $_POST[$id_elemento."_2B_numeroElemento"]);
 	}
 
 	private function registrarFormulario($id_padreBD, $id_padre, $numeroElemento){

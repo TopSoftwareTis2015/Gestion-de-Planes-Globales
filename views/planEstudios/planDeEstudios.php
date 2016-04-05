@@ -175,7 +175,7 @@
 	          <th>CODIGO</th>
             <th>NOMBRE MATERIA</th>
             <th>SIGLA</th>
-            <th>PRE-REQUISITO</th>
+            <th><h4>PRE-REQUISITO</h4></th>
             <th><h4>REGISTRAR PLAN GLOBAL</h4></th>
             <th>PLAN GLOBAL</th>
     			</tr>
@@ -183,7 +183,7 @@
 
         <tbody>
           <?php
-          for ($a=1; $a < 5; $a++) { 
+          for ($a=1; $a < 10; $a++) { 
               echo '<tr><td colspan="6" id="nivel"><strong>NIVEL<strong> '.$a.'</td></tr>';
           
             if(isset($this->materiasN) && count($this->materiasN)){
