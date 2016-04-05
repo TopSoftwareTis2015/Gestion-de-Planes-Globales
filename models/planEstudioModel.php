@@ -16,15 +16,22 @@ class planEstudioModel extends Model{
 	// }
 
 	public function getMateriasGrupos(){
-		$listaMaterias = $this->_db->query("SELECT m.*,n.numero_nivel, p.id_pg, p.numero_plan_global FROM 
-			materias m full outer join grupos g ON m.codigo_materia = g.codigo_materia 
-			full outer join planes_globales p ON g.id_pg = p.id_pg full outer join niveles_materias n ON m.codigo_materia = n.codigo_materia WHERE m.habilitada_materia = true
-			ORDER BY n.numero_nivel, p.numero_plan_global;");
+		$listaMaterias = $this->_db->query("SELECT m.*, p.id_pg,r.numero_nivel,p.numero_plan_global, r.materia_prerequisito FROM 
+			materias m full outer join grupos g ON m.codigo_materia = g.codigo_materia full outer join planes_globales p ON g.id_pg = p.id_pg full outer join prerequisito r ON m.codigo_materia = r.codigo_materia WHERE m.habilitada_materia = true
+			ORDER BY r.numero_nivel, p.numero_plan_global;");
 
-			// ORDER BY m.codigo_materia, p.numero_plan_global;");
+// SELECT m.*, p.id_pg,r.numero_nivel,p.numero_plan_global, r.materia_prerequisito 
+// FROM materias m full outer join grupos g ON m.codigo_materia = g.codigo_materia full outer join planes_globales p ON g.id_pg = p.id_pg full outer join prerequisito r ON m.codigo_materia = r.codigo_materia
+// WHERE m.habilitada_materia = true
+// ORDER BY r.numero_nivel, p.numero_plan_global;
+		
 
+   //      $listaMaterias = $this->_db->query("SELECT m.*,n.numero_nivel, p.id_pg, p.numero_plan_global FROM 
+			// materias m full outer join grupos g ON m.codigo_materia = g.codigo_materia 
+			// full outer join planes_globales p ON g.id_pg = p.id_pg full outer join niveles_materias n ON m.codigo_materia = n.codigo_materia WHERE m.habilitada_materia = true
+			// ORDER BY n.numero_nivel, p.numero_plan_global;");
 
-// SELECT * FROM materias m inner join niveles_materias n on m.codigo_materia=n.codigo_materia WHERE n.numero_nivel="1".
+		
 		return $listaMaterias->fetchall();
 	}
 

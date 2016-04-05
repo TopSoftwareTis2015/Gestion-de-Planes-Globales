@@ -73,9 +73,28 @@
     </div> 
   </nav>
   <!--fin del menu horizontal--> 
+   
+  <div class="container-fluid"> 
+     <br>
+     <div class="row fondo">
+       <div class="col-md-2">
+          <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/planGlobal.jpg"  alt="">  
+       </div>
+       <div class="col-md-8 col-md-offset2">
+         <h2 class ="text-center">Registrar Plan Global</h2> 
+       </div>
+     </div>
+  </div>
 
   <section class="main row">
   <br>
+  <ol class="breadcrumb"> 
+    <li><a href="">Inicio</a> </li>
+    <li><a href="<?php echo BASE_URL; ?>planEstudios">Informatica</a></li>
+    <li><a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a> </li>    
+    <li class="active">Registro Plan Global</li>  
+
+  </ol>
      <!--seccion del menu de navegacion vertical--> 
      <nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
       <div class="container-fluid">

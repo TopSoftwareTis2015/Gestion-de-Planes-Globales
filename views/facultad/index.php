@@ -72,32 +72,24 @@
 	
 <div class="container-fluid">
     <div class="container-fluid"> 
-     <div class="row fondo">
-       <div class="col-md-2">
+      <div class="row fondo">
+        <div class="col-md-2">
           <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/ciencia_y_tec.jpg"  alt="">  
-       </div>
-       <div class="col-md-8 col-md-offset2">
-         <h2 class ="text-center">Facultad Ciencias y Tecnologia</h2> 
-       </div>
-     </div><br>
+        </div>
+        <div class="col-md-8 col-md-offset2">
+          <h2 class ="text-center">Facultad Ciencias y Tecnologia</h2> 
+        </div>
+      </div><br>
     </div> 
+    <ol class="breadcrumb"> 
+      <li><a href="">Inicio</a> </li>
+      <li class="active">Facultad</li>
+    </ol>
 <div class="container-fluid">
   <div class="row">
 
      <div class="col-md-4">
     
-        <!-- <div id="MainMenu">
-          <div class="list-group panel">
-
-            <a href="#menu1" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Inicio</a>
-
-            <a href="#menu2" class="active list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Facultad</a>
-            <div class="collapse list-group-submenu" id="menu2">
-              <a href="<?php echo BASE_URL; ?>facultad/carreras" class="list-group-item"><i>Carreras</i></a>
-            </div>
-          </div>
-        </div> -->
-
         <h3><ins>Navegacion</ins></h3>
         <div class="tree muro">
           <ul>

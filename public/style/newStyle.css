@@ -10,7 +10,9 @@
 
 /*fin del Menu desplegable*/
 
-
+.page-header{
+  color: #0C0CF0;  
+}
 #list-carrera{
  color: #0C0CF0;
 }
@@ -33,7 +35,8 @@
 }
 
 #nivel{
-    color: #0D0DDD;
+    color: #F7FAFB;
+    background: #484848 ;
 }
 
 .tree li {

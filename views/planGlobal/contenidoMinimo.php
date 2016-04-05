@@ -16,7 +16,7 @@
     <script type="text/javascript" src="<?php echo BASE_URL; ?>views/planGlobal/js/seleccionarItem.js"></script>
     <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/bootstrap.js"></script>
   
-</head>
+</head>   
 <body>
   <!-- div contenedor -->
   <div class="container" id="cuadro">
@@ -60,7 +60,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li> <a href="<?php echo BASE_URL; ?>materias">Registro Materias</a> </li>
-                <li> <a href="">Formatos Plan Global</a> </li>
+                <li> <a href="<?php echo BASE_URL; ?>gestorFormularios/nuevoFormato">Formatos Plan Global</a> </li>
               </ul>
             </li>
           </ul>
@@ -68,9 +68,27 @@
      </div> 
     </nav>
     <!--fin del menu horizontal--> 
-    
+    <div class="container-fluid"> 
+     <br>
+     <div class="row fondo">
+       <div class="col-md-2">
+          <img class="img-responsive img-circle" height="" width="150" src="<?php echo BASE_URL; ?>views/facultad/img/planGlobal.jpg"  alt="">  
+       </div>
+       <div class="col-md-8 col-md-offset2">
+         <h2 class ="text-center">Contenido Minimo Plan Global</h2> 
+       </div>
+     </div>
+    </div>
+
      <div class="main row">
      <br>
+      <ol class="breadcrumb"> 
+	    <li><a href="">Inicio</a> </li>
+	    <li><a href="<?php echo BASE_URL; ?>planEstudios">Informatica</a></li>
+	    <li><a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a> </li>
+	    <li><a href="<?php echo BASE_URL.'planGlobal/mostrarPlanGlobal/'.$this->planGlobal['id_pg'];?>">Vista PG </a> </li>   
+	    <li class="active">Contenido Minimo</li>  
+	  </ol>
      	<nav id="menu" class="col-xs-12 col-sm-4 col-md-3">
 	      <div class="container-fluid">
 	        <div class="row">
@@ -107,7 +125,7 @@
 		                                  <a href="<?php echo BASE_URL; ?>planEstudios/planDeEstudios">Plan de Estudios</a>
 		                                </li>
 		                                <li>  
-		                                  <a href="">Ver Plan Global</a>
+		                                  <a href="<?php echo BASE_URL.'planGlobal/mostrarPlanGlobal/'.$this->planGlobal['id_pg'];?>">Ver Plan Global</a>
 		                                  <ul>
 			                                <li>  
 			                                  <a href=""><strong>Contenido Minimo</strong></a>
@@ -132,21 +150,16 @@
 
 	    <div class="container-fluid col-xs-12 col-sm-8 col-md-9" id="vista">
  
-	        <!-- <nav class="navbar navbar-inverse">
-	          <div class="container-fluid">
-	            <ul class="nav navbar-nav">
-	              <li><a href=""><b>Editar</b></a></li>
-	              <li><a href=""><b>Contenido Minimo</b></a></li>  
-	            </ul>
-	          </div>
-	        </nav> -->
-	        <div class="page-header">
+	        <!-- <div class="page-header">
 	        	<h1 class="text-center"><u>Contenido Minimo</u></h1>
-	        </div>
+	        </div> -->
             
             <div class="panel panel-default">
 			 <div class="panel-vista container-fluid">
-	           <div class="col-md-10">
+			    <div class="page-header">
+	        		<h1 class="text-center"><u>Contenido Minimo</u></h1>
+	            </div>
+	            <div class="col-md-10">
 	            <h5><p><b>UNIVERSIDAD MAYOR DE SAN SIMON</b></p></h5>
 	            <h5><p><b>FACULTAD DE CIENCIAS Y TECNOLOGIA<b></p></h5>
 	            <h5><p><b>UNIDAD ACADEMICA DEPARTAMENTO DE INFORMATICA - SISTEMAS<b></p></h5>
